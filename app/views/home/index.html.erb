@@ -7,7 +7,7 @@
       </h2>
       <%= image_tag 'home/main-pic.png' %>
       <div>
-        <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button" %></strong>
+        <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button" unless current_user %></strong>
       </div>
     </div>
   </section>

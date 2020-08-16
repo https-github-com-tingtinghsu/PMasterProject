@@ -9,20 +9,17 @@
         <%= f.hidden_field :reset_password_token %>
 
         <div class="field">
-          <%= f.label :password, "New password" %><br />
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-          <% end %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+          <%= f.label :password, "新密碼" %><br />
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "請至少輸入#{@minimum_password_length}位數密碼", class: "input is-success" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, "Confirm new password" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.label :password_confirmation, "請再次輸入新密碼" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "請至少輸入#{@minimum_password_length}位數密碼", class: "input is-success" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "更改我的密碼" %>
+          <%= f.submit "更改我的密碼",class: "button is-warning" %>
         </div>
       <% end %>
       <br>
