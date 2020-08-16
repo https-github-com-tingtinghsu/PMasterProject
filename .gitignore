@@ -34,3 +34,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# 忽略 config 目錄下的 email.yml 檔案
+/config/email.yml
