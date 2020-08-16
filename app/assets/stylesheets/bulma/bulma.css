@@ -972,7 +972,9 @@ fieldset[disabled] .button.is-dark.is-inverted.is-outlined {
 }
 
 .button.is-primary {
-  background-color: #00d1b2;
+  /* background-color: #00d1b2; */
+  /* background-color: #86CA30; */
+  background-color: #48C774;
   border-color: transparent;
   color: #fff;
 }
@@ -2317,7 +2319,8 @@ fieldset[disabled] .button {
 }
 
 .notification.is-primary {
-  background-color: #00d1b2;
+  /* background-color: #00d1b2; */
+  background-color: #86CA30;
   color: #fff;
 }
 
