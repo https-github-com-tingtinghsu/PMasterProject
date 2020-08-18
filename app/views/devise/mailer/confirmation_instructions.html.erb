@@ -1,0 +1,5 @@
+<p>歡迎加入P Master - 最有趣的專案管理網站， <%= @email %>!</p>
+
+<p>請點擊以下連結以確認你的帳戶！</p>
+
+<p><%= link_to '確認我的帳戶', user_confirmation_url(confirmation_token: @token), method: 'post' %></p>
