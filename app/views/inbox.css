@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "arial";
+}
+
+/* all_view */
+#all_view {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* menu */
+#menu {
+  width: 70px;
+  height: 100vh;
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #292F4C;
+}
+
+
+.icon {
+  /* border: 1px solid blue; */
+  box-sizing: border-box;
+  padding: 10px 15px;
+}
+
+.icon img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+
+/* project */
+#project {
+  /* border: 1px solid gray; */
+  display: flex;
+  width: calc(100vw - 70px);
+
+}
+
+/* projects_list */
+#projects_list {
+  border-right: 1px solid gray;
+  height: 100vh;
+  width: 220px;
+  padding: 10px;
+}
+#workspaces_create{
+  height: 40px;
+  /* border: 1px solid tomato; */
+
+}
+#workspaces_search{
+  height: 30px;
+  /* text-align: center; */
+  /* border: 1px solid tomato; */
+  display: flex;
+}
+
+#workspaces_list{
+  
+}
+
+#workspaces_list .workspaces_item > li{
+  font-weight: bold;
+}
+
+#workspaces_list .task_item{
+  margin-bottom: 15px;
+}
+
+
+#workspaces_search .search_icon{
+  flex-grow: 2;
+}
+#workspaces_search .search_text{
+  flex-grow: 8;
+}
+#inbox{
+  height: 100vh;
+  width: 60%;
+  overflow-y: scroll;
+}
+#inbox img{
+  display: block;
+  margin: 5%;
+  width: 80%;
+  max-width: 800px;
+}
