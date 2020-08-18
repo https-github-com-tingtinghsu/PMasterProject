@@ -1,6 +1,6 @@
-class CreateWorkplaces < ActiveRecord::Migration[6.0]
+class CreateWorkspaces < ActiveRecord::Migration[6.0]
   def change
-    create_table :workplaces do |t|
+    create_table :workspaces do |t|
       t.string :name
       t.string :description
 

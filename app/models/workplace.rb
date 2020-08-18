@@ -1,2 +1,0 @@
-class Workplace < ApplicationRecord
-end
