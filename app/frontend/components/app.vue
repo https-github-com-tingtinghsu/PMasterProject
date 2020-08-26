@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
+  
 </template>
 
 <script>
+// import Menu from './menu.vue'
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
+      
     }
     
-  }
+  },
+  // components: { Menu }
 }
 </script>
 
