@@ -1,11 +1,12 @@
 <template>
-     <div class="icon"><img :src="src"></div>
+     <!-- <div class="icon"><img :src="src"></div> -->
+     <div :id="icon" class="icon"><img src="https://picsum.photos/100/100?random=1"></div>
 </template>
 
 
 <script>
 export default {
-  props: ['src'],
+  // props: ['src'],
   data: function () {
     return {
       

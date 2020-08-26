@@ -1,5 +1,5 @@
 <template>
-    <div :id="workplace" class="project">
+    <div :id="workspaces" class="project">
       <div id="projects_list">
         <div id="workspaces_create">
           <p>Workspaces</p>

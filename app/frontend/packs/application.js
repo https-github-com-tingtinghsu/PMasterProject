@@ -23,42 +23,45 @@ const imagePath = (name) => images(name, true)
 
 import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
-import menubar from '../components/menubar.vue'
-// import App from '../components/app.vue'
+// import menubar from '../components/menubar.vue'
+import App from '../components/app.vue'
 
 Vue.use(TurbolinksAdapter)
 
-// document.addEventListener('turbolinks:load', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: () => {
-//       return {
-//         message: "Can you say hello?"
-//       }
-//     },
-//     components: { App },
-//     template:'<App />'
-//   })
-// })
-
-// Vue.use(TurbolinksAdapter)
 document.addEventListener('turbolinks:load', () => {
-  if (document.querySelector('#menubar').length === 0) {
+  if (document.querySelector('#app').length === 0) {
     return;
   }
-
   const app = new Vue({
-    el: '#menubar',
+    el: '#app',
     data: () => {
       return {
-        
+        message: "Can you say hello?"
       }
     },
-    components: { menubar },
-    template:'<menubar></menubar>'
+    components: { App },
+    template:'<App />'
   })
- 
 })
+
+// Vue.use(TurbolinksAdapter)
+// document.addEventListener('turbolinks:load', () => {
+  // if (document.querySelector('#menubar').length === 0) {
+  //   return;
+  // }
+
+//   const app = new Vue({
+//     el: '#menubar',
+//     data: () => {
+//       return {
+        
+//       }
+//     },
+//     components: { menubar },
+//     template:'<menubar></menubar>'
+//   })
+ 
+// })
 
 // document.addEventListener('turbolinks:load', () => {
   

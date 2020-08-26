@@ -1,17 +1,24 @@
 <template>
-      <nav id="menu" class="menu">
-    <!-- <Icon src="https://picsum.photos/100/100?random=10" /> -->
+      <nav :id="menu" class="menu">
+        <!-- <Icon src="https://picsum.photos/100/100?random=10" /> -->
         <div class="menu_top">
-          <div class="icon"><img src="https://picsum.photos/100/100?random=1"></div>
-          <div class="icon"><img src="https://picsum.photos/100/100?random=2"></div>
-          <div class="icon"><img src="https://picsum.photos/100/100?random=3"></div>
+          <Icon></Icon>
+          <Icon></Icon>
+          <Icon></Icon>
+          <!-- <div class="icon"><img src="https://picsum.photos/100/100?random=2"></div>
+          <div class="icon"><img src="https://picsum.photos/100/100?random=3"></div> -->
         </div>
         <div class="menu_bottom">
-          <div class="icon"><img src="https://picsum.photos/100/100?random=4"></div>
+          <Icon></Icon>
+          <Icon></Icon>
+          <Icon></Icon>
+          <Icon></Icon>
+          <Icon></Icon>
+          <!-- <div class="icon"><img src="https://picsum.photos/100/100?random=4"></div>
           <div class="icon"><img src="https://picsum.photos/100/100?random=5"></div>
           <div class="icon"><img src="https://picsum.photos/100/100?random=6"></div>
           <div class="icon"><img src="https://picsum.photos/100/100?random=7"></div>
-          <div class="icon"><img src="https://picsum.photos/100/100?random=8"></div>
+          <div class="icon"><img src="https://picsum.photos/100/100?random=8"></div> -->
         </div>
       </nav>
 </template>

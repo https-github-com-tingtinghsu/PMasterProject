@@ -1,9 +1,22 @@
 <template>
+  <div id="wrap">
+  <div id="menu">
+    <Menubar></Menubar>
+  </div>
+  <div id="workplace">
+    <Workspaces></Workspaces>
+  </div>
+  
+  </div>
   
 </template>
 
+
+
+
 <script>
-// import Menu from './menu.vue'
+import Menubar from './menubar.vue'
+import Workspaces from './workspaces.vue'
 export default {
   data: function () {
     return {
@@ -11,13 +24,12 @@ export default {
     }
     
   },
-  // components: { Menu }
+  components: { Menubar,Workspaces }, 
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
+#wrap{
+  display: flex;
 }
 </style>
