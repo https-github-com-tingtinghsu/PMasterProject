@@ -29,7 +29,7 @@ import App from '../components/app.vue'
 Vue.use(TurbolinksAdapter)
 
 document.addEventListener('turbolinks:load', () => {
-  if (document.querySelector('#app').length === 0) {
+  if (!document.querySelector('#app')) {
     return;
   }
   const app = new Vue({
