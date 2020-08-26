@@ -10,6 +10,7 @@ export default {
     return {
       message: "Hello Vue!"
     }
+    
   }
 }
 </script>
