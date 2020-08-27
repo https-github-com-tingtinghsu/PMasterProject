@@ -15,26 +15,26 @@
         <div id="workspaces_list">
           <ul class="workspaces_item">
             <li>Main Workspace</li>
-              <ul class="task_item">
-                <li>Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li>
+              <ul class="board_item">
+                <li>Board 1</li>
+                <li>Board 2</li>
+                <li>Board 3</li>
               </ul>
             <li>2nd Workspace</li>
-              <ul class="task_item">
-                <li>Task 1</li>
-                <li>Task 2</li>
+              <ul class="board_item">
+                <li>Board 1</li>
+                <li>Board 2</li>
               </ul>
             <li>3th Workspace</li>
-              <ul class="task_item">
-                <li>Task 1</li>
-                <li>Task 2</li>
+              <ul class="board_item">
+                <li>Board 1</li>
+                <li>Board 2</li>
               </ul>
             <li>4th Workspace</li>
-              <ul class="task_item">
-                <li>Task 1</li>
-                <li>Task 2</li>
-                <li>Task 3</li>
+              <ul class="board_item">
+                <li>Board 1</li>
+                <li>Board 2</li>
+                <li>Board 3</li>
               </ul>
           </ul>
         </div>
@@ -91,7 +91,7 @@ export default {
   font-weight: bold;
 }
 
-#workspaces_list .task_item{
+#workspaces_list .board_item{
   margin-bottom: 15px;
   font-size:20px;
 }
