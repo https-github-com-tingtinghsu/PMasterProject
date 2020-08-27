@@ -3,7 +3,7 @@
   <div id="menu">
     <Menubar></Menubar>
   </div>
-  <div id="workplace">
+  <div id="workspace">
     <Workspaces></Workspaces>
   </div>
   
