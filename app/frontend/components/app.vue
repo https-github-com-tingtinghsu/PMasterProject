@@ -1,35 +1,37 @@
 <template>
-  <div id="wrap">
-  <div id="menu">
-    <Menubar></Menubar>
+  <div id="app">
+    <div id="wrap">
+      <div id="menu">
+        <Menubar></Menubar>
+      </div>
+      <div id="workspacelist">
+        <Workspacelist></Workspacelist>
+      </div>
+      <div id="workspacecontent">
+        <Workspacecontent></Workspacecontent>
+      </div>
+    </div>
   </div>
-  <div id="workspace">
-    <Workspaces></Workspaces>
-  </div>
-  
-  </div>
-  
 </template>
 
 
 
 
 <script>
-import Menubar from './menubar.vue'
-import Workspaces from './workspaces.vue'
+import Menubar from "./menubar.vue";
+import Workspacelist from "./workspacelist.vue";
+import Workspacecontent from "./workspacecontent.vue";
 export default {
-  data: function () {
-    return {
-      
-    }
-    
+  name: 'app',
+  data: function() {
+    return {};
   },
-  components: { Menubar,Workspaces }, 
-}
+  components: { Menubar, Workspacelist, Workspacecontent}
+};
 </script>
 
 <style scoped>
-#wrap{
+#wrap {
   display: flex;
 }
 </style>

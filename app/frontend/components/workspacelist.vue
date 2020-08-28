@@ -1,5 +1,5 @@
 <template>
-    <div :id="workspaces" class="project">
+    <div :id="workspacelist" class="project">
       <div id="projects_list">
         <div id="workspaces_create">
           <p>Workspaces</p>
@@ -45,13 +45,6 @@
 
 <script>
 export default {
-  // props: [''],
-  data: function () {
-    return {
-      
-    }
-    
-  }
 }
 </script>
 
@@ -59,7 +52,7 @@ export default {
 .project {
   /* border: 1px solid gray; */
   display: flex;
-  width: calc(100vw - 70px);
+  /* width: calc(100vw - 70px); */
   font-size: 10px;
 
 }
