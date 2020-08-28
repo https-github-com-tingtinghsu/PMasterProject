@@ -38,3 +38,6 @@ yarn-debug.log*
 
 # 忽略 config 目錄下的 email.yml 檔案
 /config/email.yml
+
+# Ignore application configuration
+/config/application.yml
