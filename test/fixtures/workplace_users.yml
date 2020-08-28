@@ -2,8 +2,8 @@
 
 one:
   user: one
-  workplace: one
+  workspace: one
 
 two:
   user: two
-  workplace: two
+  workspace: two
