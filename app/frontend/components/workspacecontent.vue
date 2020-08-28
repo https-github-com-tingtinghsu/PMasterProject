@@ -1,6 +1,6 @@
 <template>
     <div :id="workspacecontent" class="">
-        <!-- <Functionbar></Functionbar> -->
+        <Functionbar></Functionbar>
         <Grouplist></Grouplist>
     </div>
 </template>
@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style scoped>
-
+  #workspacecontent{
+    outline: 50px solid pink;
+  }
 </style>
