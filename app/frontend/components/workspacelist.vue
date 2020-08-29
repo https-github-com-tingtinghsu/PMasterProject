@@ -14,9 +14,18 @@
           </div>
         </div>
         <div class="workspaceitem" v-show="showSidebar">
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
+          <div>
+            <!-- <% if current_user %>
+              <% @workspace.each do |workspace| %>
+              <div>
+                <%= workspace.name %>
+              </div>
+              <% end %>
+            <% end %> -->
+          </div>
+          <!-- <Workspaceitem></Workspaceitem> -->
+          <!-- <Workspaceitem></Workspaceitem> -->
+          <!-- <Workspaceitem ></Workspaceitem> -->
         </div>
       </div>
     </div>
