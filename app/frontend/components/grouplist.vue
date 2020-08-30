@@ -10,17 +10,19 @@
     <Tasklist></Tasklist>
     <Tasklist></Tasklist>
     <Tasklist></Tasklist>
+    <Taskitem></Taskitem>
   </div>
 </template>
 
 
 <script>
 import Tastlist from './tasklist.vue'
+import Taskitem from './taskitem.vue'
 export default {
   data: {
     
   },
-  components: { Tastlist }
+  components: { Tastlist,Taskitem  }
 }
 </script>
 

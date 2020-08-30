@@ -9,7 +9,7 @@
         </div>
     </div> 
     <div class="taskList taskend item-checkbox">
-            <div class="item-title plusbtn"><Status></Status></div>
+            <div class="item-title plusbtn"><Addcolumnbtn></Addcolumnbtn></div>
             <div class="add-column" v-for="item in todos"><button @click = "removeTodo(item)"><i class="far fa-trash-alt"></i></button>
               <div class="checkbox1"></div>
             </div>
@@ -27,11 +27,11 @@
 <script>
 // import "@fortawesome/fontawesome-free/css/all.css"
 // import tasklistVue from './tasklist.vue';
-import TaskList from "./additem.vue"
-import Status from "./status.vue"
+import TaskList from "./taskitem_components/additem.vue"
+import Addcolumnbtn from "./taskitem_components/addcolumn_btn.vue"
 export default {
   props: ["taskitem", "push" ],
-  components: { TaskList,Status },
+  components: { TaskList,Addcolumnbtn },
   name:"taskitem",
   data: function(){
     return{
