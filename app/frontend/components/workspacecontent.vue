@@ -15,5 +15,7 @@ export default {
 </script>
 
 <style scoped>
-
+#workspacecontent{
+  width: 1200px;
+}
 </style>
