@@ -16,6 +16,7 @@ export default {
 
 <style scoped>
   #workspacecontent{
+    /* width: 1200px; */
     outline: 50px solid pink;
   }
 </style>
