@@ -16,7 +16,7 @@
           <ul class="workspaces_item">
             <li>Main Workspace</li>
               <ul class="board_item">
-                <li>Board 1</li>
+                <a href="#" v-text="title"></a>
                 <li>Board 2</li>
                 <li>Board 3</li>
               </ul>
@@ -45,6 +45,12 @@
 
 <script>
 export default {
+  props:["workspacelist"],
+  data: function(){
+    return{
+      title:"aaa"
+    }
+  }
 }
 </script>
 
