@@ -37,13 +37,20 @@
 
 
 <script>
+import Column from "./column.vue"
 export default {
+  name:"dropdown",
   data: function(){
     return {
     isTransform: false,
     }
   },
+  components: { Column },
   methods:{
+    add_status: function(){
+      
+      console.log("123")    
+  },
 
   }
 }

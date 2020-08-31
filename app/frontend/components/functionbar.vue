@@ -40,6 +40,7 @@
 
 <script>
 export default {
+  props:["functionbar"],
   components: {}
 };
 </script>

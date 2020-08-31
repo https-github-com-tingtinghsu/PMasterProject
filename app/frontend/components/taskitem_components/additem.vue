@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name:"TaskList",
+  name:"Additem",
   props: ["item"],
   data: function(){
     return {

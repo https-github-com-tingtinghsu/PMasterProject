@@ -2,24 +2,32 @@
   <div id="taskitem">
     <div class="taskList">
         <div class="item-title"><h2>title</h2></div>
-        <TaskList id="taskItem" v-for="item in todos" :item="item" :id="item.id"></TaskList>
+        <Additem id="taskItem" v-for="item in todos" :item="item" :id="item.id"></Additem>
         <div class="item-checkbox">
               <div class="checkbox1"></div>
               <input class="additem" type="text"  placeholder="+ Add" v-model = "newTodo" @keyup.enter = "addTodo">
         </div>
     </div> 
     <div class="taskList taskend item-checkbox">
-            <div class="item-title plusbtn"><Addcolumnbtn></Addcolumnbtn></div>
-            <div class="add-column" v-for="item in todos"><button @click = "removeTodo(item)"><i class="far fa-trash-alt"></i></button>
-              <div class="checkbox1"></div>
+            <div class="item-title plusbtn"><Addcolumnbtn></Addcolumnbtn>
             </div>
-            <div class="add-column"><button @click = "addTodo">add</button>
-              <div class="checkbox1"></div>
+            <div class="columncontroller">
+                 <div class="statuscolumn">
+                   <Column v-for="item in todos"></Column>
+                 </div>
+              <div class="funtion_btn">
+                <div class="add-column" v-for="item in todos"><button @click = "removeTodo(item)"><i class="far fa-trash-alt"></i></button>
+                  <div class="checkbox1"></div>
+                </div>
+                <div class="add-column"><button @click = "addTodo">add</button>
+                  <div class="checkbox1"></div>
+                </div>
+              </div>
             </div>
      </div> 
-     <div class="status">
-      
-      </div>  
+     
+     
+     
   </div>    
 </template>
 
@@ -27,11 +35,12 @@
 <script>
 // import "@fortawesome/fontawesome-free/css/all.css"
 // import tasklistVue from './tasklist.vue';
-import TaskList from "./taskitem_components/additem.vue"
+import Additem from "./taskitem_components/additem.vue"
 import Addcolumnbtn from "./taskitem_components/addcolumn_btn.vue"
+import Column from "./taskitem_components/column.vue"
 export default {
   props: ["taskitem", "push" ],
-  components: { TaskList,Addcolumnbtn },
+  components: { Additem,Addcolumnbtn, Column },
   name:"taskitem",
   data: function(){
     return{
@@ -171,7 +180,7 @@ export default {
   margin: 10px;
 }
 .add-column{
-  width: 10%;
+  width: 50px;
   height: 50px;
   border: solid rgb(206, 195, 195) 1px;
   display: flex;
@@ -190,4 +199,11 @@ export default {
 .plusbtn .rotate{
   transform: rotate(45deg);
 }
+.columncontroller{
+  display: flex;
+}
+.column{
+  flex-grow: 0;
+}
+
 </style>
