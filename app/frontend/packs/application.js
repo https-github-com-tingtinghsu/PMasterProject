@@ -36,22 +36,26 @@ document.addEventListener('turbolinks:load', () => {
   if (!document.querySelector('#app')) {
     return;
   }
+  const workspaces = document.querySelector('#app').getAttribute('workspaces')
   const app = new Vue({
     el: '#app',
-    data: () => {
-      return {
-        message: "Can you say hello?"
-      }
+    data: {
+      message: "Can you say hello?",
+      workspaces: []
+    },
+
+    mounted() {
+      this.workspaces = JSON.parse(workspaces);
     },
     
     components: { App },
-    template:'<App />'
+    template:'<App :workspaces="workspaces" />'
   })
 })
 document.addEventListener("turbolinks:load", function(event){
   let el = document.querySelector("#workspace-board");
+  console.log(el);
   if (el.length === 0) {return;}
-  console.log(el)
   new Vue({
     el,
     data: {

@@ -26,5 +26,8 @@
 </script>
 
 <style lang="scss" scoped>
-  
+  .workspace{
+    color: #000;
+    font-weight: 600;
+  }
 </style>

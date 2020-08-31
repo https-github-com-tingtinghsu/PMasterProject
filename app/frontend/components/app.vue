@@ -5,7 +5,7 @@
         <Menubar></Menubar>
       </div>
       <div id="workspacelist">
-        <Workspacelist></Workspacelist>
+        <Workspacelist :workspacelist="workspaces"></Workspacelist>
       </div>
       <div id="workspacecontent">
         <Workspacecontent></Workspacecontent>
@@ -23,6 +23,7 @@ import Workspacelist from "./workspacelist.vue";
 import Workspacecontent from "./workspacecontent.vue";
 export default {
   name: 'app',
+  props: ['workspaces'],
   data: function() {
     return {
     };

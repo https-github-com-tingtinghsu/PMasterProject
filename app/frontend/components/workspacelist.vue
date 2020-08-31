@@ -3,7 +3,7 @@
       <div id="workspace-list" class="">
         <a id="workspace-btn-collapse" @click="collapse"></a>
         <div id="workspace-create">
-          <p>Workspaces</p>
+          <p>工作看板</p>
         </div>
         <div id="workspace-search">
           <div class="search-icon">
@@ -19,8 +19,7 @@
         <div>
 
         </div>
-          <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace>
-          <Workspace></Workspace>
+          <Workspace v-for="workspace in workspacelist" :workspace="workspace" :key="workspace.id"></Workspace>
           <Workspaceitem></Workspaceitem>
           <!-- <Workspaceitem></Workspaceitem>
           <Workspaceitem ></Workspaceitem> -->

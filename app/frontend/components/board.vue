@@ -21,5 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  
+  .board {
+    color: green;
+  }
 </style>
