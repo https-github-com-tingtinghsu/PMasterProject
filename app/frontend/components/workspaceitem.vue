@@ -1,7 +1,8 @@
 <template>
   <div :id="workspaceitem">
     <div class="workspace-item">
-      <p class="workspace-title"><i class="fas fa-caret-down"></i>Main Workspace</p>
+      <p class="workspace-title"><i class="fas fa-caret-down"></i>Main Workspace</p>      
+      <!-- <p class="workspace-title"><i class="fas fa-caret-down"></i></p>       -->
       <ul class="board_item">
         <li>Board 1</li>
         <li>Board 2</li>
@@ -14,7 +15,7 @@
 
 <script>
 export default {
-  props:["workspaceitem"]
+  props: ["workspaceitem"]
 };
 </script>
 

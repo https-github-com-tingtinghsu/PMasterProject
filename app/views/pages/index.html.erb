@@ -1,1 +1,6 @@
-<div id="app"></div>
+<div id="app">
+</div>
+<div id="workspace-board" data-workspaces="<%= @workspaces.to_json(include: :boards)%>">
+
+  <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace>
+</div>

@@ -14,33 +14,51 @@
           </div>
         </div>
         <div class="workspaceitem" v-show="showSidebar">
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
+
         </div>
+        <div>
+
+        </div>
+          <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace>
+          <Workspace></Workspace>
+          <Workspaceitem></Workspaceitem>
+          <!-- <Workspaceitem></Workspaceitem>
+          <Workspaceitem ></Workspaceitem> -->
       </div>
     </div>
 </template>
 
 
 <script>
-import Workspaceitem from './workspaceitem'
-export default {
-  props:["workspacelist"],
-  data() {
-    return {
-      showSidebar: true
+  import Rails from '@rails/ujs';
+  import Workspaceitem from './workspaceitem'
+  import Workspace from 'components/workspace'
+  document.addEventListener("turbolinks:load", function(event){
+    let el = document.querySelector("#workspace-board");
+    if (el){
+      console.log("I've got workspace")
     }
-  },
-  methods: {
-    collapse(){
-      this.showSidebar = !this.showSidebar
-      console.log("ok")
-    }
-  },
+  })
 
-  components: { Workspaceitem }
-}
+  export default {
+    name: 'Workspacelist',
+    props: ["workspacelist"],
+
+    data: function() {
+      return {
+        showSidebar: true,
+        workspace: this.workspace,
+      }
+    },
+    methods: {
+      collapse(){
+        this.showSidebar = !this.showSidebar
+        console.log("ok")
+      }
+    },
+
+    components: { Workspaceitem, Workspace  }
+  }
 
 </script>
 
