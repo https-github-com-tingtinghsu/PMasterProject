@@ -16,8 +16,8 @@
         <div class="workspaceitem" v-show="showSidebar">
 
           </div>
-          <!-- <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace> -->
-          <Workspace></Workspace>
+          <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace>
+          <!-- <Workspace></Workspace> -->
           <Workspaceitem></Workspaceitem>
           <Workspaceitem></Workspaceitem>
           <Workspaceitem ></Workspaceitem>

@@ -3,7 +3,7 @@ class Workspace < ApplicationRecord
   has_many :users, through: :workspace_users 
   
   belongs_to :creator, foreign_key: :user_id, class_name: 'User'
-  has_many :boards, -> { order(position: :asc) }, dependent: :destroy
+  has_many :boards, -> { order(position: :asc) }
 
-  validates :name, presence: true
+  validates :id, presence: true
 end
