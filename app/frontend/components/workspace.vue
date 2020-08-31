@@ -1,18 +1,23 @@
 <template>
   <div :id="workspace" class="workspace">
-      <h2>123{{ workspace.name }} </h2>
+    <h2>{{ workspace.name }} </h2>
+    <Board v-for="board in boards" :board="board" :key="board.id" ></Board>
   </div>
 </template>
 
 
 <script>
-
-export default {
+  import Rails from '@rails/ujs';
+  import Board from 'components/board';
+  export default {
   name: 'Workspace',
-  props: ["workspace"],  
+  props: ["workspace"], 
+  components: { Board },   
   // 從外層餵workspace資料
   data: function(){
     return {
+        content: '',
+        boards: this.workspace.boards, // `v-for`就可以改成boards
     }
   },
 

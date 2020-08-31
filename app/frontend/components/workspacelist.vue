@@ -16,42 +16,49 @@
         <div class="workspaceitem" v-show="showSidebar">
 
         </div>
-          <!-- <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace> -->
+        <div>
+
+        </div>
+          <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace>
           <Workspace></Workspace>
           <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem ></Workspaceitem>
+          <!-- <Workspaceitem></Workspaceitem>
+          <Workspaceitem ></Workspaceitem> -->
       </div>
     </div>
 </template>
 
 
 <script>
-import Workspaceitem from './workspaceitem'
-import Workspace from 'components/workspace'
-document.addEventListener("turbolinks:load", function(event){
-  let el = document.querySelector("#workspace-board");
-  if (el){
-    console.log("I've got workspace")
+  import Rails from '@rails/ujs';
+  import Workspaceitem from './workspaceitem'
+  import Workspace from 'components/workspace'
+  document.addEventListener("turbolinks:load", function(event){
+    let el = document.querySelector("#workspace-board");
+    if (el){
+      console.log("I've got workspace")
+    }
+  })
+
+  export default {
+    name: 'Workspacelist',
+    props: ["workspacelist"],
+
+    data: function() {
+      return {
+        showSidebar: true,
+        workspace: this.workspace,
+      }
+    },
+    methods: {
+      collapse(){
+        this.showSidebar = !this.showSidebar
+        console.log("ok")
+      }
+    },
+
+    components: { Workspaceitem, Workspace  }
   }
-})
-
-export default {
-  props: ["workspacelist"],
-  data() {
-    return {
-      showSidebar: true
-    }
-  },
-  methods: {
-    collapse(){
-      this.showSidebar = !this.showSidebar
-      console.log("ok")
-    }
-  },
-
-  components: { Workspaceitem, Workspace  }
-}
 
 </script>
 
