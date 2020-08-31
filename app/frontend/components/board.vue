@@ -22,6 +22,6 @@ export default {
 
 <style lang="scss" scoped>
   .board {
-    @apply .text-xl .my-2;
+    @apply .bg-green-300 .text-sm .my-2 .mx-1 .px-3 .py-2 .rounded-md;
   }
 </style>

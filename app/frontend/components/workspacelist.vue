@@ -20,7 +20,7 @@
 
         </div>
           <Workspace v-for="workspace in workspacelist" :workspace="workspace" :key="workspace.id"></Workspace>
-          <Workspaceitem></Workspaceitem>
+          <!-- <Workspaceitem></Workspaceitem> -->
       </div>
     </div>
 </template>
