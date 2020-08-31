@@ -2,6 +2,8 @@
     <div :id="workspacecontent" class="">
         <Functionbar></Functionbar>
         <Grouplist></Grouplist>
+        <Grouplist></Grouplist>
+        <Grouplist></Grouplist>
     </div>
 </template>
 

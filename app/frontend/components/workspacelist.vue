@@ -1,46 +1,47 @@
 <template>
-    <div :id="workspacelist">
-      <div id="workspace-list" class="">
-        <a id="workspace-btn-collapse" @click="collapse"></a>
-        <div id="workspace-create">
-          <p>Workspaces</p>
+  <div :id="workspacelist">
+    <div id="workspace-list" class v-show="showSidebar">
+    <a id="workspace-btn-collapse" @click="collapse"></a>
+      <div id="workspace-create">
+        <p>Workspaces</p>
+      </div>
+      <div id="workspace-search">
+        <div class="search-icon">
+          <i class="fas fa-search"></i>
         </div>
-        <div id="workspace-search">
-          <div class="search-icon">
-            <i class="fas fa-search"></i>
-          </div>
-          <div class="search-text">
-            <input type="text" placeholder="Filter">
-          </div>
-        </div>
-        <div class="workspaceitem" v-show="showSidebar">
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
+        <div class="search-text">
+          <input type="text" placeholder="Filter">
         </div>
       </div>
+      <div class="workspaceitem">
+        <Workspaceitem></Workspaceitem>
+        <Workspaceitem></Workspaceitem>
+        <Workspaceitem></Workspaceitem>
+      </div>
     </div>
+  </div>
 </template>
 
 
 <script>
-import Workspaceitem from './workspaceitem'
+import Workspaceitem from "./workspaceitem";
 export default {
+  props: ['workspacelist'],
   data() {
     return {
       showSidebar: true
-    }
+    };
+    
   },
   methods: {
-    collapse(){
-      this.showSidebar = !this.showSidebar
-      console.log("ok")
+    collapse() {
+      this.showSidebar = !this.showSidebar;
+      console.log("ok");
     }
   },
 
   components: { Workspaceitem }
-}
-
+};
 </script>
 
 <style scoped>
@@ -53,43 +54,39 @@ export default {
   width: 220px;
   padding: 10px;
 }
-#workspace-btn-collapse{
-  display: block;
-  background-color: #48C774;
+#workspace-btn-collapse {
+  display: inline-block;
+  background-color: #48c774;
   position: relative;
-  right: -195px;
+  right: -20px;
   height: 25px;
   width: 25px;
   border-radius: 50%;
 }
 
-#workspace-create{
+#workspace-create {
   height: 40px;
   font-size: 25px;
 }
-#workspace-search{
+#workspace-search {
   height: 50px;
   line-height: 50px;
   display: flex;
 }
 
-#workspace-list .workspace-item > li{
+#workspace-list .workspace-item > li {
   font-weight: bold;
 }
 
-#workspace-list .board-item{
+#workspace-list .board-item {
   margin-bottom: 15px;
-  font-size:20px;
+  font-size: 20px;
 }
 
-
-#workspace-search .search-icon{
+#workspace-search .search-icon {
   flex-grow: 2;
 }
-#workspace-search .search-text{
+#workspace-search .search-text {
   flex-grow: 8;
-}
-#workspace-btn-collapse{
-  
 }
 </style>

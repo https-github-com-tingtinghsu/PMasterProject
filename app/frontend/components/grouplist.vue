@@ -10,21 +10,31 @@
     <Tasklist></Tasklist>
     <Tasklist></Tasklist>
     <Tasklist></Tasklist>
+    <Tasklist></Tasklist>
+    <Tasklist></Tasklist>
   </div>
 </template>
 
 
 <script>
-import Tastlist from './tasklist.vue'
+import Tasklist from './tasklist.vue'
+
 export default {
+  props:["grouplist"],
+
   data: {
     
   },
-  components: { Tastlist }
+  components: { Tasklist }
 }
 </script>
 
 
 <style scoped>
-
+.group-item-title{
+  display: flex;
+}
+.group-item-title>div{
+  width: 100px;
+}
 </style>

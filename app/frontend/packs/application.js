@@ -8,8 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-require("scripts")
-require("stylesheets")
+require("../scripts")
+require("../stylesheets")
 
 import '../scripts/shared/application'
 

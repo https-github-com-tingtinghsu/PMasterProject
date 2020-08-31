@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  
   data: {
     
   }
@@ -21,5 +22,10 @@ export default {
 
 
 <style scoped>
-
+.task-item{
+  display: flex;
+}
+.task-item > div{
+  width: 100px;
+} 
 </style>

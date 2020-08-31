@@ -26,7 +26,7 @@ export default {
   data: function() {
     return {};
   },
-  components: { Menubar, Workspacelist, Workspacecontent}
+  components: { Menubar, Workspacelist, Workspacecontent},
 };
 </script>
 
