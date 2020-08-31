@@ -14,7 +14,9 @@
 
 
 <script>
-export default {};
+export default {
+  props: ["workspaceitem"]
+};
 </script>
 
 

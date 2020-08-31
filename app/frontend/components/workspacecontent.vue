@@ -10,6 +10,7 @@
 import Functionbar from './functionbar.vue'
 import Grouplist from './grouplist.vue'
 export default {
+  props: ["workspacecontent"],
   components: { Functionbar, Grouplist}
 }
 </script>

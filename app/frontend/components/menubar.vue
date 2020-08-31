@@ -26,7 +26,7 @@
 <script>
 import Icon from './icon.vue'
 export default {
-  // props:["menu"],
+  props:["menu"],
   data: function () {
     return {
       

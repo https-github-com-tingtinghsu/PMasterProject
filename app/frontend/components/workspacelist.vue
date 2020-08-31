@@ -15,13 +15,12 @@
         </div>
         <div class="workspaceitem" v-show="showSidebar">
 
-          </div>
-          <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace>
-          <!-- <Workspace></Workspace> -->
+        </div>
+          <!-- <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace> -->
+          <Workspace></Workspace>
           <Workspaceitem></Workspaceitem>
           <Workspaceitem></Workspaceitem>
           <Workspaceitem ></Workspaceitem>
-        </div>
       </div>
     </div>
 </template>
@@ -34,17 +33,11 @@ document.addEventListener("turbolinks:load", function(event){
   let el = document.querySelector("#workspace-board");
   if (el){
     console.log("I've got workspace")
-    new Vue({
-      el,
-      data: {
-        workspaces: JSON.parse(el.dataset.workspaces)
-      },
-      components: { }
-    });
   }
 })
 
 export default {
+  props: ["workspacelist"],
   data() {
     return {
       showSidebar: true

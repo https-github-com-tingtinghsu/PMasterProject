@@ -19,6 +19,7 @@
 import Tastlist from './tasklist.vue'
 import Taskitem from './taskitem.vue'
 export default {
+  props: ["grouplist"],  
   data: {
     
   },

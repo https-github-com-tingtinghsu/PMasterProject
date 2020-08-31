@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  // props: ['src'],
+  props: ['icon'],
   data: function () {
     return {
       

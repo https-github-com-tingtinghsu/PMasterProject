@@ -1,5 +1,4 @@
 <template>
-<!-- <div id="workspace-board" data-workspaces="<%= @workspaces.to_json(include: :boards)%>"> -->
   <div :id="workspace" class="workspace">
       <h2>123{{ workspace.name }} </h2>
   </div>
@@ -10,9 +9,11 @@
 
 export default {
   name: 'Workspace',
+  props: ["workspace"],  
   // 從外層餵workspace資料
-  props: ['workspace'],
   data: function(){
+    return {
+    }
   },
 
 };

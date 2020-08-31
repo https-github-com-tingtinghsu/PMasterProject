@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  props: ["tasklist"],  
   data: {
     
   }
