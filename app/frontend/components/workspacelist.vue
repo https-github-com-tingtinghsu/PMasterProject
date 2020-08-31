@@ -14,18 +14,13 @@
           </div>
         </div>
         <div class="workspaceitem" v-show="showSidebar">
-          <div>
-            <!-- <% if current_user %>
-              <% @workspace.each do |workspace| %>
-              <div>
-                <%= workspace.name %>
-              </div>
-              <% end %>
-            <% end %> -->
+
           </div>
-          <!-- <Workspaceitem></Workspaceitem> -->
-          <!-- <Workspaceitem></Workspaceitem> -->
-          <!-- <Workspaceitem ></Workspaceitem> -->
+          <!-- <Workspace v-for="workspace in workspaces" :workspace="workspace" :key="workspace.id"></Workspace> -->
+          <Workspace></Workspace>
+          <Workspaceitem></Workspaceitem>
+          <Workspaceitem></Workspaceitem>
+          <Workspaceitem ></Workspaceitem>
         </div>
       </div>
     </div>
@@ -34,6 +29,21 @@
 
 <script>
 import Workspaceitem from './workspaceitem'
+import Workspace from 'components/workspace'
+document.addEventListener("turbolinks:load", function(event){
+  let el = document.querySelector("#workspace-board");
+  if (el){
+    console.log("I've got workspace")
+    new Vue({
+      el,
+      data: {
+        workspaces: JSON.parse(el.dataset.workspaces)
+      },
+      components: { }
+    });
+  }
+})
+
 export default {
   data() {
     return {
@@ -47,7 +57,7 @@ export default {
     }
   },
 
-  components: { Workspaceitem }
+  components: { Workspaceitem, Workspace  }
 }
 
 </script>
