@@ -21,8 +21,6 @@
         </div>
           <Workspace v-for="workspace in workspacelist" :workspace="workspace" :key="workspace.id"></Workspace>
           <Workspaceitem></Workspaceitem>
-          <!-- <Workspaceitem></Workspaceitem>
-          <Workspaceitem ></Workspaceitem> -->
       </div>
     </div>
 </template>
@@ -32,12 +30,6 @@
   import Rails from '@rails/ujs';
   import Workspaceitem from './workspaceitem'
   import Workspace from 'components/workspace'
-  document.addEventListener("turbolinks:load", function(event){
-    let el = document.querySelector("#workspace-board");
-    if (el){
-      console.log("I've got workspace")
-    }
-  })
 
   export default {
     name: 'Workspacelist',
@@ -56,7 +48,7 @@
       }
     },
 
-    components: { Workspaceitem, Workspace  }
+    components: { Workspaceitem, Workspace }
   }
 
 </script>

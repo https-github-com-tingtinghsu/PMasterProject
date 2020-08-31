@@ -30,6 +30,7 @@ import Vue from 'vue/dist/vue.esm'
 import App from '../components/app.vue'
 import Workspace from '../components/workspace.vue'
 
+
 Vue.use(TurbolinksAdapter)
 
 document.addEventListener('turbolinks:load', () => {
@@ -52,18 +53,18 @@ document.addEventListener('turbolinks:load', () => {
     template:'<App :workspaces="workspaces" />'
   })
 })
-document.addEventListener("turbolinks:load", function(event){
-  let el = document.querySelector("#workspace-board");
-  console.log(el);
-  if (el.length === 0) {return;}
-  new Vue({
-    el,
-    data: {
-      workspaces: JSON.parse(el.dataset.workspaces)
-    },
-    components: { Workspace }
-  });
-})
+// document.addEventListener("turbolinks:load", function(event){
+//   let el = document.querySelector("#workspace-board");
+//   console.log(el);
+//   if (el.length === 0) {return;}
+//   new Vue({
+//     el,
+//     data: {
+//       workspaces: JSON.parse(el.dataset.workspaces)
+//     },
+//     components: { Workspace }
+//   });
+// })
 // Vue.use(TurbolinksAdapter)
 // document.addEventListener('turbolinks:load', () => {
   // if (document.querySelector('#menubar').length === 0) {

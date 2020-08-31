@@ -1,7 +1,9 @@
 <template>
   <div :id="workspace" class="workspace">
     <h2>{{ workspace.name }} </h2>
-    <Board v-for="board in boards" :board="board" :key="board.id" ></Board>
+    <draggable>
+      <Board v-for="board in boards" :board="board" :key="board.id" ></Board>
+    </draggable>
   </div>
 </template>
 
@@ -9,10 +11,12 @@
 <script>
   import Rails from '@rails/ujs';
   import Board from 'components/board';
+  import draggable from 'vuedraggable';
+
   export default {
   name: 'Workspace',
   props: ["workspace"], 
-  components: { Board },   
+  components: { Board, draggable  },   
   // 從外層餵workspace資料
   data: function(){
     return {
@@ -27,7 +31,6 @@
 
 <style lang="scss" scoped>
   .workspace{
-    color: #000;
-    font-weight: 600;
+    @apply .text-xl;
   }
 </style>

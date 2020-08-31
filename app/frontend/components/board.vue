@@ -1,7 +1,7 @@
 <template>
-  <div :id="board" class="board">
-    {{ board.name }}
-  </div>
+    <div :id="board" class="board">
+      {{ board.name }}
+    </div>
 </template>
 
 
@@ -22,6 +22,6 @@ export default {
 
 <style lang="scss" scoped>
   .board {
-    color: green;
+    @apply .text-xl .my-2;
   }
 </style>
