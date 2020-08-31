@@ -35,4 +35,7 @@ export default {
 #wrap {
   display: flex;
 }
+#workspacecontent{
+  flex-grow: 1;
+}
 </style>

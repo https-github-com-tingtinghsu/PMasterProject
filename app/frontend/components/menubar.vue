@@ -53,7 +53,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #292F4C;
+  background-color: #48C774;
 }
 
 
