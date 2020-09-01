@@ -6,4 +6,5 @@ class Workspace < ApplicationRecord
   has_many :boards, -> { order(position: :asc) }
 
   validates :name, presence: true
+  default_scope { order(id: :asc) }
 end
