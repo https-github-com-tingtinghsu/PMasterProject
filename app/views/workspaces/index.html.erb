@@ -3,7 +3,7 @@
 <div class="mx-5 my-5">
   <ul>
   <% @workspaces.each do  |workspace| %>
-    <li class="mx-5 my-2">
+    <li class="mx-5 my-2 bg-gray-200">
       。<%= link_to workspace.name, workspace_path(workspace) %>
     </li>
   <% end %>

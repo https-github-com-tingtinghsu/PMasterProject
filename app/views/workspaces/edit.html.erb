@@ -1,0 +1,9 @@
+<h1 class="text-xl px-2 py-2">編輯工作區 Edit Workspace</h1>
+
+<div class="mx-5 my-5">
+  <%= form_with(model: @workspace, local: true) do |f| %>
+    <%= f.label :name, "編輯工作區標題" %>
+    <%= f.text_field :name, class: 'border-2' %>
+    <%= f.submit '修改', class: 'mt-4 ml-2 px-3 py-1 bg-orange-400 text-white block w-32 rounded text-center' %>
+  <% end %>
+</div>

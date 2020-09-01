@@ -14,6 +14,20 @@ class WorkspacesController < ApplicationController
     end
   end
 
+  def edit
+    @workspace = Workspace.find(params[:id])    
+  end
+
+  def update
+    @workspace = Workspace.find(params[:id])
+
+    if @workspace.update(workspace_params)
+      redirect_to workspaces_path, notice: "更新成功"
+    else
+      render :edit
+    end
+  end
+
   def show
     @workspace = Workspace.find(params[:id])
   end
