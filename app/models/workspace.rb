@@ -5,5 +5,5 @@ class Workspace < ApplicationRecord
   belongs_to :creator, foreign_key: :user_id, class_name: 'User'
   has_many :boards, -> { order(position: :asc) }
 
-  validates :id, presence: true
+  validates :name, presence: true
 end

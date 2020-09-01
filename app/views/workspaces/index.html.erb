@@ -1,0 +1,13 @@
+<h1 class="text-xl p-2 m-5">工作區 Workspace</h1>
+
+<div class="mx-5 my-5">
+  <ul>
+  <% @workspaces.each do  |workspace| %>
+    <li class="mx-5 my-2">
+      。<%= link_to workspace.name, workspace_path(workspace) %>
+    </li>
+  <% end %>
+  </ul>
+  <%= link_to '新增Workspace', new_workspace_path, class: "mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center" %>
+</div>
+

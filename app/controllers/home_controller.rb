@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    redirect_to pages_path if current_user
+    redirect_to workspaces_path if current_user
   end
 end
