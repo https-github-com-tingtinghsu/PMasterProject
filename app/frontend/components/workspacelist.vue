@@ -1,96 +1,105 @@
 <template>
-    <div :id="workspacelist">
-      <div id="workspace-list" class="">
-        <a id="workspace-btn-collapse" @click="collapse"></a>
-        <div id="workspace-create">
-          <p>Workspaces</p>
+  <div :id="workspacelist" id="workspace-list">
+    <div class="menuBarCollapse" :class="{'showSidebar': showSidebar }">
+      <div id="workspace-create">
+        <p>Workspaces</p>
+      </div>
+      <div id="workspace-search">
+        <div class="search-icon">
+          <i class="fas fa-search"></i>
         </div>
-        <div id="workspace-search">
-          <div class="search-icon">
-            <i class="fas fa-search"></i>
-          </div>
-          <div class="search-text">
-            <input type="text" placeholder="Filter">
-          </div>
-        </div>
-        <div class="workspaceitem" v-show="showSidebar">
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
-          <Workspaceitem></Workspaceitem>
+        <div class="search-text">
+          <input type="text" placeholder="Filter" />
         </div>
       </div>
+      <div class="workspaceitem">
+        <Workspaceitem></Workspaceitem>
+        <Workspaceitem></Workspaceitem>
+        <Workspaceitem></Workspaceitem>
+      </div>
     </div>
+    <div id="menuBarSide">
+      <a id="workspace-btn-collapse" @click="showSidebar = !showSidebar"><i class="fas fa-angle-right" :class="{'rotate': showSidebar }"></i></a>
+    </div>
+  </div>
 </template>
 
 
 <script>
-import Workspaceitem from './workspaceitem'
+// document.querySelector('#workspace-btn-collapse').addEventListener('click', function(){
+//   document.querySelector('.fas').classList.toggle('rotate')
+// })
+import Workspaceitem from "./workspaceitem";
 export default {
-  props:["workspacelist"],
+  props: ["workspacelist"],
   data() {
     return {
       showSidebar: true
-    }
+    };
   },
-  methods: {
-    collapse(){
-      this.showSidebar = !this.showSidebar
-      console.log("ok")
-    }
-  },
+  methods: {},
 
   components: { Workspaceitem }
-}
-
+};
 </script>
 
 <style scoped>
-/* #workspacelist {
-  display: flex;
-} */
 #workspace-list {
+  display: flex;
+  flex-direction: row;
   border-right: 1px solid gray;
   height: 100vh;
-  width: 220px;
-  padding: 10px;
 }
-#workspace-btn-collapse{
+.menuBarCollapse{
+  padding: 10px 0;
+  white-space:nowrap;
+  width: 0px;
+  overflow: hidden;
+  transition: .2s;
+}
+#workspace-btn-collapse {
   display: block;
-  background-color: #48C774;
+  background-color: #48c774;
   position: relative;
-  right: -195px;
+  top: 20px;
+  right: -12px;
   height: 25px;
   width: 25px;
   border-radius: 50%;
+  text-align: center;
+  line-height: 25px;
 }
 
-#workspace-create{
+#workspace-create {
   height: 40px;
   font-size: 25px;
 }
-#workspace-search{
+#workspace-search {
   height: 50px;
   line-height: 50px;
   display: flex;
 }
 
-#workspace-list .workspace-item > li{
+#workspace-list .workspace-item > li {
   font-weight: bold;
 }
 
-#workspace-list .board-item{
+#workspace-list .board-item {
   margin-bottom: 15px;
-  font-size:20px;
+  font-size: 20px;
 }
 
-
-#workspace-search .search-icon{
+#workspace-search .search-icon {
   flex-grow: 2;
 }
-#workspace-search .search-text{
+#workspace-search .search-text {
   flex-grow: 8;
 }
-#workspace-btn-collapse{
-  
+.showSidebar{
+  padding: 10px 10px 10px;
+  width: 220px;
+}
+.rotate{
+  transform: rotate(180deg);
 }
 </style>
