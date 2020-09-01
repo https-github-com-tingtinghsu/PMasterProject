@@ -3,7 +3,7 @@
       <div id="workspace-list" class="">
         <a id="workspace-btn-collapse" @click="collapse"></a>
         <div id="workspace-create">
-          <p>工作看板</p>
+          <p>工作看板<AddWorkspace></AddWorkspace></p>
         </div>
         <div id="workspace-search">
           <div class="search-icon">
@@ -30,6 +30,7 @@
   import Rails from '@rails/ujs';
   import Workspaceitem from './workspaceitem'
   import Workspace from 'components/workspace'
+  import AddWorkspace from  'components/addWorkspace'
 
   export default {
     name: 'Workspacelist',
@@ -48,7 +49,7 @@
       }
     },
 
-    components: { Workspaceitem, Workspace }
+    components: { Workspaceitem, Workspace, AddWorkspace }
   }
 
 </script>
