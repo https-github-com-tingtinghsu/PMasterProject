@@ -11,10 +11,9 @@
 <div class="mx-5 my-5">
   <%= form_for(@workspace) do |f| %>
     <%= f.label :name, "工作區名稱" %>
-    <%= f.text_field :name, class: 'border-2' %>
+    <%= f.text_field :name, class: 'border-2 px-2 py-3' %>
     <%= f.submit '新增', class: 'mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>    
   <% end %>
-
 </div>
 
 

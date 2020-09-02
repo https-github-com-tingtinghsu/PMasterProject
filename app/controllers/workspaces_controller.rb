@@ -1,6 +1,6 @@
 class WorkspacesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_workspace, only: [:show, :edit, :update]
+  before_action :find_workspace, only: [:show, :edit, :update, :destroy]
   def index
     @workspaces = current_user.workspaces.all
   end
@@ -30,6 +30,11 @@ class WorkspacesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @workspace.destroy
+    redirect_to workspaces_path, notice: "工作區刪除成功！"
   end
 
   private
