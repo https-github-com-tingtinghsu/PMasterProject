@@ -51,6 +51,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if current_user %>
+            <strong><%= @current_user.email %></strong>
             <strong><%= link_to '編輯帳戶', edit_user_registration_path, class: "button is-primary" %></strong>
             <strong><%= link_to '登出', destroy_user_session_path, method: 'delete', class: "button is-light" %></strong>
           <% else %>
