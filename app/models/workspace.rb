@@ -1,4 +1,5 @@
 class Workspace < ApplicationRecord
+  acts_as_paranoid
   has_many :workspace_users
   has_many :members, through: :workspace_users 
   
