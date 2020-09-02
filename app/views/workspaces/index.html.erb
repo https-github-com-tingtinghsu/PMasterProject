@@ -1,0 +1,26 @@
+<h1 class="text-xl p-2 m-5">工作區 Workspace</h1>
+<h2 class="text-md p-2 ml-5">我建立的工作區</h2>
+<%= link_to '新增工作區 +', new_workspace_path, class: "mt-2 ml-8 px-3 py-1 bg-green-400 text-white w-32 rounded text-center" %>
+
+<div class="mx-5 my-5">
+  <% @workspaces.each do |workspace| %>
+    <div class="mx-5 mx-2 my-2">
+      <p class="bg-gray-200 block w-15 p-2 my-2 rounded-md">。<%= link_to workspace.name, workspace_path(workspace) %></p>
+      <p>
+        <%= link_to '編輯', edit_workspace_path(workspace), class: "px-3 py-1 bg-orange-500 text-white rounded text-center" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="text-md p-2 mx-5">我加入的工作區</h2>
+
+<div class="mx-5 my-5">
+  <ul>
+  <% current_user.as_member.workspaces.each do |workspace| %>
+    <li class="mx-5 my-2">
+      <p class="bg-gray-200 block p-2 rounded-md">。<%= link_to workspace.name, workspace_path(workspace) %></p>
+    </li>
+  <% end %>
+  </ul>
+</div>

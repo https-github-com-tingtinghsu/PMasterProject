@@ -1,0 +1,12 @@
+<section class="section hero is-success text-center">
+  <h1 class="title">P Master!皮老闆</h1>
+  <br>
+  <h2 class="subtitle">
+    您最有趣、活潑、專業的<strong>專案管理網站</strong>
+  </h2>
+
+  <%= image_tag 'home/main-pic.png', class: "mx-auto" %>
+  <div>
+    <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button" unless current_user %></strong>
+  </div>
+</section>

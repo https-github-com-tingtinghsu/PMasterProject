@@ -1,0 +1,65 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+en:
+  devise:
+    confirmations:
+      confirmed: "恭喜您！您的信箱已經驗證成功。"
+      send_instructions: "您將會在1分鐘內收到信箱驗證確認信件，請至信箱收信點擊啟用帳號連結。"
+      send_paranoid_instructions: "如果您的信箱曾經註冊過本服務，您將會在1分鐘內收到信箱驗證確認信件，請至信箱收信點擊啟用帳號連結。"
+    failure:
+      already_authenticated: "您已經登入成功。"
+      inactive: "您的帳號還沒驗證，請至信箱收取驗證信。"
+      invalid: "這個 %{authentication_keys} 或是密碼無效。"
+      locked: "您的帳戶已經被鎖住，請聯絡管理員。"
+      last_attempt: "如果再登入一次失敗，帳戶將會被鎖住。"
+      not_found_in_database: "這個 %{authentication_keys} 或是密碼不存在。"
+      timeout: "您的登入已經過期，請重新登入已使用系統。"
+      unauthenticated: "請註冊帳號或登入以使用本網站。"
+      unconfirmed: "您的信箱必須先驗證通過，以使用本網站。"
+    mailer:
+      confirmation_instructions:
+        subject: "PMaster!皮老闆 - 信箱驗證信"
+      reset_password_instructions:
+        subject: "PMaster!皮老闆 - 密碼重設信"
+      unlock_instructions:
+        subject: "PMaster!皮老闆 - 帳號解鎖信"
+      email_changed:
+        subject: "PMaster!皮老闆 - 信箱變更通知"
+      password_change:
+        subject: "PMaster!皮老闆 - 密碼變更通知"
+    omniauth_callbacks:
+      failure: "授權 %{kind} 服務失敗： \"%{reason}\"."
+      success: "授權 %{kind} 服務成功！"
+    passwords:
+      no_token: "很抱歉！您已經申請密碼重置，無法登入此頁面，請確認您的信箱內的密碼重設信件的連結是否正確。"
+      send_instructions: "您將會在1分鐘內收到重設密碼確認信件，請至信箱收信點擊重設密碼連結。"
+      send_paranoid_instructions: "如果您的信箱曾經註冊過本服務，您將會在1分鐘內收到重設密碼確認信件，請至信箱收信點擊重設密碼連結。"
+      updated: "恭喜！您的密碼已經更新成功，請登入網站以使用服務。"
+      updated_not_active: "恭喜！您的密碼已經更新成功。"
+    registrations:
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "歡迎登入P Master!皮老闆"
+      signed_up_but_inactive: "您已經註冊成功，請至信箱收信，從驗證確認信件內點擊啟用帳號連結。"
+      signed_up_but_locked: "本帳號已經被鎖住，請至信箱收信，請申請註冊流程的寄發帳號解鎖確認信件。"
+      signed_up_but_unconfirmed: "我們已經寄出信箱驗證確認信件給您，請至信箱收信，點擊啟用帳號連結。"
+      update_needs_confirmation: "您已經更新帳號成功，請至信箱收信，從驗證確認信件內點擊啟用帳號連結。"
+      updated: "恭喜！您已經更新帳號成功"
+      updated_but_not_signed_in: "您已經更新密碼成功，請使用新密碼登入。"
+    sessions:
+      signed_in: "登入成功！"
+      signed_out: "登出成功！"
+      already_signed_out: "登出成功！"
+    unlocks:
+      send_instructions: "您將會在1分鐘內收到帳號解鎖確認信件，請至信箱收信。"
+      send_paranoid_instructions: "如果您的信箱曾經註冊過本服務，您將會在1分鐘內收到帳號解鎖確認信件，請至信箱收信。"
+      unlocked: "恭喜！您的帳號已經解鎖成功，請登入網站以使用服務。"
+  errors:
+    messages:
+      already_confirmed: "您的信箱已經驗證成功，請登入網站以使用服務。"
+      confirmation_period_expired: "驗證時間已經超過%{period}失效, 請使用重寄驗證信服務。"
+      expired: "驗證時間失效, 請使用重寄驗證信服務。"
+      not_found: "找不到這筆資料。"
+      not_locked: "沒有被鎖住。"
+      not_saved:
+        one: "很抱歉！發生了以下錯誤，這筆 %{resource} 儲存失敗:"
+        other: "很抱歉！發生了 %{count} 個錯誤，這筆 %{resource} 儲存失敗:"

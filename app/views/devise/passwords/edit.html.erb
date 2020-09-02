@@ -1,0 +1,29 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="subtitle">
+        更改我的密碼
+      </h2>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="field">
+          <%= f.label :password, "新密碼" %><br />
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "請至少輸入#{@minimum_password_length}位數密碼", class: "input is-success" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "請再次輸入新密碼" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "請至少輸入#{@minimum_password_length}位數密碼", class: "input is-success" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "更改我的密碼",class: "button is-warning" %>
+        </div>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</section>

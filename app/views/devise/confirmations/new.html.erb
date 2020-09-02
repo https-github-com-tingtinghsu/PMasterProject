@@ -1,0 +1,23 @@
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+    <h2 class="subtitle">重寄確認信</h2>
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請填寫您的信箱", class: "input is-success", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "重寄確認信", class: "button is-warning" %>
+        </div>
+      <% end %>
+      <br>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</section>
+
+

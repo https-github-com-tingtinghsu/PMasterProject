@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>PMasterProject</title>
+  <title>PMasterProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   
+    <style>
+       /* html{
+         font-size: 0;
+        } */
+    </style>
   </head>
-
-  <body>
+  <body> 
+    <%= render "shared/frontend/navbar" %>
+    <%= render "shared/frontend/flash" if notice %>    
     <%= yield %>
+    
+    
+    <%= render "shared/frontend/footer" %>
+    
   </body>
 </html>

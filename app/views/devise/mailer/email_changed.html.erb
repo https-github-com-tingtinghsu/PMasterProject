@@ -1,0 +1,7 @@
+<p>Hello <%= @email %>!謝謝您使用P Master!的服務</p>
+
+<% if @resource.try(:unconfirmed_email?) %>
+  <p>您的email已經改成：<%= @resource.unconfirmed_email %>.</p>
+<% else %>
+  <p>您的email已經改成： <%= @resource.email %>.</p>
+<% end %>

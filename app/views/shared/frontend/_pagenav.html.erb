@@ -1,0 +1,31 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+        <%= image_tag("home/P.svg") %>
+      <%# <img src="images/shared/P.svg" width="112" height="28"> %>
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if current_user %>
+            <strong><%= link_to '編輯帳戶', edit_user_registration_path, class: "button is-primary" %></strong>
+            <strong><%= link_to '登出', destroy_user_session_path, method: 'delete', class: "button is-light" %></strong>
+          <% else %>
+            <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %></strong>
+            <strong><%= link_to '我要登入', new_user_session_path, class: "button is-light" %></strong>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
