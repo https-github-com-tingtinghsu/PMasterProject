@@ -1,10 +1,17 @@
 class WorkspacesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :find_workspace, only: [:show, :edit, :update]
   def index
     @workspaces = current_user.workspaces.all
   end
+
+  def show
+  end  
+
   def new
     @workspace = Workspace.new
   end
+
   def create
     @workspace = current_user.workspaces.new(workspace_params)
     if @workspace.save
@@ -14,13 +21,10 @@ class WorkspacesController < ApplicationController
     end
   end
 
-  def edit
-    @workspace = Workspace.find(params[:id])    
+  def edit    
   end
 
-  def update
-    @workspace = Workspace.find(params[:id])
-
+  def update  
     if @workspace.update(workspace_params)
       redirect_to workspaces_path, notice: "更新成功"
     else
@@ -28,11 +32,11 @@ class WorkspacesController < ApplicationController
     end
   end
 
-  def show
+  private
+  def find_workspace
     @workspace = Workspace.find(params[:id])
   end
 
-  private
   def workspace_params
     params.require(:workspace).permit(:name)
   end
