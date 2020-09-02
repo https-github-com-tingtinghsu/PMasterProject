@@ -3,10 +3,10 @@
 <div class="mx-5">
   <% @boards.each do |board| %>
     <div class="mx-5 my-5">
-      <p class="bg-gray-200 block w-15 p-2 my-2 rounded-md">。<%= link_to  board.name, workspace_board_path(@workspace, board) %>
+      <p class="bg-gray-200 block w-15 p-2 my-2 rounded-md">。<%= link_to  "#{board.id} #{board.name}", board_path(board) %>
       </p>
       <p>
-        <%= link_to '編輯', edit_workspace_board_path(@workspace, board), class: "px-3 py-1 mb-10 bg-orange-500 text-white rounded text-center" %>
+        <%= link_to ' 編輯', edit_board_path(board), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
       </p>      
     </div>
   <% end %>

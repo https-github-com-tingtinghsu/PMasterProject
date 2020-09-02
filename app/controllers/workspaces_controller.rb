@@ -27,7 +27,7 @@ class WorkspacesController < ApplicationController
 
   def update  
     if @workspace.update(workspace_params)
-      redirect_to workspaces_path, notice: "更新成功"
+      redirect_to workspaces_path, notice: "更新工作區成功"
     else
       render :edit
     end
