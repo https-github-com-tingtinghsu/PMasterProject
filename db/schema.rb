@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_074812) do
+ActiveRecord::Schema.define(version: 2020_09_02_125539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_074812) do
     t.bigint "workspace_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role", default: "user"
     t.index ["user_id"], name: "index_workspace_users_on_user_id"
     t.index ["workspace_id"], name: "index_workspace_users_on_workspace_id"
   end
@@ -126,6 +127,8 @@ ActiveRecord::Schema.define(version: 2020_08_28_074812) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_workspaces_on_deleted_at"
     t.index ["user_id"], name: "index_workspaces_on_user_id"
   end
 
