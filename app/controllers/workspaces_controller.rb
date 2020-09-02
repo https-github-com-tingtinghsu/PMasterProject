@@ -6,6 +6,7 @@ class WorkspacesController < ApplicationController
   end
 
   def show
+    @boards = @workspace.boards
   end  
 
   def new
