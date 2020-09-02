@@ -4,10 +4,11 @@
 
 <div class="mx-5 my-5">
   <% @workspaces.each do |workspace| %>
-    <div class="mx-5 mx-2 my-2">
-      <p class="bg-gray-200 block w-15 p-2 my-2 rounded-md">。<%= link_to workspace.name, workspace_path(workspace) %></p>
+    <div class="mx-5 mb-10">
+      <p class="bg-gray-200 block w-15 p-2 my-2 rounded-md">。<%= link_to workspace.name, workspace_path(workspace) %>
+      </p>
       <p>
-        <%= link_to '編輯', edit_workspace_path(workspace), class: "px-3 py-1 bg-orange-500 text-white rounded text-center" %>
+        <%= link_to '編輯', edit_workspace_path(workspace), class: "px-3 py-1 mb-10 bg-orange-500 text-white rounded text-center" %>
       </p>
     </div>
   <% end %>
