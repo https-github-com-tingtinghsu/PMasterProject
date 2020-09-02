@@ -64,15 +64,15 @@
   display: flex;
 }
 
-#workspaces_list{
+/* #workspaces_list{
 
-}
+} */
 
 #workspaces_list .workspaces_item > li{
   font-weight: bold;
 }
 
-#workspaces_list .task_item{
+#workspaces_list .board_item{
   margin-bottom: 15px;
 }
 
@@ -131,8 +131,8 @@
 #create_board{
   background-color: violet;
 }
-#selector{
-}
+/* #selector{
+} */
 #selector_item{
   display: flex;
 }
@@ -147,6 +147,6 @@
 }
 
 #projects_info_content{
-  height: ;
+  
   overflow: scroll;
 }

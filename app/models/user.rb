@@ -11,4 +11,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :replies
 
+  def as_member
+    Member.find(id)
+  end
 end
