@@ -1,6 +1,6 @@
 <template>
     <div :id="workspacecontent" class="">
-        <!-- <Functionbar></Functionbar> -->
+        <Functionbar></Functionbar>
         <Grouplist></Grouplist>
     </div>
 </template>
@@ -10,10 +10,15 @@
 import Functionbar from './functionbar.vue'
 import Grouplist from './grouplist.vue'
 export default {
+  props:["workspacecontent", "functionbar"],
   components: { Functionbar, Grouplist}
 }
 </script>
 
 <style scoped>
+
+#workspacecontent{
+  width: 1200px;
+}
 
 </style>

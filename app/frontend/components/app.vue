@@ -24,7 +24,8 @@ import Workspacecontent from "./workspacecontent.vue";
 export default {
   name: 'app',
   data: function() {
-    return {};
+    return {
+    };
   },
   components: { Menubar, Workspacelist, Workspacecontent}
 };
@@ -33,5 +34,8 @@ export default {
 <style scoped>
 #wrap {
   display: flex;
+}
+#workspacecontent{
+  flex-grow: 1;
 }
 </style>

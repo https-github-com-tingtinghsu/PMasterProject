@@ -26,7 +26,7 @@
 <script>
 import Icon from './icon.vue'
 export default {
-  // props:["menu"],
+  props:["menu"],
   data: function () {
     return {
       
@@ -53,7 +53,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #292F4C;
+  background-color: #48C774;
 }
 
 
