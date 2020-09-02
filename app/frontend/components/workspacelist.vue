@@ -18,19 +18,15 @@
         </div>
         <div>
         </div>
-          <Workspace v-for="workspace in workspacelist" :workspace="workspace" :key="workspace.id"></Workspace>
+          <!-- <Workspace v-for="workspace in workspacelist" :workspace="workspace" :key="workspace.id"></Workspace> -->
           <!-- <Workspaceitem></Workspaceitem> -->
       </div>
       <div class="workspaceitem">
-        <Workspaceitem></Workspaceitem>
-        <Workspaceitem></Workspaceitem>
-        <Workspaceitem></Workspaceitem>
       </div>
     </div>
-    <div id="menuBarSide">
+    <!-- <div id="menuBarSide">
       <a id="workspace-btn-collapse" @click="showSidebar = !showSidebar"><i class="fas fa-angle-right" :class="{'rotate': showSidebar }"></i></a>
-    </div>
-  </div>
+    </div> -->
 </template>
 
 
