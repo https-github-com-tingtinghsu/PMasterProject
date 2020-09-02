@@ -1,0 +1,12 @@
+form {
+  label {
+    display: block;
+  }
+
+
+  .field_with_errors {
+    input,textarea {
+      border: 1px solid red;
+    }
+  }
+}

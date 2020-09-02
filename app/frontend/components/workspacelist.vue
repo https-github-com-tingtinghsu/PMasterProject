@@ -1,16 +1,25 @@
 <template>
-  <div :id="workspacelist" id="workspace-list">
-    <div class="menuBarCollapse" :class="{'showSidebar': showSidebar }">
-      <div id="workspace-create">
-        <p>Workspaces</p>
-      </div>
-      <div id="workspace-search">
-        <div class="search-icon">
-          <i class="fas fa-search"></i>
+    <div :id="workspacelist">
+      <div id="workspace-list" class="">
+        <a id="workspace-btn-collapse" @click="collapse"></a>
+        <div id="workspace-create">
+          <p>工作看板<AddWorkspace></AddWorkspace></p>
         </div>
-        <div class="search-text">
-          <input type="text" placeholder="Filter" />
+        <div id="workspace-search">
+          <div class="search-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="search-text">
+            <input type="text" placeholder="Filter">
+          </div>
         </div>
+        <div class="workspaceitem" v-show="showSidebar">
+
+        </div>
+        <div>
+        </div>
+          <Workspace v-for="workspace in workspacelist" :workspace="workspace" :key="workspace.id"></Workspace>
+          <!-- <Workspaceitem></Workspaceitem> -->
       </div>
       <div class="workspaceitem">
         <Workspaceitem></Workspaceitem>
@@ -26,21 +35,31 @@
 
 
 <script>
-// document.querySelector('#workspace-btn-collapse').addEventListener('click', function(){
-//   document.querySelector('.fas').classList.toggle('rotate')
-// })
-import Workspaceitem from "./workspaceitem";
-export default {
-  props: ["workspacelist"],
-  data() {
-    return {
-      showSidebar: true
-    };
-  },
-  methods: {},
+  import Rails from '@rails/ujs';
+  import Workspaceitem from './workspaceitem'
+  import Workspace from 'components/workspace'
+  import AddWorkspace from  'components/addWorkspace'
 
-  components: { Workspaceitem }
-};
+  export default {
+    name: 'Workspacelist',
+    props: ["workspacelist"],
+
+    data: function() {
+      return {
+        showSidebar: true,
+        workspace: this.workspace,
+      }
+    },
+    methods: {
+      collapse(){
+        this.showSidebar = !this.showSidebar
+        console.log("ok")
+      }
+    },
+
+    components: { Workspaceitem, Workspace, AddWorkspace }
+  }
+
 </script>
 
 <style scoped>

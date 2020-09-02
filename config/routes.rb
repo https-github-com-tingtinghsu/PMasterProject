@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   end
 
+  resources :boards do
+    member do
+      put :move
+    end
+  end
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
