@@ -3,7 +3,7 @@
 <div class="mx-5 my-5">
   <% @boards.each do |board| %>
     <div class="mx-5 my-2">
-      <p class="bg-gray-200 block p-2 rounded-md">。<%= link_to  board.name, workspace_board_path(board) %></p>
+      <p class="bg-gray-200 block p-2 rounded-md">。<%= link_to  board.name, workspace_board_path(@workspace) %></p>
     </div>
   <% end %>
   <%= link_to '回Workspace列表', workspaces_path, class: "mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center" %>
