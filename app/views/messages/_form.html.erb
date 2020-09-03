@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
+  <div class="chatroom-input">
+    <%= form.text_area :content, class: 'chatroom-input' %>
     <%= form.hidden_field :room_id, value: room.id %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="btn">
+    <%= form.button "送出" %>
   </div>
+  </div>
+
+    
 <% end %>

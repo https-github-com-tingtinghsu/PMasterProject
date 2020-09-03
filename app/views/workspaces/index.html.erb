@@ -27,33 +27,36 @@
   </ul>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-3">
+<div class="container">
+  <div class="row chatbox">
+    <div class="channelbox">
       <%= render 'rooms/form', room: Room.new %>
         <% @rooms.each do |room| %>
           <%= link_to room do %>
-          <div class="col-3">
+          <div class="channel">
             <%= room.name %>
           </div>
           <% end %>
         <% end %>
     </div>
-     <% if @room.present? %>
-        <p>
-          <%= @room.name %>
-        </p>
-        <% @room.messages.each do |message| %>
-          <p>
-            <%= message.content %> - <%= message.user.email %>
-            
-          </p>
-        <% end %>
-        
-        <div class="chatroom">
-          <%= render '/messages/form', message: Message.new, room: @room  %>
+     <div class=" messagesbox">
+       <% if @room.present? %>
+          <h2>
+            <%= @room.name %>
+          </h2>
+          <div class="chatcontent-box">
+            <% @room.messages.each do |message| %>
+                <div class="chatcontent">
+                  <%= message.content %> - <%= message.user.email %>
+                </div>
+            <% end %>
+          </div>
           
-        </div>
-      <% end %>
+          <div class="chatroom">
+            <%= render '/messages/form', message: Message.new, room: @room  %>
+            
+          </div>
+        <% end %>
+     </div>
   </div>
 </div>

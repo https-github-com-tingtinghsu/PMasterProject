@@ -1,0 +1,46 @@
+.container{
+    margin: 30px;
+}
+.chatbox{
+    display: flex;
+}
+.channel{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin: 10px;
+}
+.messagesbox{
+    // border: solid rebeccapurple 1px;
+    width: 1000px;
+    margin: 20px;
+
+    h2{
+        font-size: 30px;
+    }
+    .chatcontent-box{
+        // border: solid red 1px;
+        margin: 20px 0;
+        background-color: rgb(229, 226, 226);
+        overflow-y: auto;
+        height: 200px;
+    }
+    .chatcontent{
+        margin: 20px 10px;
+    }
+    .chatroom{
+        display: flex;
+    }
+}
+.chatroom-input{
+  display: flex;
+  width: 1000px;
+
+  .btn{
+    text-align: center;
+    display: inline-block;
+    line-height: 40px;
+    width: 50px;
+    background-color: #aaa;
+  }
+}
