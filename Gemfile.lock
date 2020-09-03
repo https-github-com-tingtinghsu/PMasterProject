@@ -175,6 +175,8 @@ GEM
       nio4r (~> 2.0)
     puma (4.3.5-java)
       nio4r (~> 2.0)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
       rack
@@ -318,6 +320,7 @@ DEPENDENCIES
   paranoia (~> 2.4, >= 2.4.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
+  pundit (~> 2.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   rspec-rails (~> 4.0, >= 4.0.1)
   sass-rails (>= 6)

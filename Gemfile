@@ -24,6 +24,7 @@ gem 'figaro', '~> 1.2'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
+gem 'pundit', '~> 2.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
