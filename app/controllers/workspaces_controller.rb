@@ -3,9 +3,11 @@ class WorkspacesController < ApplicationController
   before_action :find_workspace, only: [:show, :edit, :update, :destroy]
   def index
     @workspaces = current_user.workspaces.all
+    @rooms = Room.all
   end
 
   def show
+    @rooms = Room.all
   end  
 
   def new
@@ -45,5 +47,7 @@ class WorkspacesController < ApplicationController
   def workspace_params
     params.require(:workspace).permit(:name)
   end
+
+  
 
 end
