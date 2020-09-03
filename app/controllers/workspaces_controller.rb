@@ -14,7 +14,7 @@ class WorkspacesController < ApplicationController
   end
 
   def create
-    @workspace = current_user.workspaces.new(workspace_params)
+    @workspace = current_user.created_workspaces.new(workspace_params)
     if @workspace.save
       redirect_to workspaces_path, notice: '新增成功！'
     else
