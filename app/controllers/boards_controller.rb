@@ -7,6 +7,20 @@ class BoardsController < ApplicationController
   def edit
   end
 
+  def new
+    @board = Board.new
+  end
+
+  def create
+    @workspace = current_user.created_workspaces.find_by(params[:id])
+    @board = @workspace.boards.new(board_params)
+    if @board.save
+      redirect_to workspace_path(@workspace), notice: '新增成功！'
+    else
+      render :new
+    end
+  end
+
   def update  
     if @board.update(board_params)
       redirect_to workspace_path(@board.workspace), notice: "更新看板區成功"
