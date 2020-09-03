@@ -43,6 +43,13 @@
         <p>
           <%= @room.name %>
         </p>
+        <% @room.messages.each do |message| %>
+          <p>
+            <%= message.content %> - <%= message.user.email %>
+            
+          </p>
+        <% end %>
+        
         <div class="chatroom">
           <%= render '/messages/form', message: Message.new, room: @room  %>
           
