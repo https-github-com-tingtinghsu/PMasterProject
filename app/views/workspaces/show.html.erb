@@ -1,7 +1,20 @@
-<h1 class="text-xl p-2 m-5">工作區標題：<%= @workspace.name %></h1>
-
-<div class="mx-5 my-5">
-
-
-  <%= link_to '回Workspace列表', workspaces_path, class: "mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center" %>
+<h1 class="text-xl p-2 m-5 bg-blue-300 rounded-md">工作區：<%= @workspace.name %></h1>
+<h2 class="text-md p-2 ml-5">看板：</h2>
+<% if current_user == @workspace.creator %>
+  <%= link_to '新增看板 +', new_workspace_board_path(@workspace, @board), class: "mt-2 ml-8 px-3 py-1 bg-green-400 text-white w-32 rounded text-center" %>
+<% end %>
+<div class="mx-5">
+  <% @boards.each do |board| %>
+    <div class="mx-5 my-5">
+      <p class="bg-gray-200 block w-15 p-2 my-2 rounded-md">。<%= link_to  "#{board.id} #{board.name}", board_path(board) %>
+      </p>
+      <p>
+        <% if current_user == @workspace.creator %>
+          <%= link_to ' 編輯', edit_board_path(board), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
+        <% end %>
+      </p>      
+    </div>
+  <% end %>
 </div>
+
+  <%= link_to '回Workspace列表', workspaces_path, class: "m-4 ml-5 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center" %>

@@ -6,6 +6,7 @@ class WorkspacesController < ApplicationController
   end
 
   def show
+    @boards = @workspace.boards
   end  
 
   def new
@@ -13,7 +14,7 @@ class WorkspacesController < ApplicationController
   end
 
   def create
-    @workspace = current_user.workspaces.new(workspace_params)
+    @workspace = current_user.created_workspaces.new(workspace_params)
     if @workspace.save
       redirect_to workspaces_path, notice: '新增成功！'
     else
@@ -26,7 +27,7 @@ class WorkspacesController < ApplicationController
 
   def update  
     if @workspace.update(workspace_params)
-      redirect_to workspaces_path, notice: "更新成功"
+      redirect_to workspaces_path, notice: "更新工作區成功"
     else
       render :edit
     end

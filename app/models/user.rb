@@ -3,7 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-  has_many :workspaces
+
+  has_many :created_workspaces, class_name: 'Workspace'
+  has_many :workspace_users
+  has_many :workspaces, through: :workspace_users 
 
   has_many :assignments
   has_many :items, through: :assignments   
@@ -11,7 +14,4 @@ class User < ApplicationRecord
   has_many :posts
   has_many :replies
 
-  def as_member
-    Member.find(id)
-  end
 end
