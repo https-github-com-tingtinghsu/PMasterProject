@@ -1,6 +1,8 @@
 <h1 class="text-xl p-2 m-5 bg-blue-300 rounded-md">工作區：<%= @workspace.name %></h1>
 <h2 class="text-md p-2 ml-5">看板：</h2>
-<%= link_to '新增看板 +', new_workspace_board_path(@workspace, @board), class: "mt-2 ml-8 px-3 py-1 bg-green-400 text-white w-32 rounded text-center" %>
+<% if current_user == @workspace.creator %>
+  <%= link_to '新增看板 +', new_workspace_board_path(@workspace, @board), class: "mt-2 ml-8 px-3 py-1 bg-green-400 text-white w-32 rounded text-center" %>
+<% end %>
 <div class="mx-5">
   <% @boards.each do |board| %>
     <div class="mx-5 my-5">
