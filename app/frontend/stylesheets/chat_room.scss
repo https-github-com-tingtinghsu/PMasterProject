@@ -3,12 +3,16 @@
 }
 .chatbox{
     display: flex;
+    width: 100px;
 }
 .channel{
     width: 100px;
-    height: 40px;
     text-align: center;
     margin: 10px;
+    display: inline-block;
+    line-height: 40px;
+    background-color: rgb(58, 212, 223);
+    // border: red solid 1px;
 }
 .messagesbox{
     // border: solid rebeccapurple 1px;
@@ -24,14 +28,46 @@
         background-color: rgb(229, 226, 226);
         overflow-y: auto;
         height: 200px;
+
+        .chatcontent{
+          margin: 20px 10px;
+          // border: royalblue solid 1px;
+
+        }
+        .author{
+          display: flex;
+          justify-content: flex-end;
+        }
+        .message-text{
+          padding: 5px;
+          display: flex;
+          justify-content: flex-end;
+          
+          span{
+            display: inline-block;
+            background-color: #3356f3;
+            line-height: 30px;
+            padding: 10px;
+            border-radius: 10px;
+            color: snow;
+
+          }
+        }
+        &.me{
+          .author{
+            margin: 20px 10px;
+            border: red solid 1px;
+            background-color: red;
+  
+          }
+        }
     }
-    .chatcontent{
-        margin: 20px 10px;
-    }
+    
     .chatroom{
         display: flex;
     }
 }
+
 .chatroom-input{
   display: flex;
   width: 1000px;

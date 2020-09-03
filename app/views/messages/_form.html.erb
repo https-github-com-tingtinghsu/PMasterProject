@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="chatroom-input">
-    <%= form.text_area :content, class: 'chatroom-input' %>
+    <%= form.text_field :content, class: 'chatroom-input', placeholder: "請在這輸入..." %>
     <%= form.hidden_field :room_id, value: room.id %>
 
   <div class="btn">
