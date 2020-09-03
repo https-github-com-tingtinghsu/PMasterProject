@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
 
   def update  
     if @board.update(board_params)
-      redirect_to workspace_path(@workspace), notice: "更新看板區成功"
+      redirect_to workspace_path(@board.workspace), notice: "更新看板區成功"
     else
       render :edit
     end
