@@ -7,18 +7,13 @@
     <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-   
-    <style>
-       /* html{
-         font-size: 0;
-        } */
-    </style>
+
   </head>
   <body> 
     <%= render "shared/frontend/navbar" %>
-    <%= render "shared/frontend/flash" if notice %>    
+    <%= render "shared/frontend/flash" if notice %>
+    <%= render "shared/frontend/sidebar" if current_user %>
     <%= yield %>
-    
     
     <%= render "shared/frontend/footer" %>
     

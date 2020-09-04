@@ -3,6 +3,7 @@ class WorkspacesController < ApplicationController
   before_action :find_workspace, only: [:show, :edit, :update, :destroy]
   def index
     @workspaces = current_user.created_workspaces
+    render json: @workspaces, only: [:id, :name]
   end
 
   def show
