@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create( { channel: "RoomChannel", room_id: 2}, {
+consumer.subscriptions.create( { channel: "RoomChannel", room_id: 6}, {
   connected() {
     console.log("aaa")
     // Called when the subscription is ready for use on the server
