@@ -14,63 +14,58 @@
     background-color: rgb(58, 212, 223);
     // border: red solid 1px;
 }
-.messagesbox{
-    // border: solid rebeccapurple 1px;
-    width: 1000px;
-    margin: 20px;
+// .messagesbox{
+//     // border: solid rebeccapurple 1px;
+//     width: 1000px;
+//     margin: 20px;
 
-    h2{
-        font-size: 30px;
-    }
-    .chatcontent-box{
-        // border: solid red 1px;
-        margin: 20px 0;
-        background-color: rgb(229, 226, 226);
-        overflow-y: auto;
-        height: 200px;
+//     h2{
+//         font-size: 30px;
+//     }
+//     .chatcontent-box{
+//         // border: solid red 1px;
+//         margin: 20px 0;
+//         background-color: rgb(229, 226, 226);
+//         overflow-y: auto;
+//         height: 1000px;
 
 
-        .chatcontent{
-          margin: 20px 10px;
-          // border: royalblue solid 1px;
+//         .chatcontent{
+//           margin: 20px 10px;
+//           // border: royalblue solid 1px;
 
-        }
+//         }
 
-        .author-reply{
-          // border: red solid 1px;
+//         .author-reply{
+//           // border: red solid 1px;
 
-        }
-        .author{
-          display: flex;
-          justify-content: flex-end;
-        }
-        .message-text{
-          padding: 5px;
-          display: flex;
-          justify-content: flex-end;
+//         }
+//         .author{
+//           display: flex;
+//           justify-content: flex-end;
+//         }
+//         .message-text{
+//           padding: 5px;
+//           display: flex;
+//           justify-content: flex-end;
           
-          span{
-            display: inline-block;
-            background-color: #3356f3;
-            line-height: 30px;
-            padding: 10px;
-            border-radius: 10px;
-            color: snow;
+//           span{
+//             display: inline-block;
+//             background-color: #3356f3;
+//             line-height: 30px;
+//             padding: 10px;
+//             border-radius: 10px;
+//             color: snow;
 
-          }
-        }
+//           }
+//         }
        
-    }
-    &.me{
-      .author-reply{
-        background-color: red;
-      }
-    }
-    
-    .chatroom{
-        display: flex;
-    }
-}
+//     }
+  
+//     .chatroom{
+//         display: flex;
+//     }
+// }
 
 .chatroom-input{
   display: flex;
@@ -82,5 +77,24 @@
     line-height: 40px;
     width: 50px;
     background-color: #aaa;
+  }
+}
+.chatcontent{
+  display: flex;
+  .message-text{
+    background-color: #eeeeee;
+    border-radius: 15px;
+    padding: 10px;
+  }
+  
+}
+.me{
+  display: flex;
+  justify-content: flex-end;
+  .message-tex{
+  background-color: rgb(49, 49, 214);
+  color: #fefcfc;
+
+    
   }
 }

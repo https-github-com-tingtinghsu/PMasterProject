@@ -18,10 +18,24 @@ document.addEventListener('turbolinks:load', () => {
   
     received(data) {
       console.log(data)
+      const element = document.getElementById('user-id');
+      // const user_id = (Number)(element.getAttribute('data-user-id'));
+      const user_id = element.getAttribute('data-user-id');
+      // console.log(element)
+      console.log(user_id)
+      // debug
+      let html;
+      if (user_id === data.message.user_id){
+        html = data.me
+      }else{
+        html = data.others
+      }
+
+      console.log(typeof data.message.user_id)
+      console.log(typeof user_id)
+      console.log(html)
       const messageContainer = document.getElementById('messages')
-      messageContainer.innerHTML = messageContainer.innerHTML + 
-      data.html
-      
+      messageContainer.innerHTML = messageContainer.innerHTML + html
     }
   });
 })

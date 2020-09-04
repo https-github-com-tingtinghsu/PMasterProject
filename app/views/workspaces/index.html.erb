@@ -21,12 +21,13 @@
   <ul>
   <% current_user.as_member.workspaces.each do |workspace| %>
     <li class="mx-5 my-2">
-      <p class="bg-gray-200 block p-2 rounded-md">。<%= link_to workspace.name, workspace_path(workspace) %></p>
+      <p class="bg-gray-200 block p-2 rounded-md"><%= link_to workspace.name, workspace_path(workspace) %></p>
     </li>
   <% end %>
   </ul>
 </div>
 
+<div id="user-id" data-user-id="<%= current_user.id %>"></div>
 <div class="container">
   <div class="row chatbox">
     <div class="channelbox">
@@ -36,6 +37,7 @@
           <div class="channel">
             <%= room.name %>
           </div>
+            <small><%= room.users.uniq.count %>member</small>
           <div id="room-id" data-room-id="<%= @room.id %>">
             <%= room.id %>
           </div>

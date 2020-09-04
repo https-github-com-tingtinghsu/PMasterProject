@@ -2,12 +2,15 @@ class SendMessageJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    html = ApplicationController.render(
-      partial: 'messages/message',
+    me = ApplicationController.render(
+      partial: 'messages/me',
       locals: {message: message} 
     )
-    # console.log(room_id)
-
-    ActionCable.server.broadcast "room_channel_#{message.room_id}", html: html
+    others = ApplicationController.render(
+      partial: 'messages/others',
+      locals: {message: message} 
+    )
+    ActionCable.server.broadcast "room_channel_#{message.room_id}",
+    me: me, others: others, message: message
   end
 end
