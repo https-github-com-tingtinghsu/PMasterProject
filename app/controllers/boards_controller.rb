@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :find_workspace, only: [:new, :create]
-  before_action :find_board, only: [:show, :edit, :update]
+  before_action :find_board, only: [:show, :edit, :update, :destroy]
   def show
   end
 
