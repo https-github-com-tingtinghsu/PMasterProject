@@ -19,8 +19,8 @@ document.addEventListener('turbolinks:load', () => {
     received(data) {
       console.log(data)
       const element = document.getElementById('user-id');
-      // const user_id = (Number)(element.getAttribute('data-user-id'));
-      const user_id = element.getAttribute('data-user-id');
+      const user_id = (Number)(element.getAttribute('data-user-id'));
+      // const user_id = element.getAttribute('data-user-id');
       // console.log(element)
       console.log(user_id)
       // debug
