@@ -46,4 +46,12 @@ class ApplicationPolicy
       scope.all
     end
   end
+
+  private
+  def admin
+    user && workspaceUser.role == "admin"
+  end
+  def manager
+    user && workspaceUser.role == "manager"
+  end
 end

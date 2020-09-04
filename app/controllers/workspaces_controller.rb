@@ -15,7 +15,11 @@ class WorkspacesController < ApplicationController
 
   def create
     @workspace = current_user.workspaces.new(workspace_params)
+    # @workspace.workspace_users << WorkspaceUser.new(user: current_user, role: 'manager')
+    # 當這個版寫入成功時，把目前使用者也加入到workspace_users，並且在成功存檔時，一同寫入
     if @workspace.save
+      # WorkspaceUser.create(workspace: @workspace, user: current_user, role: 'manager')
+      # 若有心要在建立版時，刻意寫2個creator，那就會在存檔時爆炸
       redirect_to workspaces_path, notice: '新增成功！'
     else
       render :new
@@ -35,6 +39,7 @@ class WorkspacesController < ApplicationController
 
   def destroy
     @workspace.destroy
+    authorize @workspace, :destroy
     redirect_to workspaces_path, notice: "工作區刪除成功！"
   end
 
