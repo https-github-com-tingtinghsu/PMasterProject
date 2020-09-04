@@ -28,8 +28,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @message.save
     # redirect_to request.referrer
-    ApplicationCable.server.broadcast
-    "room_channel_#{@message.room_id}", message: "hello"
+    ActionCable.server.broadcast "room_channel_#{@message.room_id}", message: "hello"
   end
 
   # PATCH/PUT /messages/1
