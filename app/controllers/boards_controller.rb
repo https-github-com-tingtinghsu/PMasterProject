@@ -1,10 +1,7 @@
 class BoardsController < ApplicationController
-  before_action :find_workspace, only: [:new, :create, :edit, :update, :destroy]  
+  before_action :find_workspace, only: [:new, :create]
+  before_action :find_board, only: [:show, :edit, :update]
   def show
-    @board = Board.find(params[:id])
-  end
-
-  def edit
   end
 
   def new
@@ -20,7 +17,10 @@ class BoardsController < ApplicationController
     end
   end
 
-  def update  
+  def edit
+  end
+
+  def update   
     if @board.update(board_params)
       redirect_to workspace_path(@board.workspace), notice: "更新看板區成功"
     else
@@ -37,6 +37,10 @@ class BoardsController < ApplicationController
   private
   def find_workspace
     @workspace = Workspace.find(params[:workspace_id]) 
+  end
+
+  def find_board
+    @board = Board.find(params[:id])    
   end
 
   def board_params
