@@ -18,7 +18,7 @@
 
 <div class="mx-5 my-5">
   <ul>
-  <% @workspaces.each  do |workspace| %>
+  <% current_user.workspaces.each  do |workspace| %>
     <li class="mx-5 my-2">
       <p class="bg-gray-200 block p-2 rounded-md">。<%= link_to workspace.name, workspace_path(workspace) %></p>
     </li>

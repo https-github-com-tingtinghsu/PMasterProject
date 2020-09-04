@@ -2,7 +2,7 @@ class WorkspacesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_workspace, only: [:show, :edit, :update, :destroy]
   def index
-    @workspaces = current_user.workspaces.all
+    @workspaces = current_user.created_workspaces
   end
 
   def show
