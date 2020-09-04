@@ -1,18 +1,17 @@
 class BoardsController < ApplicationController
-  before_action :find_board, only: [:show, :edit, :update, :destroy]  
+  before_action :find_workspace, only: [:new, :create, :edit, :update, :destroy]  
   def show
-    @workspace = @board.workspace
+    @board = Board.find(params[:id])
   end
 
   def edit
   end
 
   def new
-    @board = Board.new
+    @board = @workspace.boards.new
   end
 
   def create
-    @workspace = current_user.created_workspaces.find_by(params[:id])
     @board = @workspace.boards.new(board_params)
     if @board.save
       redirect_to workspace_path(@workspace), notice: '新增成功！'
@@ -36,8 +35,8 @@ class BoardsController < ApplicationController
   end
 
   private
-  def find_board
-    @board = Board.find(params[:id]) 
+  def find_workspace
+    @workspace = Workspace.find(params[:workspace_id]) 
   end
 
   def board_params
