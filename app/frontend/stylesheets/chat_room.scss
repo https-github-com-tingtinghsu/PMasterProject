@@ -29,9 +29,15 @@
         overflow-y: auto;
         height: 200px;
 
+
         .chatcontent{
           margin: 20px 10px;
           // border: royalblue solid 1px;
+
+        }
+
+        .author-reply{
+          // border: red solid 1px;
 
         }
         .author{
@@ -53,14 +59,12 @@
 
           }
         }
-        &.me{
-          .author{
-            margin: 20px 10px;
-            border: red solid 1px;
-            background-color: red;
-  
-          }
-        }
+       
+    }
+    &.me{
+      .author-reply{
+        background-color: red;
+      }
     }
     
     .chatroom{

@@ -46,8 +46,7 @@
           </h2>
           <div class="chatcontent-box">
             <% @room.messages.each do |message| %>
-                <div class="chatcontent" <%= "me" if message.user == current_user %>
-                >
+                <div class="chatcontent <%= 'me' if message.user == current_user %>">
                    <div class="author-reply">
                      <div class="author">
                        <%= message.user.email %>
