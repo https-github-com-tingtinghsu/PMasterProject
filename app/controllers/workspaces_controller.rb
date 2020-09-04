@@ -15,7 +15,7 @@ class WorkspacesController < ApplicationController
 
   def create
     @workspace = current_user.workspaces.new(workspace_params)
-    # @workspace.workspace_users << WorkspaceUser.new(user: current_user, role: 'manager')
+    @workspace.workspace_users << WorkspaceUser.new(user: current_user, role: 'manager')
     # 當這個版寫入成功時，把目前使用者也加入到workspace_users，並且在成功存檔時，一同寫入
     if @workspace.save
       # WorkspaceUser.create(workspace: @workspace, user: current_user, role: 'manager')
@@ -50,6 +50,7 @@ class WorkspacesController < ApplicationController
 
   def workspace_params
     params.require(:workspace).permit(:name)
+          .merge(user_id: current_user.id)
   end
 
 end
