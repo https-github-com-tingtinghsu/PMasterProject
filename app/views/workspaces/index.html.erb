@@ -36,6 +36,9 @@
           <div class="channel">
             <%= room.name %>
           </div>
+          <div id="room-id" data-room-id="<%= @room.id %>">
+            <%= room.id %>
+          </div>
           <% end %>
         <% end %>
     </div>
@@ -46,8 +49,9 @@
           </h2>
           <div class="chatcontent-box">
             <% @room.messages.each do |message| %>
-                <%= render '/messages/message', message: message  %>
-                
+                <div id="messages">
+                  <%= render '/messages/message', message: message  %>
+                </div>
             <% end %>
           </div>
           
