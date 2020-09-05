@@ -5,8 +5,8 @@
         <article class="tile is-child notification bg-blue-100">
           <nav class="panel">
             <p class="panel-heading">
-              工作區 Workspace 
-              <a data-target="modal-add-workspace" aria-haspopup="true" id="link-add-workspace"><i class="fas fa-plus-square text-green-800"></i></a>
+              我新增的工作區 
+              <a data-target="modal-add-workspace" aria-haspopup="true" id="link-add-workspace"></i><i class="fas fa-plus-square text-teal-600"></i></a>
             </p>
             <div id="sidebar">            
             </div>
@@ -32,7 +32,7 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">新增工作區</p>
-      <button class="delete" aria-label="close" id="btn-close-modal"></button>
+      <button class="delete btn-cancel-modal" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
       <label for="add-workspace-name" class="text-2xl">工作區名稱：</label>
@@ -40,7 +40,24 @@
     </section>
     <footer class="modal-card-foot">
       <button class="button is-success" id="btn-save-adding-workspace" disabled>儲存</button>
-      <button class="button" id="btn-cancel-adding">取消</button>
+      <button class="button btn-cancel-modal">取消</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal" id="modal-delete-workspace">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">刪除工作區</p>
+      <button class="delete btn-cancel-modal" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <label class="text-2xl">您確定要刪除嗎？</label>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success" id="btn-confirm-delete-workspace" data-workspace-id="">確定</button>
+      <button class="button btn-cancel-modal" id="btn-cancel-delete">取消</button>
     </footer>
   </div>
 </div>

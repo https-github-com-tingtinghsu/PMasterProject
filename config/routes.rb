@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  resources :workspaces do
+  resources :workspaces, except: [:new, :edit, :show] do
     resources :boards, shallow: true do
       resources :groups, shallow: true
     end

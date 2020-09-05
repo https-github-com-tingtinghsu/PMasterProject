@@ -1,31 +1,19 @@
 class WorkspacesController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:create]
-  before_action :find_workspace, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
+  before_action :find_workspace, only: [:update, :destroy]
   def index
     @workspaces = current_user.created_workspaces
     render json: @workspaces, only: [:id, :name]
   end
 
-  def show
-    @boards = @workspace.boards
-  end  
-
-  def new
-    @workspace = Workspace.new
-  end
-
   def create
-    # byebug
     @workspace = current_user.created_workspaces.new(name: params[:name])
     render json: { 
       success: @workspace.save,
       id: @workspace.id,
       name: @workspace.name
     }
-  end
-
-  def edit    
   end
 
   def update  
@@ -38,7 +26,9 @@ class WorkspacesController < ApplicationController
 
   def destroy
     @workspace.destroy
-    redirect_to workspaces_path, notice: "工作區刪除成功！"
+    render json: { 
+      success: true
+    }
   end
 
   private
