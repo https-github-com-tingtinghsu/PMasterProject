@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
   def show
     @rooms = Room.all
     @workspaces = current_user.workspaces.all
-    render 'workspaces/index'
+    render 'workspaces/index' 
   end
 
   # GET /rooms/new

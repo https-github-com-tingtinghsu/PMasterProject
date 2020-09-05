@@ -1,7 +1,7 @@
 import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
-  const element = document.getElementById('room-id');
+  const element = document.querySelector('.chatcontent-box')
   const room_id = element.getAttribute('data-room-id')
   // console.log(element)
   console.log(room_id)
@@ -20,22 +20,22 @@ document.addEventListener('turbolinks:load', () => {
       console.log(data)
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
+      const messageContainer = document.getElementById('messages')
       // const user_id = element.getAttribute('data-user-id');
       // console.log(element)
       // console.log(user_id)
       // debug
-      let html;
+      
       if (user_id === data.message.user_id){
-        html = data.me
+        messageContainer.innerHTML += data.me
       }else{
-        html = data.others
+        messageContainer.innerHTML += data.others
       }
 
       // console.log(typeof data.message.user_id)
       // console.log(typeof user_id)
       // console.log(html)
-      const messageContainer = document.getElementById('messages')
-      messageContainer.innerHTML = messageContainer.innerHTML + html
+      
     }
   });
 })

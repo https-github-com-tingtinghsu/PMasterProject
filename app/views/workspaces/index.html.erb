@@ -35,10 +35,9 @@
         <% @rooms.each do |room| %>
           <%= link_to room do %>
           <div class="channel">
-            <%= room.name %>
           </div>
             <small><%= room.users.uniq.count %>member</small>
-          <div id="room-id" data-room-id="<%= room.id %>">
+          <div id="room-id">
             <%= room.id %>
           </div>
           <% end %>
@@ -49,7 +48,7 @@
           <h2>
             <%= @room.name %>
           </h2>
-          <div class="chatcontent-box">
+          <div class="chatcontent-box" data-room-id="<%= @room.id %>">
             <div id="messages">
               <% @room.messages.each do |message| %>
                 <%= render '/messages/message', message: message  %>
