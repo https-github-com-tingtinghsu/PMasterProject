@@ -12,64 +12,11 @@
     display: inline-block;
     line-height: 40px;
     background-color: rgb(58, 212, 223);
-    // border: red solid 1px;
 }
-// .messagesbox{
-//     // border: solid rebeccapurple 1px;
-//     width: 1000px;
-//     margin: 20px;
-
-//     h2{
-//         font-size: 30px;
-//     }
-//     .chatcontent-box{
-//         // border: solid red 1px;
-//         margin: 20px 0;
-//         background-color: rgb(229, 226, 226);
-//         overflow-y: auto;
-//         height: 1000px;
-
-
-//         .chatcontent{
-//           margin: 20px 10px;
-//           // border: royalblue solid 1px;
-
-//         }
-
-//         .author-reply{
-//           // border: red solid 1px;
-
-//         }
-//         .author{
-//           display: flex;
-//           justify-content: flex-end;
-//         }
-//         .message-text{
-//           padding: 5px;
-//           display: flex;
-//           justify-content: flex-end;
-          
-//           span{
-//             display: inline-block;
-//             background-color: #3356f3;
-//             line-height: 30px;
-//             padding: 10px;
-//             border-radius: 10px;
-//             color: snow;
-
-//           }
-//         }
-       
-//     }
-  
-//     .chatroom{
-//         display: flex;
-//     }
-// }
 
 .chatroom-input{
   display: flex;
-  width: 1000px;
+  width: 500px;
 
   .btn{
     text-align: center;
@@ -92,8 +39,11 @@
   display: flex;
   justify-content: flex-end;
   .message-text {
-      background-color: rgb(49, 49, 214);
-      color: #fefcfc;
+    background-color: rgb(49, 49, 214);
+    color: #fefcfc;
+    display: flex;
+    justify-content: center;
+      
 
     
   }

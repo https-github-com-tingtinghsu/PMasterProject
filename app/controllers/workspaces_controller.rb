@@ -4,7 +4,7 @@ class WorkspacesController < ApplicationController
   def index
     @workspaces = current_user.workspaces.all
     @rooms = Room.all
-    @room = Room.find(1)
+    
   end
 
   def show
