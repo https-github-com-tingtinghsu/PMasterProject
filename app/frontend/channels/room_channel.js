@@ -36,6 +36,12 @@ document.addEventListener('turbolinks:load', () => {
       scroll_controller.scrollTop = scroll_controller.scrollHeight;
       message_input.value = '';
       console.log(message_input.value)
+
+      scroll_controller.addEventListener('keydwn', function(e){
+        if( e.keyCode === 13){
+          forInput();
+        }
+      },false)
       
       // console.log(typeof data.message.user_id)
       // console.log(typeof user_id)
