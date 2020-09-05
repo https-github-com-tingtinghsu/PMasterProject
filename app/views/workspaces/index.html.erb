@@ -35,6 +35,7 @@
         <% @rooms.each do |room| %>
           <%= link_to room do %>
           <div class="channel">
+          <%= room.name %>
           </div>
             <small><%= room.users.uniq.count %>member</small>
           <div id="room-id">

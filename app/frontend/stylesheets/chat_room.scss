@@ -4,6 +4,11 @@
 .chatbox{
     display: flex;
     width: 100px;
+    .chatcontent-box{
+      height: 300px;
+      overflow: auto;
+      
+    }
 }
 .channel{
     width: 100px;
@@ -17,7 +22,9 @@
 .chatroom-input{
   display: flex;
   width: 500px;
-
+  .text-input{
+    width: 500px;
+  }
   .btn{
     text-align: center;
     display: inline-block;
@@ -32,6 +39,9 @@
     background-color: #eeeeee;
     border-radius: 15px;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+      
   }
   
 }
@@ -48,4 +58,5 @@
     
   }
 }
+
 

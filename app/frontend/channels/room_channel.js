@@ -20,23 +20,29 @@ document.addEventListener('turbolinks:load', () => {
       console.log(data)
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
-      const messageContainer = document.getElementById('messages')
+      const messageContainer = document.getElementById('messages');
+      const scroll_controller = document.querySelector('.chatcontent-box');
+      const message_input = document.querySelector('.text-input');
       // const user_id = element.getAttribute('data-user-id');
       // console.log(element)
       // console.log(user_id)
       // debug
       
       if (user_id === data.message.user_id){
-        messageContainer.innerHTML += data.me
+        messageContainer.innerHTML += data.me;
       }else{
         messageContainer.innerHTML += data.others
       }
-
+      scroll_controller.scrollTop = scroll_controller.scrollHeight;
+      message_input.value = '';
+      console.log(message_input.value)
+      
       // console.log(typeof data.message.user_id)
       // console.log(typeof user_id)
       // console.log(html)
-      
     }
   });
+ 
+  
 })
 

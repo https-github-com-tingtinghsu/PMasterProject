@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="chatroom-input">
-    <%= form.text_field :content, class: 'chatroom-input', placeholder: "請在這輸入..." %>
+    <%= form.text_field :content, class: 'text-input', placeholder: "請在這輸入..." %>
     <%= form.hidden_field :room_id, value: room.id %>
 
-  <div class="btn">
+   <div class="btn">
     <%= form.button "送出" %>
   </div>
   </div>
