@@ -1,5 +1,6 @@
 class WorkspacesController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:create]
   before_action :find_workspace, only: [:show, :edit, :update, :destroy]
   def index
     @workspaces = current_user.created_workspaces
@@ -15,12 +16,13 @@ class WorkspacesController < ApplicationController
   end
 
   def create
-    @workspace = current_user.created_workspaces.new(workspace_params)
-    if @workspace.save
-      redirect_to workspaces_path, notice: '新增成功！'
-    else
-      render :new
-    end
+    # byebug
+    @workspace = current_user.created_workspaces.new(name: params[:name])
+    render json: { 
+      success: @workspace.save,
+      id: @workspace.id,
+      name: @workspace.name
+    }
   end
 
   def edit    

@@ -5,7 +5,8 @@
         <article class="tile is-child notification bg-blue-100">
           <nav class="panel">
             <p class="panel-heading">
-              工作區 Workspace
+              工作區 Workspace 
+              <a data-target="modal-add-workspace" aria-haspopup="true" id="link-add-workspace"><i class="fas fa-plus-square text-green-800"></i></a>
             </p>
             <div id="sidebar">            
             </div>
@@ -24,5 +25,22 @@
         </div>
     </article>
   </div>
+</div>
 
+<div class="modal" id="modal-add-workspace">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">新增工作區</p>
+      <button class="delete" aria-label="close" id="btn-close-modal"></button>
+    </header>
+    <section class="modal-card-body">
+      <label for="add-workspace-name" class="text-2xl">工作區名稱：</label>
+      <input type="text" id="add-workspace-name" name="add-workspace-name" class="border border-dash border-green-300 mx-2 px-3 py-3 rounded-md">
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success" id="btn-save-adding-workspace" disabled>儲存</button>
+      <button class="button" id="btn-cancel-adding">取消</button>
+    </footer>
+  </div>
 </div>
