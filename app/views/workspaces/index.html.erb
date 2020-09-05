@@ -38,8 +38,8 @@
             <%= room.name %>
           </div>
             <small><%= room.users.uniq.count %>member</small>
-          <div id="room-id" data-room-id="<%= @room.id %>">
-            <%# <%= room.id %>
+          <div id="room-id" data-room-id="<%= room.id %>">
+            <%= room.id %>
           </div>
           <% end %>
         <% end %>
