@@ -13,7 +13,6 @@ class RoomsController < ApplicationController
     @rooms = Room.all
     @workspaces = current_user.workspaces.all
     render 'workspaces/index'
-    
   end
 
   # GET /rooms/new
