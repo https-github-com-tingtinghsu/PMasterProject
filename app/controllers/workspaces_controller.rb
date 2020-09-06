@@ -1,7 +1,7 @@
 class WorkspacesController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: [:create, :destroy]
-  before_action :find_workspace, only: [:update, :destroy]
+  before_action :find_workspace, only: [:update, :destroy, :add_member]
   def index
     @workspaces = current_user.created_workspaces
     @memberworkspaces = current_user.workspaces
@@ -35,9 +35,18 @@ class WorkspacesController < ApplicationController
     }
   end
 
+  def add_member
+    # byebug
+    render json: { 
+      success: true,
+      email: params[:email]
+    }
+  end
+
   private
   def find_workspace
-    @workspace = Workspace.find(params[:id])
+    # byebug
+    @workspace = Workspace.find(params[:id] || params[:workspace_id])
   end
 
   def workspace_params

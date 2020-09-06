@@ -5,8 +5,11 @@ document.addEventListener('turbolinks:load', () => {
     $("#modal-add-workspace").addClass("is-active")
   })
 
-  $(".btn-cancel-modal, #btn-save-adding-workspace, #btn-confirm-delete-workspace").click(function(){
-    $("#modal-add-workspace, #modal-delete-workspace").removeClass("is-active")
+  $(".btn-cancel-modal, #btn-save-adding-workspace, #btn-confirm-delete-workspace")
+  .click(
+    function(){
+      $("#modal-add-workspace, #modal-delete-workspace, #modal-add-workspace-member")
+      .removeClass("is-active")
   })
 
   // create
@@ -14,10 +17,10 @@ document.addEventListener('turbolinks:load', () => {
     createWorkspace()
   })
 
-  $("#add-workspace-name").keydown(function(){
+  $("#add-workspace-name, #add-workspace-member-email").keydown(function(){
     // 新增時，沒填名字的話不能儲存
     isWorkspaceNameNull =  ($(this).val().length == 0)
-    $("#btn-save-adding-workspace").prop("disabled", isWorkspaceNameNull)
+    $("#btn-save-adding-workspace, #btn-send-member-email").prop("disabled", isWorkspaceNameNull)
   })
 
   // delete
@@ -26,6 +29,11 @@ document.addEventListener('turbolinks:load', () => {
     // console.log($(this).data("workspace-id"))
     deleteWorkspace($(this).data("workspace-id"))
   })
+
+  // email
+  $('#btn-send-member-email').click(function(){
+    sendMemeberEmail()
+  }) 
 })
 
 
@@ -95,6 +103,12 @@ function showWorkspaceTemplate(workspace, isCreated = true){
     $("#btn-confirm-delete-workspace").data("workspace-id", $(this).parent().data("workspace-id"))
   })
 
+  addMemberToWorkspace.click(function(){
+    $("#modal-add-workspace-member").addClass("is-active")    
+    memberAddWorkspaceId = $(this).parent().data("workspace-id")
+    $("#btn-send-member-email").data("workspace-id", memberAddWorkspaceId) 
+    // console.log(memberAddWorkspaceId)
+  })
 
   if (isCreated){
     workspaceItem.append(moreIconElement)    
@@ -110,10 +124,10 @@ function createWorkspace(){
     data: {
       name: $("#add-workspace-name").val()
     },
-    success: function(data){
-      if(data.success){
+    success: function(result){
+      if(result.success){
         $("#add-workspace-name").val('')
-        $("#created-workspaces").append(showWorkspaceTemplate(data))
+        $("#created-workspaces").append(showWorkspaceTemplate(result))
       }
       else{
         alert("新增失敗！")
@@ -135,4 +149,26 @@ function deleteWorkspace(id){
       }
     }
   });
+}
+
+function sendMemeberEmail(){
+  memberEmail = $("#add-workspace-member-email").val()
+  workspaceId = $("#btn-send-member-email").data("workspace-id")
+  $.ajax({
+    type: "GET",
+    url: "/workspaces/" + workspaceId + "/add_member",
+    data: {
+      email: memberEmail
+    },
+    success: function(result){
+      if(result.success){
+        console.log(result.email)
+      }
+      else{
+        console.log(result)
+        alert("寄送失敗！")
+      }
+    }
+  });  
+  $("add-workspace-member-email").val('')
 }
