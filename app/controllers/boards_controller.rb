@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :find_workspace, only: [:index, :new, :create]
+  skip_before_action :verify_authenticity_token, only: [:destroy]  
   before_action :find_board, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -38,9 +39,10 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    workspace_id = @board.workspace.id
     @board.destroy
-    redirect_to workspace_path(workspace_id), notice: "看板區刪除成功！"
+    render json: { 
+      success: true
+    }
   end
 
   private

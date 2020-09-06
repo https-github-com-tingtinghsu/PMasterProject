@@ -8,10 +8,10 @@ document.addEventListener('turbolinks:load', () => {
     $("#modal-add-workspace").addClass("is-active")
   })
 
-  $(".btn-cancel-modal, #btn-save-adding-workspace, #btn-confirm-delete-workspace")
+  $(".btn-cancel-modal, #btn-save-adding-workspace, #btn-confirm-delete-sidebar-item")
   .click(
     function(){
-      $("#modal-add-workspace, #modal-delete-workspace, #modal-add-workspace-member")
+      $("#modal-add-workspace, #modal-delete-sidebar-item, #modal-add-workspace-member")
       .removeClass("is-active")
   })
 
@@ -31,9 +31,15 @@ document.addEventListener('turbolinks:load', () => {
   })
 
   // delete
-  $("#btn-confirm-delete-workspace").click(function(){
-    // data-attribute取值     
-    deleteWorkspace($(this).data("workspace-id"))
+  $("#btn-confirm-delete-sidebar-item").click(function(){
+    // data-attribute取值
+    isDeleteWorkspace = $("#modal-delete-sidebar-item").data("delete-workspace") 
+
+    if(isDeleteWorkspace){
+      deleteWorkspace($(this).data("model-id"))
+    } else {
+      deleteBoard($(this).data("model-id"))
+    }
   })
 
   // email
@@ -48,17 +54,17 @@ function initWorkspaceList(){
   $.ajax({url: "/workspaces", success: function(result){
     // 列出建立的workspaces
     result.created_workspaces.forEach(element => 
-      $("#created-workspaces").append(showWorkspaceTemplate(element))
+      $("#created-workspaces").append(createSidebarRow(element))
     )
     // 列出加入的workspaces
     isCreatedWorkspaces = false
     result.member_workspaces.forEach(element => 
-      $("#member-workspaces").append(showWorkspaceTemplate(element, isCreatedWorkspaces))
+      $("#member-workspaces").append(createSidebarRow(element, isCreatedWorkspaces))
     )
   }});
 }
 
-function showWorkspaceTemplate(model, isCreated = true, isWorkspace = true){
+function createSidebarRow(model, isCreated = true, isWorkspace = true){
   itemType = isWorkspace ? "workspace" : "board"
   sidebarItem =  $(`
     <div id="${itemType}-${model.id}" class=" panel-block is-active ${itemType}-item" data-${itemType}-id="${model.id}" data-${itemType}-name="${model.name}">
@@ -95,43 +101,66 @@ function showWorkspaceTemplate(model, isCreated = true, isWorkspace = true){
       <i class="far fa-trash-alt text-red-400"></i>
     </a>
   `).click(function(){
-    $("#modal-delete-workspace").addClass("is-active")
+    $("#modal-delete-sidebar-item").addClass("is-active")
+    $("#modal-delete-sidebar-item").data("delete-workspace", true)   
     // data-attribute給值, delete時要把parent的id抓出來, 因為moreIconElement.click會把this的行為複寫
-    $("#btn-confirm-delete-workspace").data("workspace-id", $(this).parent().data("workspace-id"))
+    $("#btn-confirm-delete-sidebar-item").data("model-id", $(this).parent().data("workspace-id"))
   })
 
-  moreIconElement = $(`
+  moreWorkspaceIconElement = $(`
     <a class="panel-icon more-workspace-element" data-workspace-id="${model.id}" data-toggle="false">
-      <i class="fas fa-cog"></i>
+      <i class="far fa-folder" id="folder-${model.id}"></i>
     </a>
   `).click(function(){
     // 按一下時，給相反的值 (false -> true; true -> false)
     $(this).data("toggle", !$(this).data("toggle")) 
     if($(this).data("toggle")) {
+      console.log("model"+model.id)
       $(this).parent().find('a.panel-icon.addition').show()
       getBoardIndex($(this).parent().data("workspace-id"))
+      $("#folder-"+ model.id).addClass("fa-folder-open");
     } else {
       $(this).parent().find('a.panel-icon.addition').hide()
       $("div.board-item").remove()
+      $("#folder-"+ model.id).removeClass("fa-folder-open");    
     }
   })
 
-  showBoard = $(`
-    <a class="panel-icon">
-      <i class="fas fa-arrow-right"></i>
+  moreBoardIconElement = $(`
+    <a class="panel-icon" data-toggle="false">
+      <i class="fas fa-arrow-right moreBoardFeature"></i>
     </a>
-  `)
+  `).click(function(){
+    console.log($(this).parent().data("board-id"))
+    // 按一下時，給相反的值 (false -> true; true -> false)
+    $(this).data("toggle", !$(this).data("toggle")) 
+    if($(this).data("toggle")) {
+      $(this).parent().find('a.panel-icon.addition').show()
+    } else {
+      $(this).parent().find('a.panel-icon.addition').hide()
+    }  
+  })
+
+  deleteBoardItem = $(`
+    <a class="panel-icon addition delete-board hidden">
+      <i class="far fa-trash-alt text-red-400"></i>
+    </a>
+  `).click(function(){
+    $("#modal-delete-sidebar-item").addClass("is-active")
+    $("#modal-delete-sidebar-item").data("delete-workspace", false)
+    $("#btn-confirm-delete-sidebar-item").data("model-id", $(this).parent().data("board-id"))
+  })
 
   if (isCreated && isWorkspace) {   
-    sidebarItem.append(moreIconElement)    
+    sidebarItem.append(moreWorkspaceIconElement)    
     sidebarItem.append(addMemberToWorkspace)    
     sidebarItem.append(editWorkspaceItem)    
     sidebarItem.append(deleteWorkspaceItem)
   } else if(isWorkspace == false) {
-
-    sidebarItem.append(showBoard)     
+    sidebarItem.append(moreBoardIconElement)
+    sidebarItem.append(deleteBoardItem)        
   }
-
+  
   sidebarItem.append("<p>"+model.name+"</p>")  
   return sidebarItem;
 }
@@ -146,7 +175,7 @@ function createWorkspace(){
     success: function(result){
       if(result.success){
         $("#add-workspace-name").val('')
-        $("#created-workspaces").append(showWorkspaceTemplate(result))
+        $("#created-workspaces").append(createSidebarRow(result))
         alert("新增成功！")        
       }
       else{
@@ -226,9 +255,25 @@ function getBoardIndex(workspaceId){
     success: function(result){
         // console.log(result)
         result.created_boards.forEach(element =>
-          showWorkspaceTemplate(element, false, false).insertAfter(workspaceElementId)
+          createSidebarRow(element, false, false).insertAfter(workspaceElementId)
           
         )
       }
   }); 
+}
+
+function deleteBoard(id){
+  console.log(id + "ready to delete")
+  $.ajax({
+    type: "DELETE",
+    url: "/boards/" + id,
+    success: function(data){
+      if(data.success){
+        $("#board-"+id).remove()
+      }
+      else{
+        alert("刪除失敗！")
+      }
+    }
+  });
 }
