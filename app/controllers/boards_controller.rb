@@ -1,6 +1,15 @@
 class BoardsController < ApplicationController
-  before_action :find_workspace, only: [:new, :create]
+  before_action :find_workspace, only: [:index, :new, :create]
   before_action :find_board, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @boards = @workspace.boards
+    render json: {
+      created_boards: @boards.as_json(only: [:id, :name])
+      # http://localhost:3333/workspaces/18/boards/
+      # member_workspaces: @memberworkspaces.as_json(only: [:id, :name])
+    }    
+  end
   def show
   end
 

@@ -58,11 +58,12 @@ function initWorkspaceList(){
   }});
 }
 
-function showWorkspaceTemplate(workspace, isCreated = true){
-  workspaceItem =  $(`
-    <div id="workspace-${workspace.id}" class="panel-block is-active workspace-item" data-workspace-id="${workspace.id}" data-workspace-name="${workspace.name}">
+function showWorkspaceTemplate(model, isCreated = true, isWorkspace = true){
+  itemType = isWorkspace ? "workspace" : "board"
+  sidebarItem =  $(`
+    <div id="${itemType}-${model.id}" class=" panel-block is-active ${itemType}-item" data-${itemType}-id="${model.id}" data-${itemType}-name="${model.name}">
     </div>
-    `)
+  `)
 
   addMemberToWorkspace = $(`
     <a class="panel-icon addition hidden">
@@ -100,7 +101,7 @@ function showWorkspaceTemplate(workspace, isCreated = true){
   })
 
   moreIconElement = $(`
-    <a class="panel-icon more-workspace-element" data-workspace-id="${workspace.id}" data-toggle="false">
+    <a class="panel-icon more-workspace-element" data-workspace-id="${model.id}" data-toggle="false">
       <i class="fas fa-cog"></i>
     </a>
   `).click(function(){
@@ -108,19 +109,31 @@ function showWorkspaceTemplate(workspace, isCreated = true){
     $(this).data("toggle", !$(this).data("toggle")) 
     if($(this).data("toggle")) {
       $(this).parent().find('a.panel-icon.addition').show()
+      getBoardIndex($(this).parent().data("workspace-id"))
     } else {
       $(this).parent().find('a.panel-icon.addition').hide()
+      $("div.board-item").remove()
     }
   })
 
-  if (isCreated){
-    workspaceItem.append(moreIconElement)    
-    workspaceItem.append(addMemberToWorkspace)    
-    workspaceItem.append(editWorkspaceItem)    
-    workspaceItem.append(deleteWorkspaceItem)    
+  showBoard = $(`
+    <a class="panel-icon">
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  `)
+
+  if (isCreated && isWorkspace) {   
+    sidebarItem.append(moreIconElement)    
+    sidebarItem.append(addMemberToWorkspace)    
+    sidebarItem.append(editWorkspaceItem)    
+    sidebarItem.append(deleteWorkspaceItem)
+  } else if(isWorkspace == false) {
+
+    sidebarItem.append(showBoard)     
   }
-  workspaceItem.append("<p>"+workspace.name+"</p>")
-  return workspaceItem;
+
+  sidebarItem.append("<p>"+model.name+"</p>")  
+  return sidebarItem;
 }
 
 function createWorkspace(){
@@ -202,4 +215,20 @@ function sendMemeberEmail(){
     }
   });  
   $("add-workspace-member-email").val('')
+}
+
+function getBoardIndex(workspaceId){
+  console.log(workspaceId)
+  workspaceElementId = "#workspace-" + workspaceId
+  $.ajax({
+    type: "GET",
+    url: "/workspaces/" + workspaceId + "/boards",
+    success: function(result){
+        // console.log(result)
+        result.created_boards.forEach(element =>
+          showWorkspaceTemplate(element, false, false).insertAfter(workspaceElementId)
+          
+        )
+      }
+  }); 
 }
