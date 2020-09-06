@@ -162,7 +162,7 @@ function sendMemeberEmail(){
     },
     success: function(result){
       if(result.success){
-        console.log(result.email)
+        console.log(result)
       }
       else{
         console.log(result)

@@ -36,16 +36,23 @@ class WorkspacesController < ApplicationController
   end
 
   def add_member
-    # byebug
+    result = false
+    message = "error"
+    find_user = User.find_by(email: params[:email])
+    if find_user.present? 
+      result = true 
+      @workspace.users << find_user
+      message = "success"
+    end
     render json: { 
-      success: true,
-      email: params[:email]
+      success: result,
+      email: params[:email],
+      message: message
     }
   end
 
   private
   def find_workspace
-    # byebug
     @workspace = Workspace.find(params[:id] || params[:workspace_id])
   end
 
