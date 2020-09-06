@@ -1,6 +1,6 @@
 class WorkspacesController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
   before_action :find_workspace, only: [:update, :destroy, :add_member]
   def index
     @workspaces = current_user.created_workspaces
@@ -21,11 +21,10 @@ class WorkspacesController < ApplicationController
   end
 
   def update  
-    if @workspace.update(workspace_params)
-      redirect_to workspaces_path, notice: "更新工作區成功"
-    else
-      render :edit
-    end
+    @workspace.update(name: params[:name])
+    render json: { 
+      success: true
+    }    
   end
 
   def destroy
