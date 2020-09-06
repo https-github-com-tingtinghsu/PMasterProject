@@ -160,17 +160,24 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     $("#btn-confirm-delete-sidebar-item").data("model-id", $(this).parent().data("board-id"))
   })
 
-  if (isCreated && isWorkspace) {   
+  if (isCreated && isWorkspace) {
+    // 我創的workspace  
     sidebarItem.append(moreWorkspaceIconElement)    
     sidebarItem.append(addMemberToWorkspace)    
     sidebarItem.append(editWorkspaceItem)    
     sidebarItem.append(deleteWorkspaceItem)
+    sidebarItem.append("<p>"+model.name+"</p>")  
   } else if(isWorkspace == false) {
+    // 我創的board
+    // /boards/:board_id/groups(.:format)
+    boardUrl = "/boards/" + model.id + "/groups"     
     sidebarItem.append(moreBoardIconElement)
-    sidebarItem.append(deleteBoardItem)        
+    sidebarItem.append(deleteBoardItem)
+    sidebarItem.append("<a href=" + boardUrl + ">" + model.name + "</a>")             
+  } else {
+    // 我屬於的workspace 
+    sidebarItem.append("<p>"+model.name+"</p>")  
   }
-  
-  sidebarItem.append("<p>"+model.name+"</p>")  
   return sidebarItem;
 }
 
