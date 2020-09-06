@@ -14,9 +14,10 @@ document.addEventListener('turbolinks:load', () => {
     createWorkspace()
   })
 
-  // edit
   $("#add-workspace-name").keydown(function(){
-    $("#btn-save-adding-workspace").prop("disabled", $(this).val().length == 0)
+    // 新增時，沒填名字的話不能儲存
+    isWorkspaceNameNull =  ($(this).val().length == 0)
+    $("#btn-save-adding-workspace").prop("disabled", isWorkspaceNameNull)
   })
 
   // delete
@@ -30,20 +31,29 @@ document.addEventListener('turbolinks:load', () => {
 function initWorkspaceList(){
   // 判斷是否已經有Workspace List
   $.ajax({url: "/workspaces", success: function(result){
-    result.forEach(element => 
-      $("#sidebar").append(showWorkspaceTemplate(element))
+    // 列出建立的workspaces
+    result.created_workspaces.forEach(element => 
+      $("#created-workspaces").append(showWorkspaceTemplate(element))
+    )
+    // 列出加入的workspaces
+    isCreatedWorkspaces = false
+    result.member_workspaces.forEach(element => 
+      $("#member-workspaces").append(showWorkspaceTemplate(element, isCreatedWorkspaces))
     )
   }});
 }
 
-function showWorkspaceTemplate(workspace){
+function showWorkspaceTemplate(workspace, isCreated = true){
   workspaceItem =  $(`
     <div id="workspace-${workspace.id}" class="panel-block is-active workspace-item" data-workspace-id="${workspace.id} ">
-      <span class="panel-icon">
-        <i class="fas fa-edit"></i>
-      </span>
     </div>
   `)
+  editWorkspaceItem = $( `
+    <span class="panel-icon">
+      <i class="fas fa-edit"></i>
+    </span>
+  `)
+
   deleteWorkspaceItem = $(`
     <a class="panel-icon delete-workspace">
       <i class="far fa-trash-alt"></i>
@@ -54,7 +64,10 @@ function showWorkspaceTemplate(workspace){
     // data-attribute給值, delete時才有workspace id 
     $("#btn-confirm-delete-workspace").data("workspace-id", workspace.id)
   })
-  workspaceItem.append(deleteWorkspaceItem)
+  if (isCreated){
+    workspaceItem.append(editWorkspaceItem)
+    workspaceItem.append(deleteWorkspaceItem)
+  }
   workspaceItem.append(workspace.name)
   return workspaceItem;
 }
@@ -69,7 +82,7 @@ function createWorkspace(){
     success: function(data){
       if(data.success){
         $("#add-workspace-name").val('')
-        $("#sidebar").append(showWorkspaceTemplate(data))
+        $("#created-workspaces").append(showWorkspaceTemplate(data))
       }
       else{
         alert("新增失敗！")

@@ -4,7 +4,11 @@ class WorkspacesController < ApplicationController
   before_action :find_workspace, only: [:update, :destroy]
   def index
     @workspaces = current_user.created_workspaces
-    render json: @workspaces, only: [:id, :name]
+    @memberworkspaces = current_user.workspaces
+    render json: {
+      created_workspaces: @workspaces.as_json(only: [:id, :name]),
+      member_workspaces: @memberworkspaces.as_json(only: [:id, :name])
+    }
   end
 
   def create
