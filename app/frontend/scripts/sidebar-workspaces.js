@@ -8,14 +8,14 @@ document.addEventListener('turbolinks:load', () => {
     $("#modal-add-workspace").addClass("is-active")
   })
 
-  $(".btn-cancel-modal, #btn-save-adding-workspace, #btn-confirm-delete-sidebar-item")
+  $(".btn-cancel-modal, .btn-save-adding, #btn-confirm-delete-sidebar-item")
   .click(
     function(){
-      $("#modal-add-workspace, #modal-delete-sidebar-item, #modal-add-workspace-member")
+      $("#modal-add-workspace, #modal-add-board, #modal-delete-sidebar-item, #modal-add-workspace-member")
       .removeClass("is-active")
   })
 
-  // create and update
+  // create and update workspace
   $('#btn-save-adding-workspace').click(function(){
     if($(this).data("workspace-id").length==0){
       createWorkspace()
@@ -24,10 +24,19 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  $("#add-workspace-name, #add-workspace-member-email").keydown(function(){
+  // create and update board
+  $('#btn-save-adding-board').click(function(){
+    if($(this).data("board-id").length==0){
+      createBoard($(this).data("workspace-id"))
+    } else{
+      updateBoard()
+    }
+  })
+
+  $("#add-workspace-name, #add-board-name, #add-workspace-member-email").keydown(function(){
     // 新增時，沒填名字的話不能儲存
     isWorkspaceNameNull =  ($(this).val().length == 0)
-    $("#btn-save-adding-workspace, #btn-send-member-email").prop("disabled", isWorkspaceNameNull)
+    $("#btn-save-adding-workspace, #btn-save-adding-board, #btn-send-member-email").prop("disabled", isWorkspaceNameNull)
   })
 
   // delete
@@ -253,13 +262,38 @@ function getBoardIndex(workspaceId){
     type: "GET",
     url: "/workspaces/" + workspaceId + "/boards",
     success: function(result){
-        // console.log(result)
-        result.created_boards.forEach(element =>
-          createSidebarRow(element, false, false).insertAfter(workspaceElementId)
-          
-        )
+      result.created_boards.forEach(element =>
+        createSidebarRow(element, false, false).insertAfter(workspaceElementId)
+      )
+      addNewBoardRow(workspaceId).insertAfter(workspaceElementId)
+      if(result.created_boards.length > 0 ){
+        last_id = result.created_boards[0].id
+        $("#board-"+ last_id).addClass("last-board-of-"+workspaceId)
+      } else {
+        $("#add-new-board-"+workspaceId).addClass("last-board-of-"+workspaceId)
       }
+    }
   }); 
+}
+
+function addNewBoardRow(workspaceId){
+  sidebarItem =  $(`
+    <div id="add-new-board-${workspaceId}" class="panel-block is-active board-item" data-workspace-id="${workspaceId}">
+    </div>
+  `)
+  addBoardItem = $(`
+    <a class="panel-icon">
+      <i class="fas fa-plus-square"></i>
+    </a>
+  `).click(function(){
+    console.log($(this).parent().data("workspace-id"))
+    $("#btn-save-adding-board").data("workspace-id", $(this).parent().data("workspace-id"))
+    $("#modal-add-board").addClass("is-active")
+  })
+
+  sidebarItem.append(addBoardItem)
+  sidebarItem.append("<p>新增看板</p>") 
+  return sidebarItem;
 }
 
 function deleteBoard(id){
@@ -277,3 +311,29 @@ function deleteBoard(id){
     }
   });
 }
+
+function createBoard(workspaceId){
+  console.log($("#add-board-name").val())
+  console.log(workspaceId)
+  $.ajax({
+    type: "POST",
+    url: '/workspaces/' + workspaceId + '/boards',
+    data: {
+      name: $("#add-board-name").val()
+    },
+    success: function(result){
+      if(result.success){
+        $("#add-board-name").val('')
+        createSidebarRow(result, false, false).insertAfter("div.last-board-of-"+workspaceId)
+        alert("新增成功！") 
+      }
+      else{
+        alert("新增失敗！")
+      }
+    }
+  });
+}
+
+// function updateBoard(){
+//   // console.log("ready to update!")  
+// }

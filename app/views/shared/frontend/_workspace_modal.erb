@@ -10,7 +10,25 @@
       <input type="text" id="add-workspace-name" name="add-workspace-name" class="border border-dash border-green-300 mx-2 px-3 py-3 rounded-md">
     </section>
     <footer class="modal-card-foot">
-      <button class="button is-success" id="btn-save-adding-workspace" data-workspace-id="" disabled>儲存</button>
+      <button class="button is-success btn-save-adding" id="btn-save-adding-workspace" data-workspace-id="" disabled>儲存</button>
+      <button class="button btn-cancel-modal">取消</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal" id="modal-add-board">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">看板</p>
+      <button class="delete btn-cancel-modal" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <label for="add-board-name" class="text-2xl">名稱：</label>
+      <input type="text" id="add-board-name" name="add-board-name" class="border border-dash border-green-300 mx-2 px-3 py-3 rounded-md">
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success btn-save-adding" id="btn-save-adding-board" data-workspace-id="" data-board-id="" disabled>儲存</button>
       <button class="button btn-cancel-modal">取消</button>
     </footer>
   </div>
