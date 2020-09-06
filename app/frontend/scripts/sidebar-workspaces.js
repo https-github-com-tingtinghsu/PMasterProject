@@ -23,6 +23,7 @@ document.addEventListener('turbolinks:load', () => {
   // delete
   $("#btn-confirm-delete-workspace").click(function(){
     // data-attribute取值     
+    // console.log($(this).data("workspace-id"))
     deleteWorkspace($(this).data("workspace-id"))
   })
 })
@@ -48,6 +49,13 @@ function showWorkspaceTemplate(workspace, isCreated = true){
     <div id="workspace-${workspace.id}" class="panel-block is-active workspace-item" data-workspace-id="${workspace.id} ">
     </div>
   `)
+
+  addMemberToWorkspace = $(`
+    <span class="panel-icon">
+      <i class="fas fa-user-plus"></i>
+    </span>
+  `)
+
   editWorkspaceItem = $( `
     <span class="panel-icon">
       <i class="fas fa-edit"></i>
@@ -59,14 +67,37 @@ function showWorkspaceTemplate(workspace, isCreated = true){
       <i class="far fa-trash-alt"></i>
     </a>
   `)
+
+  moreIconElement = $(`
+  <a class="panel-icon more-workspace-element" data-toggle="false">
+    <i class="fas fa-cog"></i>
+  </a>
+  `)
+
+  moreIconElement.click(function(){
+    // 按一下時，給相反的值 (false -> true; true -> false)
+    $(this).data("toggle", !$(this).data("toggle")) 
+    // console.log($(this).data("toggle"))
+    if($(this).data("toggle")) {
+      $(deleteWorkspaceItem).insertAfter($(this))   
+      $(editWorkspaceItem).insertAfter($(this))
+      $(addMemberToWorkspace).insertAfter($(this)) 
+    } else {
+      $(deleteWorkspaceItem).remove()
+      $(editWorkspaceItem).remove()
+      $(addMemberToWorkspace).remove()      
+    }
+  })
+
   deleteWorkspaceItem.click(function(){
     $("#modal-delete-workspace").addClass("is-active")
-    // data-attribute給值, delete時才有workspace id 
-    $("#btn-confirm-delete-workspace").data("workspace-id", workspace.id)
+    // data-attribute給值, delete時要把parent的id抓出來, 因為moreIconElement.click會把this的行為複寫
+    $("#btn-confirm-delete-workspace").data("workspace-id", $(this).parent().data("workspace-id"))
   })
+
+
   if (isCreated){
-    workspaceItem.append(editWorkspaceItem)
-    workspaceItem.append(deleteWorkspaceItem)
+    workspaceItem.append(moreIconElement)    
   }
   workspaceItem.append(workspace.name)
   return workspaceItem;
