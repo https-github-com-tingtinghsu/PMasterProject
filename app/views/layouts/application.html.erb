@@ -12,9 +12,15 @@
   <body> 
     <%= render "shared/frontend/navbar" %>
     <%= render "shared/frontend/flash" if notice %>
-    <%= render "shared/frontend/sidebar" if current_user %>
-    <%= yield %>
-    
+    <% if current_user && params[:controller]!="devise/registrations" %>
+      <div class="tile is-ancestor mx-1 my-2 tile-dashboard">
+        <%= render "shared/frontend/sidebar"%>
+        <%= yield %>
+      </div>
+    <% else %>
+        <%= yield %>
+    <% end %>
+
     <%= render "shared/frontend/footer" %>
     
   </body>
