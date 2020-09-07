@@ -4,12 +4,12 @@
     <p class="subtitle my-2 ">群組列表</p>
     <%= link_to '新增群組', new_board_group_path %>
     <div class="content">
-      
       <p class="group-name">
         <ul>
           <% @groups.each  do |group| %>
             <li class="mx-5 my-2">
-              <p class="bg-gray-200 block p-2 rounded-md">。<%= group.name %></p>
+              <p class="bg-gray-200 block p-2 rounded-md">。<%= group.name %><%= group.id %></p>
+              <%= link_to ' 編輯', edit_group_path(group), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
             </li>
           <% end %>
           </ul>
