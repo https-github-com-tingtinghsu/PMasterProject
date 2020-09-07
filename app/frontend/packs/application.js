@@ -12,7 +12,7 @@ require("scripts")
 require("stylesheets")
 
 import '../scripts/shared/application'
-import '../scripts/sidebar-workspaces'
+import '../scripts/shared/sidebar'
 import 'scripts'
 import 'stylesheets'
 

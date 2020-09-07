@@ -1,5 +1,7 @@
-<div class="tile is-parent main-dashboard">
+<div class="tile is-parent main-dashboard mx-auto">
   <article class="tile is-child notification bg-green-200">
-    <h1 class="my-2 font-xl">歡迎<%= current_user.email %>！請點選左側工作區，您可以自由地新增工作區以及看板！</h1>
+    <h1 class="my-2 font-xl">歡迎<%= current_user.email %>！請點選左側工作區，您可以自由地新增工作區以及看板！
+      <%= image_tag 'home/dashboard.png', class: "" %>
+    </h1>
   </article>
 </div>

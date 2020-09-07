@@ -81,6 +81,9 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     <div id="${itemType}-${model.id}" class=" panel-block is-active ${itemType}-item" data-${itemType}-id="${model.id}" data-${itemType}-name="${model.name}">
     </div>
   `)
+  if(itemType=="workspace"){
+    $(".panel-block").addClass("text-lg")
+  }
 
   addMemberToWorkspace = $(`
     <a class="panel-icon addition hidden">
@@ -309,7 +312,7 @@ function addNewBoardRow(workspaceId){
   })
 
   sidebarItem.append(addBoardItem)
-  sidebarItem.append("<p>新增看板</p>") 
+  sidebarItem.append("<p><i>新增看板...</i></p>") 
   return sidebarItem;
 }
 
