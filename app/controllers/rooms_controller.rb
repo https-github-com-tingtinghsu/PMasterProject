@@ -10,9 +10,11 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @board = Board.all
     @rooms = Room.all
     @workspaces = current_user.workspaces.all
-    render 'workspaces/index' 
+    @groups = Group.all
+    render 'index' 
   end
 
   # GET /rooms/new
@@ -73,5 +75,8 @@ class RoomsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def room_params
       params.require(:room).permit(:name)
+    end
+    def find_board
+      @board = Board.find(params[:board_id])
     end
 end

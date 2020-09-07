@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
   def index
     @board = Board.find(params[:board_id])
     @groups = @board.groups.all
+    @rooms = Room.all
   end
   def new
     @group = Group.new
