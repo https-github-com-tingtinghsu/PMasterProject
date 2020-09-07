@@ -2,8 +2,18 @@
   <article class="tile is-child notification bg-green-200">
     <p class="title text-md">看板：<%= @board.name %></p>
     <p class="subtitle my-2 ">群組列表</p>
+    <%= link_to '新增群組', new_board_group_path %>
     <div class="content">
-      <p class="group-name"></p>
+      
+      <p class="group-name">
+        <ul>
+          <% @groups.each  do |group| %>
+            <li class="mx-5 my-2">
+              <p class="bg-gray-200 block p-2 rounded-md">。<%= group.name %></p>
+            </li>
+          <% end %>
+          </ul>
+      </p>
     </div>
   </article>
 </div>

@@ -126,6 +126,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
       <i class="far fa-folder" id="folder-${model.id}"></i>
     </a>
   `).click(function(){
+    console.log($(this).parent())
     // 按一下時，給相反的值 (false -> true; true -> false)
     $(this).data("toggle", !$(this).data("toggle")) 
     if($(this).data("toggle")) {
@@ -194,7 +195,8 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     sidebarItem.append("<a id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a>")             
   } else {
     // 我屬於的workspace 
-    sidebarItem.append("<p>"+model.name+"</p>")  
+    sidebarItem.append(moreWorkspaceIconElement)
+    sidebarItem.append("<p>"+model.name+"</p>")    
   }
   return sidebarItem;
 }
