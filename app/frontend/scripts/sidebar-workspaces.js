@@ -27,9 +27,11 @@ document.addEventListener('turbolinks:load', () => {
   // create and update board
   $('#btn-save-adding-board').click(function(){
     if($(this).data("board-id").length==0){
+      // 建立的時候要傳workspace-id
       createBoard($(this).data("workspace-id"))
     } else{
-      updateBoard()
+      // 更新的時候要傳board-id
+      updateBoard($(this).data("board-id"))
     }
   })
 
@@ -95,10 +97,10 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
       <i class="fas fa-edit text-teal-600"></i>
     </a>
   `).click(function(){
+    $("#modal-add-workspace").addClass("is-active")     
     editWorkspaceId = $(this).parent().data("workspace-id")    
     editWorkspaceName = $(this).parent().data("workspace-name")    
-    // console.log(editWorkspaceName)
-    $("#modal-add-workspace").addClass("is-active") 
+
     // 如果已經有workspace name, 就預設填進去編輯欄位
     $("input[name=add-workspace-name]").val(editWorkspaceName)
     // workspace id塞進儲存按鈕
@@ -124,7 +126,6 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     // 按一下時，給相反的值 (false -> true; true -> false)
     $(this).data("toggle", !$(this).data("toggle")) 
     if($(this).data("toggle")) {
-      console.log("model"+model.id)
       $(this).parent().find('a.panel-icon.addition').show()
       getBoardIndex($(this).parent().data("workspace-id"))
       $("#folder-"+ model.id).addClass("fa-folder-open");
@@ -140,7 +141,6 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
       <i class="fas fa-arrow-right moreBoardFeature"></i>
     </a>
   `).click(function(){
-    console.log($(this).parent().data("board-id"))
     // 按一下時，給相反的值 (false -> true; true -> false)
     $(this).data("toggle", !$(this).data("toggle")) 
     if($(this).data("toggle")) {
@@ -148,6 +148,20 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     } else {
       $(this).parent().find('a.panel-icon.addition').hide()
     }  
+  })
+
+  editBoardItem = $( `
+  <a class="panel-icon addition edit-board hidden">
+    <i class="fas fa-edit text-teal-600"></i>
+  </a>
+`).click(function(){
+    $("#modal-add-board").addClass("is-active")
+    editBoardId = $(this).parent().data("board-id")
+    editBoardName = $(this).parent().data("board-name")      
+    // 如果已經有board name, 就預設填進去編輯欄位
+    $("input[name=add-board-name]").val(editBoardName)
+    // board id塞進儲存按鈕
+    $("#btn-save-adding-board").data("board-id", editBoardId)
   })
 
   deleteBoardItem = $(`
@@ -172,8 +186,9 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     // /boards/:board_id/groups(.:format)
     boardUrl = "/boards/" + model.id + "/groups"     
     sidebarItem.append(moreBoardIconElement)
+    sidebarItem.append(editBoardItem)     
     sidebarItem.append(deleteBoardItem)
-    sidebarItem.append("<a href=" + boardUrl + ">" + model.name + "</a>")             
+    sidebarItem.append("<a id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a>")             
   } else {
     // 我屬於的workspace 
     sidebarItem.append("<p>"+model.name+"</p>")  
@@ -202,9 +217,7 @@ function createWorkspace(){
 }
 
 function updateWorkspace(){
-  // console.log("ready to update!")
   upadteWorkspaceId = $("#btn-save-adding-workspace").data("workspace-id")
-  // console.log($("#add-workspace-name").val())
   $.ajax({
     type: "PUT",
     url: '/workspaces/' + upadteWorkspaceId,
@@ -213,7 +226,6 @@ function updateWorkspace(){
     },
     success: function(result){
       if(result.success){
-        console.log(result)
         $("#workspace-" + upadteWorkspaceId + " p").text($("#add-workspace-name").val())
         $("#add-workspace-name").val('')
         alert("編輯成功！")         
@@ -263,7 +275,6 @@ function sendMemeberEmail(){
 }
 
 function getBoardIndex(workspaceId){
-  console.log(workspaceId)
   workspaceElementId = "#workspace-" + workspaceId
   $.ajax({
     type: "GET",
@@ -293,7 +304,6 @@ function addNewBoardRow(workspaceId){
       <i class="fas fa-plus-square"></i>
     </a>
   `).click(function(){
-    console.log($(this).parent().data("workspace-id"))
     $("#btn-save-adding-board").data("workspace-id", $(this).parent().data("workspace-id"))
     $("#modal-add-board").addClass("is-active")
   })
@@ -304,7 +314,6 @@ function addNewBoardRow(workspaceId){
 }
 
 function deleteBoard(id){
-  console.log(id + "ready to delete")
   $.ajax({
     type: "DELETE",
     url: "/boards/" + id,
@@ -320,8 +329,6 @@ function deleteBoard(id){
 }
 
 function createBoard(workspaceId){
-  console.log($("#add-board-name").val())
-  console.log(workspaceId)
   $.ajax({
     type: "POST",
     url: '/workspaces/' + workspaceId + '/boards',
@@ -341,6 +348,22 @@ function createBoard(workspaceId){
   });
 }
 
-// function updateBoard(){
-//   // console.log("ready to update!")  
-// }
+function updateBoard(boardId){
+  $.ajax({
+    type: "PUT",
+    url: '/boards/' + boardId,
+    data: {
+      name: $("#add-board-name").val()
+    },
+    success: function(result){
+      if(result.success){
+        $("#board-link-" + boardId).text($("#add-board-name").val())
+        $("#add-board-name").val('')
+        alert("編輯成功！") 
+      }
+      else{
+        alert("編輯失敗！")
+      }
+    }
+  }); 
+}

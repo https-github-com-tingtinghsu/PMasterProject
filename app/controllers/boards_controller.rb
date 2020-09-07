@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   before_action :find_workspace, only: [:index, :new, :create]
-  skip_before_action :verify_authenticity_token, only: [:create, :destroy]  
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]  
   before_action :find_board, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,12 +10,6 @@ class BoardsController < ApplicationController
       # http://localhost:3333/workspaces/18/boards/
       # member_workspaces: @memberworkspaces.as_json(only: [:id, :name])
     }    
-  end
-  def show
-  end
-
-  def new
-    @board = @workspace.boards.new
   end
 
   def create
@@ -32,15 +26,11 @@ class BoardsController < ApplicationController
     }
   end
 
-  def edit
-  end
-
   def update   
-    if @board.update(board_params)
-      redirect_to workspace_path(@board.workspace), notice: "更新看板區成功"
-    else
-      render :edit
-    end
+    @board.update(name: params[:name])
+    render json: { 
+      success: true
+    }  
   end
 
   def destroy
