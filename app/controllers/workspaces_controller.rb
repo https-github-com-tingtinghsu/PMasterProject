@@ -59,4 +59,6 @@ class WorkspacesController < ApplicationController
     params.require(:workspace).permit(:name)
   end
 
+  
+
 end

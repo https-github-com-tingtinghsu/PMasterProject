@@ -15,6 +15,7 @@ import '../scripts/shared/application'
 import '../scripts/shared/sidebar'
 import 'scripts'
 import 'stylesheets'
+import '../stylesheets/index'
 
 import $ from 'jquery'
 window.$ = $
