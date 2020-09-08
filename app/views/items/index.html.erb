@@ -1,0 +1,34 @@
+<div class="tile is-parent main-dashboard">
+  <article class="tile is-child notification bg-green-200">
+    <p class="title text-md">群組：<%= @group.name %></p>
+    <nav class="breadcrumb is-medium" aria-label="breadcrumbs">
+  		<ul>
+				<span>目前位置：</span>
+    		<li><%= link_to @board.name, board_groups_path(@board) %></li>
+    		<li><%= @group.name %></li>
+  		</ul>
+		</nav>
+    <p class="subtitle my-2 ">項目列表</p>
+    <%= link_to '新增項目', new_group_item_path, class:"px-3 py-1 mb-2 bg-green-400 text-white rounded text-center" %>
+    <div class="content">
+      <p class="group-name">
+        <ul>
+          <% @items.each  do |item| %>
+            <li class="mx-5 my-2">
+              <div class="bg-gray-200 block p-2 rounded-md">
+                <span>。
+                  <%= item.name%>
+                  <i class="far fa-comment-dots ml-3"></i>
+                </span>
+                <span>
+                  <%= item.description %>
+                </span>
+              </div>
+              <%= link_to ' 編輯', edit_item_path(item), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
+            </li>
+          <% end %>
+          </ul>
+      </p>
+    </div>
+  </article>
+</div>

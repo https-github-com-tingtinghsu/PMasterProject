@@ -4,4 +4,5 @@ class Board < ApplicationRecord
   has_many :groups
 
   validates :name, presence: true
+  default_scope { order(id: :desc) }  
 end
