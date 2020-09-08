@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
       created_boards: @boards.as_json(only: [:id, :name])
       # http://localhost:3333/workspaces/18/boards/
       # member_workspaces: @memberworkspaces.as_json(only: [:id, :name])
-    }    
+    }     
   end
 
   def create
