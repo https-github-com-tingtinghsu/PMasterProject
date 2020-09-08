@@ -264,15 +264,17 @@ function sendMemeberEmail(){
     type: "GET",
     url: "/workspaces/" + workspaceId + "/add_member",
     data: {
-      email: memberEmail
+      receive_user_email: memberEmail
     },
     success: function(result){
       if(result.success){
         console.log(result)
+        alert("邀請成功！")
+        $("#modal-add-workspace-member").removeClass("is-active")        
       }
       else{
         console.log(result)
-        alert("寄送失敗！")
+        alert("邀請失敗，請確認您輸入是有效的Email！")
       }
     }
   });  
@@ -354,6 +356,7 @@ function createBoard(workspaceId){
 }
 
 function updateBoard(boardId){
+  editBoardName = $("#add-board-name").val()
   $.ajax({
     type: "PUT",
     url: '/boards/' + boardId,
@@ -364,7 +367,10 @@ function updateBoard(boardId){
       if(result.success){
         $("#board-link-" + boardId).text($("#add-board-name").val())
         $("#add-board-name").val('')
-        alert("編輯成功！") 
+        alert("編輯成功！")
+        // 把rails右半區的看板名稱用js換掉
+        updateBoardName = "看板：" + editBoardName
+        $(".main-board-title").text(updateBoardName)
       }
       else{
         alert("編輯失敗！")
