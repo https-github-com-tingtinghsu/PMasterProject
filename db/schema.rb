@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_09_02_125539) do
-=======
+
 ActiveRecord::Schema.define(version: 2020_09_02_132156) do
->>>>>>> feat/new-chatroom-function-cy
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
