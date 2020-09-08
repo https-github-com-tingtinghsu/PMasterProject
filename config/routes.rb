@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :boards, shallow: true do
       resources :groups, shallow: true
     end
+    member do
+      get :rooms
+      post :rooms, to: 'workspaces#room_create'
+    end
   end
 
 
