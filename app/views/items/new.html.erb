@@ -12,6 +12,10 @@
   <%= form_with(model: @item, url: group_items_path, local: true) do |f| %>
     <%= f.label :name, "項目名稱" %>
     <%= f.text_field :name, class: 'border-2 px-2 py-3' %>
+    <%= f.label :description, "項目敘述" %>
+    <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
+    <%#= f.label :person, "負責人" %>
+    <%#= f.text_area :person, class: 'border-2 px-2 py-3' %>
     <%= f.submit '新增', class: 'mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>    
   <% end %>
 </div>
