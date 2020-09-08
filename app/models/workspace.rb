@@ -10,4 +10,6 @@ class Workspace < ApplicationRecord
   validates :name, presence: true
   default_scope { order(id: :asc) }
 
+  has_one :room, dependent: :destroy
+
 end

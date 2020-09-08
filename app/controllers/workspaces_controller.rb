@@ -13,6 +13,8 @@ class WorkspacesController < ApplicationController
 
   def create
     @workspace = current_user.created_workspaces.new(name: params[:name])
+    @workspace.save
+    room_create
     render json: { 
       success: @workspace.save,
       id: @workspace.id,
@@ -33,6 +35,20 @@ class WorkspacesController < ApplicationController
       success: true
     }
   end
+
+  def rooms
+    find_user = User.find_by(email: params[:email])
+    if find_user.present? 
+      result = true 
+      @workspace.users << find_user
+      message = "success"
+    end
+  end
+
+  def room_create
+    @room = @workspace.create_room(name:"工作聯絡室")
+  end
+
 
   def add_member
     result = false
@@ -58,5 +74,7 @@ class WorkspacesController < ApplicationController
   def workspace_params
     params.require(:workspace).permit(:name)
   end
+
+  
 
 end
