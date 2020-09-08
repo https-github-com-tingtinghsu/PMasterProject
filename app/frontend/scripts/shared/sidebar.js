@@ -264,7 +264,7 @@ function sendMemeberEmail(){
     type: "GET",
     url: "/workspaces/" + workspaceId + "/add_member",
     data: {
-      email: memberEmail
+      receive_user_email: memberEmail
     },
     success: function(result){
       if(result.success){

@@ -1,6 +1,8 @@
+require 'securerandom'
+
 class WorkspacesController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :add_member]
   before_action :find_workspace, only: [:update, :destroy, :add_member]
   def index
     @workspaces = current_user.created_workspaces
@@ -37,20 +39,30 @@ class WorkspacesController < ApplicationController
   def add_member
     result = false
     message = "error"
-    find_user = User.find_by(email: params[:email])
+    receive_user = params[:receive_user_email]
+
+    find_user = User.find_by(email: receive_user)
     if find_user.present? 
-      result = true 
-      @workspace.users << find_user
+      result = true
+      # @workspace.users << find_user
+      uuid = SecureRandom.uuid 
       message = "success"
+      UserMailer.invite_member(current_user.email, receive_user, @workspace).deliver_now!
     end
     render json: { 
       success: result,
-      email: params[:email],
-      message: message
+      email: receive_user,
+      message: message,
+      uuid: uuid
     }
   end
 
   private
+  
+  # def generate_uuid
+  #   uuid = SecureRandom.uuid
+  # end
+
   def find_workspace
     @workspace = Workspace.find(params[:id] || params[:workspace_id])
   end
