@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_09_02_132156) do
+ActiveRecord::Schema.define(version: 2020_09_08_124827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +41,18 @@ ActiveRecord::Schema.define(version: 2020_09_02_132156) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["board_id"], name: "index_groups_on_board_id"
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.string "token", null: false
+    t.bigint "workspace_id", null: false
+    t.bigint "user_id", null: false
+    t.string "receive_user_email", null: false
+    t.integer "receive_user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+    t.index ["workspace_id"], name: "index_invitations_on_workspace_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -133,7 +144,6 @@ ActiveRecord::Schema.define(version: 2020_09_02_132156) do
     t.bigint "workspace_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "role", default: "user"
     t.index ["user_id"], name: "index_workspace_users_on_user_id"
     t.index ["workspace_id"], name: "index_workspace_users_on_workspace_id"
   end
@@ -153,6 +163,8 @@ ActiveRecord::Schema.define(version: 2020_09_02_132156) do
   add_foreign_key "assignments", "users"
   add_foreign_key "boards", "workspaces"
   add_foreign_key "groups", "boards"
+  add_foreign_key "invitations", "users"
+  add_foreign_key "invitations", "workspaces"
   add_foreign_key "items", "groups"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"

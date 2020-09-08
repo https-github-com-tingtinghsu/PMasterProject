@@ -11,5 +11,5 @@ class Workspace < ApplicationRecord
   default_scope { order(id: :asc) }
 
   has_one :room, dependent: :destroy
-
+  has_many :invitations
 end
