@@ -23,6 +23,12 @@
                 <span>
                   <%= item.description %>
                 </span>
+                <span>
+                  <%= item.due_date %>
+                </span>
+                <span class="bg-red-400 px-3 py-1">
+                  <%= item.status %>
+                </span>
               </div>
               <%= link_to ' 編輯', edit_item_path(item), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
             </li>
