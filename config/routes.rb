@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :workspaces, except: [:new, :edit, :show] do
     get "add_member"
     resources :boards, shallow: true do
-      resources :groups, shallow: true
+      resources :groups, shallow: true do
+        resources :items, shallow: true
+      end
     end
     member do
       get :rooms
