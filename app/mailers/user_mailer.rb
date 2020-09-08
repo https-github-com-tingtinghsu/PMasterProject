@@ -13,9 +13,10 @@ class UserMailer < ActionMailer::Base
     # mail to: "to@example.org"
   end
 
-  def invite_member(send_user, receive_user, workspace)
+  def invite_member(send_user, receive_user, workspace, uuid)
     @greeting = "Hi"
     @workspace = workspace
+    @uuid = uuid
     mail(:to => receive_user, :subject => "有人邀請你加入！PMaster 最有趣的專案管理網站")
     # mail to: "to@example.org"
   end
