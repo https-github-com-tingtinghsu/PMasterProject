@@ -1,0 +1,17 @@
+<h1 class="text-xl px-2 py-2">新增項目 New Item</h1>
+
+<% if @item.errors.any? %>
+  <ul>
+  <% @itme.errors.full_messages.each do |message| %>
+  <li><p class="text-red-600 mx-2">。<%= message %></p></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<div class="mx-5 my-5">
+  <%= form_with(model: @item, url: group_items_path, local: true) do |f| %>
+    <%= f.label :name, "項目名稱" %>
+    <%= f.text_field :name, class: 'border-2 px-2 py-3' %>
+    <%= f.submit '新增', class: 'mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>    
+  <% end %>
+</div>
