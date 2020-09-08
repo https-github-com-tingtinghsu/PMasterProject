@@ -67,7 +67,7 @@ class WorkspacesController < ApplicationController
     else
       result = true 
       message = "success"
-      UserMailer.invite_member(current_user.email, receive_user, @workspace, uuid).deliver_now!
+      UserMailer.invite_new(current_user.email, receive_user, @workspace, uuid).deliver_now!
     end
     render json: { 
       success: result,
