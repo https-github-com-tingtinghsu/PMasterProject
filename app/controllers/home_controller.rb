@@ -10,12 +10,12 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    # if (cookies[:user_token] && current_user)
-    #   confirmed_invitation = Invitation.find_by(token: cookies[:user_token])
-    #   confirmed_invitation.receive_user_id = current_user.id
-    #   confirmed_invitation.workspace.users << current_user
-    #   confirmed_invitation.workspace_id
-    #   flash[:add_board_notice] = "成功加入#{confirmed_invitation.workspace_id}看板"
-    # end
+    if (cookies[:user_token] && current_user)
+      confirmed_invitation = Invitation.find_by(token: cookies[:user_token])
+      confirmed_invitation.receive_user_id = current_user.id
+      confirmed_invitation.workspace.users << current_user
+      confirmed_invitation.workspace_id
+      flash[:add_board_notice] = "成功加入#{confirmed_invitation.workspace.name}看板！"
+    end
   end
 end
