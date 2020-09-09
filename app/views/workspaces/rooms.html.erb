@@ -20,7 +20,7 @@
               <h2>
                 <%= @room.name %>
               </h2>
-              <div class="chatcontent-box" data-room-id="<%= @room.id %>">
+              <div class="chatcontent-box" data-room-id="<% @room.id %>">
                 <div id="messages">
                   <% @room.messages.each do |message| %>
                     <%= render '/messages/message', message: message  %>

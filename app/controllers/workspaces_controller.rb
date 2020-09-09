@@ -15,6 +15,7 @@ class WorkspacesController < ApplicationController
     @workspace = current_user.created_workspaces.new(name: params[:name])
     @workspace.save
     @workspace.users = [current_user]
+    #往後權限上線即可調整，創建者會塞給他manager權限
     room_create
     render json: { 
       success: @workspace.save,
