@@ -37,12 +37,11 @@ class WorkspacesController < ApplicationController
   end
 
   def rooms
-    find_user = User.find_by(email: params[:email])
-    if find_user.present? 
-      result = true 
-      @workspace.users << find_user
-      message = "success"
-    end
+    @workspaces = current_user.workspaces
+    # @workspaces = current_user.created_workspaces
+    @workspace = @workspaces.find(params[:id])
+    # byebug
+    @room = @workspace.room
   end
 
   def room_create
@@ -72,7 +71,7 @@ class WorkspacesController < ApplicationController
   end
 
   def workspace_params
-    params.require(:workspace).permit(:name)
+    params.require(:workspace).permit(:name, :user_id)
   end
 
   
