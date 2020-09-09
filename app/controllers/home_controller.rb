@@ -9,7 +9,8 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    confirmed_invitation
+    # 有cookies的人才需要confirmed_invitation
+    confirmed_invitation if cookies[:user_token]
 
   end
 

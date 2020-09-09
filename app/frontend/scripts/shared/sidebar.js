@@ -252,6 +252,7 @@ function deleteWorkspace(id){
     success: function(data){
       if(data.success){
         $("#workspace-"+id).remove()
+        $("#add-new-board-"+id).remove()
         alert("刪除成功！")        
       }
       else{
@@ -320,7 +321,7 @@ function addNewBoardRow(workspaceId){
   })
 
   sidebarItem.append(addBoardItem)
-  sidebarItem.append("<p><i>新增看板...</i></p>") 
+  sidebarItem.append(`<p><i>新增看板...</i></p>`) 
   return sidebarItem;
 }
 
