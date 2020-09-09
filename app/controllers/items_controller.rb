@@ -39,7 +39,6 @@ class ItemsController < ApplicationController
 		@board = @group.board
 	end
 	def item_params
-		# byebug
 		params.require(:item).permit(:name)
 	end
 end

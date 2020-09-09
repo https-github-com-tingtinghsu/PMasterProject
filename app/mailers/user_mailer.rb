@@ -12,17 +12,17 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "恭喜您註冊成功！PMaster 最有趣的專案管理網站")
   end
 
-  def invite_member(send_user_email, receive_user_email, workspace, uuid)
-    @greeting = "Hi"
-    @workspace = workspace
-    @uuid = uuid
-    mail(:to => receive_user_email, :subject => "有人邀請你加入工作區 -！PMaster 最有趣的專案管理網站")
+  def invite_member(invitation)
+    @greeting = "Hi, 會員您好，"
+    @workspace = invitation.workspace
+    @uuid = invitation.token
+    mail(:to => invitation.receive_user_email, :subject => "有人邀請你加入工作區 -！PMaster 最有趣的專案管理網站")
   end
 
-  def invite_new(send_user_email, receive_user_email, workspace, uuid)
+  def invite_new(invitation)
     @greeting = "Hi"
-    @workspace = workspace
-    @uuid = uuid
-    mail(:to => receive_user_email, :subject => "有人邀請你加入！PMaster 最有趣的專案管理網站")
+    @workspace = invitation.workspace
+    @uuid = invitation.token
+    mail(:to => invitation.receive_user_email, :subject => "有人邀請你加入！PMaster 最有趣的專案管理網站")
   end
 end

@@ -55,25 +55,31 @@ class WorkspacesController < ApplicationController
   def add_member
     result = false
     message = "error"
-    receive_user = params[:receive_user_email]
-    find_user = User.find_by(email: receive_user)
-    uuid = SecureRandom.uuid 
+    find_user = User.find_by(email: params[:receive_user_email])
+
+    invitation = current_user.invitations.new
+    invitation.token = SecureRandom.uuid
+    invitation.workspace_id = @workspace.id
+    invitation.receive_user_email = params[:receive_user_email]
+    invitation.receive_user_id = nil
+    invitation.save
+    #invitation.errors
     if find_user.present? 
       result = true
       # @workspace.users << find_user
 
       message = "success"
-      UserMailer.invite_member(current_user.email, receive_user, @workspace, uuid).deliver_now!
+      UserMailer.invite_member(invitation).deliver_now!
     else
       result = true 
       message = "success"
-      UserMailer.invite_new(current_user.email, receive_user, @workspace, uuid).deliver_now!
+      UserMailer.invite_new(invitation).deliver_now!
     end
     render json: { 
       success: result,
-      email: receive_user,
+      email: invitation.receive_user_email,
       message: message,
-      uuid: uuid
+      uuid: invitation.token
     }
   end
 

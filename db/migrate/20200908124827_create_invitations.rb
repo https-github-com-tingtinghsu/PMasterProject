@@ -5,7 +5,7 @@ class CreateInvitations < ActiveRecord::Migration[6.0]
       t.references :workspace, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.string :receive_user_email, null: false
-      t.integer :receive_user_id
+      t.integer :receive_user_id, null: true
 
       t.timestamps
     end

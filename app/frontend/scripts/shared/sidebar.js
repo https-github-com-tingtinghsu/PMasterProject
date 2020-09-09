@@ -1,4 +1,7 @@
 document.addEventListener('turbolinks:load', () => {
+  // if($("#btn-logout").length >= 0) {
+
+  // }
   initWorkspaceList();
 
   $("#link-add-workspace").click(function(){
