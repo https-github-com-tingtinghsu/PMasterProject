@@ -14,6 +14,7 @@ class WorkspacesController < ApplicationController
   def create
     @workspace = current_user.created_workspaces.new(name: params[:name])
     @workspace.save
+    @workspace.users = [current_user]
     room_create
     render json: { 
       success: @workspace.save,
