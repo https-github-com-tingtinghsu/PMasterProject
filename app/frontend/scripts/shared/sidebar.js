@@ -252,6 +252,7 @@ function deleteWorkspace(id){
     success: function(data){
       if(data.success){
         $("#workspace-"+id).remove()
+        alert("刪除成功！")        
       }
       else{
         alert("刪除失敗！")

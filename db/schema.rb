@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_124827) do
+ActiveRecord::Schema.define(version: 2020_09_09_072151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(version: 2020_09_08_124827) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "workspace_id", null: false
+    t.index ["workspace_id"], name: "index_rooms_on_workspace_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -174,6 +176,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_124827) do
   add_foreign_key "replies", "posts"
   add_foreign_key "replies", "users"
   add_foreign_key "reply_likes", "replies"
+  add_foreign_key "rooms", "workspaces"
   add_foreign_key "workspace_users", "users"
   add_foreign_key "workspace_users", "workspaces"
   add_foreign_key "workspaces", "users"
