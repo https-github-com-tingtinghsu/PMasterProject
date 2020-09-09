@@ -1,21 +1,19 @@
-<h1><%= @rooms.name %></h1>
-
-<!-- <div id="user-id" data-user-id="<%= current_user.id %>"></div>
+<div id="user-id" data-user-id="<%= current_user.id %>"></div>
     <div class="container">
       <div class="row chatbox">
         <div class="channelbox">
-          <%= render 'rooms/form', room: Room.find(params[:id]) %>
-            <% @rooms.each do |room| %>
-              <%= link_to room do %>
+          <%= render 'rooms/form', room: Room.new %>
+            <%# <% @rooms.each do |room| %> 
+              <%# <%= link_to room do %> 
               <div class="channel">
-              <%= room.name %>
+              <%= @room.name %>
               </div>
-                <small><%= room.users.uniq.count %>member</small> -->
-              <!-- <div id="room-id">
-                <%= room.id %>
-              </div> -->
-              <!-- <% end %>
-            <% end %>
+                <small><%= @room.users.uniq.count %>member</small>
+              <div id="room-id">
+                <%= @room.id %>
+              </div>
+              <%# <% end %> 
+            <%# <% end %> 
         </div>
          <div class=" messagesbox">
            <% if @room.present? %>
@@ -36,4 +34,4 @@
             <% end %>
          </div>
       </div>
-    </div> -->
+    </div>
