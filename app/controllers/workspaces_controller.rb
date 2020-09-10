@@ -24,7 +24,7 @@ class WorkspacesController < ApplicationController
     }
   end
 
-  def update  
+  def update
     @workspace.update(name: params[:name])
     render json: { 
       success: true
@@ -39,8 +39,8 @@ class WorkspacesController < ApplicationController
   end
 
   def rooms
-    # @workspaces = current_user.workspaces
-    @workspaces = current_user.created_workspaces
+    @workspaces = current_user.workspaces
+    # @workspaces = current_user.created_workspaces
     @workspace = @workspaces.find(params[:id])
     # byebug
     @room = @workspace.room

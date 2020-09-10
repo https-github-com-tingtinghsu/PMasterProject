@@ -1,9 +1,18 @@
 document.addEventListener('turbolinks:load', () => {
-	let postIcon = document.querySelectorAll('.fa-comment-dots')
+	let postIcon = document.querySelectorAll('#postItem')
+	let btnCancel = document.querySelectorAll('.btn-cancel-modal')
 	if (postIcon){
-		postIcon.addEventListener('click', function(e){
-			console.log(e)
-
+		postIcon.forEach(element => {
+			element.addEventListener('click', function(){
+				document.querySelector("#modal-posts-content").classList.add("is-active")
+			})
+		})
+	}
+	if (btnCancel){
+		btnCancel.forEach(element => {
+			element.addEventListener('click', function(){
+				document.querySelector("#modal-posts-content").classList.remove("is-active")
+			})
 		})
 	}
 });
