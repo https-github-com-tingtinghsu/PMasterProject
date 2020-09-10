@@ -18,4 +18,12 @@ document.addEventListener('turbolinks:load', () => {
     });
   }
 
+
+  //Get chatroom toggle the "is-active"
+  const clickDiv = document.querySelector('.chatroom-lebal')
+  const chatroomContent = document.querySelector('.chatcontent-box')
+  clickDiv.addEventListener('click',function(){
+    
+  })
+
 });

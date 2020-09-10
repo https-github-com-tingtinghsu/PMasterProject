@@ -5,21 +5,23 @@
           <%= render 'rooms/form', room: Room.new %>
             <%# <% @rooms.each do |room| %> 
               <%# <%= link_to room do %> 
-              <div class="channel">
+              <!-- <div class="channel">
               <%= @room.name %>
               </div>
                 <small><%= @room.users.uniq.count %>member</small>
               <div id="room-id">
                 <%= @room.id %>
-              </div>
+              </div> -->
               <%# <% end %> 
             <%# <% end %> 
         </div>
          <div class=" messagesbox">
            <% if @room.present? %>
-              <h2>
-                <%= @room.name %>
-              </h2>
+              <div class="chatroom-lebal" typ='button'>
+                <h2>
+                  <%= @room.name %>
+                </h2>
+              </div>
               <div class="chatcontent-box" data-room-id="<%= @room.id %>">
                 <div id="messages">
                   <% @room.messages.each do |message| %>

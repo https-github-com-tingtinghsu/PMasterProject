@@ -8,6 +8,7 @@
       height: 500px;
       overflow: auto;
       padding-bottom: 20px;
+      background-color: rgb(255, 255, 255);
     }
 }
 .channel{
@@ -22,6 +23,7 @@
 .chatroom-input{
   display: flex;
   width: 500px;
+  border: solid 1px #aaa;
   .text-input{
     width: 500px;
   }
@@ -50,6 +52,15 @@
   }
   
 }
+.messagesbox{
+  .chatroom-lebal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(211, 207, 207);
+    height: 50px;
+  }
+}
 .me{
   display: flex;
   justify-content: flex-end;
@@ -61,6 +72,16 @@
       
 
     
+  }
+}
+
+
+.main-dashboard{
+  position: relative;
+  .chatroombox{
+    position: fixed;
+    top: 90px;
+    right: 410px;
   }
 }
 
