@@ -1,3 +1,2 @@
 rails: bin/rails s -p 3333
 webpack: bin/webpack-dev-server
-redis: redis-server /usr/local/etc/redis.conf
