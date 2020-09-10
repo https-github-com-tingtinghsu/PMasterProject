@@ -18,7 +18,11 @@
               <div class="bg-gray-200 block p-2 rounded-md">
                 <span>。
                   <%= item.name%><%= "--item_id #{item.id}"%>
-                  <i class="far fa-comment-dots ml-3"></i>
+                  <%#= link_to 'Label', root_url, :data => { :id => item.id, :name => item.name } %>
+                  <%#= content_tag(:div, "Some Text", id: "postItem", data: { attr: some_variable }) %>
+                  <a id='postItem'>
+                    <i class="far fa-comment-dots ml-3"></i>
+                  </a>
                 </span>
                 <span>
                   <%= item.description %>
@@ -38,3 +42,5 @@
     </div>
   </article>
 </div>
+
+<%= render 'shared/frontend/post_modal',item: @item %>

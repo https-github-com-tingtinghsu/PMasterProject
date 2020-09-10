@@ -5190,8 +5190,25 @@ button.dropdown-item.is-active {
   position: fixed;
   z-index: 40;
 }
+.modal-post-block {
+  background-color: green;
+  height: 100vh;
+  width: 400px;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  right: 0;
+  top: 0;
+  position: fixed;
+  z-index: 40;
+}
 
 .modal.is-active {
+  display: flex;
+}
+
+.modal-post-block.is-active{
   display: flex;
 }
 
@@ -5202,7 +5219,7 @@ button.dropdown-item.is-active {
 .modal-content,
 .modal-card {
   margin: 0 20px;
-  max-height: calc(100vh - 160px);
+  max-height: 100vh;
   overflow: auto;
   position: relative;
   width: 100%;
@@ -5233,6 +5250,13 @@ button.dropdown-item.is-active {
   overflow: hidden;
   -ms-overflow-y: visible;
 }
+.modal-post-block-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  -ms-overflow-y: visible;
+}
 
 .modal-card-head,
 .modal-card-foot {
@@ -5250,7 +5274,6 @@ button.dropdown-item.is-active {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
-
 .modal-card-title {
   color: #363636;
   flex-grow: 1;
@@ -5277,7 +5300,6 @@ button.dropdown-item.is-active {
   overflow: auto;
   padding: 20px;
 }
-
 .navbar {
   background-color: white;
   min-height: 3.25rem;

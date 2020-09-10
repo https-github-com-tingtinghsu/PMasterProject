@@ -4,6 +4,9 @@ class GroupsController < ApplicationController
   def index
     @groups = @board.groups.all
     @workspace = @board.workspace_id
+    @rooms = Room.all
+    @room = @rooms.find_by(workspace_id: @workspace)
+    # byebug
   end
   def new
     @group = Group.new

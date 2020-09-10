@@ -24,7 +24,7 @@ class WorkspacesController < ApplicationController
     }
   end
 
-  def update  
+  def update
     @workspace.update(name: params[:name])
     render json: { 
       success: true

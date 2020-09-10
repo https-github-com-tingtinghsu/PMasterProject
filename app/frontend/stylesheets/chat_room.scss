@@ -5,9 +5,15 @@
     display: flex;
     width: 100px;
     .chatcontent-box{
-      height: 500px;
+      height: 0;
       overflow: auto;
-      padding-bottom: 20px;
+      // transition: 1s;
+    }
+    .open{
+      height: 250px;
+      overflow: auto;
+      background-color: rgb(255, 255, 255);
+      transition: 1s;
     }
 }
 .channel{
@@ -21,9 +27,13 @@
 
 .chatroom-input{
   display: flex;
-  width: 500px;
+  width: 300px;
+  border: solid 1px #aaa;
+  display:none;
+  transition: 1s;
+  
   .text-input{
-    width: 500px;
+    width: 300px;
   }
   .btn{
     text-align: center;
@@ -32,11 +42,18 @@
     width: 50px;
     background-color: #aaa;
     outline: none;
+
     button:focus{
       outline:none
     }
   }
   
+}
+.appear{
+  display: flex;
+  width: 300px;
+  border: solid 1px #aaa;
+  transition: 1s;
 }
 .chatcontent{
   display: flex;
@@ -50,6 +67,38 @@
   }
   
 }
+.messagesbox{
+  .chatroom-lebal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgb(211, 207, 207);
+    height: 50px;
+    width: 50px;
+    border-radius: 10%;
+    transition: .5s;
+    margin: 10px;
+    position: relative;
+    left: 200px;
+    .fa-comment-medical{
+      font-size: 50px;
+      color: rgb(96, 231, 186);
+    }
+  }
+  .rotate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgb(211, 207, 207);
+    height: 50px;
+    width: 50px;
+    border-radius: 10%;
+    transition: .5s;
+    transform: rotate(45deg);
+    margin: 10px;
+  }
+ 
+}
 .me{
   display: flex;
   justify-content: flex-end;
@@ -61,6 +110,16 @@
       
 
     
+  }
+}
+
+
+.main-dashboard{
+  position: relative;
+  .chatroombox{
+    position: fixed;
+    top: 310px;
+    right: 200px;
   }
 }
 
