@@ -2,9 +2,11 @@ import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
   const scroll_controller = document.querySelector('.chatcontent-box');
-  scroll_controller.scrollTop = scroll_controller.scrollHeight;
   const element = document.querySelector('.chatcontent-box')
+  // if(element === null){
   const room_id = element.getAttribute('data-room-id')
+  scroll_controller.scrollTop = scroll_controller.scrollHeight;
+
   // console.log(element)
   console.log(room_id)
   // console.log(room_id)
@@ -50,6 +52,6 @@ document.addEventListener('turbolinks:load', () => {
       // console.log(html)
     }
   });
-  
+// }
 })
 
