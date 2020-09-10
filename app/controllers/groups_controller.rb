@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
   before_action :find_group, only: [:edit, :update, :destroy]
   def index
     @groups = @board.groups.all
+    @workspace = @board.workspace_id
   end
   def new
     @group = Group.new
