@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 		@item = @group.items.new(item_params)
 		if @item.save
 			redirect_to group_items_path, notice: "新增成功"
-			# 新增function連動github issuse`
+			# 新增function連動github issuse
 		else
 			render :new
 		end
@@ -39,6 +39,7 @@ class ItemsController < ApplicationController
 		@board = @group.board
 	end
 	def item_params
-		params.require(:item).permit(:name)
+		# byebug
+		params.require(:item).permit(:name, :description, :status, :person, :due_date)
 	end
 end

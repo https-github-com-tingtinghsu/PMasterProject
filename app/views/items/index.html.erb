@@ -17,11 +17,17 @@
             <li class="mx-5 my-2">
               <div class="bg-gray-200 block p-2 rounded-md">
                 <span>。
-                  <%= item.name%>
+                  <%= item.name%><%= "--item_id #{item.id}"%>
                   <i class="far fa-comment-dots ml-3"></i>
                 </span>
                 <span>
                   <%= item.description %>
+                </span>
+                <span>
+                  <%= item.due_date %>
+                </span>
+                <span class='status'>
+                  <%= item.status %>
                 </span>
               </div>
               <%= link_to ' 編輯', edit_item_path(item), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
