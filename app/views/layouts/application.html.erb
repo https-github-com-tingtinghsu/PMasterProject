@@ -7,19 +7,20 @@
     <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-   
-    <style>
-       /* html{
-         font-size: 0;
-        } */
-    </style>
+
   </head>
   <body> 
     <%= render "shared/frontend/navbar" %>
-    <%= render "shared/frontend/flash" if notice %>    
-    <%= yield %>
-    
-    
+    <%= render "shared/frontend/flash" if notice %>
+    <% if current_user && params[:controller]!="devise/registrations" %>
+      <div class="tile is-ancestor mx-1 my-2 tile-dashboard">
+        <%= render "shared/frontend/sidebar"%>
+        <%= yield %>
+      </div>
+    <% else %>
+        <%= yield %>
+    <% end %>
+
     <%= render "shared/frontend/footer" %>
     
   </body>
