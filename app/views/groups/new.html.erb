@@ -1,0 +1,17 @@
+<h1 class="text-xl px-2 py-2">新增群組 New Group</h1>
+
+<% if @group.errors.any? %>
+  <ul>
+  <% @group.errors.full_messages.each do |message| %>
+  <li><p class="text-red-600 mx-2">。<%= message %></p></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<div class="mx-5 my-5">
+  <%= form_with(model: @group, url: board_groups_path, local: true) do |f| %>
+    <%= f.label :name, "群組名稱" %>
+    <%= f.text_field :name, class: 'border-2 px-2 py-3' %>
+    <%= f.submit '新增', class: 'mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>    
+  <% end %>
+</div>

@@ -1,0 +1,37 @@
+<div id="user-id" data-user-id="<%= current_user.id %>"></div>
+    <div class="container">
+      <div class="row chatbox">
+        <div class="channelbox">
+          <%= render 'rooms/form', room: Room.new %>
+            <%# <% @rooms.each do |room| %> 
+              <%# <%= link_to room do %> 
+              <div class="channel">
+              <%= @room.name %>
+              </div>
+                <small><%= @room.users.uniq.count %>member</small>
+              <div id="room-id">
+                <%= @room.id %>
+              </div>
+              <%# <% end %> 
+            <%# <% end %> 
+        </div>
+         <div class=" messagesbox">
+           <% if @room.present? %>
+              <h2>
+                <%= @room.name %>
+              </h2>
+              <div class="chatcontent-box" data-room-id="<%= @room.id %>">
+                <div id="messages">
+                  <% @room.messages.each do |message| %>
+                    <%= render '/messages/message', message: message  %>
+                  <% end %>
+                </div>
+              </div>
+              
+              <div class="chatroom">
+                <%= render '/messages/form', message: Message.new, room: @room  %>
+              </div>
+            <% end %>
+         </div>
+      </div>
+    </div>
