@@ -22,8 +22,11 @@ document.addEventListener('turbolinks:load', () => {
   //Get chatroom toggle the "is-active"
   const clickDiv = document.querySelector('.chatroom-lebal')
   const chatroomContent = document.querySelector('.chatcontent-box')
+  const chatroomInput = document.querySelector('.chatroom-input')
   clickDiv.addEventListener('click',function(){
-    
+    chatroomContent.classList.toggle('open')
+    clickDiv.classList.toggle('rotate')
+    chatroomInput.classList.toggle('appear')
   })
 
 });
