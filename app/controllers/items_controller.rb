@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 	before_action :find_item, only: [:edit, :update, :destroy]
 
 	def index
-		@items = @group.items.all 
+		@items = @group.items.all
+		# byebug
 	end
 	def new
 		@item = Item.new

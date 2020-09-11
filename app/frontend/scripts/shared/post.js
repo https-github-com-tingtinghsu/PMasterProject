@@ -18,7 +18,7 @@ document.addEventListener('turbolinks:load', () => {
 	}
 	if (btnSubmit){
 		btnSubmit.addEventListener('click', function(){
-			if (btnSubmit.dataset.post-id == 0){
+			if (btnSubmit.dataset.postId == 0){
 				// createpost()
 				console.log('123');
 			} else{
