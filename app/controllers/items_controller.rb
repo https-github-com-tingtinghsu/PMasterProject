@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 	def create
 		@item = @group.items.new(item_params)
 		if @item.save
-			redirect_to group_items_path, notice: "新增成功"
+			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 			# 新增function連動github issuse
 		else
 			render :new
@@ -22,14 +22,16 @@ class ItemsController < ApplicationController
 	end
 	def update
 		if @item.update(item_params)
-			redirect_to group_items_path(@item.group)
+			board =	Board.find(Group.find(@item.group_id).board_id)
+			redirect_to board_groups_path(board)
 		else
 			render :edit
 		end
 	end
 	def destroy
 		@item.destroy
-		redirect_to group_items_path(@item.group), notice: "刪除成功"
+		board =	Board.find(Group.find(@item.group_id).board_id)
+		redirect_to board_groups_path(board), notice: "刪除成功"
 	end  
 	private
 	def find_item

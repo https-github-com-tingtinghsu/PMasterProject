@@ -3,14 +3,36 @@
     <p class="title text-md main-board-title">看板：<%= @board.name %></p>
     <p class="subtitle my-2 ">群組列表</p>
     <%= link_to '新增群組', new_board_group_path, class:"px-3 py-1 mb-2 bg-green-400 text-white rounded text-center" %>
-    <%= link_to '工作聯絡室', rooms_workspace_path(@workspace) %>
     <div class="content">
       <p class="group-name">
         <ul>
-          <% @groups.each  do |group| %>
+          <% @groups.each do |group| %>
             <li class="mx-5 my-2">
-              <p class="bg-gray-200 block p-2 rounded-md">。<%= link_to group.name, group_items_path(group)%></p>
-              <%= link_to ' 編輯', edit_group_path(group), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
+              <p class="bg-gray-200 block p-2 rounded-md">。
+                <%= group.name %>
+                <%= "-主題ID是#{group.id}" %>
+                <%= link_to '', edit_group_path(group), class: "px-3 py-1 bg-orange-500 text-white rounded text-center far fa-edit" %>
+                <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個群組嗎?'}, class: "px-3 py-1 bg-orange-500 text-white rounded text-center far fa-trash-alt" %>
+              </p>
+              <ul>
+                <li>
+                  <% @items.each do |item| %>
+                    <% if group.id == item.group_id %>
+                      <p class="items-task">
+                        <%= link_to '', edit_item_path(item), class: "far fa-edit" %>
+                        <span class="item-name mr-3"><%= item.name %></span>
+                        <a id='postItem' class="far fa-comment-dots mr-3"></a>
+                        <span class="item-description mr-3"><%= item.description %></span>
+                        <span class="item-due-date mr-3"><%= item.due_date %></span>
+                        <span class="item-status mr-3"><%= item.status %></span>
+                      </p>
+                    <% end %>
+                  <% end%>
+                </li>
+                <li>
+                  <%= link_to '+ 新增項目', new_group_item_path(group.id), class:"px-3 py-1 my-2 bg-green-400 text-white rounded text-center" %>
+                </li>
+              </ul>
             </li>
           <% end %>
           </ul>
@@ -22,5 +44,3 @@
     <%= render '/workspaces/rooms', message: Message.new, room: @room %>
   </div>
 </div>
-
-
