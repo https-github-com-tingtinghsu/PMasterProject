@@ -5,14 +5,29 @@
     display: flex;
     width: 100px;
     .chatcontent-box{
-      height: 0;
-      overflow: auto;
-      // transition: 1s;
+      transform: translateY(300%);
+      transition: 1s;
+      position: fixed;
+      bottom: 0;
+      z-index: 100;
+
+      .chatroom-group{
+        height: 385px;
+        width: 300px;
+        overflow: hidden;
+        background-color: rgb(253, 251, 250);
+        
+        // border: solid 1px red;
+        
+        #messages {
+          height: 385px;
+          overflow-y: auto;
+          padding-bottom: 50px;
+        }
+      }
     }
     .open{
-      height: 250px;
-      overflow: auto;
-      background-color: rgb(255, 255, 255);
+      transform: translateY(0%);
       transition: 1s;
     }
 }
@@ -28,9 +43,10 @@
 .chatroom-input{
   display: flex;
   width: 300px;
-  border: solid 1px #aaa;
-  display:none;
+  // border: solid 1px #aaa;
   transition: 1s;
+  position: fixed;
+  bottom: 0;
   
   .text-input{
     width: 300px;
@@ -49,12 +65,7 @@
   }
   
 }
-.appear{
-  display: flex;
-  width: 300px;
-  border: solid 1px #aaa;
-  transition: 1s;
-}
+
 .chatcontent{
   display: flex;
   .message-text{

@@ -1,13 +1,12 @@
 import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
-  const scroll_controller = document.querySelector('.chatcontent-box');
+  const scroll_controller = document.querySelector('.chatroom-group');
   const element = document.querySelector('.chatcontent-box')
   // if(element === null)
     if(!element)return
   const room_id = element.getAttribute('data-room-id')
-  scroll_controller.scrollTop = scroll_controller.scrollHeight;
-
+  
   // console.log(element)
   console.log(room_id)
   // console.log(room_id)
@@ -26,7 +25,8 @@ document.addEventListener('turbolinks:load', () => {
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
       const messageContainer = document.getElementById('messages');
-      const scroll_controller = document.querySelector('.chatcontent-box');
+      const scroll_controller = document.querySelector('.chatroom-group');
+      const $messages = document.querySelector('#messages');
       const message_input = document.querySelector('.text-input');
       // const user_id = element.getAttribute('data-user-id');
       // console.log(element)
@@ -38,7 +38,8 @@ document.addEventListener('turbolinks:load', () => {
       }else{
         messageContainer.innerHTML += data.others
       }
-      scroll_controller.scrollTop = scroll_controller.scrollHeight;
+      // scroll_controller.scrollTop = scroll_controller.scrollHeight;
+      $messages.scrollTo(0, $messages.scrollHeight);
       message_input.value = '';
       console.log(message_input.value)
 
