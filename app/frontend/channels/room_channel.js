@@ -3,7 +3,8 @@ import consumer from "./consumer"
 document.addEventListener('turbolinks:load', () => {
   const scroll_controller = document.querySelector('.chatcontent-box');
   const element = document.querySelector('.chatcontent-box')
-  // if(element === null){
+  // if(element === null)
+    if(!element)return
   const room_id = element.getAttribute('data-room-id')
   scroll_controller.scrollTop = scroll_controller.scrollHeight;
 
