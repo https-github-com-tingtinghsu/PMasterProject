@@ -253,6 +253,7 @@ function deleteWorkspace(id){
       if(data.success){
         $("#workspace-"+id).remove()
         $("#add-new-board-"+id).remove()
+        // $("#board-"+id).remove()        
         alert("刪除成功！")        
       }
       else{
