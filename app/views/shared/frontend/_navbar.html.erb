@@ -51,8 +51,9 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if current_user %>
-            <strong><%= link_to '編輯帳戶', edit_user_registration_path, class: "button is-primary" %></strong>
-            <strong><%= button_to '登出', destroy_user_session_path, method: 'delete', class: "button is-light" %></strong>
+            <div>Hello, <%= current_user.email %></div>
+            <strong><%= link_to '編輯帳戶', edit_user_registration_path, class: "button is-primary ml-2" %></strong>
+            <strong><%= button_to '登出', destroy_user_session_path, method: 'delete', class: "button is-light", id: "btn-logout" %></strong>
           <% else %>
             <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %></strong>
             <strong><%= link_to '我要登入', new_user_session_path, class: "button is-light" %></strong>

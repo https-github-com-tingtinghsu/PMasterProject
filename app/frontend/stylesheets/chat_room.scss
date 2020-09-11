@@ -1,0 +1,126 @@
+.container{
+    margin: 30px;
+}
+.chatbox{
+    display: flex;
+    width: 100px;
+    .chatcontent-box{
+      height: 0;
+      overflow: auto;
+      // transition: 1s;
+    }
+    .open{
+      height: 250px;
+      overflow: auto;
+      background-color: rgb(255, 255, 255);
+      transition: 1s;
+    }
+}
+.channel{
+    width: 100px;
+    text-align: center;
+    margin: 10px;
+    display: inline-block;
+    line-height: 40px;
+    background-color: rgb(58, 212, 223);
+}
+
+.chatroom-input{
+  display: flex;
+  width: 300px;
+  border: solid 1px #aaa;
+  display:none;
+  transition: 1s;
+  
+  .text-input{
+    width: 300px;
+  }
+  .btn{
+    text-align: center;
+    display: inline-block;
+    line-height: 40px;
+    width: 50px;
+    background-color: #aaa;
+    outline: none;
+
+    button:focus{
+      outline:none
+    }
+  }
+  
+}
+.appear{
+  display: flex;
+  width: 300px;
+  border: solid 1px #aaa;
+  transition: 1s;
+}
+.chatcontent{
+  display: flex;
+  .message-text{
+    background-color: #eeeeee;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+      
+  }
+  
+}
+.messagesbox{
+  .chatroom-lebal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgb(211, 207, 207);
+    height: 50px;
+    width: 50px;
+    border-radius: 10%;
+    transition: .5s;
+    margin: 10px;
+    position: relative;
+    left: 200px;
+    .fa-comment-medical{
+      font-size: 50px;
+      color: rgb(96, 231, 186);
+    }
+  }
+  .rotate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgb(211, 207, 207);
+    height: 50px;
+    width: 50px;
+    border-radius: 10%;
+    transition: .5s;
+    transform: rotate(45deg);
+    margin: 10px;
+  }
+ 
+}
+.me{
+  display: flex;
+  justify-content: flex-end;
+  .message-text {
+    background-color: rgb(49, 49, 214);
+    color: #fefcfc;
+    display: flex;
+    justify-content: center;
+      
+
+    
+  }
+}
+
+
+.main-dashboard{
+  position: relative;
+  .chatroombox{
+    position: fixed;
+    top: 310px;
+    right: 200px;
+  }
+}
+
+

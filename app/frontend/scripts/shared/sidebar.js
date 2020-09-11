@@ -1,4 +1,7 @@
 document.addEventListener('turbolinks:load', () => {
+  // if($("#btn-logout").length >= 0) {
+
+  // }
   initWorkspaceList();
 
   $("#link-add-workspace").click(function(){
@@ -249,6 +252,8 @@ function deleteWorkspace(id){
     success: function(data){
       if(data.success){
         $("#workspace-"+id).remove()
+        $("#add-new-board-"+id).remove()
+        alert("刪除成功！")        
       }
       else{
         alert("刪除失敗！")
@@ -316,7 +321,7 @@ function addNewBoardRow(workspaceId){
   })
 
   sidebarItem.append(addBoardItem)
-  sidebarItem.append("<p><i>新增看板...</i></p>") 
+  sidebarItem.append(`<p><i>新增看板...</i></p>`) 
   return sidebarItem;
 }
 

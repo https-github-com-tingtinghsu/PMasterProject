@@ -25,7 +25,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -34,6 +34,7 @@ gem 'paranoia', '~> 2.4', '>= 2.4.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,6 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'foreman', '~> 0.87.2'
   gem 'hirb-unicode', '~> 0.0.5'
+
 end
 
 group :test do
