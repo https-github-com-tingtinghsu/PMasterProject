@@ -253,7 +253,9 @@ function deleteWorkspace(id){
       if(data.success){
         $("#workspace-"+id).remove()
         $("#add-new-board-"+id).remove()
-        alert("刪除成功！")        
+        // $("#board-"+id).remove()        
+        alert("刪除成功！")
+        window.location.href = "/dashboard"        
       }
       else{
         alert("刪除失敗！")
@@ -332,6 +334,8 @@ function deleteBoard(id){
     success: function(data){
       if(data.success){
         $("#board-"+id).remove()
+        alert("刪除成功！")        
+        window.location.href = "/dashboard" 
       }
       else{
         alert("刪除失敗！")

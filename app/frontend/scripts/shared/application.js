@@ -23,6 +23,7 @@ document.addEventListener('turbolinks:load', () => {
   const clickDiv = document.querySelector('.chatroom-lebal')
   const chatroomContent = document.querySelector('.chatcontent-box')
   const chatroomInput = document.querySelector('.chatroom-input')
+  if(!clickDiv)return
   clickDiv.addEventListener('click',function(){
     chatroomContent.classList.toggle('open')
     clickDiv.classList.toggle('rotate')
