@@ -2,5 +2,5 @@
 
 <p>
   <%= @greeting %>
-  點擊<a href="http://localhost:3333/users/sign_in?t=<%= @uuid %>">登入連結</a>，即可進入< <%= @workspace.name %> >工作區，和您的團隊一起管理專案！
+  點擊<%= link_to '登入連結', new_user_session_url(t: @uuid) %>，即可進入< <%= @workspace.name %> >工作區，和您的團隊一起管理專案！
 </p>
