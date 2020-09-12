@@ -5,7 +5,7 @@
     display: flex;
     width: 100px;
     .chatcontent-box{
-      transform: translateY(300%);
+      transform: translateY(90%);
       transition: 1s;
       position: fixed;
       bottom: 0;
@@ -85,29 +85,30 @@
     align-items: center;
     // background-color: rgb(211, 207, 207);
     height: 50px;
-    width: 50px;
-    border-radius: 10%;
+    width: 300px;
+    // border-radius: 10%;
     transition: .5s;
-    margin: 10px;
+    // margin: 10px;
     position: relative;
-    left: 200px;
+    right: 0;
+    background-color: silver;
     .fa-comment-medical{
       font-size: 50px;
       color: rgb(96, 231, 186);
     }
   }
-  .rotate{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // background-color: rgb(211, 207, 207);
-    height: 50px;
-    width: 50px;
-    border-radius: 10%;
-    transition: .5s;
-    transform: rotate(45deg);
-    margin: 10px;
-  }
+  // .rotate{
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   // background-color: rgb(211, 207, 207);
+  //   height: 50px;
+  //   width: 50px;
+  //   border-radius: 10%;
+  //   transition: .5s;
+  //   transform: rotate(45deg);
+  //   margin: 10px;
+  // }
  
 }
 .me{
