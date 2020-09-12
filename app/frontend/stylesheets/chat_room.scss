@@ -13,7 +13,7 @@
 
       .chatroom-group{
         height: 385px;
-        width: 300px;
+        width: 360px;
         overflow: hidden;
         background-color: rgb(253, 251, 250);
         
@@ -42,14 +42,16 @@
 
 .chatroom-input{
   display: flex;
-  width: 300px;
+  width: 360px;
   // border: solid 1px #aaa;
   transition: 1s;
   position: fixed;
   bottom: 0;
   
   .text-input{
-    width: 300px;
+    width: 400px;
+    padding: 10px;
+    outline: none;
   }
   .btn{
     text-align: center;
@@ -88,16 +90,19 @@
     align-items: center;
     // background-color: rgb(211, 207, 207);
     height: 50px;
-    width: 300px;
-    // border-radius: 10%;
+    width: 360px;
     transition: .5s;
-    // margin: 10px;
     position: relative;
     right: 0;
-    background-color: silver;
-    .fa-comment-medical{
-      font-size: 50px;
-      color: rgb(96, 231, 186);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: 20px;
+    background-image: linear-gradient(to bottom,rgb(58, 223, 245),rgb(228, 237, 240));
+    padding-right: 20px;
+    .fa-comments{
+      font-size: 30px;
+      margin-right: 10px;
+      // color: rgb(96, 231, 186);
     }
   }
   // .rotate{
@@ -144,6 +149,7 @@
   .message-time{
     display: flex;
     align-items: flex-end;
+    color: rgb(187, 185, 185);
   }
 
 }
@@ -152,7 +158,7 @@
   .chatroombox{
     position: fixed;
     top: 310px;
-    right: 200px;
+    right: 300px;
   }
 }
 
