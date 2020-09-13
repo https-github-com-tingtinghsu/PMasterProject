@@ -9,7 +9,7 @@
   		</ul>
 		</nav>
     <p class="subtitle my-2 ">項目列表</p>
-    <%= link_to '新增項目', new_group_item_path, class:"px-3 py-1 mb-2 bg-green-400 text-white rounded text-center" %>
+    <%= link_to "新增項目", new_group_item_path, class:"px-3 py-1 mb-2 bg-green-400 text-white rounded text-center" %>
     <div class="content">
       <p class="group-name">
         <ul>
@@ -17,13 +17,10 @@
             <li class="mx-5 my-2">
               <div class="bg-gray-200 block p-2 rounded-md">
                 <span>。
-                  <%= render 'shared/frontend/post_modal', item: item %>
                   <%= item.name%><%= "--item_id #{item.id}"%>
                   <%#= link_to 'Label', root_url, :data => { :id => item.id, :name => item.name } %>
                   <%#= content_tag(:div, "Some Text", id: "postItem", data: { attr: some_variable }) %>
-                  <a id='postItem'>
-                    <i class="far fa-comment-dots ml-3"></i>
-                  </a>
+                  <a id="postItem" class="far fa-comment-dots ml-3" data-item-id="<%= item.id %>"></a>
                 </span>
                 <span>
                   <%= item.description %>
@@ -34,6 +31,7 @@
                 <span class='status'>
                   <%= item.status %>
                 </span>
+                <%= render 'shared/frontend/post_modal', item: @item, post: Post.new %>
               </div>
               <%= link_to ' 編輯', edit_item_path(item), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
             </li>

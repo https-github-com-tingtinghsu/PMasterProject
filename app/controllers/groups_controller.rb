@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
     @rooms = Room.all
     @room = @rooms.find_by(workspace_id: @workspace)
     @items = Item.all
+    @posts = Post.all
     # byebug
   end
   def new

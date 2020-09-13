@@ -1,6 +1,5 @@
 <div class="modal-post-block" id="modal-posts-content">
-
-  <div class="modal-card-post">
+  <div class="modal-card-post" >
     <header class="modal-card-head">
       <p class="modal-card-title"><%= item.name %></p>
       <button class="delete btn-cancel-modal" aria-label="close"></button>
@@ -8,28 +7,34 @@
 
     <section class="modal-card-body">
       <div class="card adding-post">
-        <label for="add-posts-content" class="text-2xl my-2">留言：</label>
-        <textarea id="posts-content" name="add-posts-content" class="textarea border border-dash border-green-300 rounded-md px-3 py-3" placeholder="請在此輸入文字..."></textarea>
-        <button class="button is-success btn-save-adding my-2" id="btn-post-submit" data-postId="" disabled>送出</button>
+        <%= form_with(model: @post, local: true) do |f|%>
+          <%= f.label :postcontent, "留言：", class:"text-2xl my-2"%>
+          <%= f.text_area :postcontent, id:"posts-content", class:"textarea border border-dash border-green-300 rounded-md px-3 py-3", placeholder:"請在此輸入文字..." %>
+          <%= f.submit '送出', class:"button is-success btn-save-adding my-2", id:"btn-post-submit" %>
+        <% end %>
       </div>
-      <div class="card added-post">
-        <div class="card-content">
-         <p class="title">mainTitle</p>
-         <p class="subtitle">subTitle</p>
-        </div>
-        <div class="card-footer">
-          <p class="card-footer-item">
-            <span>
-              <i class="far fa-thumbs-up"></i>Like
-            </span>
-          </p>
-          <p class="card-footer-item">
-            <span>
-              <i class="fas fa-reply"></i>Reply
-            </span>
-          </p>
-        </div>
-      </div>
+      <% @posts.each do |post|%>
+        <%# if item.id == post.item_id %>
+          <div class="card added-post mb-3" data-item-id="<%= post.item_id %>" >
+            <div class="card-content">
+              <span class="author-email bg-yellow-200 p-1"><%= User.find(post.user_id).email %></span>
+              <p class="content mt-2"><%= post.content%></p>
+            </div>
+            <div class="card-footer">
+              <p class="card-footer-item">
+                <span>
+                  <i class="far fa-thumbs-up"></i>Like
+                </span>
+              </p>
+              <p class="card-footer-item">
+                <span>
+                  <i class="fas fa-reply"></i>Reply
+                </span>
+              </p>
+            </div>
+          </div>
+        <%# end %>
+      <% end %>
     </section>
   </div>  
 </div>

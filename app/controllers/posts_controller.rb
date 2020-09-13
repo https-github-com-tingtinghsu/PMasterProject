@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	before_action :find_item, only: [:index, :create, :update, :destroy]
-	before_action :find_post, only: [:update, :destroy]
+	# before_action :find_post, only: [:update, :destroy]
+	before_action :authenticate_user!
   def index
 		@posts = @item.posts.all
 		render json:{
@@ -24,6 +25,7 @@ class PostsController < ApplicationController
     }
 	end
 	def destroy
+		# @post = Item.find
 		@post.destroy
 		render json: { 
       success: true
@@ -32,8 +34,5 @@ class PostsController < ApplicationController
 	private
   def find_item
     @item = Item.find(params[:id])
-	end
-	def find_post
-		# @post = Item.find([:id])
 	end
 end

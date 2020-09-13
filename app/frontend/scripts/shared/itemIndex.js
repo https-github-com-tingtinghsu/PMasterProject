@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', () => {
-	let itemStatus = document.querySelectorAll('.status')
+	let itemStatus = document.querySelectorAll('.item-status')
 	if (itemStatus){
 		itemStatus.forEach(element => {
 			element.classList.add('p-1')
