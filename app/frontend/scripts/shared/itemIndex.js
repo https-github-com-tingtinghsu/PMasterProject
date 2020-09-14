@@ -8,9 +8,9 @@ document.addEventListener('turbolinks:load', () => {
 			}else if(element.textContent.match('進行中')){
 				element.classList.add('bg-blue-300')
 			}else if(element.textContent.match('卡關中')){
-				element.classList.add('bg-red-700')
+				element.classList.add('bg-red-300')
 			}else if(element.textContent.match('已完成')){
-				element.classList.add('bg-gray-600')
+				element.classList.add('bg-gray-400')
 			}
 		})
 	}

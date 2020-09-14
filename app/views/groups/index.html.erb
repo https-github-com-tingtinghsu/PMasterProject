@@ -5,40 +5,48 @@
     <%= link_to '新增群組', new_board_group_path, class:"px-3 py-1 mb-2 bg-green-400 text-white rounded text-center" %>
     <div class="content">
       <p class="group-name">
-        <ul>
+        <ul class="pr-5">
           <% @groups.each do |group| %>
-            <li class="mx-5 my-2" data-group-id="<%= group.id %>">
-              <p class="bg-gray-200 block p-2 rounded-md">。
+            <li class="mx-5 mt-2 mb-4" data-group-id="<%= group.id %>">
+              <p class="bg-gray-400 block p-2 rounded-md">。
                 <%= group.name %>
                 <%= "-主題ID是#{group.id}" %>
                 <%= link_to '', edit_group_path(group), class: "px-3 py-1 bg-orange-500 text-white rounded text-center far fa-edit" %>
                 <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個群組嗎?'}, class: "px-3 py-1 bg-orange-500 text-white rounded text-center far fa-trash-alt" %>
               </p>
-              <ul>
-                <li>
+              <table class="table is-hoverable">
+                <thead>
+                  <tr class="bg-gray-200">
+                    <th>項目名稱</th>
+                    <th>留言</th>
+                    <th>負責人</th>
+                    <th>項目敘述</th>
+                    <th>到期日</th>
+                    <th>進度</th>
+                  </tr>
+                </thead>
+                <tbody>
                   <% @items.each do |item| %>
                     <% if group.id == item.group_id %>
-                      <p class="items-task" data-item-id="<%= item.id %>">
-                        <%= link_to '', edit_item_path(item), class: "far fa-edit" %>
-                        <span class="item-name mr-3" id="item-id-<%= item.id %>"><%= item.name %></span>
-                        <a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots mr-3" data-item-id="<%= item.id %>"></a>
-                        <span class="item-person mr-3"><%= item.person %></span>
-                        <span class="item-description mr-3"><%= item.description %></span>
-                        <span class="item-due-date mr-3"><%= item.due_date %></span>
-                        <span class="item-status mr-3"><%= item.status %></span>
-                        <%= render 'shared/frontend/post_modal', item: item %>
-                      </p>
+                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>">
+                        <th>
+                          <%= link_to '', edit_item_path(item), class: "far fa-edit" %>
+                          <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
+                        </th>
+                        <th><a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots" data-item-id="<%= item.id %>"></a></th>
+                        <th class="item-person"><%= item.person %></th>
+                        <th class="item-description"><%= item.description %></th>
+                        <th class="item-due-date"><%= item.due_date %></th>
+                        <th><span class="item-status rounded-md"><%= item.status %></span></th>
+                      </tr>
                     <% end %>
-
-                  <% end%>
-                </li>
-                <li>
-                  <%= link_to '+ 新增項目', new_group_item_path(group.id), class:"px-3 py-1 my-2 bg-green-400 text-white rounded text-center" %>
-                </li>
-              </ul>
+                  <% end %>
+                <tbody>
+              </table>
+              <%= link_to '+ 新增項目', new_group_item_path(group.id), class:"px-3 py-1 my-2 bg-green-400 text-white rounded text-center" %>
             </li>
           <% end %>
-          </ul>
+        </ul>
       </p>
     </div>
     
@@ -47,3 +55,5 @@
     <%= render '/workspaces/rooms', message: Message.new, room: @room %>
   </div>
 </div>
+
+<%= render 'shared/frontend/post_modal' %>
