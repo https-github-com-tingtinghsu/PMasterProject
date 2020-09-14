@@ -1,14 +1,14 @@
 <div class="modal-post-block" id="modal-posts-content">
   <div class="modal-card-post" >
     <header class="modal-card-head">
-      <p class="modal-card-title"><%= item.name %></p>
+      <p class="modal-card-title post-card-title"></p>
       <button class="delete btn-cancel-modal" aria-label="close"></button>
     </header>
 
     <section class="modal-card-body">
       <div class="card adding-post">
         <%= form_with(model: @post, local: true) do |f|%>
-          <%= f.label :postcontent, "留言：", class:"text-2xl my-2"%>
+          <%= f.label :postcontent, "留言：", class:"text-2xl p-2"%>
           <%= f.text_area :postcontent, id:"posts-content", class:"textarea border border-dash border-green-300 rounded-md px-3 py-3", placeholder:"請在此輸入文字..." %>
           <%= f.submit '送出', class:"button is-success btn-save-adding my-2", id:"btn-post-submit" %>
         <% end %>

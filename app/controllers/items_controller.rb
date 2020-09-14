@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
 	def create
 		@item = @group.items.new(item_params)
 		if @item.save
-			byebug
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 			# 新增function連動github issuse
 		else

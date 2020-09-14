@@ -20,8 +20,8 @@
                     <% if group.id == item.group_id %>
                       <p class="items-task" data-item-id="<%= item.id %>">
                         <%= link_to '', edit_item_path(item), class: "far fa-edit" %>
-                        <span class="item-name mr-3"><%= item.name %></span>
-                        <a id='postItem' class="far fa-comment-dots mr-3" data-item-id="<%= item.id %>"></a>
+                        <span class="item-name mr-3" id="item-id-<%= item.id %>"><%= item.name %></span>
+                        <a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots mr-3" data-item-id="<%= item.id %>"></a>
                         <span class="item-person mr-3"><%= item.person %></span>
                         <span class="item-description mr-3"><%= item.description %></span>
                         <span class="item-due-date mr-3"><%= item.due_date %></span>

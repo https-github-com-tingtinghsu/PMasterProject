@@ -1,11 +1,18 @@
 document.addEventListener('turbolinks:load', () => {
-	let postIcon = document.querySelectorAll('#postItem')
+	let postIcon = document.querySelectorAll('.postIcon')
 	let btnCancel = document.querySelectorAll('.btn-cancel-modal')
 	let btnSubmit = document.querySelector('#btn-post-submit')
 	if (postIcon){
 		postIcon.forEach(element => {
 			element.addEventListener('click', function(){
-				// initPostList()
+				getElementaId = element.getAttribute('id')
+				postIcon = document.getElementById(getElementaId)
+				itemId = postIcon.getAttribute("data-item-id")
+				getElementItemId = "item-id-"+itemId
+				itemName = document.getElementById(getElementItemId).innerText
+				console.log(itemName)
+				document.querySelector('.post-card-title').textContent = itemName
+
 				document.querySelector("#modal-posts-content").classList.toggle("is-active")
 				let itemId = element.getAttribute("data-item-id")
 				let addedPost = document.querySelectorAll(".added-post")
@@ -37,7 +44,6 @@ document.addEventListener('turbolinks:load', () => {
 		})
 	}
 });
-
 
 // function createPost(itemId){
 //   $.ajax({
