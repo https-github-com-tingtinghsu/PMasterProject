@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  $("#add-workspace-name, #add-board-name, #add-workspace-member-email").keydown(function(){
+  $("#add-workspace-name, #add-board-name, #add-workspace-member-email").bind("input", function(){
     // 新增時，沒填名字的話不能儲存
     isWorkspaceNameNull =  ($(this).val().length == 0)
     $("#btn-save-adding-workspace, #btn-save-adding-board, #btn-send-member-email").prop("disabled", isWorkspaceNameNull)
