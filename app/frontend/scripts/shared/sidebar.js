@@ -267,25 +267,34 @@ function deleteWorkspace(id){
 function sendMemeberEmail(){
   memberEmail = $("#add-workspace-member-email").val()
   workspaceId = $("#btn-send-member-email").data("workspace-id")
-  $.ajax({
-    type: "GET",
-    url: "/workspaces/" + workspaceId + "/add_member",
-    data: {
-      receive_user_email: memberEmail
-    },
-    success: function(result){
-      if(result.success){
-        console.log(result)
-        alert("邀請成功！")
-        $("#modal-add-workspace-member").removeClass("is-active")        
+  if (checkEmailValidate(memberEmail) == true){
+    $.ajax({
+      type: "GET",
+      url: "/workspaces/" + workspaceId + "/add_member",
+      data: {
+        receive_user_email: memberEmail
+      },
+      success: function(result){
+        if(result.success){
+          alert("邀請成功！")
+          $("#modal-add-workspace-member").removeClass("is-active")        
+        }
+        else{
+          alert("邀請失敗，請確認您輸入是有效的Email！")
+        }
       }
-      else{
-        console.log(result)
-        alert("邀請失敗，請確認您輸入是有效的Email！")
-      }
-    }
-  });  
-  $("add-workspace-member-email").val('')
+    });  
+    $("add-workspace-member-email").val('')
+  }
+}
+
+function checkEmailValidate(email){
+  if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)!= -1){
+    return true;
+  }
+  else {
+    alert("您的email格式填寫錯誤！");
+  }
 }
 
 function getBoardIndex(workspaceId){
