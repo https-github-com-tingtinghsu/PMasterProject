@@ -14,10 +14,12 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = @group.items.new(item_params)
-		@member_id = params[:person].values
+		@members_id = params[:person].values
 		# 撈出被選取到的user_id
 		if @item.save
-			byebug
+			@members_id.each do |m|
+				@item.users << User.find(m.to_i)
+			end
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 			# 新增function連動github issuse
 		else
