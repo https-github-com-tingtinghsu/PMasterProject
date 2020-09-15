@@ -61,6 +61,8 @@
     width: 50px;
     background-color: #aaa;
     outline: none;
+    border-radius: 10px;
+    display: none;
 
     button:focus{
       outline:none
