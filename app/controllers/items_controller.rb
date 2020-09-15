@@ -1,3 +1,4 @@
+require "github.rb"
 class ItemsController < ApplicationController
 	before_action :find_board_and_group, only: [:index, :new, :create]
 	before_action :find_item, only: [:edit, :update, :destroy]
@@ -22,8 +23,9 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 			# 新增function連動github issuse
+			Githubissue.new.issueCreate(@item.name)
+			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 		else
 			render :new
 		end
