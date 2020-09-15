@@ -14,11 +14,13 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = @group.items.new(item_params)
-		@members_id = params[:person].values
 		# 撈出被選取到的user_id
 		if @item.save
-			@members_id.each do |m|
-				@item.users << User.find(m.to_i)
+			if (params[:person])
+				@members_id = params[:person].values
+				@members_id.each do |m|
+					@item.users << User.find(m.to_i)
+				end
 			end
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 			# 新增function連動github issuse
@@ -34,11 +36,13 @@ class ItemsController < ApplicationController
 	end
 
 	def update
-		@members_id = params[:person].values
 		@item.users.delete_all
 		if @item.update(item_params)
-			@members_id.each do |m|
-				@item.users << User.find(m.to_i)
+			if (params[:person])
+				@members_id = params[:person].values
+				@members_id.each do |m|
+					@item.users << User.find(m.to_i)
+				end
 			end
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			# 先找到該item隸屬的group，再找該group隸屬的board，以便儲存後轉址到 boards/id/groups
