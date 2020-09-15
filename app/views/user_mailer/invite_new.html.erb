@@ -1,6 +1,13 @@
-<h1>邀請信件！</h1>
+<h1>邀請信件</h1>
 
 <p>
-  <%= @greeting %>，歡迎加入我們的行列 - P!Master皮老闆，最有趣的專案管理網站！
+  <%= @greeting %>，歡迎加入我們的行列 - P Master皮老闆，最有趣的專案管理網站！
   請點擊<%= link_to '連結', new_user_registration_url(t: @uuid) %>註冊，即可加入<%= @workspace.name %> 工作區，和您的團隊一起管理專案！
+</p>
+
+<br>
+
+<p>
+  最關心您專案團隊的皮老闆 敬上<br>
+  <%= link_to 'pmaster.tw', root_url %> 
 </p>
