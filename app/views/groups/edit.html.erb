@@ -1,8 +1,8 @@
-<h1 class="text-xl px-2 py-2">編輯群組 Edit Group</h1>
+<h1 class="text-xl px-2 py-2">編輯主題 Edit Group</h1>
 
 <div class="mx-5 my-5">
   <%= form_with(model: @group, local: true) do |f| %>
-    <%= f.label :name, "編輯群組標題" %>
+    <%= f.label :name, "編輯主題標題" %>
     <%= f.text_field :name, class: 'border-2 px-2 py-3' %>
     <%= f.submit '編輯完成', class: 'mt-4 ml-2 px-3 py-1 bg-orange-400 text-white block w-32 rounded text-center' %>
   <% end %>
