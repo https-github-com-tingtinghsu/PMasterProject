@@ -8,11 +8,11 @@ document.addEventListener('turbolinks:load', () => {
   const room_id = element.getAttribute('data-room-id')
   
   // console.log(element)
-  console.log(room_id)
+  // console.log(room_id)
   // console.log(room_id)
   consumer.subscriptions.create( { channel: "RoomChannel", room_id: room_id }, {
     connected() {
-      console.log("連接" + room_id)
+      // console.log("連接" + room_id)
       // Called when the subscription is ready for use on the server
     },
   

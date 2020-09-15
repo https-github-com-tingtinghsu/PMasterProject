@@ -98,7 +98,7 @@
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     font-size: 20px;
-    background-image: linear-gradient(to bottom,rgb(58, 223, 245),rgb(228, 237, 240));
+    background-image: linear-gradient(to bottom,#62B0DF,rgb(228, 237, 240));
     padding-right: 20px;
     .fa-comments{
       font-size: 30px;
@@ -128,7 +128,7 @@
     padding: 0;
     flex-direction: row-reverse;
     .message-text {
-      background-color: rgb(49, 49, 214);
+      background-color: #62B0DF;
       color: #fefcfc;
       display: flex;
       justify-content: center;
