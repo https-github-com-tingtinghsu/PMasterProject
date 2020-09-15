@@ -26,8 +26,11 @@ document.addEventListener('turbolinks:load', () => {
   if(!clickDiv)return
   clickDiv.addEventListener('click',function(){
     chatroomContent.classList.toggle('open')
+    chatroomContent.classList.toggle('chatroom-group')
     clickDiv.classList.toggle('rotate')
     chatroomInput.classList.toggle('appear')
-  })
+    const $messages = document.querySelector('#messages');
+    $messages.scrollTo(0, $messages.scrollHeight);
+    })
 
 });
