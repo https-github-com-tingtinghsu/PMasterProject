@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ .main-page {
+  text-align: center;
+ }
+ .main-pic {
+   max-width: 25%;
+   margin-right: auto;
+   margin-left: auto;
+ }

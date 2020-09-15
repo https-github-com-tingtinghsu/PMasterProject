@@ -1,3 +1,4 @@
+//chatroom
 .container{
     margin: 30px;
 }
@@ -5,14 +6,29 @@
     display: flex;
     width: 100px;
     .chatcontent-box{
-      height: 0;
-      overflow: auto;
-      // transition: 1s;
+      transform: translateY(90%);
+      transition: 1s;
+      position: fixed;
+      bottom: 0;
+      z-index: 100;
+
+      .chatroom-group{
+        height: 385px;
+        width: 360px;
+        overflow: hidden;
+        background-color: rgb(253, 251, 250);
+        
+        // border: solid 1px red;
+        
+        #messages {
+          height: 385px;
+          overflow-y: auto;
+          padding-bottom: 50px;
+        }
+      }
     }
     .open{
-      height: 250px;
-      overflow: auto;
-      background-color: rgb(255, 255, 255);
+      transform: translateY(0%);
       transition: 1s;
     }
 }
@@ -27,13 +43,16 @@
 
 .chatroom-input{
   display: flex;
-  width: 300px;
-  border: solid 1px #aaa;
-  display:none;
+  width: 360px;
+  // border: solid 1px #aaa;
   transition: 1s;
+  position: fixed;
+  bottom: 0;
   
   .text-input{
-    width: 300px;
+    width: 400px;
+    padding: 10px;
+    outline: none;
   }
   .btn{
     text-align: center;
@@ -42,6 +61,8 @@
     width: 50px;
     background-color: #aaa;
     outline: none;
+    border-radius: 10px;
+    display: none;
 
     button:focus{
       outline:none
@@ -49,18 +70,16 @@
   }
   
 }
-.appear{
-  display: flex;
-  width: 300px;
-  border: solid 1px #aaa;
-  transition: 1s;
-}
+
 .chatcontent{
   display: flex;
   .message-text{
     background-color: #eeeeee;
     border-radius: 15px;
     padding: 10px;
+    margin: 5px 10px;
+    
+    
     display: flex;
     justify-content: center;
       
@@ -74,53 +93,80 @@
     align-items: center;
     // background-color: rgb(211, 207, 207);
     height: 50px;
-    width: 50px;
-    border-radius: 10%;
+    width: 360px;
     transition: .5s;
-    margin: 10px;
     position: relative;
-    left: 200px;
-    .fa-comment-medical{
-      font-size: 50px;
-      color: rgb(96, 231, 186);
+    right: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: 20px;
+    background-image: linear-gradient(to bottom,#62B0DF,rgb(228, 237, 240));
+    padding-right: 20px;
+    .fa-comments{
+      font-size: 30px;
+      margin-right: 10px;
+      // color: rgb(96, 231, 186);
     }
   }
-  .rotate{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // background-color: rgb(211, 207, 207);
-    height: 50px;
-    width: 50px;
-    border-radius: 10%;
-    transition: .5s;
-    transform: rotate(45deg);
-    margin: 10px;
-  }
+  // .rotate{
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   // background-color: rgb(211, 207, 207);
+  //   height: 50px;
+  //   width: 50px;
+  //   border-radius: 10%;
+  //   transition: .5s;
+  //   transform: rotate(45deg);
+  //   margin: 10px;
+  // }
  
 }
 .me{
   display: flex;
   justify-content: flex-end;
-  .message-text {
-    background-color: rgb(49, 49, 214);
-    color: #fefcfc;
+  .message-body{
     display: flex;
-    justify-content: center;
-      
-
-    
+    padding: 0;
+    flex-direction: row-reverse;
+    .message-text {
+      background-color: #62B0DF;
+      color: #fefcfc;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .author{
+    margin: 2px 10px;
+    text-align: right;
   }
 }
+.author{
+  margin: 2px 10px;
+ 
+}
+.message-body{
+  display: flex;
+  padding: 0;
+  border-width: 0;
+  .message-time{
+    display: flex;
+    align-items: flex-end;
+    color: rgb(187, 185, 185);
+  }
 
-
+}
 .main-dashboard{
   position: relative;
   .chatroombox{
     position: fixed;
     top: 310px;
-    right: 200px;
+    right: 300px;
   }
 }
 
+// workspace
+.arrow{
+  // margin-right: 0;
+}
 

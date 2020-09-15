@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  $("#add-workspace-name, #add-board-name, #add-workspace-member-email").keydown(function(){
+  $("#add-workspace-name, #add-board-name, #add-workspace-member-email").bind("input", function(){
     // 新增時，沒填名字的話不能儲存
     isWorkspaceNameNull =  ($(this).val().length == 0)
     $("#btn-save-adding-workspace, #btn-save-adding-board, #btn-send-member-email").prop("disabled", isWorkspaceNameNull)
@@ -253,7 +253,9 @@ function deleteWorkspace(id){
       if(data.success){
         $("#workspace-"+id).remove()
         $("#add-new-board-"+id).remove()
-        alert("刪除成功！")        
+        // $("#board-"+id).remove()        
+        alert("刪除成功！")
+        window.location.href = "/dashboard"        
       }
       else{
         alert("刪除失敗！")
@@ -265,25 +267,34 @@ function deleteWorkspace(id){
 function sendMemeberEmail(){
   memberEmail = $("#add-workspace-member-email").val()
   workspaceId = $("#btn-send-member-email").data("workspace-id")
-  $.ajax({
-    type: "GET",
-    url: "/workspaces/" + workspaceId + "/add_member",
-    data: {
-      receive_user_email: memberEmail
-    },
-    success: function(result){
-      if(result.success){
-        console.log(result)
-        alert("邀請成功！")
-        $("#modal-add-workspace-member").removeClass("is-active")        
+  if (checkEmailValidate(memberEmail) == true){
+    $.ajax({
+      type: "GET",
+      url: "/workspaces/" + workspaceId + "/add_member",
+      data: {
+        receive_user_email: memberEmail
+      },
+      success: function(result){
+        if(result.success){
+          alert("邀請成功！")
+          $("#modal-add-workspace-member").removeClass("is-active")        
+        }
+        else{
+          alert("邀請失敗，請確認您輸入是有效的Email！")
+        }
       }
-      else{
-        console.log(result)
-        alert("邀請失敗，請確認您輸入是有效的Email！")
-      }
-    }
-  });  
-  $("add-workspace-member-email").val('')
+    });  
+    $("add-workspace-member-email").val('')
+  }
+}
+
+function checkEmailValidate(email){
+  if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)!= -1){
+    return true;
+  }
+  else {
+    alert("您的email格式填寫錯誤！");
+  }
 }
 
 function getBoardIndex(workspaceId){
@@ -332,6 +343,8 @@ function deleteBoard(id){
     success: function(data){
       if(data.success){
         $("#board-"+id).remove()
+        alert("刪除成功！")        
+        window.location.href = "/dashboard" 
       }
       else{
         alert("刪除失敗！")

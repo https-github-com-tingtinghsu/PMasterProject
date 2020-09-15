@@ -23,10 +23,14 @@ document.addEventListener('turbolinks:load', () => {
   const clickDiv = document.querySelector('.chatroom-lebal')
   const chatroomContent = document.querySelector('.chatcontent-box')
   const chatroomInput = document.querySelector('.chatroom-input')
+  if(!clickDiv)return
   clickDiv.addEventListener('click',function(){
     chatroomContent.classList.toggle('open')
+    chatroomContent.classList.toggle('chatroom-group')
     clickDiv.classList.toggle('rotate')
     chatroomInput.classList.toggle('appear')
-  })
+    const $messages = document.querySelector('#messages');
+    $messages.scrollTo(0, $messages.scrollHeight);
+    })
 
 });
