@@ -10,7 +10,7 @@ document.addEventListener('turbolinks:load', () => {
 				itemId = postIconTag.getAttribute("data-item-id") // 7
 				getElementItemId = "item-id-"+itemId
 				itemName = document.getElementById(getElementItemId).innerText
-				console.log(itemName)
+				// console.log(itemName)
 				document.querySelector('.post-card-title').textContent = itemName
 
 				document.querySelector("#modal-posts-content").classList.add("is-active")

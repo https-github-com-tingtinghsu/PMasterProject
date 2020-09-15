@@ -10,7 +10,6 @@
             <li class="mx-5 mt-2 mb-4" data-group-id="<%= group.id %>">
               <p class="bg-yellow-100 block p-2 rounded-md">。
                 <%= group.name %>
-                <%= "-主題ID是#{group.id}" %>
                 <%= link_to '', edit_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-edit" %>
                 <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-trash-alt" %>
               </p>
