@@ -34,7 +34,13 @@
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </th>
                         <th><a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots" data-item-id="<%= item.id %>"></a></th>
-                        <th class="item-person"><%= item.person %></th>
+                        <th class="item-person"><%#= item.person %>
+                          <% @assignments.each do |assignment| %>
+                            <% if assignment.item_id == item.id %>
+                              <span class= "mr-3"><%= User.find(assignment.user_id).email %></span>
+                            <% end %>
+                          <% end %>
+                        </th>
                         <th class="item-description"><%= item.description %></th>
                         <th class="item-due-date"><%= item.due_date %></th>
                         <th><span class="item-status rounded-md"><%= item.status %></span></th>

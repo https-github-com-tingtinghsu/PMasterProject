@@ -34,7 +34,12 @@ class ItemsController < ApplicationController
 	end
 
 	def update
+		@members_id = params[:person].values
+		@item.users.delete_all
 		if @item.update(item_params)
+			@members_id.each do |m|
+				@item.users << User.find(m.to_i)
+			end
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			# 先找到該item隸屬的group，再找該group隸屬的board，以便儲存後轉址到 boards/id/groups
 			redirect_to board_groups_path(board)
