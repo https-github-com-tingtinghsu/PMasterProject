@@ -5191,7 +5191,7 @@ button.dropdown-item.is-active {
   z-index: 40;
 }
 .modal-post-block {
-  background-color: green;
+  /* background-color: green; */
   height: 100vh;
   width: 400px;
   display: none;

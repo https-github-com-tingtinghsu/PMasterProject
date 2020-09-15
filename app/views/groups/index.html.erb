@@ -1,18 +1,59 @@
 <div class="tile is-parent main-dashboard">
   <article class="tile is-child notification bg-green-200">
     <p class="title text-md main-board-title">看板：<%= @board.name %></p>
-    <p class="subtitle my-2 ">群組列表</p>
-    <%= link_to '新增群組', new_board_group_path, class:"px-3 py-1 mb-2 bg-green-400 text-white rounded text-center" %>
+    <p class="subtitle my-2 ">主題列表</p>
+    <%= link_to '新增主題', new_board_group_path, class:"px-3 py-1 mb-2 bg-red-100 text-white rounded text-center" %>
     <div class="content">
       <p class="group-name">
-        <ul>
-          <% @groups.each  do |group| %>
-            <li class="mx-5 my-2">
-              <p class="bg-gray-200 block p-2 rounded-md">。<%= link_to group.name, group_items_path(group)%></p>
-              <%= link_to ' 編輯', edit_group_path(group), class: "px-3 py-1 mb-2 bg-orange-500 text-white rounded text-center far fa-edit" %>
+        <ul class="pr-5">
+          <% @groups.each do |group| %>
+            <li class="mx-5 mt-2 mb-4" data-group-id="<%= group.id %>">
+              <p class="bg-yellow-100 block p-2 rounded-md">。
+                <%= group.name %>
+                <%= link_to '', edit_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-edit" %>
+                <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-trash-alt" %>
+              </p>
+              <table class="table rounded">
+                <% if group.items.present? %>
+                  <thead>
+                    <tr class="bg-gray-200">
+                      <th>項目名稱</th>
+                      <th>留言</th>
+                      <th>負責人</th>
+                      <th>項目敘述</th>
+                      <th>到期日</th>
+                      <th>進度</th>
+                    </tr>
+                  </thead>
+                <% end %>
+                <tbody>
+                  <% @items.each do |item| %>
+                    <% if group.id == item.group_id %>
+                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>">
+                        <td>
+                          <%= link_to '', edit_item_path(item), class: "far fa-edit" %>
+                          <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
+                        </td>
+                        <td><a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots" data-item-id="<%= item.id %>"></a></td>
+                        <td class="item-person"><%#= item.person %>
+                          <% @assignments.each do |assignment| %>
+                            <% if assignment.item_id == item.id %>
+                              <span class= "mr-3"><%= User.find(assignment.user_id).email %></span>
+                            <% end %>
+                          <% end %>
+                        </td>
+                        <td class="item-description"><%= item.description %></td>
+                        <td class="item-due-date"><%= item.due_date %></td>
+                        <td><span class="item-status rounded-md"><%= item.status %></span></td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+                <tbody>
+              </table>
+              <%= link_to '+ 新增項目', new_group_item_path(group.id), class:"px-3 py-1 my-2 bg-red-100 text-white rounded text-center" %>
             </li>
           <% end %>
-          </ul>
+        </ul>
       </p>
     </div>
     
@@ -22,4 +63,4 @@
   </div>
 </div>
 
-
+<%= render 'shared/frontend/post_modal' %>
