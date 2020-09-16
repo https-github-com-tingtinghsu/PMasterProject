@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     #   post :rooms, to: 'workspaces#room_create'
     # end
   end
-
-
+  # Github redirect
+  get "/oauth/redirect", to: "githubs#index"
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
