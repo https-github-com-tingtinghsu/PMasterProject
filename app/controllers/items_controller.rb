@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
 	def index
 		@items = @group.items.all
-		# byebug
 	end
 
 	def new

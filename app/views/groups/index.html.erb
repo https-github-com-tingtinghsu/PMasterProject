@@ -27,7 +27,7 @@
                   </thead>
                 <% end %>
                 <tbody>
-                  <% @items.each do |item| %>
+                  <% @items.each do |item| %> 
                     <% if group.id == item.group_id %>
                       <tr class="items-task is-hoverable" data-item-id="<%= item.id %>">
                         <td>
@@ -35,8 +35,7 @@
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
                         <td>
-                          <%= link_to "留言", posts_item_path(item), remote: true%>
-                          <a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots" data-item-id="<%= item.id %>"></a>
+                          <%= link_to "", posts_item_path(item), remote: true, class:"postIcon far fa-comment-dots" %>
                         </td>
                         <td class="item-person"><%#= item.person %>
                           <% @assignments.each do |assignment| %>
@@ -66,6 +65,4 @@
   </div>
 </div>
 
-<%= render 'shared/frontend/post_modal' %>
-
-<div id="posts_block"><div>
+<div id="posts-block" class="posts-block rounded"></div>

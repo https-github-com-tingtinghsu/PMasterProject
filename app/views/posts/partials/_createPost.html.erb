@@ -1,0 +1,14 @@
+<div class="card added-post mb-3" data-item-id="<%= @post.item_id %>" >
+    <div class="card-content">
+      <span class="author-email bg-yellow-200 p-1"><%= User.find(@post.user_id).email %></span>
+      <p class="content mt-2"><%= @post.content %></p>
+    </div>
+    <div class="card-footer">
+      <button class="card-footer-item">
+        <span class="far fa-thumbs-up"> Like</span>
+      </button>
+      <button class="card-footer-item">
+        <span class="fas fa-reply"> Reply</span>
+      </button>
+    </div>
+  </div>
