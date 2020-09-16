@@ -37,9 +37,17 @@ Rails.application.configure do
 
   # https://ihower.tw/rails/actionmailer.html  
   # config.action_mailer.delivery_method = :smtp
-  config.action_mailer.delivery_method = :letter_opener_web
 
+  # config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.default_url_options = { host: 'localhost', port: 3333 }
+  # config.action_mailer.default_url_options = { host: 'mail.pmaster.tw' } 
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV["mailgun_myapikey"],
+    domain: 'mail.pmaster.tw'
+    # api_host: 'api.eu.mailgun.net'  # Uncomment this line for EU region domains
+  }
+
   # config.action_mailer.smtp_settings = {
   #   address:              'smtp.mailgun.org',
   #   port:                 587,
