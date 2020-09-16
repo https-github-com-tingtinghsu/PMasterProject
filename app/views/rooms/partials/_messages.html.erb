@@ -1,0 +1,4 @@
+<%= link_to 'load message', messages_room_path(@room, page: params[:page].to_i + 1), remote: true %>
+<% @messages.each do |msg| %>
+    <div><%= msg.content %></div>
+<% end %>

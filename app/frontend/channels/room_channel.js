@@ -21,7 +21,7 @@ document.addEventListener('turbolinks:load', () => {
     },
   
     received(data) {
-      console.log(data)
+      console.log( data)
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
       const messageContainer = document.getElementById('messages');

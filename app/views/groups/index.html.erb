@@ -34,7 +34,7 @@
                           <%= link_to '', edit_item_path(item), class: "far fa-edit" %>
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
-                        <td><a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots" data-item-id="<%= item.id %>"></a></td>
+                        <td class="post-icon"><a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots" data-item-id="<%= item.id %>"></a></td>
                         <td class="item-person"><%#= item.person %>
                           <% @assignments.each do |assignment| %>
                             <% if assignment.item_id == item.id %>
