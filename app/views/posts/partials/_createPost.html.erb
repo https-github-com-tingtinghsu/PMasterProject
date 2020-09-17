@@ -1,6 +1,7 @@
-<div class="card added-post mb-3" data-item-id="<%= @post.item_id %>" >
+<div class="card added-post mb-3 rounded" id="post-id-<%= @post.id %>" data-item-id="<%= @post.item_id %>" data-post-id="<%= @post.id %>" %>
     <div class="card-content">
       <span class="author-email bg-yellow-200 p-1"><%= User.find(@post.user_id).email %></span>
+      <%= link_to '', post_path(@post), class: 'far fa-trash-alt post-trash', method: 'delete', data: { confirm: '您確定要刪除這個留言嗎?' }, remote: true %>
       <p class="content mt-2"><%= @post.content %></p>
     </div>
     <div class="card-footer">
