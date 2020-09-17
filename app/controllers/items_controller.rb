@@ -1,11 +1,10 @@
 require "github.rb"
 class ItemsController < ApplicationController
 	before_action :find_board_and_group, only: [:index, :new, :create]
-	before_action :find_item, only: [:edit, :update, :destroy]
+	before_action :find_item, only: [:edit, :update, :posts,:destroy]
 
 	def index
 		@items = @group.items.all
-		# byebug
 	end
 
 	def new
@@ -53,6 +52,10 @@ class ItemsController < ApplicationController
 			render :edit
 		end
 		# byebug
+	end
+
+	def posts
+		@posts = @item.posts.order(created_at: :desc).limit(50)
 	end
 
 	def destroy

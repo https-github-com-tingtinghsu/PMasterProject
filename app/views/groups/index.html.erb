@@ -27,14 +27,16 @@
                   </thead>
                 <% end %>
                 <tbody>
-                  <% @items.each do |item| %>
+                  <% @items.each do |item| %> 
                     <% if group.id == item.group_id %>
                       <tr class="items-task is-hoverable" data-item-id="<%= item.id %>">
                         <td>
                           <%= link_to '', edit_item_path(item), class: "far fa-edit" %>
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
-                        <td class="post-icon"><a id='postIcon-<%= item.id %>' class="postIcon far fa-comment-dots" data-item-id="<%= item.id %>"></a></td>
+                        <td>
+                          <%= link_to "", posts_item_path(item), remote: true, class:"postIcon far fa-comment-dots", data:{turbolinks: false}  %>
+                        </td>
                         <td class="item-person"><%#= item.person %>
                           <% @assignments.each do |assignment| %>
                             <% if assignment.item_id == item.id %>
@@ -63,4 +65,4 @@
   </div>
 </div>
 
-<%= render 'shared/frontend/post_modal' %>
+<div id="posts-block" class="posts-block rounded"></div>

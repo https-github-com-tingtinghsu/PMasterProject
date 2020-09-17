@@ -1,0 +1,38 @@
+<div class="posts-header">
+  <div class="item-name-for-posts-block">
+    <%= @item.name %>
+  </div>
+  <div class="posts-close-btn">
+    <button class="abc123 delete btn-cancel-for-posts" aria-label="close"></button>
+  </div>
+</div>
+
+<div class="posts-body">
+  <div id="post-form">
+    <%= form_with(model: @post, remote: true) do |f|%>
+      <%= f.label :postcontent, "留言：", class:"text-xl py-2"%>
+      <%= f.text_area :postcontent, id:"posts-content", class:"textarea border border-dash border-green-300 rounded-md px-3 py-3", placeholder:"請在此輸入文字..." %>
+      <%= f.submit '送出', class:"button is-success btn-save-adding my-2", id:"btn-post-submit" %>
+    <% end %>
+  </div>
+  <div id="posts-show">
+    <% @posts.each do |post| %>
+      <div class="card added-post mb-3 rounded" id="post-id-<%= post.id %>" data-item-id="<%= post.item_id %>" data-post-id="<%= post.id %>" >
+        <div class="card-content">
+          <span class="author-email bg-yellow-200 p-1 is-size-6"><%= User.find(post.user_id).email %></span>
+          <%= link_to '', post_path(post), class: 'far fa-trash-alt post-trash', method: 'delete', data: { confirm: '您確定要刪除這個留言嗎?' }, remote: true %>
+          <p class="mt-2 has-text-grey-light"><%= post.created_at%></p>
+          <p class="content mt-2"><%= post.content %></p>
+        </div>
+        <div class="card-footer">
+          <button class="card-footer-item">
+            <span class="far fa-thumbs-up"> Like</span>
+          </button>
+          <button class="card-footer-item">
+            <span class="fas fa-reply"> Reply</span>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

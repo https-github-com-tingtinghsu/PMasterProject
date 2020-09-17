@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :boards, shallow: true do
       resources :groups, shallow: true do
         resources :items, shallow: true do
+          member do
+            get :posts
+          end
           resources :posts, shallow: true do
           end
         end
