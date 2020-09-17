@@ -75,7 +75,7 @@ class WorkspacesController < ApplicationController
     else
       result = true 
       message = "success"
-      UserMailer.invite_new(@invitation).deliver_now!
+      #UserMailer.invite_new(@invitation).deliver_now!
       InviteNewMailJob.set(wait: 2.seconds).perform_later(@invitation)
     end
     render json: { 
