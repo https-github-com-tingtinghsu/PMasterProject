@@ -13,6 +13,11 @@ class ItemsController < ApplicationController
 	end
 
 	def create
+		# 新增function連動github issuse
+		# if(session[:user].nil?)
+		# 	redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo"
+		# end
+
 		@item = @group.items.new(item_params)
 		# 撈出被選取到的user_id
 		if @item.save
@@ -22,8 +27,10 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			# 新增function連動github issuse
-			Githubissue.new.issueCreate(@item.name)
+
+			puts "開始寫入Github Issue:"
+			Github.new.issueCreate(@item.name, session[:user])
+			puts "成功寫入!"
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 		else
 			render :new
