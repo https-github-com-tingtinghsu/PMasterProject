@@ -14,7 +14,7 @@
     <%= f.label :due_date, "期限" %>
     <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
     <%= f.label :status, "狀態" %>
-    <%= f.select :status, %w(待指派 進行中 卡關中 已完成) %>
+    <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成) %>
     <%= f.submit '編輯完成', class: 'mt-4 ml-2 px-3 py-1 bg-orange-400 text-white block w-32 rounded text-center' %>
   <% end %>
 

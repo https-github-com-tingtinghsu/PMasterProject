@@ -9,6 +9,8 @@ document.addEventListener('turbolinks:load', () => {
 				element.classList.add('bg-blue-300')
 			}else if(element.textContent.match('卡關中')){
 				element.classList.add('bg-red-300')
+			}else if(element.textContent.match('待修改')){
+				element.classList.add('bg-purple-300')
 			}else if(element.textContent.match('已完成')){
 				element.classList.add('bg-gray-400')
 			}
