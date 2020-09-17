@@ -59,6 +59,7 @@ class ItemsController < ApplicationController
 	def destroy
 		@item.destroy
 		board =	Board.find(Group.find(@item.group_id).board_id)
+		redirect_to board_groups_path(board), notice: "刪除成功"
 	end
 
 	private
