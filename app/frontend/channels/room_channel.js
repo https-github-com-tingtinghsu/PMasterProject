@@ -34,12 +34,12 @@ document.addEventListener('turbolinks:load', () => {
       
       if (user_id === data.message.user_id){
         messageContainer.innerHTML += data.me;
+        message_input.value = '';
       }else{
         messageContainer.innerHTML += data.others
       }
       // scroll_controller.scrollTop = scroll_controller.scrollHeight;
       $messages.scrollTo(0, $messages.scrollHeight);
-      message_input.value = '';
 
       scroll_controller.addEventListener('keydwn', function(e){
         if( e.keyCode === 13){
