@@ -2,13 +2,10 @@ import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('.chatcontent-box')
-  // if(element === null)
     if(!element)return
   const room_id = element.getAttribute('data-room-id')
   
-  // console.log(element)
-  // console.log(room_id)
-  // console.log(room_id)
+
   consumer.subscriptions.create( { channel: "RoomChannel", room_id: room_id }, {
     connected() {
       // console.log("連接" + room_id)
@@ -28,9 +25,6 @@ document.addEventListener('turbolinks:load', () => {
       const $messages = document.querySelector('#messages');
       const message_input = document.querySelector('.text-input');
       // const user_id = element.getAttribute('data-user-id');
-      // console.log(element)
-      // console.log(user_id)
-      // debug
       
       if (user_id === data.message.user_id){
         messageContainer.innerHTML += data.me;
@@ -41,17 +35,14 @@ document.addEventListener('turbolinks:load', () => {
       // scroll_controller.scrollTop = scroll_controller.scrollHeight;
       $messages.scrollTo(0, $messages.scrollHeight);
 
-      scroll_controller.addEventListener('keydwn', function(e){
-        if( e.keyCode === 13){
-          forInput();
-        }
-      },false)
+      // scroll_controller.addEventListener('keydwn', function(e){
+      //   if( e.keyCode === 13){
+      //     forInput();
+      //   }
+      // },false)
       
-      // console.log(typeof data.message.user_id)
-      // console.log(typeof user_id)
-      // console.log(html)
+      
     }
   });
-// }
 })
 

@@ -1,6 +1,6 @@
 <%= form_with(model: message, local: true) do |form| %>
   <div class="chatroom-input">
-    <%= form.text_field :content, class: 'text-input', placeholder: "請在這輸入..." %>
+    <%= form.text_field :content, class: 'text-input', placeholder: "請在這輸入...",autocomplete: "off" %>
     <%= form.hidden_field :room_id, value: room.id %>
 
    <div class="btn">
