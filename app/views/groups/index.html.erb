@@ -35,7 +35,7 @@
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
                         <td>
-                          <%= link_to "", posts_item_path(item), remote: true, class:"postIcon far fa-comment-dots" %>
+                          <%= link_to "", posts_item_path(item), remote: true, class:"postIcon far fa-comment-dots", data:{turbolinks: false}  %>
                         </td>
                         <td class="item-person"><%#= item.person %>
                           <% @assignments.each do |assignment| %>
