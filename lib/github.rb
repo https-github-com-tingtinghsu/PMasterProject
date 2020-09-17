@@ -7,7 +7,7 @@ class Github
   # ================================
   # title      => issue 名稱
   # user_token => 使用者 access_token
-  
+  # ================================  
   def issueCreate(title,user_token)
 
     #   取得 access_token 向後請求使用者資訊
@@ -46,7 +46,9 @@ class Github
   end
 
   # 用來取得user access_token
+  # ================================ 
   # code => 使用者code
+  # ================================
   def gettoken(code)
     puts "取得code: "
     # puts "https://github.com/login/oauth/access_token?client_id=#{ENV["gitclientid"]}&client_secret=#{ENV["gitclientsecret"]}&code=#{code}"

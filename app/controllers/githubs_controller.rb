@@ -7,11 +7,11 @@ class GithubsController < ApplicationController
         access_token = Github.new.gettoken(params["code"])
 
         # for test
-		# puts "這是寫入 Session:"
-        # session[:user] = access_token
-        # puts "這是session[:user] 當前的值："
-        # puts session[:user]
-        
+		puts "這是寫入 Session:"
+        session[:user] = access_token
+        puts "這是session[:user] 當前的值："
+        puts session[:user]
+
         redirect_to "/dashboard"
     end
 end
