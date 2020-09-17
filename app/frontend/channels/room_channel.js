@@ -1,7 +1,6 @@
 import consumer from "./consumer"
 
 document.addEventListener('turbolinks:load', () => {
-  const scroll_controller = document.querySelector('.chatroom-group');
   const element = document.querySelector('.chatcontent-box')
   // if(element === null)
     if(!element)return
@@ -21,7 +20,7 @@ document.addEventListener('turbolinks:load', () => {
     },
   
     received(data) {
-      console.log(data)
+      console.log( data)
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
       const messageContainer = document.getElementById('messages');
@@ -41,7 +40,6 @@ document.addEventListener('turbolinks:load', () => {
       // scroll_controller.scrollTop = scroll_controller.scrollHeight;
       $messages.scrollTo(0, $messages.scrollHeight);
       message_input.value = '';
-      console.log(message_input.value)
 
       scroll_controller.addEventListener('keydwn', function(e){
         if( e.keyCode === 13){

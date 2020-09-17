@@ -4,7 +4,7 @@ tr{
   justify-content: space-around;
 }
 tr>th,tr>td{
-  width: 15%;
+  width: 18%;
 }
 th{
   display: inline-block;

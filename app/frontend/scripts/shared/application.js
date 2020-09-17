@@ -31,6 +31,14 @@ document.addEventListener('turbolinks:load', () => {
     chatroomInput.classList.toggle('appear')
     const $messages = document.querySelector('#messages');
     $messages.scrollTo(0, $messages.scrollHeight);
-    })
+  })
+
+  const messages_scroll = document.querySelector('#messages');
+  messages_scroll.addEventListener('scroll', function(){
+    if(messages_scroll.scrollTop == 0){
+      document.querySelector('#prev-messages a').click();
+      //不能使用變數替代
+    }
+  })
 
 });
