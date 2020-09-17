@@ -68,13 +68,14 @@ class WorkspacesController < ApplicationController
       # @workspace.users << find_user
 
       message = "success"
-      # UserMailer.invite_member(invitation).deliver_now!
+      # UserMailer.invite_member(@invitation).deliver_now!
+      # UserMailer.notify_comment(User.find(9), "hi console").deliver_now!
       InviteMemberMailJob.set(wait: 2.seconds).perform_later(@invitation)
 
     else
       result = true 
       message = "success"
-      # UserMailer.invite_new(invitation).deliver_now!
+      #UserMailer.invite_new(@invitation).deliver_now!
       InviteNewMailJob.set(wait: 2.seconds).perform_later(@invitation)
     end
     render json: { 
