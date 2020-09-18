@@ -4,12 +4,21 @@ document.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('.chatcontent-box')
     if(!element)return
   const room_id = element.getAttribute('data-room-id')
+  const userEmail = element.getAttribute('data-user')
+  const userId = element.getAttribute('data-user-id')
+  // console.log(userId)
+  // const test = document.querySelector('.who-online')
+  // const eleOnline = document.querySelector(".online-user")
+
+  
   
 
-  consumer.subscriptions.create( { channel: "RoomChannel", room_id: room_id }, {
+  consumer.subscriptions.create( { channel: "RoomChannel", room_id: room_id, user_email: userEmail, user_id: userId}, {
+    // 當進入聊天室，即為開始訂閱該RoomChannel，並把參數帶進去(with userOnline)
     connected() {
-      // console.log("連接" + room_id)
+      console.log("連接" + room_id)
       // Called when the subscription is ready for use on the server
+      // console.log(eleOnline.textContent.slice(0,-11).trim())
     },
   
     disconnected() {
@@ -17,7 +26,6 @@ document.addEventListener('turbolinks:load', () => {
     },
   
     received(data) {
-      console.log( data)
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
       const messageContainer = document.getElementById('messages');

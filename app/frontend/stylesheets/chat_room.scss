@@ -161,9 +161,32 @@
   .chatroombox{
     position: fixed;
     bottom: 0px;
-    right: 300px;
+    right: 530px;
+    z-index: 1000;
+  }
+  // user_online
+  .who-online{
+    position: fixed;
+    bottom: 20px;
+    left: 290px;
+    // border: solid 1px red;
+    h2{
+      font-size: 20px;
+      color: red;
+      margin-bottom: 10px;
+    }
+    li{
+      margin-bottom: 10px;
+    }
+    span{
+      background-color: rgb(130, 194, 34);
+      color: honeydew;
+      margin: 10px;
+    }
   }
 }
+
+
 
 
 
