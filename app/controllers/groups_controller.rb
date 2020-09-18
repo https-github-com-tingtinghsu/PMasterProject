@@ -2,11 +2,11 @@ class GroupsController < ApplicationController
   before_action :find_board, only: [:index, :create]
   before_action :find_group, only: [:edit, :update, :destroy]
   def index
-    @groups = @board.groups.all
+    @groups = @board.groups.all.order(created_at: :desc)
     @workspace = @board.workspace_id
     @rooms = Room.all
     @room = @rooms.find_by(workspace_id: @workspace)
-    @items = Item.all
+    @items = Item.all.order(created_at: :desc)
     @posts = Post.all
     @assignments = Assignment.all
     # byebug

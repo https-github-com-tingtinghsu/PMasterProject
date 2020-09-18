@@ -1,19 +1,21 @@
 <div class="tile is-parent main-dashboard">
   <article class="tile is-child notification bg-green-200">
     <p class="title text-md main-board-title">看板：<%= @board.name %></p>
-    <p class="subtitle my-2 ">主題列表</p>
-    <%= link_to '新增主題', new_board_group_path, class:"px-3 py-1 mb-2 bg-red-100 text-white rounded text-center" %>
+    <div class="my-3">
+      <span class="subtitle my-2 ">主題列表</span>
+      <%= link_to ' 新增主題', new_board_group_path, class:"fas fa-plus-square px-3 py-1 mb-2 bg-red-100 text-white rounded text-center" %>
+    </div>
     <div class="content">
-      <p class="group-name">
+      <div class="group-item-list">
         <ul class="pr-5">
           <% @groups.each do |group| %>
             <li class="mx-5 mt-2 mb-4" data-group-id="<%= group.id %>">
-              <p class="bg-yellow-100 block p-2 rounded-md">。
+              <p class="bg-yellow-100 block p-2 rounded-t-md">。
                 <%= group.name %>
                 <%= link_to '', edit_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-edit" %>
                 <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-trash-alt" %>
               </p>
-              <table class="table rounded">
+              <table class="table rounded-b-md">
                 <% if group.items.present? %>
                   <thead>
                     <tr class="bg-gray-200">
@@ -52,11 +54,11 @@
                   <% end %>
                 <tbody>
               </table>
-              <%= link_to '+ 新增項目', new_group_item_path(group.id), class:"px-3 py-1 my-2 bg-red-100 text-white rounded text-center" %>
+              <%= link_to ' 新增項目', new_group_item_path(group.id), class:"fas fa-plus-square px-3 py-1 my-2 bg-red-100 rounded text-center" %>
             </li>
           <% end %>
         </ul>
-      </p>
+      </div>
     </div>
     
   </article>
