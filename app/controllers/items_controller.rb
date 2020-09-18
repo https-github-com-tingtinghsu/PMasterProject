@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
 	def new
 		@item = Item.new
 		@workspace_users = Workspace.find_by(id: @board.workspace_id).users
-		@workspace_users << Workspace.find_by(id: @board.workspace_id).creator
-		# assignment對象是所有在這個workspace裡面的人，所以要抓 users＋creator
+		@workspace_creator = Workspace.find_by(id: @board.workspace_id).creator
+		# assignment對象是所有在這個workspace裡面的人，所以要抓 users、creator
 		# 但這樣是重複進資料庫撈資料
 	end
 
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
 		@group = Group.find(@item.group_id)
 		@board = Board.find(@group.board_id)
 		@workspace_users = Workspace.find_by(id: @board.workspace_id).users
-		@workspace_users << Workspace.find_by(id: @board.workspace_id).creator
+		@workspace_creator = Workspace.find_by(id: @board.workspace_id).creator
 	end
 
 	def update
