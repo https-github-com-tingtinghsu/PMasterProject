@@ -32,7 +32,7 @@
                       <%= link_to '', messages_room_path(@room, page: 1), remote: true %>
                     </div>
                     <!-- @room, page: 1,預設為第一頁，按下load message載入下一頁訊息 -->
-                    <% @room.messages.order(created_at: :desc).limit(5).reverse.each do |message| %>
+                    <% @room.messages.order(created_at: :desc).limit(10).reverse.each do |message| %>
                       <%= render '/messages/message', message: message  %>
                     <% end %>
 
