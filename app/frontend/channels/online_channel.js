@@ -1,4 +1,5 @@
 import consumer from "./consumer"
+const currentRoomIds = {}
 document.addEventListener("turbolinks:load", () => {
     const element = document.querySelector('.chatcontent-box')
     if(!element)return
@@ -6,15 +7,16 @@ document.addEventListener("turbolinks:load", () => {
     const room_id = element.getAttribute('data-room-id')
     const userEmail = element.getAttribute('data-user')
     const whoOnline = document.querySelector('.who-online')
-    
+    if(currentRoomIds[room_id]) return;
     consumer.subscriptions.create({channel: "OnlineChannel", room_id: room_id}, {
       connected() {
-      
+        currentRoomIds[room_id] = true
         // Called when the subscription is ready for use on the server
         // console.log(room_id)
       },
     
       disconnected() {
+        delete currentRoomIds[room_id]
         // Called when the subscription has been terminated by the server
       },
     
