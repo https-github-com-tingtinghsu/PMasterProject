@@ -1,0 +1,2 @@
+$("#post-id-<%= @post.id %>-be-liked-counts").val("")
+$("#post-id-<%= @post.id %>-be-liked-counts").html("<%= j render('posts/partials/likePost') %>")

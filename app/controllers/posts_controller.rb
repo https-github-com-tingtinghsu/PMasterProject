@@ -20,7 +20,6 @@ class PostsController < ApplicationController
 
 	def likes
 		current_user.toggle_likes_post(@post)
-		@likes_counts = @post.post_likes.count
 	end
 
 	private
