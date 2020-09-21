@@ -23,6 +23,9 @@ Rails.application.routes.draw do
             get :posts
           end
           resources :posts, shallow: true do
+            member do
+              post :likes
+            end
           end
         end
       end

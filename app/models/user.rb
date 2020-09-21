@@ -14,4 +14,15 @@ class User < ApplicationRecord
   has_many :posts
   has_many :replies
   has_many :invitations
+
+  has_many :post_likes
+  has_many :likes_posts, through: :post_likes, source: :post
+
+  def toggle_likes_post(p)
+    if likes_posts.exists?(p.id)
+      likes_posts.destroy(p)
+    else
+      likes_posts << p
+    end
+  end
 end

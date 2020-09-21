@@ -23,14 +23,15 @@
           <%= link_to '', post_path(post), class: 'far fa-trash-alt post-trash', method: 'delete', data: { confirm: '您確定要刪除這個留言嗎?' }, remote: true %>
           <p class="mt-2 has-text-grey-light"><%= post.created_at%></p>
           <p class="content mt-2"><%= post.content %></p>
+        <div>
+          <% if post.post_likes.length > 0 %>
+            <%= post.post_likes.length %> 人說讚
+          <% end %>
+        </div>
         </div>
         <div class="card-footer">
-          <button class="card-footer-item">
-            <span class="far fa-thumbs-up"> Like</span>
-          </button>
-          <button class="card-footer-item">
-            <span class="fas fa-reply"> Reply</span>
-          </button>
+            <%= link_to "Like", likes_post_path(post), method: "POST", remote: true, class:"far fa-thumbs-up text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
+            <%= link_to "Reply", "#",  class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
         </div>
       </div>
     <% end %>
