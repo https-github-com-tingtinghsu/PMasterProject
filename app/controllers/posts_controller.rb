@@ -20,6 +20,9 @@ class PostsController < ApplicationController
 
 	def likes
 		current_user.toggle_likes_post(@post)
+		# 判斷當前使用者是否按過該篇文章的讚
+		@current_user = User.find(current_user.id)
+		# 實體變數是為了可以傳進js.erb使用
 	end
 
 	private

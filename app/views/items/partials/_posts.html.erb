@@ -23,15 +23,19 @@
           <%= link_to '', post_path(post), class: 'far fa-trash-alt post-trash', method: 'delete', data: { confirm: '您確定要刪除這個留言嗎?' }, remote: true %>
           <p class="mt-2 has-text-grey-light"><%= post.created_at%></p>
           <p class="content mt-2"><%= post.content %></p>
-          <div id="post-id-<%= post.id %>-be-liked-counts">
-            <% if post.post_likes.length > 0 %>
-              <%= post.post_likes.length %> 人說讚
-            <% end %>
-          </div>
+        </div>
+        <div id="post-id-<%= post.id %>-be-liked-counts" class="mt-5 ml-5">
+          <% if post.post_likes.length > 0 %>
+            <%= post.post_likes.length %> 人說讚
+          <% end %>
         </div>
         <div class="card-footer">
-            <%= link_to "Like", likes_post_path(post), method: "POST", remote: true, class:"far fa-thumbs-up text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
-            <%= link_to "Reply", "#",  class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
+          <% if @current_user.post_likes.find_by(post_id: post.id) %>
+            <%= link_to " Liked", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"fas fa-thumbs-up text-center", style:"display:inline-block; line-height:33px; width:100%;", data:{thumbs: post.id} %>
+          <% else %>
+            <%= link_to " Like", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"far fa-thumbs-up text-center", style:"display:inline-block; line-height:33px; width:100%;", data:{thumbs: post.id} %>
+          <% end %>
+          <%= link_to " Reply", "#",  class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
         </div>
       </div>
     <% end %>

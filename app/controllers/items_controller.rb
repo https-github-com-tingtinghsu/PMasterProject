@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
 
 	def posts
 		@posts = @item.posts.order(created_at: :desc).limit(50)
+		@current_user = User.find(current_user.id)
 	end
 
 	def destroy
