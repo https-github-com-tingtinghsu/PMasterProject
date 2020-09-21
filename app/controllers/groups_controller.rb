@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     @assignments = Assignment.all
     @workspace_find_user = @board.workspace
     @find_users = @workspace_find_user.users
-    @online_users = @find_users.where("last_seen_at > ?", 2.minutes.ago)
+    @online_users = @find_users.where("last_seen_at > ?", 1.minutes.ago)
     # byebug
   end
   def new
