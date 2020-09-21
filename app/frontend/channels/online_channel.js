@@ -2,6 +2,7 @@ import consumer from "./consumer"
 document.addEventListener("turbolinks:load", () => {
     const element = document.querySelector('.chatcontent-box')
     if(!element)return
+    //為了解決turbolinks回應問題
     const room_id = element.getAttribute('data-room-id')
     const userEmail = element.getAttribute('data-user')
     const whoOnline = document.querySelector('.who-online')

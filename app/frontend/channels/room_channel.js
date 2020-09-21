@@ -14,7 +14,7 @@ document.addEventListener('turbolinks:load', () => {
   
 
   consumer.subscriptions.create( { channel: "RoomChannel", room_id: room_id, user_email: userEmail, user_id: userId}, {
-    // 當進入聊天室，即為開始訂閱該RoomChannel，並把參數帶進去(with userOnline)
+    // 當進入聊天室，即為開始訂閱該RoomChannel，並把參數帶進去(room_id: room_id, user_email: userEmail, user_id: userId)
     connected() {
       console.log("連接" + room_id)
       // Called when the subscription is ready for use on the server
