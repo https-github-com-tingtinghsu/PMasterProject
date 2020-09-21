@@ -44,9 +44,9 @@
         聯絡我們
       </a>
       <% if(Rails.env.development?) %>
-        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item"%>
+        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo,user,write:discussion,admin:org",  class: "navbar-item"%>
       <% else %>
-        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item"%>
+        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo,user,write:discussion,admin:org",  class: "navbar-item"%>
       <% end %>
     </div>
     <div class="navbar-end">
