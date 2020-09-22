@@ -161,9 +161,55 @@
   .chatroombox{
     position: fixed;
     bottom: 0px;
-    right: 300px;
+    right: 530px;
+    z-index: 1000;
+  }
+  // user_online
+  .who-online{
+    position: absolute;
+    bottom: -80px;
+    left: -180px;
+    // border: solid 1px red;
+    
+    h2{
+      font-size: 20px;
+      color: red;
+      margin-bottom: 10px;
+    }
+    li{
+      margin-bottom: 10px;
+    }
+    span{
+      background-color: rgb(130, 194, 34);
+      color: honeydew;
+      margin: 10px;
+    }
+  }
+  @media screen and (max-width: 768px){
+    .who-online{
+      position: relative;
+      top: 20px;
+      left: 470px;
+      // border: solid 1px red;
+      
+      h2{
+        font-size: 20px;
+        color: red;
+        margin-bottom: 10px;
+      }
+      li{
+        margin-bottom: 10px;
+      }
+      span{
+        background-color: rgb(130, 194, 34);
+        color: honeydew;
+        margin: 10px;
+      }
+    }
   }
 }
+
+
 
 
 
