@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
 	end
 
 	def update
-		@item.users.delete_all
+		@item.users.delete_all # 不能刪除全部再重寫進去，UI設計和資料庫會有問題
 		if @item.update(item_params)
 			if (params[:person])
 				@members_id = params[:person].values
@@ -67,6 +67,7 @@ class ItemsController < ApplicationController
 
 	def posts
 		@posts = @item.posts.order(created_at: :desc).limit(50)
+		@current_user = User.find(current_user.id)
 	end
 
 	def destroy
