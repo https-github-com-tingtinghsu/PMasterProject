@@ -66,9 +66,19 @@
     </div>
     
   </article>
+  
   <div class="chatroombox">
     <%= render '/workspaces/rooms', message: Message.new, room: @room %>
   </div>
-</div>
+  <div class="who-online">
+    <h2>Online Users</h2>
+    <%  @online_users.each do |user| %>
+    <ul class="online-user">
+      <li user-id="<%= user.id %>"><%= user.email %><span>Online</span></li>
+    </ul>
+    <% end %>
+  </div>
 
+</div>
+  
 <div id="posts-block" class="posts-block rounded"></div>

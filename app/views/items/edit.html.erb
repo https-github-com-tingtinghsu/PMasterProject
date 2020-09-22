@@ -11,6 +11,8 @@
       <%= check_box_tag("person[#{member.id}]", member.id) %>
       <%= label_tag("person[#{member.id}]", member.email) %>
     <% end %>
+    <%= check_box_tag("person[#{@workspace_creator.id}]", @workspace_creator.id) %>
+    <%= label_tag("person[#{@workspace_creator.id}]", @workspace_creator.email) %>
     <%= f.label :due_date, "期限" %>
     <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
     <%= f.label :status, "狀態" %>

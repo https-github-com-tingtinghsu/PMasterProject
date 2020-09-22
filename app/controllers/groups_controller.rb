@@ -10,6 +10,9 @@ class GroupsController < ApplicationController
     @items = Item.all.order(created_at: :desc)
     @posts = Post.all
     @assignments = Assignment.all
+    @workspace_find_user = @board.workspace
+    @find_users = @workspace_find_user.users
+    @online_users = @find_users.where("last_seen_at > ?", 2.minutes.ago)
     # byebug
   end
   def new
