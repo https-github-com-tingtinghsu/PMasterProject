@@ -47,7 +47,7 @@
                           <% end %>
                         </td>
                         <td class="item-description"><%= item.description %></td>
-                        <td class="item-due-date"><%= item.due_date %></td>
+                        <td class="item-due-date">剩餘 <%= (item.due_date - Date.current).to_i if item.due_date? %> 天</td>
                         <td><span class="item-status rounded-md"><%= item.status %></span></td>
                       </tr>
                     <% end %>
