@@ -1,7 +1,7 @@
 import consumer from "./consumer"
 
 const currentRoomIds = {}
-
+console.log(currentRoomIds)
 document.addEventListener('turbolinks:load', () => {
   
   const element = document.querySelector('.chatcontent-box')
@@ -21,6 +21,7 @@ document.addEventListener('turbolinks:load', () => {
     connected() {
       // console.log("連接" + room_id)
       currentRoomIds[room_id] = true
+      console.log(currentRoomIds[room_id])
       // Called when the subscription is ready for use on the server
       // console.log(eleOnline.textContent.slice(0,-11).trim())
     },

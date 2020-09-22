@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   #rescue_from ActiveRecord::RecordNotFound, with: :not_found
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :update_find_online_users, if: -> { user_signed_in? && (current_user.last_seen_at.nil? || current_user.last_seen_at < 1.minutes.ago)}
+  before_action :update_find_online_users, if: -> { user_signed_in? && (current_user.last_seen_at.nil? || current_user.last_seen_at < 2.minutes.ago)}
   # 使用lamda 執行block 
   
 
