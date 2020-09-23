@@ -35,7 +35,9 @@
           <% else %>
             <%= link_to " Like", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"far fa-thumbs-up text-center", style:"display:inline-block; line-height:33px; width:100%;", data:{thumbs: post.id} %>
           <% end %>
-          <%= link_to " Reply", "#",  class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
+          <%= link_to " Reply", replies_post_path(post), method: "GET", class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
+          <div id= "replies_block">
+          </div>
         </div>
       </div>
     <% end %>
