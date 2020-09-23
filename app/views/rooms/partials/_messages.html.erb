@@ -1,0 +1,18 @@
+<%= link_to '', messages_room_path(@room, page: params[:page].to_i + 1), remote: true %>
+<% @messages.each do |message| %>
+    <div class="chatcontent <%= "me" if message.user_id == current_user.id%>">
+      <div class="author-reply" >
+        <div class="author">
+          <%= message.user.email %>
+        </div>
+        <div class="message-body">
+        	<div class="message-text">
+        	  <span><%= message.content %> </span>
+        	</div>
+        	<div class="message-time">
+        		  <span><%= message.created_at.to_s.split()[1] %></span>
+        	</div>
+        </div>
+      </div>
+    </div>
+<% end %>

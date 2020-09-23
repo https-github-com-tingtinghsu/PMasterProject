@@ -17,24 +17,37 @@
         </div>
          <div class=" messagesbox">
            <% if @room.present? %>
-              <div class="chatroom-lebal" typ='button'>
-                <h2>
-                  <!-- <%= @room.name %> -->
-                  <i class="fas fa-comment-medical"></i>
-                </h2>
-              </div>
-              <div class="chatcontent-box" data-room-id="<%= @room.id %>">
-                <div id="messages">
-                  <% @room.messages.each do |message| %>
-                    <%= render '/messages/message', message: message  %>
-                  <% end %>
+              
+              <div class="chatcontent-box" data-room-id="<%= @room.id %>" data-user="<%= current_user.email%>" data-user-id="<%= current_user.id %>">
+                <div class="chatroom-lebal" typ='button'>
+                  <i class="far fa-comments"></i>
+                  <h2>
+                    <%= @room.name %>
+                  </h2>
+                </div>
+                <div class="chatroom-group">
+                  
+                  <div id="messages">
+                    <div id="prev-messages">
+                      <%= link_to '', messages_room_path(@room, page: 1), remote: true %>
+                    </div>
+                    <!-- @room, page: 1,預設為第一頁，按下load message載入下一頁訊息 -->
+                    <% @room.messages.order(created_at: :desc).limit(10).reverse.each do |message| %>
+                      <%= render '/messages/message', message: message  %>
+                    <% end %>
+
+                  </div>
+                  
+                </div>
+                <div class="chatroom">
+                  <%= render '/messages/form', message: Message.new, room: @room  %>
                 </div>
               </div>
               
-              <div class="chatroom">
-                <%= render '/messages/form', message: Message.new, room: @room  %>
-              </div>
+              
             <% end %>
          </div>
+          
       </div>
+
     </div>

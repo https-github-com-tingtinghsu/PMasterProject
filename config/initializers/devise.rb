@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = '皮老闆 <pmasterproject@gmail.com>'
+  config.mailer_sender = 'pmasterproject@gmail.com'
   # https://medium.com/@cindyliu923/rails-devise-google-fecebook%E7%99%BB%E5%85%A5%E5%AF%A6%E4%BD%9C-ebfb3170b0a8
   # https://www.alexclassroom.com/internet/google/google-apis/how-to-register-and-enable-gmail-api/
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"],{access_type: "offline", approval_prompt: ""}

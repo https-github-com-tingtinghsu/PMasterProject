@@ -1,4 +1,4 @@
-<h1 class="text-xl px-2 py-2">新增項目 New Item</h1>
+<h1 class="text-xl p-2">新增項目 New Item</h1>
 
 <% if @item.errors.any? %>
   <ul>
@@ -11,15 +11,20 @@
 <div class="mx-5 my-5">
   <%= form_with(model: @item, url: group_items_path, local: true) do |f| %>
     <%= f.label :name, "項目名稱" %>
-    <%= f.text_field :name, class: 'border-2 px-2 py-3' %>
+    <%= f.text_field :name, class: 'border-2 px-2 py-3', autocomplete:"off" %>
     <%= f.label :description, "項目敘述" %>
     <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
-    <%#= f.label :person, "負責人" %>
-    <%#= f.text_area :person, class: 'border-2 px-2 py-3' %>
+    <%= f.label :person, "負責人" %>
+    <% @workspace_users.each do |member| %>
+      <%= check_box_tag("person[#{member.id}]", member.id) %>
+      <%= label_tag("person[#{member.id}]", member.email) %>
+    <% end %>
+    <%= check_box_tag("person[#{@workspace_creator.id}]", @workspace_creator.id) %>
+    <%= label_tag("person[#{@workspace_creator.id}]", @workspace_creator.email) %>
     <%= f.label :due_date, "期限" %>
     <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
     <%= f.label :status, "狀態" %>
-    <%= f.select :status, %w(待指派 進行中 卡關中 已完成) %>
+    <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成) %>
 
     <%= f.submit '新增', class: 'mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>    
   <% end %>
