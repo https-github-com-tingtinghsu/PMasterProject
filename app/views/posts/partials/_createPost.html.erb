@@ -2,7 +2,7 @@
     <div class="card-content">
       <span class="author-email bg-yellow-200 p-1"><%= User.find(@post.user_id).email %></span>
       <%= link_to '', post_path(@post), class: 'far fa-trash-alt post-trash', method: 'delete', data: { confirm: '您確定要刪除這個留言嗎?' }, remote: true %>
-      <p class="mt-2 has-text-grey-light"><%= @post.created_at%></p>
+      <p class="mt-2 has-text-grey-light"><%= time_ago_in_words(@post.created_at)%></p>
       <p class="content mt-2"><%= @post.content %></p>
     </div>
     <div class="card-footer">
