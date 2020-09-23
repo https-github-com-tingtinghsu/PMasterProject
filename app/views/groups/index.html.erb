@@ -1,5 +1,5 @@
 <div class="tile is-parent main-dashboard">
-  <article class="tile is-child notification bg-green-200">
+  <article class="tile is-child notification bg-green-200 main-board">
     <p class="title text-md main-board-title">看板：<%= @board.name %></p>
     <div class="my-3">
       <span class="subtitle my-2 ">主題列表</span>
@@ -9,7 +9,7 @@
       <div class="group-item-list">
         <ul class="pr-5">
           <% @groups.each do |group| %>
-            <li class="mx-5 mt-2 mb-4" data-group-id="<%= group.id %>">
+            <li class="mx-5 mt-2 mb-4 item-group-li" data-group-id="<%= group.id %>">
               <p class="bg-yellow-100 block p-2 rounded-t-md">。
                 <%= group.name %>
                 <%= link_to '', edit_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-edit" , style:"text-decoration: none;"%>
@@ -20,7 +20,7 @@
                   <thead>
                     <tr class="bg-gray-200">
                       <th>項目名稱</th>
-                      <th>留言</th>
+                      <th style="width: 50px;">留言</th>
                       <th>負責人</th>
                       <th>項目敘述</th>
                       <th>到期日</th>
@@ -36,7 +36,7 @@
                           <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
-                        <td>
+                        <td style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
                         </td>
                         <td class="item-person"><%#= item.person %>

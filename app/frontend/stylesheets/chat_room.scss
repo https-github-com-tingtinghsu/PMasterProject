@@ -162,7 +162,7 @@
     position: fixed;
     bottom: 0px;
     right: 530px;
-    z-index: 1000;
+    z-index: 10000;
   }
   // user_online
   .who-online{
@@ -190,6 +190,7 @@
       position: relative;
       top: 20px;
       left: 470px;
+      z-index: 10000;
       // border: solid 1px red;
       
       h2{

@@ -4,5 +4,6 @@ import "tailwindcss/base";
 import "tailwindcss/components";
 import "tailwindcss/utilities";
 import "./chat_room.scss";
-import "./item_table.css"
-import "./posts_block.css"
+import "./item_table.css";
+import "./posts_block.css";
+import "./all_pages.scss";
