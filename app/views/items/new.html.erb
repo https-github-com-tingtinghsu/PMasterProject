@@ -16,10 +16,8 @@
     <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
     <%= f.label :person, "負責人" %>
     <% @workspace_users.each do |member| %>
-      <%= check_box_tag("#{f.object_name}[user_ids][]", member.id) %>
+      <%= check_box_tag("person[#{member.id}]", member.id) %>
       <%= label_tag("person[#{member.id}]", member.display_name) %>
-
-      <%#= label_tag("person[#{member.id}]", member.email) %>
     <% end %>
     <%= f.label :due_date, "期限" %>
     <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
