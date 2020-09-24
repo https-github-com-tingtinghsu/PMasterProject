@@ -12,8 +12,7 @@
     <% @workspace_users.each do |member| %>
       <%#= 把目前已經被打勾的assignee，找出來 %>  
       <%= check_box_tag "#{f.object_name}[user_ids][]", member.id, @item_user_ids.include?(member.id) %>
-      <%#= check_box_tag("person[#{member.id}]", member.id) %>
-      <%= label_tag("person[#{member.id}]", member.email) %>
+      <%= label_tag("person[#{member.id}]", member.display_name) %>
     <% end %>
     <%= f.label :due_date, "期限" %>
     <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>

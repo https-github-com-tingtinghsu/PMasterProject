@@ -10,8 +10,7 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
-		@workspace_users = Workspace.find_by(id: @board.workspace_id).users
-		@workspace_creator = Workspace.find_by(id: @board.workspace_id).creator
+		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
 		# assignment對象是所有在這個workspace裡面的人，所以要抓 users、creator
 		# 但這樣是重複進資料庫撈資料
 	end
@@ -21,7 +20,6 @@ class ItemsController < ApplicationController
 		# if(session[:user].nil?)
 		# 	redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo"
 		# end
-
 		@item = @group.items.new(item_params)
 		# 撈出被選取到的user_id
 		if @item.save
@@ -45,8 +43,7 @@ class ItemsController < ApplicationController
 		@group = Group.find(@item.group_id)
 		@board = Board.find(@group.board_id)
 		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
-		p @workspace_users.map{ |u| [u.id, u.email] }
-		@workspace_creator = Workspace.find_by(id: @board.workspace_id).creator
+		# p @workspace_users.map{ |u| [u.id, u.email] 
 	end
 
 	def update
