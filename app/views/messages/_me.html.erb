@@ -1,10 +1,15 @@
 <div class="chatcontent me">
   <div class="author-reply">
     <div class="author">
-      <%= message.user.email %>
+      <%= message.user.display_name %>
     </div>
-    <div class="message-text">
-      <span><%= message.content %></span>
+    <div class="message-body">
+    	<div class="message-text">
+    	  <span><%= message.content %> </span>
+    	</div>
+    	<div class="message-time">
+    		  <span><%= message.created_at.to_s.split()[1] %></span>
+    	</div>
     </div>
   </div>
 </div>

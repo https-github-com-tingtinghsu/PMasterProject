@@ -38,7 +38,7 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
-  $("#add-workspace-name, #add-board-name, #add-workspace-member-email").keydown(function(){
+  $("#add-workspace-name, #add-board-name, #add-workspace-member-email").bind("input", function(){
     // 新增時，沒填名字的話不能儲存
     isWorkspaceNameNull =  ($(this).val().length == 0)
     $("#btn-save-adding-workspace, #btn-save-adding-board, #btn-send-member-email").prop("disabled", isWorkspaceNameNull)
@@ -225,7 +225,8 @@ function createWorkspace(){
 }
 
 function updateWorkspace(){
-  upadteWorkspaceId = $("#btn-save-adding-workspace").data("workspace-id")
+  let editWorkspaceName = $("#add-workspace-name").val()
+  let upadteWorkspaceId = $("#btn-save-adding-workspace").data("workspace-id")
   $.ajax({
     type: "PUT",
     url: '/workspaces/' + upadteWorkspaceId,
@@ -236,6 +237,10 @@ function updateWorkspace(){
       if(result.success){
         $("#workspace-" + upadteWorkspaceId + " p").text($("#add-workspace-name").val())
         $("#add-workspace-name").val('')
+
+        // js換掉工作聯絡室的名稱
+        let updateRoomName = "工作聯絡室 - " + editWorkspaceName
+        $("#room-name").text(updateRoomName)
         alert("編輯成功！")         
       }
       else{
@@ -267,25 +272,34 @@ function deleteWorkspace(id){
 function sendMemeberEmail(){
   memberEmail = $("#add-workspace-member-email").val()
   workspaceId = $("#btn-send-member-email").data("workspace-id")
-  $.ajax({
-    type: "GET",
-    url: "/workspaces/" + workspaceId + "/add_member",
-    data: {
-      receive_user_email: memberEmail
-    },
-    success: function(result){
-      if(result.success){
-        console.log(result)
-        alert("邀請成功！")
-        $("#modal-add-workspace-member").removeClass("is-active")        
+  if (checkEmailValidate(memberEmail) == true){
+    $.ajax({
+      type: "GET",
+      url: "/workspaces/" + workspaceId + "/add_member",
+      data: {
+        receive_user_email: memberEmail
+      },
+      success: function(result){
+        if(result.success){
+          alert("邀請成功！")
+          $("#modal-add-workspace-member").removeClass("is-active")        
+        }
+        else{
+          alert("邀請失敗，請確認您輸入是有效的Email！")
+        }
       }
-      else{
-        console.log(result)
-        alert("邀請失敗，請確認您輸入是有效的Email！")
-      }
-    }
-  });  
-  $("add-workspace-member-email").val('')
+    });  
+    $("add-workspace-member-email").val('')
+  }
+}
+
+function checkEmailValidate(email){
+  if (email.search(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/)!= -1){
+    return true;
+  }
+  else {
+    alert("您的email格式填寫錯誤！");
+  }
 }
 
 function getBoardIndex(workspaceId){
@@ -365,12 +379,12 @@ function createBoard(workspaceId){
 }
 
 function updateBoard(boardId){
-  editBoardName = $("#add-board-name").val()
+  let editBoardName = $("#add-board-name").val()
   $.ajax({
     type: "PUT",
     url: '/boards/' + boardId,
     data: {
-      name: $("#add-board-name").val()
+      name: editBoardName
     },
     success: function(result){
       if(result.success){
@@ -378,7 +392,7 @@ function updateBoard(boardId){
         $("#add-board-name").val('')
         alert("編輯成功！")
         // 把rails右半區的看板名稱用js換掉
-        updateBoardName = "看板：" + editBoardName
+        let updateBoardName = "看板：" + editBoardName
         $(".main-board-title").text(updateBoardName)
       }
       else{

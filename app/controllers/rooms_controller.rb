@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
   end
 
   # GET /rooms/1
@@ -64,6 +65,14 @@ class RoomsController < ApplicationController
       format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def messages
+    @room = Room.find(params[:id])
+    @messages = @room.messages.order(created_at: :desc).offset(params[:page].to_i * 10).limit(10).reverse
+    # byebug
+    # :desc 倒序排列
+    # offset 可以設定忽略前幾筆不取出，通常用於資料分頁
   end
 
   private

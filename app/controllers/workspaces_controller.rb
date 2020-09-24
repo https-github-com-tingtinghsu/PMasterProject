@@ -26,6 +26,7 @@ class WorkspacesController < ApplicationController
 
   def update
     @workspace.update(name: params[:name])
+    Room.find(@workspace.id).update(name: "工作聯絡室-#{params[:name]}")
     render json: { 
       success: true
     }    
@@ -47,7 +48,7 @@ class WorkspacesController < ApplicationController
   end
 
   def room_create
-    @room = @workspace.create_room(name:"工作聯絡室")
+    @room = @workspace.create_room(name:"工作聯絡室-#{@workspace.name}")
   end
 
 
@@ -56,29 +57,33 @@ class WorkspacesController < ApplicationController
     message = "error"
     find_user = User.find_by(email: params[:receive_user_email])
 
-    invitation = current_user.invitations.new
-    invitation.token = SecureRandom.uuid
-    invitation.workspace_id = @workspace.id
-    invitation.receive_user_email = params[:receive_user_email]
-    invitation.receive_user_id = nil
-    invitation.save
+    @invitation = current_user.invitations.new
+    @invitation.token = SecureRandom.uuid
+    @invitation.workspace_id = @workspace.id
+    @invitation.receive_user_email = params[:receive_user_email]
+    @invitation.receive_user_id = nil
+    @invitation.save
     #invitation.errors
     if find_user.present? 
       result = true
       # @workspace.users << find_user
 
       message = "success"
-      UserMailer.invite_member(invitation).deliver_now!
+      # UserMailer.invite_member(@invitation).deliver_now!
+      # UserMailer.notify_comment(User.find(9), "hi console").deliver_now!
+      InviteMemberMailJob.set(wait: 2.seconds).perform_later(@invitation)
+
     else
       result = true 
       message = "success"
-      UserMailer.invite_new(invitation).deliver_now!
+      #UserMailer.invite_new(@invitation).deliver_now!
+      InviteNewMailJob.set(wait: 2.seconds).perform_later(@invitation)
     end
     render json: { 
       success: result,
-      email: invitation.receive_user_email,
+      email: @invitation.receive_user_email,
       message: message,
-      uuid: invitation.token
+      uuid: @invitation.token
     }
   end
 

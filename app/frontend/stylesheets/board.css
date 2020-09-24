@@ -4,5 +4,5 @@ body{
 }
 
 .main-dashboard {
-    height: 80vh;
+    min-height: 80vh;
 } 
