@@ -2,6 +2,7 @@ require "github.rb"
 class ItemsController < ApplicationController
 	before_action :find_board_and_group, only: [:index, :new, :create]
 	before_action :find_item, only: [:edit, :update, :posts,:destroy]
+	before_action :find_item_user_id, only: [:edit, :update, :posts,:destroy]
 
 	def index
 		@items = @group.items.all
@@ -43,12 +44,12 @@ class ItemsController < ApplicationController
 	def edit
 		@group = Group.find(@item.group_id)
 		@board = Board.find(@group.board_id)
-		@workspace_users = Workspace.find_by(id: @board.workspace_id).users
+		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
+		p @workspace_users.map{ |u| [u.id, u.email] }
 		@workspace_creator = Workspace.find_by(id: @board.workspace_id).creator
 	end
 
 	def update
-		@item.users.delete_all # 不能刪除全部再重寫進去，UI設計和資料庫會有問題
 		if @item.update(item_params)
 			if (params[:person])
 				@members_id = params[:person].values
@@ -82,12 +83,19 @@ class ItemsController < ApplicationController
 			@item = Item.find(params[:id])
 		end
 
+		def find_item_user_id
+			@item_user_ids = @item.users.map(&:id)			
+		end
+
 		def find_board_and_group
 			@group = Group.find(params[:group_id])
 			@board = @group.board
 		end
 
 		def item_params
-			params.require(:item).permit(:name, :description, :status, :person, :due_date)
+			params.require(:item).permit(:name, :description, :status, :person, :due_date, user_ids: []).tap do |whitelist|
+				whitelist[:user_ids] = whitelist[:user_ids].reject(&:blank?)
+				# filter的相反：滿足這個條件的就reject, 不要存空白進去
+			end
 		end
 end
