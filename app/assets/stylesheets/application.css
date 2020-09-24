@@ -21,3 +21,10 @@
    margin-right: auto;
    margin-left: auto;
  }
+.footer{
+  max-height: 20vh;
+}
+.landing-page{
+  line-height: 30px;
+  padding: 100px;
+}
