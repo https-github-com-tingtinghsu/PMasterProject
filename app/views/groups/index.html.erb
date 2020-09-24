@@ -47,7 +47,7 @@
                           <% end %>
                         </td>
                         <td class="item-description"><%= item.description %></td>
-                        <% if item.due_date != nil %>
+                        <% if item.due_date != nil && item.status != "已完成" %>
                           <% if (item.due_date - Date.current).to_i == 0 %>
                             <td class="item-due-date">今日內完成</td>
                           <% elsif (item.due_date - Date.current).to_i > 0 %>
