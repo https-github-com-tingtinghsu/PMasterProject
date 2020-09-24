@@ -15,6 +15,7 @@
     <%= f.label :description, "項目敘述" %>
     <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
     <%= f.label :person, "負責人" %>
+    <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>    
     <% @workspace_users.each do |member| %>
       <%= check_box_tag("person[#{member.id}]", member.id) %>
       <%= label_tag("person[#{member.id}]", member.display_name) %>
