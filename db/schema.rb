@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_015914) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "workspace_id", default: 1, null: false
+    t.bigint "workspace_id", null: false
     t.index ["workspace_id"], name: "index_rooms_on_workspace_id"
   end
 
