@@ -8,7 +8,6 @@ class PostsController < ApplicationController
 		@post = @item.posts.new(content: params[:postcontent])
 		@post.user_id = current_user.id
 		@post.save
-		flash.notice = "留言成功"
   end
 	
 	def update
@@ -25,6 +24,7 @@ class PostsController < ApplicationController
 	end
 
 	def replies
+		@replies = @post.replies.order(created_at: :desc).limit(50)
 	end
 	
 	private

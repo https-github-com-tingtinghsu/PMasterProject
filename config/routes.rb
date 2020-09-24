@@ -27,6 +27,7 @@ Rails.application.routes.draw do
               post :likes
               get :replies
             end
+            resources :replies, only: [:create, :destroy]
           end
         end
       end

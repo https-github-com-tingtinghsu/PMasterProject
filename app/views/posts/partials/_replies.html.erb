@@ -1,0 +1,6 @@
+<%= @current_user.email %>
+<ul>
+  <% @replies.each do |reply| %>
+    <li><%= reply.content %></li>
+  <% end >
+</ul>

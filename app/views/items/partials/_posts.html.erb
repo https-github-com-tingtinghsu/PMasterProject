@@ -35,9 +35,20 @@
           <% else %>
             <%= link_to " Like", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"far fa-thumbs-up text-center", style:"display:inline-block; line-height:33px; width:100%;", data:{thumbs: post.id} %>
           <% end %>
-          <%= link_to " Reply", replies_post_path(post), method: "GET", class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
-          <div id= "replies_block">
-          </div>
+          <%= link_to " Reply", replies_post_path(post),class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
+        </div>
+        <div id="replies_block" class="replies-is-hidden">
+          <ul>
+            <%# @replies.each do |reply| %>
+              <%# if post.id == reply.post_id %>
+                <li><%#= reply.content %></li>
+              <%# end %>
+            <%# end %>
+          </ul>
+          <%= form_with(model: @reply, remote: true) do |f|%>
+            <%= f.text_field :replycontent, id:"posts-content", class:"border border-dash border-green-300 rounded-md px-3 py-3", placeholder:"請在此輸入文字..." %>
+            <%= f.submit '送出', class:"button is-success btn-save-adding my-2", id:"btn-reply-submit" %>
+          <% end %>
         </div>
       </div>
     <% end %>
