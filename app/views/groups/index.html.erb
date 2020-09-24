@@ -39,10 +39,10 @@
                         <td>
                           <%= link_to "", posts_item_path(item), remote: true, class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
                         </td>
-                        <td class="item-person"><%#= item.person %>
+                        <td class="item-person">
                           <% @assignments.each do |assignment| %>
                             <% if assignment.item_id == item.id %>
-                              <span class= "mr-3"><%= User.find(assignment.user_id).email %></span>
+                              <span class= "mr-3"><%= User.find(assignment.user_id).display_name %></span>
                             <% end %>
                           <% end %>
                         </td>
@@ -84,7 +84,7 @@
     <h2>Online Users</h2>
     <%  @online_users.each do |user| %>
     <ul class="online-user">
-      <li user-id="<%= user.id %>"><%= user.email %><span>Online</span></li>
+      <li user-id="<%= user.id %>"><%= user.display_name %><span>Online</span></li>
     </ul>
     <% end %>
   </div>
