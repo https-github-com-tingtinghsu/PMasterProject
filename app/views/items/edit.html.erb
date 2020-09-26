@@ -6,6 +6,8 @@
     <%= f.text_field :name, class: 'border-2 px-2 py-3', autocomplete:"off" %>
     <%= f.label :description, "項目敘述" %>
     <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
+    <%= f.label :point, "點數" %>
+    <%= f.select :point, %w(0.5 1.0 3.0 5.0 7.0 13), default: @item.point, class: 'border-2 px-2 py-3' %>     
     <%= f.label :person, "負責人" %>
       <%#= 都沒選的時候，就不會有這個欄位送到rails後端，所以要存在這個欄位，而且要送permit白名單 %>      
     <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>
@@ -15,7 +17,7 @@
       <%= label_tag("person[#{member.id}]", member.display_name) %>
     <% end %>
     <%= f.label :due_date, "期限" %>
-    <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
+    <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>  
     <%= f.label :status, "狀態" %>
     <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成) %>
     <%= f.submit '編輯完成', class: 'mt-4 ml-2 px-3 py-1 bg-orange-400 text-white block w-32 rounded text-center' %>

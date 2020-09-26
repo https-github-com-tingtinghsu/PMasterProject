@@ -14,6 +14,8 @@
     <%= f.text_field :name, class: 'border-2 px-2 py-3', autocomplete:"off" %>
     <%= f.label :description, "項目敘述" %>
     <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
+    <%= f.label :point, "點數" %>
+    <%= f.select :point, %w(0.5 1 3 5 7 13), class: 'border-2 px-2 py-3' %>      
     <%= f.label :person, "負責人" %>
     <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>    
     <% @workspace_users.each do |member| %>
@@ -21,7 +23,7 @@
       <%= label_tag("person[#{member.id}]", member.display_name) %>
     <% end %>
     <%= f.label :due_date, "期限" %>
-    <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
+    <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>  
     <%= f.label :status, "狀態" %>
     <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成) %>
 
