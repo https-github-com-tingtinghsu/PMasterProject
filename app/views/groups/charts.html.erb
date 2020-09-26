@@ -9,7 +9,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['9/28 Mon', '9/29 Tue', '9/30 Wed', '10/1 Thur', '10/2 Fri'],
+        labels: gon.date_array,
         datasets: [{
             label: 'Burn Down Chart',
             data: gon.your_array,

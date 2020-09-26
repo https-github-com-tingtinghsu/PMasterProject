@@ -1,7 +1,7 @@
 require 'date'
 class GroupsController < ApplicationController
   before_action :find_board, only: [:index, :create]
-  before_action :find_group, only: [:edit, :update, :destroy, :charts]
+  before_action :find_group, only: [:edit, :update, :destroy, :charts, :chart_date_array]
   def index
     @groups = @board.groups.all.order(created_at: :desc)
     @workspace = @board.workspace_id
@@ -39,11 +39,11 @@ class GroupsController < ApplicationController
   end
 
   def charts
-    # 迴圈: group的第一天到最後一天(目前先寫死)
+    # 迴圈: group的第一天到最後一天
     # 每個item會有完成的時間
     # 算出每一天完成的points
-    @your_array = [20, 15, 10, 5, 0]
-    gon.your_array = @your_array    
+    gon.your_array = [20, 15, 10, 5, 0]
+    gon.date_array = chart_date_array    
   end
 
   def destroy
@@ -60,5 +60,15 @@ class GroupsController < ApplicationController
   end
   def group_params
     params.require(:group).permit(:name, :start_date, :end_date)
+  end
+
+  def chart_date_array
+    start_date = @group.start_date.to_date
+    end_date = @group.end_date.to_date
+    return  (start_date..end_date).map {|date| date.strftime("%m/%d")}    
+  end
+
+  def chart_point_array
+    # 寫一個陣列，代表不同天數的point數總和
   end
 end
