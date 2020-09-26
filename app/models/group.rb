@@ -10,4 +10,24 @@ class Group < ApplicationRecord
     # 有item, 而且每個item要有point, 才能畫圖
     items.all? { |item| item.point.present? }
   end
+
+  def start_end_date_array
+    #  group的第一天到最後一天
+    (start_date.to_date..end_date.to_date).map {|date| date.strftime("%m/%d")}
+  end
+
+  # 回傳對應日期的加總point陣列
+  def point_array
+    (start_date.to_date..end_date.to_date).map {|date| count_date_point(date)}
+  end
+
+  # 帶入特定日期,就會把在那個日期之前完成的item找到並加總point
+  def count_date_point(date)
+    # 每天的point總和：還沒完成的item的point加起來
+    sum_point = 0
+    items.each do |item|
+      sum_point +=  item.point if item.finish_date.nil? || item.finish_date > date
+    end
+    return sum_point
+  end
 end

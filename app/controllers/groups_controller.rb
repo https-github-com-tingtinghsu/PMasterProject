@@ -39,11 +39,11 @@ class GroupsController < ApplicationController
   end
 
   def charts
-    # 迴圈: group的第一天到最後一天
+
     # 每個item會有完成的時間
+    gon.point_array = @group.point_array
+    gon.date_array = @group.start_end_date_array
     # 算出每一天完成的points
-    gon.your_array = [20, 15, 10, 5, 0]
-    gon.date_array = chart_date_array    
   end
 
   def destroy
@@ -63,12 +63,12 @@ class GroupsController < ApplicationController
   end
 
   def chart_date_array
-    start_date = @group.start_date.to_date
-    end_date = @group.end_date.to_date
-    return  (start_date..end_date).map {|date| date.strftime("%m/%d")}    
+    # start_date = @group.start_date.to_date
+    # end_date = @group.end_date.to_date
+    # return  (start_date..end_date).map {|date| date.strftime("%m/%d")}    
   end
 
   def chart_point_array
-    # 寫一個陣列，代表不同天數的point數總和
+
   end
 end
