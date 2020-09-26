@@ -1,7 +1,7 @@
 require 'date'
 class GroupsController < ApplicationController
   before_action :find_board, only: [:index, :create]
-  before_action :find_group, only: [:edit, :update, :destroy]
+  before_action :find_group, only: [:edit, :update, :destroy, :charts]
   def index
     @groups = @board.groups.all.order(created_at: :desc)
     @workspace = @board.workspace_id
@@ -39,7 +39,11 @@ class GroupsController < ApplicationController
   end
 
   def charts
-    
+    # 迴圈: group的第一天到最後一天(目前先寫死)
+    # 每個item會有完成的時間
+    # 算出每一天完成的points
+    @your_array = [20, 15, 10, 5, 0]
+    gon.your_array = @your_array    
   end
 
   def destroy

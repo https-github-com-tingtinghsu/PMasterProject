@@ -4,6 +4,7 @@
   </article> 
 </div>
 <script>
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -11,7 +12,7 @@ var myChart = new Chart(ctx, {
         labels: ['9/28 Mon', '9/29 Tue', '9/30 Wed', '10/1 Thur', '10/2 Fri'],
         datasets: [{
             label: 'Burn Down Chart',
-            data: [20, 15, 10, 5, 0],
+            data: gon.your_array,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

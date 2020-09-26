@@ -2,12 +2,14 @@
 <html lang="en">
   <head>
   <title>PMasterProject</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <%= Gon::Base.render_data %>             
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body> 
