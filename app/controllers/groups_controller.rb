@@ -52,6 +52,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, :start_date, :end_date)
   end
 end
