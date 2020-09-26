@@ -35,9 +35,14 @@
                 <tbody>
                   <% @items.each do |item| %> 
                     <% if group.id == item.group_id %>
-                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>">
-                        <td>
-                          <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
+                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>" id="items-task-<%= item.id %>">
+                        <td class="task-first-lattice">
+                          <div class="task-arrow">
+                            <i class="fas fa-caret-right"></i>
+                          </div>
+                          <div class="edit-task">
+                            <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
+                          </div>
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
                         <td style="width: 50px;">
@@ -75,7 +80,12 @@
     <%= render '/workspaces/rooms', message: Message.new, room: @room %>
   </div>
   <div class="who-online">
-    <h2>Online Users</h2>
+    <div class="user_online">
+      <div>
+        <i class="fas fa-user"></i>
+      </div>
+      <h2>線上成員</h2>
+    </div>
     <%  @online_users.each do |user| %>
     <ul class="online-user">
       <li user-id="<%= user.id %>"><%= user.email %><span>Online</span></li>

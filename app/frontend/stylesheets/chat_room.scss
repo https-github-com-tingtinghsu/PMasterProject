@@ -168,16 +168,23 @@
   }
   // user_online
   .who-online{
-    position: absolute;
-    bottom: 50px;
-    left: -250px;
+    position: fixed;
+    bottom: 0px;
+    left: 20px;
     color: white;
     // border: solid 1px red;
-    
+    .user_online{
+      display: flex;
+    }
+    .fa-user{
+      font-size: 20px;
+      color: #ECC94B;
+    }
     h2{
       font-size: 20px;
-      color: red;
+      color: #ECC94B;
       margin-bottom: 10px;
+      margin-left: 10px;
     }
     li{
       margin-bottom: 10px;

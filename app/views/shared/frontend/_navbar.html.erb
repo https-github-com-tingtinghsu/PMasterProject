@@ -15,8 +15,8 @@
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <div class="navbar-item has-dropdown is-hoverable">
+    <!-- <div class="navbar-start"> -->
+      <!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           產品
         </a>
@@ -43,8 +43,9 @@
       </a>
 
      
-    </div>
+    </div> -->
     <div class="navbar-end">
+      
       <a class="navbar-item">
         聯絡我們
       </a>
@@ -60,14 +61,19 @@
         <div class="buttons">
           <% if current_user %>
             <div class="sign-in-name"><p> Hello, <%= current_user.email %></p></div>
-            <strong><%= link_to '編輯帳戶', edit_user_registration_path, class: "button is-primary ml-2" %></strong>
-            <strong><%= button_to '登出', destroy_user_session_path, method: 'delete', class: "button is-light", id: "btn-logout" %></strong>
+            <div class="sign-in-buttons">
+              <strong><%= link_to '編輯帳戶', edit_user_registration_path %></strong>
+              <strong><%= link_to '登出', destroy_user_session_path, method: 'delete', id: "btn-logout" %></strong>
+            </div>
+            <div class="arrow_icon">
+              <i class="fas fa-angle-down"></i>
+            </div>
           <% else %>
             <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %></strong>
             <strong><%= link_to '我要登入', new_user_session_path, class: "button is-light" %></strong>
           <% end %>
         </div>
-        <i class="fas fa-angle-down"></i>
+        
       </div>
     </div>
   </div>

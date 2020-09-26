@@ -1,5 +1,6 @@
 a{
   text-decoration: none !important;
+  background-color: unset !important;
 }
 //new item
 .new-item-page{
@@ -203,6 +204,11 @@ body{
   .navbar-link{
     color: white;
   }
+  .navbar-end{
+    a:hover{
+      color: rgb(66, 20, 20);
+    }
+  }
   .navbar-item{
     height: 60px;
     color: white;
@@ -213,23 +219,70 @@ body{
       // border: red solid 1px;
       display: flex;
       align-items: center;
-      margin-left: 50px;
+      margin-left: 10px;
       img{
         width: 100%;
         height: 100%;
         // border: solid 1px blue;
       }
     }
-    
   }
+  .navbar-item{
+    display: flex;
+    align-items: center;
+    .buttons{
+      margin: 0;
+      margin-right: 10px;
+      .sign-in-buttons{
+        // border: solid red 1px;
+        background-color: #EFF4EF;
+        height: 0;
+        width: 150px;
+        position: absolute;
+        top: 70px;
+        left: 0px;
+        overflow: hidden;
+        background: rgba(255,255,255,.8);
+        box-shadow: 0 2px 5px rgba(0,0,0,.3);
+        margin: 0;
+        padding: 0;
+        transition: 0.5s;
+        strong{
+          a{
+            display: block;
+            padding: 5px 10px;
+            line-height: 34px;
+            font-size: 14px;
+            text-align: center;
+          }
+        }
+      }
+      .sign-in-buttons-open{
+        height: 88px;
+        transition: 0.5s;
+      }
+    }
 
+  }
+  
+  .arrow{
+    transition: 0.5s;
+    transform: rotate(180deg);
+  }
+  .arrow_icon{
+    transition: 0.5s;
+  }
   .sign-in-name{
     color: white;
     // border: solid 1px red;
     display: flex;
     align-items: center;
+    color: #ECC94B;
+    margin-right: 10px;
   }
+  
 }
+
 
 
 
@@ -274,6 +327,11 @@ body{
 .fa-plus-square{
   color: white;
 }
+.fa-user-plus, .fa-edit, .fa-trash-alt
+{
+  color: white;
+  margin-left: 10px;
+}
 .navbar-workspace{
   height: 100%;
   overflow: auto;
@@ -289,7 +347,7 @@ body{
   color: #ECC94B;
   outline: none;
 }
-.fas:hover{
+.fa-folder:hover{
   background-color: #5A815A;
 }
 .fa-plus-square:hover{
@@ -298,7 +356,9 @@ body{
 
 
 
-// board
+
+
+// groups-task-list
 
 .item-group-li{
   // border: red solid 1px;
@@ -309,6 +369,7 @@ body{
   margin-bottom: 20px;
   .item-group-li-p-title{
     font-size: 30px;
+    margin-right: 10px;
     // margin-right: 10px;
   }
   .item-group-li-p-icon{
@@ -316,6 +377,31 @@ body{
     font-size: 20px;
     color: #a6bba6;
   }
+}
+.task-first-lattice{
+  display: flex;
+  align-items: center;
+  .fa-caret-right{
+    margin-right: 5px;
+    transition: 0.5s;
+  }
+  .arrow{
+    transition: 0.5s;
+    transform: rotate(180deg);
+  }
+  .edit-task{
+    // border: 1px solid red;
+    margin-right: 5px;
+    width: 0px;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+  .edit-task-open{
+    width: 40px;
+    transition: 0.5s;
+  }
+
+
 }
 
 .items-task tr{
@@ -341,13 +427,16 @@ body{
 .add-item{
   background-color: #D3E3D3;
   width: 100%;
-
+  a{
+    padding-top: 4px;
+  }
+  
 }
 
 
 
 
-//index. groups board
+//index.  board
 
 .main-dashboard{
   margin-right: 20px;

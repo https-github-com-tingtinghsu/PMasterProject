@@ -41,4 +41,40 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
+  //Get edit_count && sing_out_button toggle the "is-active"
+  const buttonDiv = document.querySelector('.sign-in-buttons')
+  const arrow_button = document.querySelector('.arrow_icon')
+  arrow_button.addEventListener('click', function(){
+    arrow_button.classList.toggle('arrow')
+    buttonDiv.classList.toggle('sign-in-buttons-open')
+    console.log('aaa')
+  })
+
+  //Get edit_task toggle the "is-active"
+  const taskTables = document.querySelectorAll('.table')
+  // const editTask = document.querySelector('.edit-task')
+  const editArrow = document.querySelector('.fa-caret-right')
+  
+  function toggleTaskName(e){
+    taskArrowClass = Array.from(e.target.classList)
+    if(taskArrowClass.indexOf("fa-caret-right") !== -1){
+      e.target.classList.toggle("arrow")
+      e.target.parentNode.parentNode.querySelector(".edit-task").classList.toggle("edit-task-open")
+      
+     
+
+    }
+  }
+  
+  taskTables.forEach((table)=>{
+    table.addEventListener("click", toggleTaskName)
+  })
+  console.log(taskTables)
+  // const item_id = (Number)(item_task.getAttribute('data-item-id'))
+  // const task_list = document.querySelector(`#items-task-${item_id}`)
+  // task_list.addEventListener('click', function(){
+  //   console.log('aaa')
+  //   console.log(typeof(item_id))
+  //   console.log(task_list)
+  // })
 });
