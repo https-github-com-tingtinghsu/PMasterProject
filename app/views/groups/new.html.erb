@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="mx-5 my-5">
-  <%= form_with(model: @group, url: board_groups_path, local: true) do |f| %>
+<%= form_with(model: @group, url: board_groups_path, local: true) do |f| %>
     <%= f.label :name, "主題名稱" %>
     <%= f.text_field :name, class: 'border-2 px-2 py-3', autocomplete:"off" %>
     <%= f.label :start_date, "開始時間" %>

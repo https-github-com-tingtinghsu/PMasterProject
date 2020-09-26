@@ -6,9 +6,9 @@
     <%= csp_meta_tag %>
     <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>    
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>         
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
   <body> 
     <%= render "shared/frontend/navbar" %>
@@ -22,7 +22,6 @@
         <%= yield %>
     <% end %>
 
-    <%= render "shared/frontend/footer" %>
-    
+    <%= render "shared/frontend/footer" %>   
   </body>
 </html>
