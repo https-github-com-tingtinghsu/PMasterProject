@@ -39,7 +39,8 @@ class GroupsController < ApplicationController
   end
 
   def charts
-
+    # 理想的線圖
+    gon.avg_point_array = @group.avg_point_array
     # 每個item會有完成的時間
     gon.point_array = @group.point_array
     gon.date_array = @group.start_end_date_array
