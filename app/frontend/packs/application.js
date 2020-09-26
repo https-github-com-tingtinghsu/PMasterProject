@@ -13,6 +13,7 @@ require("stylesheets")
 
 import '../scripts/shared/application'
 import '../scripts/shared/sidebar'
+import '../scripts/shared/chart'
 import '../scripts/shared/itemIndex'
 import '../scripts/shared/itemEditForm'
 import '../scripts/shared/post'

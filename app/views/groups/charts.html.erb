@@ -1,86 +1,34 @@
 <div class="tile is-parent main-dashboard">
   <article class="tile is-child">
-    <span class="subtitle my-2 block text-center"><%= @group.name %>燃盡圖</span>  
-    <canvas id="myChart" width="400" height="200"></canvas>
+  <div class="tabs is-centered is-large">
+    <ul>
+      <li class="burn-chart-tab is-active">
+        <a id="burn-chart" class="click-tab" data-chart-name="burn">
+          <span class="icon text-lg"><i class="fas fa-chart-area" aria-hidden="true"></i></span>
+          <span class="text-lg">燃盡圖</span>
+        </a>
+      </li>
+      <li class="pie-chart-tab">
+        <a id="pie-chart" class="click-tab" data-chart-name="pie">
+          <span class="icon text-lg"><i class="fas fa-chart-pie" aria-hidden="true"></i></span>
+          <span class="text-lg">圓餅圖</span>
+        </a>
+      </li>
+      <li class="bar-chart-tab">
+        <a id="bar-chart" class="click-tab" data-chart-name="bar">
+          <span class="icon text-lg"><i class="fas fa-chart-bar" aria-hidden="true"></i></span>
+          <span class="text-lg">長條圖</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <span class="subtitle my-2 block text-center"><%= @group.name %></span>  
+  <canvas id="burnChart" width="400" height="200"></canvas>
+  <canvas id="pieChart" width="400" height="200"></canvas>  
+  <canvas id="barChart" width="400" height="200"></canvas>  
   </article> 
 </div>
-<script>
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: gon.date_array,
-        datasets: [
-            {
-                label: '實際完成進度',
-                data: gon.point_array,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 2
-            }, 
-
-            {
-                label: '預期進度',
-                data: gon.avg_point_array,
-                backgroundColor: [
-                  "#ffffff",
-                  
-                ],
-                borderColor: [
-                    '#000079'
-                    // 'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    // 'rgba(75, 192, 192, 1)',
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            } 
-        
-        ]
-    },
-    options: {
-
-        scales: {
-            yAxes: [{             
-                ticks: {
-                    beginAtZero: true
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: '剩餘點數',
-                  fontSize: 20 
-                }
-            }],
-
-            xAxes: [{             
-                ticks: {
-                    beginAtZero: true
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Sprint日期',
-                  fontSize: 20 
-                }
-            }]
-
-        }
-    }
-});
-</script>
-
+<%= render 'groups/charts/burn' %>
+<%= render 'groups/charts/pie' %>
+<%= render 'groups/charts/bar' %>
