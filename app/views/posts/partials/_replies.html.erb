@@ -1,6 +1,6 @@
-<%= @current_user.email %>
 <ul>
-  <% @replies.each do |reply| %>
+  <% @post.replies.each do |reply| %>
+    <li><%= @current_user.email %></li>
     <li><%= reply.content %></li>
-  <% end >
+  <% end %>
 </ul>

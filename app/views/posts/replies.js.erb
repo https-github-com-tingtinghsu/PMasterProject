@@ -1,1 +1,1 @@
-$('#replies_block').html("<%= j render('posts/partials/replies') %>")
+$('#replies-block-post-id-<%= @post.id %>').html("<%= j render('posts/partials/replies') %>")
