@@ -6076,7 +6076,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 
 .navbar-item img {
-  max-height: 1.75rem;
+  /* max-height: 1.75rem; */
 }
 
 .navbar-item.has-dropdown {
@@ -6679,7 +6679,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 .panel-tabs:not(:last-child),
 .panel-block:not(:last-child) {
-  border-bottom: 1px solid #ededed;
+  /* border-bottom: 1px solid #ededed; */
 }
 
 .panel-heading {

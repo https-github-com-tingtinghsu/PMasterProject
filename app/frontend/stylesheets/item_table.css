@@ -1,10 +1,10 @@
 tr{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 tr>th,tr>td{
-  width: 18%;
+  width: 20%;
 }
 th{
   display: inline-block;

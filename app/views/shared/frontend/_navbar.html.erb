@@ -1,7 +1,9 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-        <%= image_tag("home/P.svg") %>
+        <div class="logo">
+          <%= image_tag("home/logo.png") %>
+        </div>
       <%# <img src="images/shared/P.svg" width="112" height="28"> %>
     </a>
 
@@ -25,7 +27,7 @@
         </div>
       </div>
 
-      <div class="navbar-item has-dropdown is-hoverable">
+       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           使用案例
         </a>
@@ -40,6 +42,9 @@
         遠距工作
       </a>
 
+     
+    </div>
+    <div class="navbar-end">
       <a class="navbar-item">
         聯絡我們
       </a>
@@ -48,12 +53,13 @@
       <% else %>
         <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item"%>
       <% end %>
-    </div>
-    <div class="navbar-end">
+
+      
       <div class="navbar-item">
+        
         <div class="buttons">
           <% if current_user %>
-            <div>Hello, <%= current_user.email %></div>
+            <div class="sign-in-name"><p> Hello, <%= current_user.email %></p></div>
             <strong><%= link_to '編輯帳戶', edit_user_registration_path, class: "button is-primary ml-2" %></strong>
             <strong><%= button_to '登出', destroy_user_session_path, method: 'delete', class: "button is-light", id: "btn-logout" %></strong>
           <% else %>
@@ -61,7 +67,7 @@
             <strong><%= link_to '我要登入', new_user_session_path, class: "button is-light" %></strong>
           <% end %>
         </div>
-
+        <i class="fas fa-angle-down"></i>
       </div>
     </div>
   </div>
