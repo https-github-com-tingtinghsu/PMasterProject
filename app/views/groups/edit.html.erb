@@ -1,9 +1,33 @@
-<h1 class="text-xl px-2 py-2">編輯主題 Edit Group</h1>
+<div class="new-item-page">
+<h1 class="new-item-title">編輯主題 Edit Group</h1>
 
-<div class="mx-5 my-5">
-  <%= form_with(model: @group, local: true) do |f| %>
-    <%= f.label :name, "編輯主題標題" %>
-    <%= f.text_field :name, class: 'border-2 px-2 py-3' %>
-    <%= f.submit '編輯完成', class: 'mt-4 ml-2 px-3 py-1 bg-orange-400 text-white block w-32 rounded text-center' %>
+<% if @group.errors.any? %>
+  <ul>
+  <% @group.errors.full_messages.each do |message| %>
+  <li><p class="text-red-600 mx-2">。<%= message %></p></li>
   <% end %>
+  </ul>
+<% end %>
+  <div class="item-wrap">
+    <div class="item-object-group">
+      <div class="group-card">
+        <%= form_with(model: @group, local: true) do |f| %>
+           <%= f.label :name, "主題標題",class: "item-label" %>
+           <%= f.text_field :name, class: 'border-2 px-2 py-3 mt-4 group-input', autocomplete:"off"  %>
+           <%= f.submit '編輯完成', class: 'new-item-submit mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="advertising">
+      <h2>Pmaster 最信賴的夥伴</h2>
+      <div class="img">
+        <img src="/assets/home/main-pic-a9b3544a9a8450765897298f1b4db618eee612a3cbf2bc736c5cbe5402cb4788.png" >
+      </div>
+    </div>
+  </div>
+  <div class="footer-edit">
+    <p>
+      <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
+    </p>
+  </div>
 </div>
