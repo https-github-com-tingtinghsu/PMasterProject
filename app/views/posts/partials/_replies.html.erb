@@ -1,14 +1,14 @@
-<div id="replies-show-post-id-<%= @post.id %>" style="padding:1.5rem 1.5rem 0 1.5rem;border-top:1px solid #F2F2F2">
+<div id="replies-show-post-id-<%= @post.id %>" style="padding:0.25rem 1.5rem 0 1.5rem;border-top:1px solid #F2F2F2">
   <% @post.replies.each do |reply| %>
-    <div id="<%= reply.id %>" class="mb-2" style="display: flex;">
-      <div><%= User.find(reply.user_id).email[0..6] %>：</div>
+    <div id="reply-id-<%= reply.id %>" class="mb-2" style="display: flex;">
+      <div style="padding: 2px 0;"><%= User.find(reply.user_id).email[0..6] %>：</div>
       <div style="background-color: #48C774;padding: 2px 5px; color: #F2F2F2;" class="rounded"><%= reply.content %></div>
     </div>
   <% end %>
 </div>
-<div id= "reply-form-post-id-<%= @post.id %>" style="padding:0 1.5rem 1.5rem 1.5rem">
+<div id= "reply-form-post-id-<%= @post.id %>" style="padding:0 1.5rem 1.5rem">
   <%= form_with(model: @reply, url: post_replies_path(@post), remote: true) do |f| %>
-    <%= f.text_field :replycontent, id:"add-reply-content-post-id-#{@post.id}", class:"border border-green-300 rounded-md", placeholder:"請在此輸入文字...",autocomplete: "off" %>
-    <%= f.submit '送出', class:"", id:"btn-reply-submit-post-id-#{@post.id}" %>
+    <%= f.text_field :replycontent, id:"add-reply-content-post-id-#{@post.id}", class:"border border-green-200 rounded-md", placeholder:"請在此輸入文字...",autocomplete: "off", style:"width:100%;height:30px" %>
+    <%= f.submit '', id:"btn-reply-submit-post-id-#{@post.id}", style:"display:none;" %>
   <% end %>
 </div>

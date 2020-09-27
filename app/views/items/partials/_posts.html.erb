@@ -24,7 +24,7 @@
           <p class="mt-2 has-text-grey-light"><%= post.created_at%></p>
           <p class="content mt-2"><%= post.content %></p>
         </div>
-        <div id="post-id-<%= post.id %>-be-liked-counts" class="mt-5 ml-5">
+        <div id="post-id-<%= post.id %>-be-liked-counts" class="mb-1 mx-5">
           <% if post.post_likes.length > 0 %>
             <%= post.post_likes.length %> 人說讚
           <% end %>
