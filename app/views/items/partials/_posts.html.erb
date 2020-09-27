@@ -7,9 +7,10 @@
   </div>
 </div>
 
-<div class="posts-body">
+<div class="posts-body" >
   <div id="post-form">
     <%= form_with(model: @post, remote: true) do |f|%>
+      <%= f.hidden_field :post_id, class: "postid", value: @post_id %>
       <%= f.label :postcontent, "留言：", class:"text-xl py-2"%>
       <%= f.text_area :postcontent, id:"posts-content", class:"textarea border border-dash border-green-300 rounded-md px-3 py-3", placeholder:"請在此輸入文字..." %>
       <%= f.submit '送出', class:"button is-success btn-save-adding my-2", id:"btn-post-submit" %>

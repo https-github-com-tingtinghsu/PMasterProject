@@ -8,6 +8,11 @@ class PostsController < ApplicationController
 			@post.user_id = current_user.id
 			@post.save
 			flash.notice = "留言成功"
+
+			# 2020/09/27 Wei
+			# RealTime Post
+			
+			
 	end
 	
 	def update
@@ -32,7 +37,7 @@ class PostsController < ApplicationController
 	end
 
   	def find_item
-    	@item = Item.find(params[:item_id])
+		@item = Item.find(params[:item_id])
 	end
 
 end

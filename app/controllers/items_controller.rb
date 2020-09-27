@@ -77,17 +77,22 @@ class ItemsController < ApplicationController
 	end
 
 	private
+	def find_item
+		@item = Item.find(params[:id])
+		@post_id = params[:id]
+		puts "=============================find_item"
+		puts @post_id
+		puts @item
+	end
 
-		def find_item
-			@item = Item.find(params[:id])
-		end
+	def find_board_and_group
+		@group = Group.find(params[:group_id])
+		@board = @group.board
+		puts "=============================find_board_and_group"
+	end
 
-		def find_board_and_group
-			@group = Group.find(params[:group_id])
-			@board = @group.board
-		end
-
-		def item_params
-			params.require(:item).permit(:name, :description, :status, :person, :due_date)
-		end
+	def item_params
+		params.require(:item).permit(:name, :description, :status, :person, :due_date)
+		puts "=============================item_params"
+	end
 end
