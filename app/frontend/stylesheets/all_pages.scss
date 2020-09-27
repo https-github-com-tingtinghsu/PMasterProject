@@ -18,6 +18,8 @@ a{
 }
 .item-wrap{
   display: flex;
+  font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+
   .advertising{
     // position: relative;
     width: 50%;
@@ -40,7 +42,7 @@ a{
     }
     .img{
       // position: absolute;
-      width: 250px;
+      width: 200px;
       // right: 0;
       // bottom: 0;
       
@@ -157,6 +159,7 @@ body{
 .navbar-brand, .navbar-menu
 {
   background-color: #5A815A;
+
   .navbar-link{
     color: white;
   }
@@ -168,6 +171,8 @@ body{
   .navbar-item{
     height: 60px;
     color: white;
+    font-size: 16px;
+    font-weight: 500;
     // border: solid red 1px;
     // padding-left: 50px;
     .logo{
@@ -187,6 +192,8 @@ body{
   .navbar-item{
     display: flex;
     align-items: center;
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+
     .buttons{
       margin: 0;
       margin-right: 10px;
@@ -218,8 +225,15 @@ body{
         height: 88px;
         transition: 0.5s;
       }
+    
     }
 
+  }
+  .sign-out-status{
+    margin-top: 8px;
+  }
+  .sign-out-buttons{
+    color: white;
   }
   
   .arrow{
@@ -340,6 +354,7 @@ body{
   display: flex;
   align-items: center;
   .fa-caret-right{
+    font-size: 15px;
     margin-right: 5px;
     transition: 0.5s;
   }
@@ -394,6 +409,7 @@ body{
 
 
 
+
 //main-dashboard
 
 .main-dashboard{
@@ -407,18 +423,19 @@ body{
 
 }
 
-.main-dashboard-title{
+.main-dashboard-title p{
+  font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
   font-size: 25px;
   position: relative;
-  top: 170px;
-  left: 200px;
+  top: 50px;
+  left: 0px;
+  padding: 20px;
+  line-height: 50px;
 }
 
 .main-dashboard-pic{
-  // border: red 1px solid;
-  position: absolute;
-  bottom: 0px;
-  left: 800px;
+  margin-top: 100px;
+  margin-left: auto;
   width: 300px;
 }
 
@@ -442,11 +459,25 @@ body{
 .footer-edit{
   padding: 0;
   position: absolute;
-  bottom: 120px;
+  bottom: 70px;
   left: 300px;
 }
+
+
+  //home
+  .hero{
+    background-color: white;
+  }
+  .main-pic{
+    width: 250px;
+  }
+
+
 @media screen and (max-width: 768px){
-  
+  .main-pic{
+    // border: solid 1px red;
+    width: 500px;
+  }
   .new-item-submit{
     width: 80px;
     font-size: 10px;
@@ -489,7 +520,7 @@ body{
       }
       .img{
         // position: absolute;
-        width: 250px;
+        width: 200px;
         // right: 0;
         // bottom: 0;
         
@@ -513,6 +544,12 @@ body{
     bottom: -170px;
     left: 210px;
   }
+  .footer-dashboard{
+    padding: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+  }
   .group-card{
     // border: solid 1px red;
     width: 170px;
@@ -522,6 +559,7 @@ body{
       border-radius: 5px;
     }
   }
+  
 }
 
 

@@ -1,11 +1,14 @@
 <div class="tile is-parent main-dashboard mx-auto">
   <article class="tile is-child notification home-dashboard">
-    <div class="main-dashboard-title">歡迎<%= current_user.email %>！<br><br><br><%= flash[:add_board_notice] %>請點選左側工作區，您可以自由地新增工作區以及看板！
+    <div class="main-dashboard-title">
+    <p>
+      歡迎<%= current_user.email %>！<br><%= flash[:add_board_notice] %>請點選左側工作區，您可以自由地新增工作區以及看板！
+    </p>
     </div>
     <div class="main-dashboard-pic">
       <%= image_tag 'home/pmaster.svg' %>
     </div>
-    <div class="footer">
+    <div class="footer footer-dashboard">
       <p>
         <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
       </p>
