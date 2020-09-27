@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 	end
 	
 	def destroy
+		@item = Item.find(@post.item_id)
 		@post.destroy
 	end
 
