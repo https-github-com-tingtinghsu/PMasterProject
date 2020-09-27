@@ -6,7 +6,7 @@
       <%= link_to ' 新增主題', new_board_group_path, class:"fas fa-plus-square px-3 py-1 mb-2 bg-red-100 text-white rounded text-center" , style:"text-decoration: none;"%>
     </div>
     <div class="content">
-      <div class="group-item-list">
+      <div class="group-item-list" data-board-id="<%= @board.id%>">
         <ul class="pr-5">
           <% @groups.each do |group| %>
             <li class="mx-5 mt-2 mb-4" data-group-id="<%= group.id %>">
