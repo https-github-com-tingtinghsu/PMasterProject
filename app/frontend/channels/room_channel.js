@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
       const $messages = document.querySelector('#messages');
       const message_input = document.querySelector('.text-input');
       // const user_id = element.getAttribute('data-user-id');
-      
+      console.log(data)
       if (user_id === data.message.user_id){
         messageContainer.innerHTML += data.me;
         message_input.value = '';
@@ -48,6 +48,16 @@ document.addEventListener('turbolinks:load', () => {
       }
       // scroll_controller.scrollTop = scroll_controller.scrollHeight;
       $messages.scrollTo(0, $messages.scrollHeight);
+
+      // 2020/09/27 Wei
+      // Notification 
+      // 提醒目前設計是學 Line
+      if(Notification.permission === "granted"){
+        var title = data.message.user_id
+        var body  = data.message.content
+        var options = { body: body}
+        new Notification(title, options)
+      }
 
       // scroll_controller.addEventListener('keydwn', function(e){
       //   if( e.keyCode === 13){
