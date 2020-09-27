@@ -16,7 +16,8 @@ document.addEventListener('turbolinks:load', () => {
     },
 
     received(data) {
-      window.location.reload();
+      if(location.pathname === "/boards/2/groups")
+        window.location.reload();
       // console.log(data_board_id)
     }
   });
