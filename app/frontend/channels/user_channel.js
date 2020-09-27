@@ -5,15 +5,26 @@ document.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('.hello-user')
   if(!element)return
   const userId = element.getAttribute('data-user-id')
+  console.log(userId)
   
-consumer.subscriptions.create( {channel: "UserChannel", user_id: userId}, {
-    connected() {
-    },
+  consumer.subscriptions.create( {channel: "UserChannel", user_id: userId}, {
+      connected() {
+        console.log('user connection')
+      },
 
-    disconnected() {
-    },
+      disconnected() {
+        console.log('user disconnection')
+      },
 
-    received(data) {
-    }
-  });
+      received(data) {
+        console.log("===============")
+        console.log(data)
+        if(Notification.permission === "granted"){
+          var title = data.message.user_id
+          var body  = data.message.content
+          var options = { body: body}
+          new Notification(title, options)
+        }
+      }
+    });
 })
