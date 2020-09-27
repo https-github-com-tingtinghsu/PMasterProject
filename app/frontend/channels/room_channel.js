@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
       const $messages = document.querySelector('#messages');
       const message_input = document.querySelector('.text-input');
       // const user_id = element.getAttribute('data-user-id');
-      console.log(data)
+      
       if (user_id === data.message.user_id){
         messageContainer.innerHTML += data.me;
         message_input.value = '';
