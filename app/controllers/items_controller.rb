@@ -31,11 +31,9 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			puts " ==========================================ACtionCable=========================================="
 			ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
-			puts " ==============================#{params[:person].values[0]}============#{@item.name}=========================================="
 			puts "開始寫入Github Issue:"
-			# Github.new.issueCreate(@item.name, session[:user])
+			Github.new.issueCreate(@item.name, session[:user])
 			puts "成功寫入!"
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 		else

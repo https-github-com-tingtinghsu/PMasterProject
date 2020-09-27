@@ -20,8 +20,8 @@ document.addEventListener('turbolinks:load', () => {
         console.log("===============")
         console.log(data)
         if(Notification.permission === "granted"){
-          var title = data.message.user_id
-          var body  = data.message.content
+          var title = "Issues 通知"
+          var body  = data
           var options = { body: body}
           new Notification(title, options)
         }
