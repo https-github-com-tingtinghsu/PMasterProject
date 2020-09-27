@@ -38,6 +38,8 @@
           <%= link_to " Reply", replies_post_path(post), remote: true, data:{turbolinks: false}, class:"fas fa-reply", id:"reply-btn-post-id-#{ post.id }" %>
           <% if (post.replies.count > 0) %>
             <span class="replies-counts" id="post-id-<%= post.id %>-of-replies-counts" ><%= post.replies.count %></span>
+          <% else %>
+            <span id="abc-<%= post.id %>" ></span>
           <% end %>
         </div>
         <div id="replies-block-post-id-<%= post.id %>" class="replies-block">
