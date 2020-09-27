@@ -128,62 +128,7 @@ a{
   outline: none;
 }
 
-@media screen and (max-width: 768px){
-  .new-item-submit{
-    width: 80px;
-    font-size: 10px;
-  }
-  .item-object-group{
-    width: 45%;
-    margin-left: 10px;
-    padding-right: 10px;
-    border-right: solid #aaa 1px;
-    // padding-left: 80px;
-    box-sizing: border-box;
-  }
-  .item-label{
-    font-size: 15px;
-    color: rgb(98, 92, 92);
-    font-weight: 500;
-  }
-  .item-btn{
-    margin-left: 150px;
-  }
-  .item-wrap{
-    display: flex;
-    .advertising{
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-left: 15px;
-      // border: solid 1px red;
-      h2{
-        font-size: 20px;
-        margin-bottom: 40px;
-      }
-      .advertising-article{
-        width: 450px;
-        display: flex;
-        // border: solid 1px red;
-  
-      }
-      .img{
-        // position: absolute;
-        width: 250px;
-        // right: 0;
-        // bottom: 0;
-        
-        img{
-          width: 100%;
-          border-radius: 10px;
-        }
-      }
-    }
-    
-  }
-}
+
 
 // group
 .group-card{
@@ -225,6 +170,7 @@ body{
   .navbar-item{
     height: 60px;
     color: white;
+    // border: solid red 1px;
     // padding-left: 50px;
     .logo{
       width: 180px;
@@ -283,6 +229,7 @@ body{
     transform: rotate(180deg);
   }
   .arrow_icon{
+    font-size: 20px;
     transition: 0.5s;
   }
   .sign-in-name{
@@ -449,12 +396,32 @@ body{
 
 
 
-//index.  board
+//main-dashboard
 
 .main-dashboard{
   margin-right: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
   // border: red 1px solid;
+}
+.home-dashboard{
+  border-radius: 10px;
+  background-color: white;
+
+}
+
+.main-dashboard-title{
+  font-size: 25px;
+  position: relative;
+  top: 170px;
+  left: 200px;
+}
+
+.main-dashboard-pic{
+  // border: red 1px solid;
+  position: absolute;
+  bottom: 0px;
+  left: 800px;
+  width: 300px;
 }
 
 .main-board{
@@ -478,13 +445,87 @@ body{
   padding: 0;
   position: absolute;
   bottom: 120px;
-  left: 660px;
+  left: 300px;
+}
+@media screen and (max-width: 768px){
+  
+  .new-item-submit{
+    width: 80px;
+    font-size: 10px;
+  }
+  .item-object-group{
+    width: 45%;
+    margin-left: 10px;
+    padding-right: 10px;
+    border-right: solid #aaa 1px;
+    // padding-left: 80px;
+    box-sizing: border-box;
+  }
+  .item-label{
+    font-size: 15px;
+    color: rgb(98, 92, 92);
+    font-weight: 500;
+  }
+  .item-btn{
+    margin-left: 150px;
+  }
+  .item-wrap{
+    display: flex;
+    .advertising{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 15px;
+      // border: solid 1px red;
+      h2{
+        font-size: 20px;
+        margin-bottom: 40px;
+      }
+      .advertising-article{
+        width: 450px;
+        display: flex;
+        // border: solid 1px red;
+  
+      }
+      .img{
+        // position: absolute;
+        width: 250px;
+        // right: 0;
+        // bottom: 0;
+        
+        img{
+          width: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+    
+  }
+  .footer{
+    padding: 0;
+    position: absolute;
+    bottom: 90px;
+    left: 90px;
+  }
+  .footer-edit{
+    padding: 0;
+    position: absolute;
+    bottom: -170px;
+    left: 210px;
+  }
+  .group-card{
+    // border: solid 1px red;
+    width: 170px;
+    margin-top: 70px;
+    margin-left: 0px;
+    .group-input{
+      border-radius: 5px;
+    }
+  }
 }
 
-// .item-group-li:hover{
-//   border: rgb(187, 185, 185) solid 1px;
-//   box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.2);
-// }
 
 
 
