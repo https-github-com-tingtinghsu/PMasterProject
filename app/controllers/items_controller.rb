@@ -30,10 +30,12 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-
-			puts "開始寫入Github Issue:"
+			# 2020/09/27 Wei
+			ActionCable.server.broadcast("board_channel_#{ @board.id }", "")
+			
+			# puts "開始寫入Github Issue:"
 			Github.new.issueCreate(@item.name, session[:user])
-			puts "成功寫入!"
+			# puts "成功寫入!"
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 		else
 			render :new
@@ -73,6 +75,8 @@ class ItemsController < ApplicationController
 	def destroy
 		@item.destroy
 		board =	Board.find(Group.find(@item.group_id).board_id)
+		# 2020/09/27 Wei
+		ActionCable.server.broadcast("board_channel_#{ @board.id }", "")
 		redirect_to board_groups_path(board), notice: "刪除成功"
 	end
 
