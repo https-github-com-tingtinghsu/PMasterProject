@@ -1,6 +1,14 @@
-<ul>
+<div id="replies-show-post-id-<%= @post.id %>" style="padding:1.5rem 1.5rem 0 1.5rem;border-top:1px solid #F2F2F2">
   <% @post.replies.each do |reply| %>
-    <li><%= @current_user.email %></li>
-    <li><%= reply.content %></li>
+    <div id="<%= reply.id %>" class="mb-2" style="display: flex;">
+      <div><%= User.find(reply.user_id).email[0..6] %>：</div>
+      <div style="background-color: #48C774;padding: 2px 5px; color: #F2F2F2;" class="rounded"><%= reply.content %></div>
+    </div>
   <% end %>
-</ul>
+</div>
+<div id= "reply-form-post-id-<%= @post.id %>" style="padding:0 1.5rem 1.5rem 1.5rem">
+  <%= form_with(model: @reply, url: post_replies_path(@post), remote: true) do |f| %>
+    <%= f.text_field :replycontent, id:"add-reply-content-post-id-#{@post.id}", class:"border border-green-300 rounded-md", placeholder:"請在此輸入文字...",autocomplete: "off" %>
+    <%= f.submit '送出', class:"", id:"btn-reply-submit-post-id-#{@post.id}" %>
+  <% end %>
+</div>

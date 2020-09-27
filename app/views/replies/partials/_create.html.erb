@@ -1,0 +1,4 @@
+<div id="<%= @reply.id %>" class="mb-2" style="display: flex;">
+  <div><%= User.find(@reply.user_id).email[0..6] %>：</div>
+  <div style="background-color: #48C774;padding: 2px; color: #F2F2F2;" class="rounded"><%= @reply.content %></div>
+</div>
