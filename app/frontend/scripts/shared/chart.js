@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', () => {
+window.addEventListener('turbolinks:load', () => {
   $("#pieChart").hide() 
   $("#barChart").hide() 
   $(".click-tab").click(function(){
