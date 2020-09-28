@@ -53,7 +53,7 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if current_user %>
-              <div>Hello, <%= current_user.display_name %> </div>
+              <div class="hello-user" data-user-id="<%= current_user.id %>">Hello, <%= current_user.display_name %> </div>
             <strong><%= link_to '編輯帳戶', edit_user_registration_path, class: "button is-primary ml-2" %></strong>&nbsp
             <strong><%= button_to '登出', destroy_user_session_path, method: 'delete', class: "button is-light", id: "btn-logout" %></strong>
           <% else %>
