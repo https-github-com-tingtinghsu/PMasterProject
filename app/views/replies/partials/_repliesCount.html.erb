@@ -1,0 +1,3 @@
+<% if @post.replies.count >0 %>
+  <span class="replies-counts" id="post-id-<%= @post.id %>-of-replies-counts" ><%= @post.replies.count %></span>
+<% end %>

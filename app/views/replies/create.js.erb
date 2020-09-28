@@ -1,0 +1,4 @@
+$('#replies-show-post-id-<%= @post.id %>').append("<%= j render('replies/partials/create') %>");
+$('#add-reply-content-post-id-<%= @post.id %>').val("")
+$("#post-id-<%= @post.id %>-of-replies-counts").remove()
+$("#abc-<%= @post.id %>").html("<%= j render('replies/partials/repliesCount') %>")

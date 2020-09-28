@@ -1,1 +1,3 @@
 $("#post-id-<%= @post.id %>").remove();
+$("#item-id-<%= @item.id %>-of-posts-counts").remove()
+$("#post-icon-id-<%= @item.id %>").html("<%= j render('posts/partials/postsCount') %>")
