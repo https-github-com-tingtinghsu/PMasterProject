@@ -1,13 +1,6 @@
 document.addEventListener('turbolinks:load', () => {
 
-  //Get edit_count && sing_out_button toggle the "is-active"
-  const buttonDiv = document.querySelector('.sign-in-buttons')
-  const arrow_button = document.querySelector('.arrow_icon')
-  arrow_button.addEventListener('click', function(){
-    arrow_button.classList.toggle('arrow')
-    buttonDiv.classList.toggle('sign-in-buttons-open')
-    console.log('aaa')
-  })
+  
 
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -26,6 +19,14 @@ document.addEventListener('turbolinks:load', () => {
       });
     });
   }
+  // Get edit_count && sing_out_button toggle the "is-active"
+  const buttonDiv = document.querySelector('.sign-in-buttons')
+  const arrow_button = document.querySelector('.arrow_icon')
+  arrow_button.addEventListener('click', function(){
+    arrow_button.classList.toggle('arrow')
+    buttonDiv.classList.toggle('sign-in-buttons-open')
+    console.log('aaa')
+  })
 
 
   //Get chatroom toggle the "is-active"
