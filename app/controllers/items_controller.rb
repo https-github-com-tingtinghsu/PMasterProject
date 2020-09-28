@@ -30,9 +30,9 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			# 2020/09/27 Wei
-			ActionCable.server.broadcast("board_channel_#{ @board.id }", "")
-			
+			if params[:person].values[0] != nil
+				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
+			end
 			# puts "開始寫入Github Issue:"
 			Github.new.issueCreate(@item.name, session[:user])
 			# puts "成功寫入!"
