@@ -36,8 +36,11 @@
                           <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
-                        <td>
-                          <%= link_to "", posts_item_path(item), remote: true, class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
+                        <td class="post-icon-and-counts">
+                          <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
+                          <% if (item.posts.count > 0) %>
+                            <span id="item-id-<%= item.id %>-of-posts-counts" class="posts-counts"><%= item.posts.count %></span>
+                          <% end %>
                         </td>
                         <td class="item-person">
                           <% @assignments.each do |assignment| %>
@@ -47,7 +50,7 @@
                           <% end %>
                         </td>
                         <td class="item-description"><%= item.description %></td>
-                        <% if item.due_date != nil %>
+                        <% if item.due_date != nil && item.status != "已完成" %>
                           <% if (item.due_date - Date.current).to_i == 0 %>
                             <td class="item-due-date">今日內完成</td>
                           <% elsif (item.due_date - Date.current).to_i > 0 %>

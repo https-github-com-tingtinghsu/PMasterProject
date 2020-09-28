@@ -1,18 +1,19 @@
 <h1 class="text-xl px-2 py-2">編輯項目 Edit Item</h1>
 
 <div class="mx-5 my-5">
-  <%= form_with(model: @item, local: true) do |f|%>
+  <%= form_with(model: @item, url: @item, local: true) do |f|%>
     <%= f.label :name, "項目名稱"%>
     <%= f.text_field :name, class: 'border-2 px-2 py-3', autocomplete:"off" %>
     <%= f.label :description, "項目敘述" %>
     <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
     <%= f.label :person, "負責人" %>
+      <%#= 都沒選的時候，就不會有這個欄位送到rails後端，所以要存在這個欄位，而且要送permit白名單 %>      
+    <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>
     <% @workspace_users.each do |member| %>
-      <%= check_box_tag("person[#{member.id}]", member.id) %>
-      <%= label_tag("person[#{member.id}]", member.email) %>
+      <%#= 把目前已經被打勾的assignee，找出來 %>  
+      <%= check_box_tag "person[#{member.id}]", member.id, @item_user_ids.include?(member.id) %>
+      <%= label_tag("person[#{member.id}]", member.display_name) %>
     <% end %>
-    <%= check_box_tag("person[#{@workspace_creator.id}]", @workspace_creator.id) %>
-    <%= label_tag("person[#{@workspace_creator.id}]", @workspace_creator.email) %>
     <%= f.label :due_date, "期限" %>
     <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
     <%= f.label :status, "狀態" %>
