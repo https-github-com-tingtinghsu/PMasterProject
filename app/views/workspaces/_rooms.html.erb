@@ -1,4 +1,4 @@
-<div id="user-id" data-user-id="<%= current_user.id %>"></div>
+<div id="user-id" data-user-id="<%= current_user.id %>" data-user-name="<%= current_user.display_name %>"></div>
     <div class="container">
       <div class="row chatbox">
         <div class="channelbox">
@@ -20,7 +20,7 @@
               
               <div class="chatcontent-box" data-room-id="<%= @room.id %>" data-user="<%= current_user.display_name%>" data-user-id="<%= current_user.id %>">
                 <div class="chatroom-lebal" typ='button'>
-                  <i class="far fa-comments"></i>
+                  <i class="fab fa-facebook-messenger"></i>
                   <h2 id="room-name">
                     <%= @room.name %>
                   </h2>

@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
   <title>PMasterProject</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="turbolinks-cache-control" content="no-cache">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>    
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>             
+    <%= Gon::Base.render_data %> 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>   
   </head>
   <body> 
     <%= render "shared/frontend/navbar" %>
@@ -21,8 +22,5 @@
     <% else %>
         <%= yield %>
     <% end %>
-
-    <%= render "shared/frontend/footer" %>
-    
   </body>
 </html>

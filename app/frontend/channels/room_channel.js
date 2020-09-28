@@ -1,7 +1,7 @@
 import consumer from "./consumer"
 
 const currentRoomIds = {}
-console.log(currentRoomIds)
+// console.log(currentRoomIds)
 document.addEventListener('turbolinks:load', () => {
   
   const element = document.querySelector('.chatcontent-box')
@@ -21,7 +21,7 @@ document.addEventListener('turbolinks:load', () => {
     connected() {
       // console.log("連接" + room_id)
       currentRoomIds[room_id] = true
-      console.log(currentRoomIds[room_id])
+      // console.log(currentRoomIds[room_id])
       // Called when the subscription is ready for use on the server
       // console.log(eleOnline.textContent.slice(0,-11).trim())
     },
@@ -34,6 +34,7 @@ document.addEventListener('turbolinks:load', () => {
     received(data) {
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
+      const user_name = element.getAttribute('data-user-name');
       const messageContainer = document.getElementById('messages');
       const scroll_controller = document.querySelector('.chatroom-group');
       const $messages = document.querySelector('#messages');
@@ -48,14 +49,14 @@ document.addEventListener('turbolinks:load', () => {
       }
       // scroll_controller.scrollTop = scroll_controller.scrollHeight;
       $messages.scrollTo(0, $messages.scrollHeight);
-
+      // console.log(data)
       // 2020/09/27 Wei
       // Notification 
       // 提醒目前設計是學 Line
       if(Notification.permission === "granted"){
-        var title = data.message.user_id
+        var title = user_name
         var body  = data.message.content
-        var options = { body: body}
+        var options = { body: body, icon: 'https://i.imgur.com/WucFGxW.png'}
         new Notification(title, options)
       }
 

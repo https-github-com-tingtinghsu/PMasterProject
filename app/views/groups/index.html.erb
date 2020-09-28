@@ -1,42 +1,54 @@
-<div class="tile is-parent main-dashboard">
-  <article class="tile is-child notification bg-green-200">
-    <p class="title text-md main-board-title">看板：<%= @board.name %></p>
+<div class="tile is-parent main-dashboard" data-turbolinks="false">
+  <article class="tile is-child notification main-board">
+    <!-- <p class="title text-md main-board-title">看板：<%= @board.name %></p> -->
     <div class="my-3">
       <span class="subtitle my-2 ">主題列表</span>
       <%= link_to ' 新增主題', new_board_group_path, class:"fas fa-plus-square px-3 py-1 mb-2 bg-red-100 text-white rounded text-center" , style:"text-decoration: none;"%>
     </div>
     <div class="content">
-      <div class="group-item-list">
+      <div class="group-item-list" data-board-id="<%= @board.id%>">
         <ul class="pr-5">
           <% @groups.each do |group| %>
-            <li class="mx-5 mt-2 mb-4" data-group-id="<%= group.id %>">
-              <p class="bg-yellow-100 block p-2 rounded-t-md">。
-                <%= group.name %>
-                <%= link_to '', edit_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-edit" , style:"text-decoration: none;"%>
-                <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-trash-alt" %>
-              </p>
-              <table class="table rounded-b-md">
+            <li class="mx-5 mt-2 mb-4 item-group-li" data-group-id="<%= group.id %>">
+              <div class="item-group-li-box">
+                <div class="item-group-li-p-title">
+                  <%= group.name %>
+                </div>
+                <div class="item-group-li-p-icon">
+                	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
+                	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
+                  <%= link_to '', charts_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-chart-bar", style:"text-decoration: none;" if group.has_chart? %>   
+                </div>
+              </div>
+              <table class="table">
                 <% if group.items.present? %>
                   <thead>
-                    <tr class="bg-gray-200">
-                      <th>項目名稱</th>
-                      <th>留言</th>
+                    <tr class="item-group-top-title">
+                      <th class="item-board-left">項目名稱</th>
+                      <th style="width: 50px;">留言</th>
                       <th>負責人</th>
                       <th>項目敘述</th>
+                      <th>點數</th>                      
                       <th>到期日</th>
-                      <th>進度</th>
+                      <th>完成日</th>                      
+                      <th class="item-board-right">進度</th>
                     </tr>
                   </thead>
                 <% end %>
                 <tbody>
                   <% @items.each do |item| %> 
                     <% if group.id == item.group_id %>
-                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>">
-                        <td>
-                          <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
+                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>" id="items-task-<%= item.id %>">
+                        <td class="task-first-lattice">
+                          <div class="task-arrow">
+                            <i class="fas fa-caret-right"></i>
+                          </div>
+                          <div class="edit-task">
+                            <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
+                          </div>
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
-                        <td class="post-icon-and-counts">
+                        <td class="post-icon-and-counts" style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
                           <% if (item.posts.count > 0) %>
                             <span id="item-id-<%= item.id %>-of-posts-counts" class="posts-counts"><%= item.posts.count %></span>
@@ -50,6 +62,8 @@
                           <% end %>
                         </td>
                         <td class="item-description"><%= item.description %></td>
+
+                        <td class="item-point"><%= item.point %></td>                        
                         <% if item.due_date != nil && item.status != "已完成" %>
                           <% if (item.due_date - Date.current).to_i == 0 %>
                             <td class="item-due-date">今日內完成</td>
@@ -61,12 +75,13 @@
                         <% else %>
                           <td class="item-due-date"></td>
                         <% end %>
+                        <td class="item-point"><%= item.finish_date %></td>                        
                         <td><span class="item-status rounded-md"><%= item.status %></span></td>
                       </tr>
                     <% end %>
                   <% end %>
                   <tr>
-                    <td colspan="6" class="bg-gray-200 rounded-b" style="width:100%;height:100%;">
+                    <td colspan="6" class="add-item rounded-b">
                       <%= link_to ' 新增項目', new_group_item_path(group.id), class:"fas fa-plus-square", style:"display:block; height:100%;text-decoration: none;" %>
                     </td>
                   </td>
@@ -84,14 +99,23 @@
     <%= render '/workspaces/rooms', message: Message.new, room: @room %>
   </div>
   <div class="who-online">
-    <h2>Online Users</h2>
+    <div class="user_online">
+      <div>
+        <i class="fas fa-user"></i>
+      </div>
+      <h2>線上成員</h2>
+    </div>
     <%  @online_users.each do |user| %>
     <ul class="online-user">
       <li user-id="<%= user.id %>"><%= user.display_name %><span>Online</span></li>
     </ul>
     <% end %>
   </div>
-
+  <div id="posts-block" class="posts-block rounded"></div>
+  <div class="footer">
+    <p>
+      <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
+    </p>
+  </div>
 </div>
   
-<div id="posts-block" class="posts-block rounded"></div>

@@ -1,7 +1,7 @@
 require "github.rb"
 class ItemsController < ApplicationController
 	before_action :find_board_and_group, only: [:index, :new, :create]
-	before_action :find_item, only: [:edit, :update, :posts,:destroy]
+	before_action :find_item, only: [:edit, :update, :posts,:destroy, :update_finish_date]
 	before_action :find_item_user_id, only: [:edit, :update, :posts,:destroy]
 
 	def index
@@ -16,10 +16,6 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		# 新增function連動github issuse
-		# if(session[:user].nil?)
-		# 	redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo"
-		# end
 		@item = @group.items.new(item_params)
 		# description
 		# 撈出被選取到的user_id
@@ -30,10 +26,14 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
-			puts "開始寫入Github Issue:"
+			if params[:person] != nil
+				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
+			end
+			board =	Board.find(Group.find(@item.group_id).board_id)
+			ActionCable.server.broadcast("board_channel_#{ board.id }", "")
+			# puts "開始寫入Github Issue:"
 			Github.new.issueCreate(@item.name, session[:user])
-			puts "成功寫入!"
+			# puts "成功寫入!"
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 		else
 			render :new
@@ -48,6 +48,9 @@ class ItemsController < ApplicationController
 	end
 
 	def update
+		# 如果狀態被選取為「已完成」,系統就自動更新完成日為Time.now, 否則清空完成日
+		params[:item]["finish_date"] = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
+
 		if @item.update(item_params)
 			if (params[:person])
 				@members_id = params[:person].values
@@ -55,6 +58,7 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
+
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			# 先找到該item隸屬的group，再找該group隸屬的board，以便儲存後轉址到 boards/id/groups
 			redirect_to board_groups_path(board)
@@ -72,6 +76,9 @@ class ItemsController < ApplicationController
 	def destroy
 		@item.destroy
 		board =	Board.find(Group.find(@item.group_id).board_id)
+		# 2020/09/27 Wei
+		puts "================board.id==================="
+		ActionCable.server.broadcast("board_channel_#{ board.id }", "")
 		redirect_to board_groups_path(board), notice: "刪除成功"
 	end
 
@@ -91,7 +98,7 @@ class ItemsController < ApplicationController
 		end
 
 		def item_params
-			params.require(:item).permit(:name, :description, :status, :person, :due_date, user_ids: []).tap do |whitelist|
+			params.require(:item).permit(:name, :description, :point, :status, :person, :finish_date, :due_date, user_ids: []).tap do |whitelist|
 				whitelist[:user_ids] = whitelist[:user_ids].reject(&:blank?)
 				# filter的相反：滿足這個條件的就reject, 不要存空白進去
 			end
