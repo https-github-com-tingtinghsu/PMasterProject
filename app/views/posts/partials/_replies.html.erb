@@ -1,0 +1,14 @@
+<div id="replies-show-post-id-<%= @post.id %>">
+  <% @post.replies.each do |reply| %>
+    <div id="reply-id-<%= reply.id %>" class="reply-created-block">
+      <div class="reply-user-name"><%= User.find(reply.user_id).email[0..6] %>：</div>
+      <div class="reply-content"><%= reply.content %></div>
+    </div>
+  <% end %>
+</div>
+<div id= "reply-form-post-id-<%= @post.id %>">
+  <%= form_with(model: @reply, url: post_replies_path(@post), remote: true) do |f| %>
+    <%= f.text_field :replycontent, id:"add-reply-content-post-id-#{@post.id}", class:"reply-form-input border border-green-200 rounded-md", placeholder:"請在此輸入文字...",autocomplete: "off" %>
+    <%= f.submit '', id:"btn-reply-submit-post-id-#{@post.id}", style:"display:none;" %>
+  <% end %>
+</div>
