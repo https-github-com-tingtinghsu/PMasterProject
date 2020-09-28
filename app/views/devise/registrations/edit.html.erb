@@ -1,28 +1,37 @@
 <section class="hero">
   <div class="hero-body">
     <div class="container">
-      <h2 class="subtitle">編輯 <%= current_user.email %> 的帳戶 <%#= resource_name.to_s.humanize %></h2>
-
+      <h2 class="subtitle"><b>編輯 <%= current_user.email%> 帳戶 <%#= resource_name.to_s.humanize %></b></h2>
+      <br>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>目前正等待此帳號點選確認信: <%= resource.unconfirmed_email %></div>
         <% end %>
+        <br>
 
-        <h3 class="subtitle">變更密碼區</h3>
+        <h3 class="subtitle">變更名稱</h3>
+        <br>
         <div class="field">
-          <%= f.label "請輸入新密碼" %><br />
+          <%= f.label "請輸入新名稱" %>
+          <%= f.text_field :name, autocomplete: "new-name", placeholder: current_user.name, class: "input is-success"%>
+        </div>
+        <br>
+        <h3 class="subtitle text-red-500">變更密碼區</h3>
+        <br>
+        <div class="field">
+          <%= f.label "請輸入新密碼" %>
           <%= f.password_field :password, autocomplete: "new-password", placeholder: "請至少輸入#{@minimum_password_length}位數密碼", class: "input is-success"%>
         </div>
 
         <div class="field">
-          <%= f.label "請再次輸入新密碼" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input is-success" %>
+          <%= f.label "請再次輸入新密碼" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "請輸入和以上欄位一樣的密碼", class: "input is-success" %>
         </div>
 
         <div class="field">
-          <%= f.label "目前的密碼" %><br />
+          <%= f.label "目前的密碼" %>
           <%= f.password_field :current_password, autocomplete: "current-password", class: "input is-success"  %>
         </div>
 

@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @rooms = Room.all
+    render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
   end
 
   # GET /rooms/1

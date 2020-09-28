@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 	def update
 		@post.update(content: params[:content])
 	end
-	
+
 	def destroy
 		@item = Item.find(@post.item_id)
 		@post.destroy
@@ -34,12 +34,12 @@ class PostsController < ApplicationController
 			@current_user = User.find(current_user.id)		
 		end
 
-		def find_post
-			@post = Post.find(params[:id])
-		end
+	def find_post
+		@post = Post.find(params[:id])
+	end
 
   	def find_item
     	@item = Item.find(params[:item_id])
-		end
+	end
 
 end

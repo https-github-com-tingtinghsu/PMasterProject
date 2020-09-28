@@ -42,15 +42,25 @@
                             <span id="item-id-<%= item.id %>-of-posts-counts" class="posts-counts"><%= item.posts.count %></span>
                           <% end %>
                         </td>
-                        <td class="item-person"><%#= item.person %>
+                        <td class="item-person">
                           <% @assignments.each do |assignment| %>
                             <% if assignment.item_id == item.id %>
-                              <span class= "mr-3"><%= User.find(assignment.user_id).email %></span>
+                              <span class= "mr-3"><%= User.find(assignment.user_id).display_name %></span>
                             <% end %>
                           <% end %>
                         </td>
                         <td class="item-description"><%= item.description %></td>
-                        <td class="item-due-date">剩餘 <%= (item.due_date - Date.current).to_i if item.due_date? %> 天</td>
+                        <% if item.due_date != nil && item.status != "已完成" %>
+                          <% if (item.due_date - Date.current).to_i == 0 %>
+                            <td class="item-due-date">今日內完成</td>
+                          <% elsif (item.due_date - Date.current).to_i > 0 %>
+                            <td class="item-due-date" style="color: green">剩餘 <%= (item.due_date - Date.current).to_i%> 天</td>
+                          <% else (item.due_date - Date.current).to_i < 0 %>
+                            <td class="item-due-date" style="color: red">逾時 <%= (item.due_date - Date.current).to_i * -1%> 天</td>
+                          <% end %>
+                        <% else %>
+                          <td class="item-due-date"></td>
+                        <% end %>
                         <td><span class="item-status rounded-md"><%= item.status %></span></td>
                       </tr>
                     <% end %>
@@ -77,7 +87,7 @@
     <h2>Online Users</h2>
     <%  @online_users.each do |user| %>
     <ul class="online-user">
-      <li user-id="<%= user.id %>"><%= user.email %><span>Online</span></li>
+      <li user-id="<%= user.id %>"><%= user.display_name %><span>Online</span></li>
     </ul>
     <% end %>
   </div>

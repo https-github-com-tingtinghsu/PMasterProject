@@ -11,6 +11,10 @@ require("channels")
 require("scripts")
 require("stylesheets")
 
+// 2020/09/27 Wei
+// Notification
+Notification.requestPermission().then((result) => {})
+
 import '../scripts/shared/application'
 import '../scripts/shared/sidebar'
 import '../scripts/shared/itemIndex'

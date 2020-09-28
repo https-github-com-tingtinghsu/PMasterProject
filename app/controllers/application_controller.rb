@@ -12,8 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:t])
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:t])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:t, :name])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:t, :name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
   def update_find_online_users
