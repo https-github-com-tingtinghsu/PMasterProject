@@ -26,6 +26,7 @@ class WorkspacesController < ApplicationController
 
   def update
     @workspace.update(name: params[:name])
+    Room.find(@workspace.id).update(name: "工作聯絡室-#{params[:name]}")
     render json: { 
       success: true
     }    
@@ -47,7 +48,7 @@ class WorkspacesController < ApplicationController
   end
 
   def room_create
-    @room = @workspace.create_room(name:"工作聯絡室")
+    @room = @workspace.create_room(name:"工作聯絡室-#{@workspace.name}")
   end
 
 

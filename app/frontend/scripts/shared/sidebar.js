@@ -225,7 +225,8 @@ function createWorkspace(){
 }
 
 function updateWorkspace(){
-  upadteWorkspaceId = $("#btn-save-adding-workspace").data("workspace-id")
+  let editWorkspaceName = $("#add-workspace-name").val()
+  let upadteWorkspaceId = $("#btn-save-adding-workspace").data("workspace-id")
   $.ajax({
     type: "PUT",
     url: '/workspaces/' + upadteWorkspaceId,
@@ -236,6 +237,10 @@ function updateWorkspace(){
       if(result.success){
         $("#workspace-" + upadteWorkspaceId + " p").text($("#add-workspace-name").val())
         $("#add-workspace-name").val('')
+
+        // js換掉工作聯絡室的名稱
+        let updateRoomName = "工作聯絡室 - " + editWorkspaceName
+        $("#room-name").text(updateRoomName)
         alert("編輯成功！")         
       }
       else{
@@ -374,12 +379,12 @@ function createBoard(workspaceId){
 }
 
 function updateBoard(boardId){
-  editBoardName = $("#add-board-name").val()
+  let editBoardName = $("#add-board-name").val()
   $.ajax({
     type: "PUT",
     url: '/boards/' + boardId,
     data: {
-      name: $("#add-board-name").val()
+      name: editBoardName
     },
     success: function(result){
       if(result.success){
@@ -387,7 +392,7 @@ function updateBoard(boardId){
         $("#add-board-name").val('')
         alert("編輯成功！")
         // 把rails右半區的看板名稱用js換掉
-        updateBoardName = "看板：" + editBoardName
+        let updateBoardName = "看板：" + editBoardName
         $(".main-board-title").text(updateBoardName)
       }
       else{

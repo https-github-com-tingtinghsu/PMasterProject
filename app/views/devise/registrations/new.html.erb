@@ -3,28 +3,33 @@
   <div class="hero-body">
     <div class="container">
     <h2 class="subtitle">註冊</h2>
-
+    <br>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label "信箱" %><br />
+        <%= f.label "名稱" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "我們該如何稱呼您？", class: "input is-success" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.label "信箱" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請填寫您的信箱", class: "input is-success" %>
       </div>
-
+      <br>
       <div class="field">
         <%= f.label "密碼" %>
         <% if @minimum_password_length %>
         <em>(請輸入至少<%= @minimum_password_length %>位數密碼)</em>
-        <% end %><br />
+        <% end %><br>
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "請至少輸入#{@minimum_password_length}位數密碼", class: "input is-success" %>
       </div>
-
+      <br>
       <div class="field">
-        <%= f.label "請再次輸入密碼" %><br />
+        <%= f.label "請再次輸入密碼" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "請再次輸入密碼", class: "input is-success" %>
       </div>
-
+      <br>
       <div class="actions">
         <%= f.submit "立刻註冊", class: "button is-primary" %>
       </div>

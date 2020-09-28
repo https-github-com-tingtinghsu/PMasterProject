@@ -18,10 +18,10 @@
          <div class=" messagesbox">
            <% if @room.present? %>
               
-              <div class="chatcontent-box" data-room-id="<%= @room.id %>" data-user="<%= current_user.email%>" data-user-id="<%= current_user.id %>">
+              <div class="chatcontent-box" data-room-id="<%= @room.id %>" data-user="<%= current_user.display_name%>" data-user-id="<%= current_user.id %>">
                 <div class="chatroom-lebal" typ='button'>
                   <i class="fab fa-facebook-messenger"></i>
-                  <h2>
+                  <h2 id="room-name">
                     <%= @room.name %>
                   </h2>
                 </div>

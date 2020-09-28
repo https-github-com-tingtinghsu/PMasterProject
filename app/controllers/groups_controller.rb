@@ -1,3 +1,4 @@
+require 'date'
 class GroupsController < ApplicationController
   before_action :find_board, only: [:index, :create]
   before_action :find_group, only: [:edit, :update, :destroy]
