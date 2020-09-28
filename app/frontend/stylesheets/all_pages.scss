@@ -164,7 +164,7 @@ body{
   }
   .navbar-end{
     a:hover{
-      color: rgb(66, 20, 20);
+      color: #ECC94B;
     }
   }
   .navbar-item{
@@ -188,6 +188,7 @@ body{
       }
     }
   }
+
   .navbar-item{
     display: flex;
     align-items: center;
@@ -219,6 +220,7 @@ body{
             font-size: 14px;
             text-align: center;
           }
+          
         }
       }
       .sign-in-buttons-open{
@@ -278,7 +280,8 @@ body{
     p{
       margin: 10px;
       color: #ECC94B;
-      
+      font-size: 20px;
+      font-weight: 500;
     }
   }
   
@@ -297,6 +300,7 @@ body{
 .board-link{
   color: white;
 }
+
 .fa-plus-square{
   color: white;
 }
@@ -472,6 +476,9 @@ body{
   .main-pic{
     width: 250px;
   }
+  .footer-home{
+    margin-top: 40px;
+  }
 
 
 @media screen and (max-width: 768px){
@@ -542,7 +549,7 @@ body{
   .footer-edit{
     padding: 0;
     position: absolute;
-    bottom: -170px;
+    bottom: -230px;
     left: 210px;
   }
   .footer-dashboard{
@@ -560,7 +567,7 @@ body{
       border-radius: 5px;
     }
   }
-  
+
 }
 
 
