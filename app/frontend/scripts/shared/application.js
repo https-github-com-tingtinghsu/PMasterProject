@@ -1,5 +1,7 @@
 document.addEventListener('turbolinks:load', () => {
 
+  
+
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -17,6 +19,14 @@ document.addEventListener('turbolinks:load', () => {
       });
     });
   }
+  // Get edit_count && sing_out_button toggle the "is-active"
+  const buttonDiv = document.querySelector('.sign-in-buttons')
+  const arrow_button = document.querySelector('.arrow_icon')
+  arrow_button.addEventListener('click', function(){
+    arrow_button.classList.toggle('arrow')
+    buttonDiv.classList.toggle('sign-in-buttons-open')
+    console.log('aaa')
+  })
 
 
   //Get chatroom toggle the "is-active"
@@ -41,4 +51,29 @@ document.addEventListener('turbolinks:load', () => {
     }
   })
 
+  
+
+  //Get edit_task toggle the "is-active"
+  const taskTables = document.querySelectorAll('.table')
+  //先抓出所有的table
+  // const editArrow = document.querySelector('.fa-caret-right')
+  
+  function toggleTaskName(e){
+    taskArrowClass = Array.from(e.target.classList)
+    //e.target.classList抓出來是物件，轉成陣列好取到我們要的節點
+    if(taskArrowClass.indexOf("fa-caret-right") !== -1){
+      //如果fa-caret-right是有的，就執行以下程式
+      e.target.classList.toggle("arrow")
+      //箭頭動畫
+      e.target.parentNode.parentNode.querySelector(".edit-task").classList.toggle("edit-task-open")
+      //編輯icon開盒
+    }
+  }
+
+  taskTables.forEach((table)=>{
+    table.addEventListener("click", toggleTaskName)
+  })
+  //使用forEach將全部的table進行監聽（點擊事件）
+  console.log(taskTables)
+  
 });

@@ -81,7 +81,7 @@ function initWorkspaceList(){
 function createSidebarRow(model, isCreated = true, isWorkspace = true){
   itemType = isWorkspace ? "workspace" : "board"
   sidebarItem =  $(`
-    <div id="${itemType}-${model.id}" class=" panel-block is-active ${itemType}-item" data-${itemType}-id="${model.id}" data-${itemType}-name="${model.name}">
+    <div id="${itemType}-${model.id}" class="is-active ${itemType}-item" data-${itemType}-id="${model.id}" data-${itemType}-name="${model.name}">
     </div>
   `)
   if(itemType=="workspace"){
@@ -126,7 +126,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
 
   moreWorkspaceIconElement = $(`
     <a class="panel-icon more-workspace-element" data-workspace-id="${model.id}" data-toggle="false">
-      <i class="far fa-folder" id="folder-${model.id}"></i>
+      <i class="fas fa-folder" id="folder-${model.id}"></i>
     </a>
   `).click(function(){
     // console.log($(this).parent())
@@ -195,7 +195,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     sidebarItem.append(moreBoardIconElement)
     sidebarItem.append(editBoardItem)     
     sidebarItem.append(deleteBoardItem)
-    sidebarItem.append("<a id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a>")             
+    sidebarItem.append("<a class='board-link' id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a>")             
   } else {
     // 我屬於的workspace 
     sidebarItem.append(moreWorkspaceIconElement)
@@ -324,7 +324,7 @@ function getBoardIndex(workspaceId){
 
 function addNewBoardRow(workspaceId){
   sidebarItem =  $(`
-    <div id="add-new-board-${workspaceId}" class="panel-block is-active board-item" data-workspace-id="${workspaceId}">
+    <div  id="add-new-board-${workspaceId}" class="is-active add-new-board board-item" data-workspace-id="${workspaceId}">
     </div>
   `)
   addBoardItem = $(`
