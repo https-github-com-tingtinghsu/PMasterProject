@@ -46,17 +46,17 @@
     </div> -->
     <div class="navbar-end">
       
-      <a class="navbar-item">
+      <a class="navbar-item hamburger-item">
         聯絡我們
       </a>
       <% if(Rails.env.development?) %>
-        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item"%>
+        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item"%>
       <% else %>
-        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item"%>
+        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item"%>
       <% end %>
 
       
-      <div class="navbar-item">
+      <!-- <div class="navbar-item"> -->
         
         <div class="buttons">
           <% if current_user %>
@@ -70,13 +70,17 @@
             </div>
           <% else %>
               <div class="sign-out-status">
-                <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %></strong>
-                <strong><%= link_to '我要登入', new_user_session_path, class: "button is-light sign-out-buttons" %></strong>
+                <div class="navbar-item">
+                  <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %></strong>
+                </div>
+                <div class="navbar-item">
+                  <strong><%= link_to '我要登入', new_user_session_path, class: "button is-light sign-out-buttons" %></strong>
+                </div>
               </div>
           <% end %>
         </div>
         
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </nav>
