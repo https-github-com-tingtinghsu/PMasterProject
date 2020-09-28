@@ -1,4 +1,4 @@
-<div class="tile is-parent main-dashboard">
+<div class="tile is-parent main-dashboard" data-turbolinks="false">
   <article class="tile is-child notification  main-board">
     <!-- <p class="title text-md main-board-title">看板：<%= @board.name %></p> -->
      <div class="my-3">
@@ -17,6 +17,7 @@
                 <div class="item-group-li-p-icon">
                 	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
                 	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
+                  <%= link_to '', charts_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-chart-bar", style:"text-decoration: none;" if group.has_chart? %>   
                 </div>
               </div>
               <table class="table">
@@ -27,7 +28,9 @@
                       <th style="width: 50px;">留言</th>
                       <th>負責人</th>
                       <th>項目敘述</th>
+                      <th>點數</th>                      
                       <th>到期日</th>
+                      <th>完成日</th>                      
                       <th class="item-board-right">進度</th>
                     </tr>
                   </thead>
@@ -59,6 +62,8 @@
                           <% end %>
                         </td>
                         <td class="item-description"><%= item.description %></td>
+
+                        <td class="item-point"><%= item.point %></td>                        
                         <% if item.due_date != nil && item.status != "已完成" %>
                           <% if (item.due_date - Date.current).to_i == 0 %>
                             <td class="item-due-date">今日內完成</td>
@@ -70,6 +75,7 @@
                         <% else %>
                           <td class="item-due-date"></td>
                         <% end %>
+                        <td class="item-point"><%= item.finish_date %></td>                        
                         <td><span class="item-status rounded-md"><%= item.status %></span></td>
                       </tr>
                     <% end %>

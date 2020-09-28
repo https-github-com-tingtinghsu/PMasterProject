@@ -1,7 +1,7 @@
 require "github.rb"
 class ItemsController < ApplicationController
 	before_action :find_board_and_group, only: [:index, :new, :create]
-	before_action :find_item, only: [:edit, :update, :posts,:destroy]
+	before_action :find_item, only: [:edit, :update, :posts,:destroy, :update_finish_date]
 	before_action :find_item_user_id, only: [:edit, :update, :posts,:destroy]
 
 	def index
@@ -48,6 +48,9 @@ class ItemsController < ApplicationController
 	end
 
 	def update
+		# 如果狀態被選取為「已完成」,系統就自動更新完成日為Time.now, 否則清空完成日
+		params[:item]["finish_date"] = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
+
 		if @item.update(item_params)
 			if (params[:person])
 				@members_id = params[:person].values
@@ -55,6 +58,7 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
+
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			# 先找到該item隸屬的group，再找該group隸屬的board，以便儲存後轉址到 boards/id/groups
 			redirect_to board_groups_path(board)
@@ -94,7 +98,7 @@ class ItemsController < ApplicationController
 		end
 
 		def item_params
-			params.require(:item).permit(:name, :description, :status, :person, :due_date, user_ids: []).tap do |whitelist|
+			params.require(:item).permit(:name, :description, :point, :status, :person, :finish_date, :due_date, user_ids: []).tap do |whitelist|
 				whitelist[:user_ids] = whitelist[:user_ids].reject(&:blank?)
 				# filter的相反：滿足這個條件的就reject, 不要存空白進去
 			end

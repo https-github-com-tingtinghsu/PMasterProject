@@ -1,0 +1,34 @@
+<div class="tile is-parent main-dashboard">
+  <article class="tile is-child">
+  <div class="tabs is-centered is-large">
+    <ul>
+      <li class="burn-chart-tab is-active">
+        <a id="burn-chart" class="click-tab" data-chart-name="burn">
+          <span class="icon text-lg"><i class="fas fa-chart-area" aria-hidden="true"></i></span>
+          <span class="text-lg">燃盡圖</span>
+        </a>
+      </li>
+      <li class="pie-chart-tab">
+        <a id="pie-chart" class="click-tab" data-chart-name="pie">
+          <span class="icon text-lg"><i class="fas fa-chart-pie" aria-hidden="true"></i></span>
+          <span class="text-lg">圓餅圖</span>
+        </a>
+      </li>
+      <li class="bar-chart-tab">
+        <a id="bar-chart" class="click-tab" data-chart-name="bar">
+          <span class="icon text-lg"><i class="fas fa-chart-bar" aria-hidden="true"></i></span>
+          <span class="text-lg">長條圖</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <span class="subtitle my-2 block text-center"><%= @group.name %></span>  
+  <canvas id="burnChart" width="400" height="200"></canvas>
+  <canvas id="pieChart" width="400" height="200"></canvas>  
+  <canvas id="barChart" width="400" height="200"></canvas>  
+  </article> 
+</div>
+<%= render 'groups/charts/burn' %>
+<%= render 'groups/charts/pie' %>
+<%= render 'groups/charts/bar' %>
