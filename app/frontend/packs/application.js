@@ -20,7 +20,7 @@ import '../scripts/shared/post'
 import 'scripts'
 import 'stylesheets'
 import '../stylesheets/index'
-
+import 'chart.js'
 import $ from 'jquery'
 window.$ = $
 

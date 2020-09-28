@@ -41,10 +41,9 @@ class GroupsController < ApplicationController
   def charts
     # 理想的線圖
     gon.avg_point_array = @group.avg_point_array
-    # 每個item會有完成的時間
+    # 每個item會有完成的時間, 算出每一天完成的points
     gon.point_array = @group.point_array
     gon.date_array = @group.start_end_date_array
-    # 算出每一天完成的points
   end
 
   def destroy
@@ -61,15 +60,5 @@ class GroupsController < ApplicationController
   end
   def group_params
     params.require(:group).permit(:name, :start_date, :end_date)
-  end
-
-  def chart_date_array
-    # start_date = @group.start_date.to_date
-    # end_date = @group.end_date.to_date
-    # return  (start_date..end_date).map {|date| date.strftime("%m/%d")}    
-  end
-
-  def chart_point_array
-
   end
 end
