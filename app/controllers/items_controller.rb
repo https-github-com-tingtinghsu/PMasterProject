@@ -16,10 +16,6 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		# 新增function連動github issuse
-		# if(session[:user].nil?)
-		# 	redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo"
-		# end
 		@item = @group.items.new(item_params)
 		# description
 		# 撈出被選取到的user_id
@@ -30,10 +26,14 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
-			puts "開始寫入Github Issue:"
+			if params[:person] != nil
+				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
+			end
+			board =	Board.find(Group.find(@item.group_id).board_id)
+			ActionCable.server.broadcast("board_channel_#{ board.id }", "")
+			# puts "開始寫入Github Issue:"
 			Github.new.issueCreate(@item.name, session[:user])
-			puts "成功寫入!"
+			# puts "成功寫入!"
 			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
 		else
 			render :new
@@ -72,6 +72,9 @@ class ItemsController < ApplicationController
 	def destroy
 		@item.destroy
 		board =	Board.find(Group.find(@item.group_id).board_id)
+		# 2020/09/27 Wei
+		puts "================board.id==================="
+		ActionCable.server.broadcast("board_channel_#{ board.id }", "")
 		redirect_to board_groups_path(board), notice: "刪除成功"
 	end
 
