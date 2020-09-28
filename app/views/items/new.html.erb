@@ -20,27 +20,24 @@
           <%= f.label :description, "敘述", class: "item-label" %>
           <%= f.text_area :description, class: 'border-2 border-radius new-item-input' %>
         </div>
+        <div class="item-description item-body">
+          <%= f.label :point, "點數" %>
+          <%= f.select :point, %w(0.5 1 3 5 7 13), class: 'border-2 px-2 py-3' %>      
+        </div>
         <div class="assign item-body">
           <%= f.label :person, "專責", class: "item-label" %>
           <div class="tag-meber">
+            <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>    
             <% @workspace_users.each do |member| %>
               <div class="tag-person item-body">
                 <div class="check-box-tag">
                   <%= check_box_tag("person[#{member.id}]", member.id) %>
                 </div>
                 <div class="check-assign-person">
-                  <%= label_tag("person[#{member.id}]", member.email) %>
+                  <%= label_tag("person[#{member.id}]", member.display_name) %>
                 </div>
               </div>
             <% end %>
-            <div class="item-body">
-              <div class="check-box-tag">
-                <%= check_box_tag("person[#{@workspace_creator.id}]", @workspace_creator.id) %>
-              </div>
-              <div class="check_assign_person">
-                <%= label_tag("person[#{@workspace_creator.id}]", @workspace_creator.email) %>
-              </div>
-           </div>
           </div>
          
         </div>
@@ -72,28 +69,4 @@
     </p>
   </div>
 </div>
-<!-- ======= -->
 
-<div class="mx-5 my-5">
-  <%= form_with(model: @item, url: group_items_path, local: true) do |f| %>
-    <%= f.label :name, "項目名稱" %>
-    <%= f.text_field :name, class: 'border-2 px-2 py-3', autocomplete:"off" %>
-    <%= f.label :description, "項目敘述" %>
-    <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
-    <%= f.label :point, "點數" %>
-    <%= f.select :point, %w(0.5 1 3 5 7 13), class: 'border-2 px-2 py-3' %>      
-    <%= f.label :person, "負責人" %>
-    <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>    
-    <% @workspace_users.each do |member| %>
-      <%= check_box_tag("person[#{member.id}]", member.id) %>
-      <%= label_tag("person[#{member.id}]", member.display_name) %>
-    <% end %>
-    <%= f.label :due_date, "期限" %>
-    <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>  
-    <%= f.label :status, "狀態" %>
-    <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成) %>
-
-    <%= f.submit '新增', class: 'mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>    
-  <% end %>
-</div>
-<!-- >>>>>>> DEV -->
