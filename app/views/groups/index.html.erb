@@ -48,7 +48,7 @@
                             <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                           </div>
                           
-                          <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
+                          <div class="item-name" id="item-id-<%= item.id %>"><%= item.name %></div>
                         </td>
                         <td class="post-icon-and-counts" style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
