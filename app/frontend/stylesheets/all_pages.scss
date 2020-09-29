@@ -369,15 +369,16 @@ body{
     transition: 0.5s;
     transform: rotate(180deg);
   }
-  .edit-task{
+  .edit-delete-task{
     // border: 1px solid red;
+    display: flex;
     margin-right: 5px;
     width: 0px;
     overflow: hidden;
     transition: 0.5s;
   }
-  .edit-task-open{
-    width: 40px;
+  .edit-delete-task-open{
+    width: 50px;
     transition: 0.5s;
   }
 
@@ -396,7 +397,7 @@ body{
 
 .item-group-top-title th{
   background-color: #D3E3D3;
-  
+  color: #8CA38C !important;
 }
 .item-board-left{
   border-top-left-radius: 10px;
@@ -408,8 +409,10 @@ body{
   background-color: #D3E3D3;
   width: 100%;
   a{
+    text-align: center;
     padding-top: 4px;
-  }
+    color: #8CA38C !important;
+}
   
 }
 

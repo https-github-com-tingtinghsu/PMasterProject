@@ -1,5 +1,6 @@
 .reply-creating-block,
 .reply-created-block{
+  width: 100%;
   display: flex;
 }
 .reply-content{
