@@ -359,7 +359,9 @@ body{
 }
 .task-first-lattice{
   display: flex;
+  width: 22%;
   align-items: center;
+  position: static;
   .fa-caret-right{
     font-size: 15px;
     margin-right: 5px;
@@ -373,16 +375,29 @@ body{
     // border: 1px solid red;
     display: flex;
     margin-right: 5px;
-    width: 0px;
-    overflow: hidden;
-    transition: 0.5s;
+    // width: 0px;
+    // overflow: hidden;
+    // transition: 0.5s;
   }
-  .edit-delete-task-open{
-    width: 50px;
-    transition: 0.5s;
+  // .edit-delete-task-open{
+    // width: 100px;
+    // transition: 0.5s;
+  // }
+  .item-name{
+    position: relative;
+    left: -50px;
+    background-color: #EFF4EF;
+    width: 100%;
+    transition: .5s;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow:ellipsis;
   }
-
-
+  .item-name-right{
+    position: relative;
+    left: 5px;
+    transition: .5s;
+  }
 }
 
 .items-task tr{
