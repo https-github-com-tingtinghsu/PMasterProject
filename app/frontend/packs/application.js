@@ -11,15 +11,20 @@ require("channels")
 require("scripts")
 require("stylesheets")
 
+// 2020/09/27 Wei
+// Notification
+Notification.requestPermission().then((result) => {})
+
 import '../scripts/shared/application'
 import '../scripts/shared/sidebar'
+import '../scripts/shared/chart'
 import '../scripts/shared/itemIndex'
 import '../scripts/shared/itemEditForm'
 import '../scripts/shared/post'
 import 'scripts'
 import 'stylesheets'
 import '../stylesheets/index'
-
+import 'chart.js'
 import $ from 'jquery'
 window.$ = $
 

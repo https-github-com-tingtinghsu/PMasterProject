@@ -1,10 +1,10 @@
 tr{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 tr>th,tr>td{
-  width: 18%;
+  width: 20%;
 }
 th{
   display: inline-block;
@@ -21,3 +21,19 @@ td{
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+.post-icon-and-counts{
+  position: static;
+}
+.posts-counts{
+  font-size: 10px;
+  box-shadow: 3px 3px 5px -2px #cccccc;
+  text-align: center;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  position: absolute;
+  background-color: #C6F7D5;
+  border-radius: 100%;
+}
+

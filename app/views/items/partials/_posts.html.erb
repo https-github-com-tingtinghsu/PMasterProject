@@ -3,7 +3,7 @@
     <%= @item.name %>
   </div>
   <div class="posts-close-btn">
-    <button class="abc123 delete btn-cancel-for-posts" aria-label="close"></button>
+    <button class="post-close delete btn-cancel-for-posts" aria-label="close"></button>
   </div>
 </div>
 
@@ -11,7 +11,7 @@
   <div id="post-form">
     <%= form_with(model: @post, remote: true) do |f|%>
       <%= f.label :postcontent, "留言：", class:"text-xl py-2"%>
-      <%= f.text_area :postcontent, id:"posts-content", class:"textarea border border-dash border-green-300 rounded-md px-3 py-3", placeholder:"請在此輸入文字..." %>
+      <%= f.text_area :postcontent, id:"posts-content", class:"textarea border border-dash border-green-300 rounded-md px-3 py-3", placeholder:"請在此輸入文字...",autocomplete: "off" %>
       <%= f.submit '送出', class:"button is-success btn-save-adding my-2", id:"btn-post-submit" %>
     <% end %>
   </div>
@@ -19,23 +19,29 @@
     <% @posts.each do |post| %>
       <div class="card added-post mb-3 rounded" id="post-id-<%= post.id %>" data-item-id="<%= post.item_id %>" data-post-id="<%= post.id %>" >
         <div class="card-content">
-          <span class="author-email bg-yellow-200 p-1 is-size-6"><%= User.find(post.user_id).email %></span>
+          <span class="author-name bg-yellow-200 p-1 is-size-6"><%= User.find(post.user_id).name %></span>
           <%= link_to '', post_path(post), class: 'far fa-trash-alt post-trash', method: 'delete', data: { confirm: '您確定要刪除這個留言嗎?' }, remote: true %>
           <p class="mt-2 has-text-grey-light"><%=time_ago_in_words( post.created_at )%></p>
           <p class="content mt-2"><%= post.content %></p>
         </div>
-        <div id="post-id-<%= post.id %>-be-liked-counts" class="mt-5 ml-5">
+        <div id="post-id-<%= post.id %>-be-liked-counts" class="mb-1 mx-5">
           <% if post.post_likes.length > 0 %>
             <%= post.post_likes.length %> 人說讚
           <% end %>
         </div>
         <div class="card-footer">
           <% if @current_user.post_likes.find_by(post_id: post.id) %>
-            <%= link_to " Liked", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"fas fa-thumbs-up text-center", style:"display:inline-block; line-height:33px; width:100%;", data:{thumbs: post.id} %>
+            <%= link_to " Liked", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"fas fa-thumbs-up", data:{thumbs: post.id} %>
           <% else %>
-            <%= link_to " Like", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"far fa-thumbs-up text-center", style:"display:inline-block; line-height:33px; width:100%;", data:{thumbs: post.id} %>
+            <%= link_to " Like", likes_post_path(post), method: "POST", remote: true, id: "thumbs-id-#{post.id}" , class:"far fa-thumbs-up", data:{thumbs: post.id} %>
           <% end %>
-          <%= link_to " Reply", "#",  class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;"%>
+          <%= link_to " Reply", replies_post_path(post), remote: true, data:{turbolinks: false}, class:"fas fa-reply", id:"reply-btn-post-id-#{ post.id }" %>
+          <span id="replies-counts-by-post-id-<%= post.id %>"></span>
+          <% if (post.replies.count > 0) %>
+            <span class="replies-counts" id="post-id-<%= post.id %>-of-replies-counts" ><%= post.replies.count %></span>
+          <% end %>
+        </div>
+        <div id="replies-block-post-id-<%= post.id %>" class="replies-block">
         </div>
       </div>
     <% end %>

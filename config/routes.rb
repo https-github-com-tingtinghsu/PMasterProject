@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     get "add_member"
     resources :boards, shallow: true do
       resources :groups, shallow: true do
+        get :charts, on: :member
+
         resources :items, shallow: true do
           member do
             get :posts
@@ -25,7 +27,9 @@ Rails.application.routes.draw do
           resources :posts, shallow: true do
             member do
               post :likes
+              get :replies
             end
+            resources :replies, only: [:create, :destroy]
           end
         end
       end

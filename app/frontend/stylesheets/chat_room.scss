@@ -97,13 +97,17 @@
     transition: .5s;
     position: relative;
     right: 0;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     font-size: 20px;
-    background-image: linear-gradient(to bottom,#62B0DF,rgb(228, 237, 240));
+    background-color: #9ab99a;
     padding-right: 20px;
-    .fa-comments{
-      font-size: 30px;
+    color: white;
+    border: solid 1px white;
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+    
+    .fa-facebook-messenger{
+      font-size: 25px;
       margin-right: 10px;
       // color: rgb(96, 231, 186);
     }
@@ -134,11 +138,14 @@
       color: #fefcfc;
       display: flex;
       justify-content: center;
+      font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+
     }
   }
   .author{
     margin: 2px 10px;
     text-align: right;
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
   }
 }
 .author{
@@ -162,22 +169,37 @@
     position: fixed;
     bottom: 0px;
     right: 530px;
-    z-index: 1000;
+    z-index: 10000;
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+
   }
   // user_online
   .who-online{
-    position: absolute;
-    bottom: -80px;
-    left: -180px;
+    position: fixed;
+    bottom: 0px;
+    left: 20px;
+    color: white;
+
     // border: solid 1px red;
-    
+    .user_online{
+      display: flex;
+    }
+    .fa-user{
+      font-size: 20px;
+      color: #ECC94B;
+    }
     h2{
       font-size: 20px;
-      color: red;
+      color: #ECC94B;
       margin-bottom: 10px;
+      margin-left: 10px;
+      font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+
     }
     li{
       margin-bottom: 10px;
+      font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+
     }
     span{
       background-color: rgb(130, 194, 34);
@@ -185,16 +207,19 @@
       margin: 10px;
     }
   }
+
+
   @media screen and (max-width: 768px){
     .who-online{
       position: relative;
       top: 20px;
       left: 470px;
+      z-index: 10000;
       // border: solid 1px red;
       
       h2{
         font-size: 20px;
-        color: red;
+        color: #ECC94B;
         margin-bottom: 10px;
       }
       li{

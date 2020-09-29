@@ -25,8 +25,10 @@ document.addEventListener("turbolinks:load", () => {
         // console.log(elementExist)
         // console.log(data.user_id)
         //登入
-        if (userEmail !== data.user && !elementExist && data.message !== "offline"){
+        // if (userEmail !== data.user && !elementExist && data.message !== "offline"){
           //判斷不是自己本身、已存在上線文字、不是登出指令訊息的話，繼續執行以下程式碼
+        if (!elementExist && data.message !== "offline"){
+          //已存在上線文字、不是登出指令訊息的話，繼續執行以下程式碼
           const onlineElement = document.createElement('ul')
           const liElement = document.createElement('li')
 

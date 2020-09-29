@@ -1,24 +1,73 @@
-<h1 class="text-xl px-2 py-2">編輯項目 Edit Item</h1>
+<div class="new-item-page">
+  <h1 class="new-item-title">編輯項目 Edit Item</h1>
 
-<div class="mx-5 my-5">
-  <%= form_with(model: @item, local: true) do |f|%>
-    <%= f.label :name, "項目名稱"%>
-    <%= f.text_field :name, class: 'border-2 px-2 py-3', autocomplete:"off" %>
-    <%= f.label :description, "項目敘述" %>
-    <%= f.text_area :description, class: 'border-2 px-2 py-3' %>
-    <%= f.label :person, "負責人" %>
-    <% @workspace_users.each do |member| %>
-      <%= check_box_tag("person[#{member.id}]", member.id) %>
-      <%= label_tag("person[#{member.id}]", member.email) %>
-    <% end %>
-    <%= check_box_tag("person[#{@workspace_creator.id}]", @workspace_creator.id) %>
-    <%= label_tag("person[#{@workspace_creator.id}]", @workspace_creator.email) %>
-    <%= f.label :due_date, "期限" %>
-    <%= f.date_field :due_date, class: 'border-2 px-2 py-3' %>
-    <%= f.label :status, "狀態" %>
-    <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成) %>
-    <%= f.submit '編輯完成', class: 'mt-4 ml-2 px-3 py-1 bg-orange-400 text-white block w-32 rounded text-center' %>
+  <% if @item.errors.any? %>
+    <ul>
+      <% @itme.errors.full_messages.each do |message| %>
+        <li><p class="text-red-600 mx-2">。<%= message %></p></li>
+      <% end %>
+    </ul>
   <% end %>
 
-  <%= link_to '刪除項目', item_path(@item.id), method: 'delete', data: {confirm: '您確定要刪除這個項目嗎?'}, class: "delete-link mt-4 ml-2 px-3 py-1 bg-red-500 block w-32 text-white rounded text-center"%>
+  <div class="item-wrap">
+    <div class="item-object-group">
+      <%= form_with(model: @item, url: @item, local: true) do |f|%>
+        <div class="item-title item-body">
+          <%= f.label :name, "名稱", class: "item-label" %>
+          <%= f.text_field :name, class: 'border-2  new-item-input border-radius', autocomplete:"off" %>
+        </div>
+        <div class="item-description item-body">
+          <%= f.label :description, "敘述", class: "item-label" %>
+          <%= f.text_area :description, class: 'border-2 border-radius new-item-input' %>
+        </div>
+        <div class="item-description item-body">
+          <%= f.label :point, "點數" %>
+          <%= f.select :point, %w(0.5 1.0 3.0 5.0 7.0 13), default: @item.point, class: 'border-2 px-2 py-3' %>     
+        </div>
+        <div class="assign item-body">
+          <%= f.label :person, "專責", class: "item-label" %>
+          <div class="tag-meber">
+            <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>
+            <% @workspace_users.each do |member| %>
+              <div class="tag-person item-body">
+                <div class="check-box-tag">
+                  <%= check_box_tag "person[#{member.id}]", member.id, @item_user_ids.include?(member.id) %>
+                </div>
+                <div class="check-assign-person">
+                  <%= label_tag("person[#{member.id}]", member.display_name) %>
+                </div>
+              </div>
+            <% end %>
+          </div> 
+        </div>
+        
+        <div class="assign-date assign-label item-body">
+            <%= f.label :due_date, "期限" , class: "item-label" %>
+            <%= f.date_field :due_date, class: 'border-2 assign-init border-radius' %>
+        </div>
+        <div class="assign-status assign-label item-body">
+          <%= f.label :status, "狀態", class: "item-label" %>
+          <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成), class: "assign-init border-radius" %>
+        </div>
+    
+        <div class="item-btn">
+          <%= f.submit '編輯完成', class: 'new-item-submit mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %> 
+        </div>   
+      <% end %>
+      <!-- <%= link_to '刪除項目', item_path(@item.id), method: 'delete', data: {confirm: '您確定要刪除這個項目嗎?'}, class: "delete-link mt-4 ml-2 px-3 py-1 bg-red-500 block w-32 text-white rounded text-center"%> -->
+    </div>
+    <div class="advertising">
+      <h2>Pmaster 最信賴的夥伴</h2>
+      <div class="img">
+        <%= image_tag 'home/dashboard.png' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-edit">
+    <p>
+      <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
+    </p>
+  </div>
+
 </div>

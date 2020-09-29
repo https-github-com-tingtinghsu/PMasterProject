@@ -1,7 +1,7 @@
 require 'date'
 class GroupsController < ApplicationController
   before_action :find_board, only: [:index, :create]
-  before_action :find_group, only: [:edit, :update, :destroy]
+  before_action :find_group, only: [:edit, :update, :destroy, :charts, :chart_date_array]
   def index
     @groups = @board.groups.all.order(created_at: :desc)
     @workspace = @board.workspace_id
@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
     @workspace_find_user = @board.workspace
     @find_users = @workspace_find_user.users
     @online_users = @find_users.where("last_seen_at > ?", 2.minutes.ago)
-    # byebug
+    @workspace_name = @board.workspace.name
   end
   def new
     @group = Group.new
@@ -39,6 +39,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def charts
+    # 理想的線圖
+    gon.avg_point_array = @group.avg_point_array
+    # 每個item會有完成的時間, 算出每一天完成的points
+    gon.point_array = @group.point_array
+    gon.date_array = @group.start_end_date_array
+  end
+
   def destroy
     @group.destroy
     redirect_to board_groups_path(@group.board), notice: "刪除成功"
@@ -52,6 +60,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
   end
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, :start_date, :end_date)
   end
 end

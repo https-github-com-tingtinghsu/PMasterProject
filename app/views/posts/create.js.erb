@@ -1,2 +1,5 @@
-$('#posts-show').prepend("<%=j render('posts/partials/createPost') %>");
+$('#posts-show').prepend("<%= j render('posts/partials/createPost') %>");
 $('#posts-content').val("")
+
+$("#item-id-<%= @item.id %>-of-posts-counts").remove()
+$("#post-icon-id-<%= @item.id %>").html("<%= j render('posts/partials/postsCount') %>")
