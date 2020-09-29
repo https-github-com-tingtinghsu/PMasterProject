@@ -2,8 +2,8 @@
   <article class="tile is-child notification main-board">
     <!-- <p class="title text-md main-board-title">看板：<%= @board.name %></p> -->
     <div class="my-3">
-      <span class="subtitle my-2 ">主題列表</span>
-      <%= link_to ' 新增主題', new_board_group_path, class:"fas fa-plus-square px-3 py-1 mb-2 bg-red-100 text-white rounded text-center" , style:"text-decoration: none;"%>
+      <span class="subtitle my-2 ">主題列表 </span>
+      <%= link_to '', new_board_group_path, class:"fas fa-plus-square text-lg rounded text-center" , style:"text-decoration: none; color: #59825A" %>
     </div>
     <div class="content">
       <div class="group-item-list" data-board-id="<%= @board.id%>">
@@ -48,7 +48,7 @@
                             <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                           </div>
                           
-                          <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
+                          <div class="item-name" id="item-id-<%= item.id %>"><%= item.name %></div>
                         </td>
                         <td class="post-icon-and-counts" style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
