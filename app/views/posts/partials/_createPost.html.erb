@@ -21,9 +21,7 @@
       <% if (@post.replies.count > 0) %>
         <span class="replies-counts" id="post-id-<%= @post.id %>-of-replies-counts" ><%= @post.replies.count %></span>
       <% end %>
-      <div id="replies-block-post-id-<%= @post.id %>" class="replies-block">
-      </div>
-
-      <%#= link_to " Reply", "#",  class:"fas fa-reply text-center" , style:"display:inline-block; line-height:33px; width:100%;" %>
+    </div>
+    <div id="replies-block-post-id-<%= @post.id %>" class="replies-block">
     </div>
   </div>
