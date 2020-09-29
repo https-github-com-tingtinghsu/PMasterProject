@@ -39,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
       const scroll_controller = document.querySelector('.chatroom-group');
       const $messages = document.querySelector('#messages');
       const message_input = document.querySelector('.text-input');
+      const board_title = (document.querySelector('.main-dashboard')).getAttribute('data-board-name');
       // const user_id = element.getAttribute('data-user-id');
       
       if (user_id === data.message.user_id){
@@ -54,7 +55,7 @@ document.addEventListener('turbolinks:load', () => {
       // Notification 
       // 提醒目前設計是學 Line
       if(Notification.permission === "granted"){
-        var title = user_name
+        var title = user_name + "【 " + board_title + " 】"
         var body  = data.message.content
         var options = { body: body, icon: 'https://i.imgur.com/WucFGxW.png'}
         new Notification(title, options)
