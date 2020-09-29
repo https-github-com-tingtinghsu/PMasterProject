@@ -1,4 +1,4 @@
-<div class="tile is-parent main-dashboard" data-turbolinks="false">
+<div class="tile is-parent main-dashboard" data-turbolinks="false" data-workspace-name="<%= @workspace_name %>">
   <article class="tile is-child notification main-board">
     <!-- <p class="title text-md main-board-title">看板：<%= @board.name %></p> -->
     <div class="my-3">
@@ -25,7 +25,7 @@
                   <thead>
                     <tr class="item-group-top-title">
                       <th class="item-board-left">項目名稱</th>
-                      <th style="width: 50px;">留言</th>
+                      <th class="item-post-column" style="width: 70px;"></th>
                       <th>負責人</th>
                       <th>項目敘述</th>
                       <th>點數</th>                      
@@ -43,9 +43,11 @@
                           <div class="task-arrow">
                             <i class="fas fa-caret-right"></i>
                           </div>
-                          <div class="edit-task">
+                          <div class="edit-delete-task">
                             <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
+                            <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                           </div>
+                          
                           <span class="item-name" id="item-id-<%= item.id %>"><%= item.name %></span>
                         </td>
                         <td class="post-icon-and-counts" style="width: 50px;">

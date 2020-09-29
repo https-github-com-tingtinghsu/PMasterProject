@@ -13,6 +13,7 @@ class GroupsController < ApplicationController
     @workspace_find_user = @board.workspace
     @find_users = @workspace_find_user.users
     @online_users = @find_users.where("last_seen_at > ?", 2.minutes.ago)
+    @workspace_name = @board.workspace.name
   end
   def new
     @group = Group.new
