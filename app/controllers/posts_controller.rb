@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 	def likes
 		current_user.toggle_likes_post(@post)
 		# 判斷當前使用者是否按過該篇文章的讚
+		# ActionCable.server.broadcast("post_channel",current_user)
 	end
 
 	def replies
@@ -29,10 +30,9 @@ class PostsController < ApplicationController
 	end
 	
 	private
-	
-		def find_current_user
-			@current_user = User.find(current_user.id)		
-		end
+	def find_current_user
+		@current_user = User.find(current_user.id)		
+	end
 
 	def find_post
 		@post = Post.find(params[:id])

@@ -71,13 +71,17 @@ class ItemsController < ApplicationController
 	def posts
 		@posts = @item.posts.order(created_at: :desc).limit(50)
 		@current_user = User.find(current_user.id)
+		# puts "========================post======================"
+		# puts params[:id]
+		@params_id = params[:id]
+		ActionCable.server.broadcast("post_channel",@params_id)
 	end
 
 	def destroy
 		@item.destroy
 		board =	Board.find(Group.find(@item.group_id).board_id)
 		# 2020/09/27 Wei
-		puts "================board.id==================="
+		# puts "================board.id==================="
 		ActionCable.server.broadcast("board_channel_#{ board.id }", "")
 		redirect_to board_groups_path(board), notice: "刪除成功"
 	end
