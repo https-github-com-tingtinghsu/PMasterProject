@@ -8,3 +8,5 @@ import "./item_table.css";
 import "./all_pages.scss";
 import "./posts.css"
 import "./replies.css"
+import "./mytask.scss"
+import "bulma-tooltip"

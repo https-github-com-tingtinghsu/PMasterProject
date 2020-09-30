@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:dashboard]
+  before_action :authenticate_user!, only: [:dashboard, :mytask]
   
   def index
     if current_user
@@ -12,6 +12,11 @@ class HomeController < ApplicationController
     # 有cookies的人才需要confirmed_invitation
     confirmed_invitation if cookies[:user_token]
 
+  end
+
+  def mytask
+    @items = current_user.items.order(created_at: :desc)
+    @assignments = Assignment.all
   end
 
   private

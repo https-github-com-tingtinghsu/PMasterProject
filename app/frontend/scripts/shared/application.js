@@ -25,7 +25,7 @@ document.addEventListener('turbolinks:load', () => {
   arrow_button.addEventListener('click', function(){
     arrow_button.classList.toggle('arrow')
     buttonDiv.classList.toggle('sign-in-buttons-open')
-    console.log('aaa')
+    // console.log('aaa')
   })
 
 
