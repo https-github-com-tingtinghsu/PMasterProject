@@ -22,7 +22,11 @@ class PostsController < ApplicationController
 	def likes
 		current_user.toggle_likes_post(@post)
 		# 判斷當前使用者是否按過該篇文章的讚
-		# ActionCable.server.broadcast("post_channel",current_user)
+
+		# Parameters: {"id"=>"18"}
+		count_like = PostLike.count_like(params[:id])
+		puts count_like
+		ActionCable.server.broadcast("post_channel", countlike: count_like)
 	end
 
 	def replies

@@ -74,7 +74,7 @@ class ItemsController < ApplicationController
 		# puts "========================post======================"
 		# puts params[:id]
 		@params_id = params[:id]
-		ActionCable.server.broadcast("post_channel",@params_id)
+		# ActionCable.server.broadcast("post_channel",@params_id)
 	end
 
 	def destroy
