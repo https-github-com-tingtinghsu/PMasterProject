@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 		@post.user_id = current_user.id
 		@post.save
 
-		ActionCable.server.broadcast("post_channel", "123")
+		ActionCable.server.broadcast("post_channel", itemid: params[:item_id])
 	end
 	
 	def update

@@ -8,29 +8,13 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
   },
 
   received(data) {
-    if(data == "123"){
-        $.ajax({
-          url: "/items/100/posts",
-          method: "POST",
-          data: {
-              "refresh": "refresh"
-          },
-          error:function(){
-            console.log("失敗")
-          },
-          success:function(){
-              console.log("成功")
-          } 
-      });
-    }
-    // const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
-    // if(!element)return
+    const element = document.querySelector('.added-post')
+    if(!element) return
+    const item_id = element.getAttribute('data-item-id');
+    if(!item_id) return
 
-    // if(data.countlike > 0){
-    //   element.textContent = data.countlike + " 人說讚"
-    // }
-    // else{
-    //   element.textContent = ""
-    // }
+    if(item_id == data.itemid){
+      $('#post-icon-id-'+ data.itemid)[0].click();
+    }
   }
 });
