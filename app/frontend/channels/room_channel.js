@@ -15,7 +15,7 @@ document.addEventListener('turbolinks:load', () => {
   
   if (currentRoomIds[room_id]) return;
 
-  consumer.subscriptions.create( { channel: "RoomChannel", room_id: room_id, user_email: userEmail, user_id: userId}, {
+  consumer.subscriptions.create( { channel: "RoomChannel", room_id: room_id, user_name: userEmail, user_id: userId}, {
     // 當進入聊天室，即為開始訂閱該RoomChannel，並把參數帶進去(room_id: room_id, user_email: userEmail, user_id: userId)
     connected() {
       // console.log("連接" + room_id)
@@ -33,7 +33,7 @@ document.addEventListener('turbolinks:load', () => {
     received(data) {
       const element = document.getElementById('user-id');
       const user_id = (Number)(element.getAttribute('data-user-id'));
-      const user_name = element.getAttribute('data-user-name');
+      // const user_name = element.getAttribute('data-user-name');
       const messageContainer = document.getElementById('messages');
       const scroll_controller = document.querySelector('.chatroom-group');
       const $messages = document.querySelector('#messages');
@@ -49,12 +49,12 @@ document.addEventListener('turbolinks:load', () => {
       }
       // scroll_controller.scrollTop = scroll_controller.scrollHeight;
       $messages.scrollTo(0, $messages.scrollHeight);
-      // console.log(data)
+
       // 2020/09/27 Wei
       // Notification 
       // 提醒目前設計是學 Line
       if(Notification.permission === "granted"){
-        var title = user_name + "【 " + workspace_title + " 】"
+        var title = data.username + "【 " + workspace_title + " 】"
         var body  = data.message.content
         var options = { body: body, icon: 'https://i.imgur.com/WucFGxW.png'}
         new Notification(title, options)
