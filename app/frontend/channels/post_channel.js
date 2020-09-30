@@ -18,6 +18,12 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
     const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
     console.log(element)
     if(!element)return
-    element.textContent = data.countlike;
+
+    if(data.countlike > 0){
+      element.textContent = data.countlike + " 人說讚"
+    }
+    else{
+      element.textContent = ""
+    }
   }
 });
