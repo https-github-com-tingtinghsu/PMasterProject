@@ -8,14 +8,14 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
   },
 
   received(data) {
-    const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
-    if(!element)return
+    // const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
+    // if(!element)return
 
-    if(data.countlike > 0){
-      element.textContent = data.countlike + " 人說讚"
-    }
-    else{
-      element.textContent = ""
-    }
+    // if(data.countlike > 0){
+    //   element.textContent = data.countlike + " 人說讚"
+    // }
+    // else{
+    //   element.textContent = ""
+    // }
   }
 });

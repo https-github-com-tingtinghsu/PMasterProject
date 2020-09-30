@@ -4,11 +4,11 @@ class PostsController < ApplicationController
 	before_action :find_current_user, only: [:likes,:replies]
 	before_action :authenticate_user!
 
-  def create
+	def create
 		@post = @item.posts.new(content: params[:postcontent])
 		@post.user_id = current_user.id
 		@post.save
-  end
+	end
 	
 	def update
 		@post.update(content: params[:content])
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 		# Parameters: {"id"=>"18"}
 		count_like = PostLike.count_like(params[:id])
 		puts count_like
-		ActionCable.server.broadcast("post_channel", countlike: count_like, postid: params[:id])
+		ActionCable.server.broadcast("like_channel", countlike: count_like, postid: params[:id])
 	end
 
 	def replies
