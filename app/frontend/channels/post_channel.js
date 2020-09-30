@@ -8,6 +8,21 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
   },
 
   received(data) {
+    if(data == "123"){
+        $.ajax({
+          url: "/items/100/posts",
+          method: "POST",
+          data: {
+              "refresh": "refresh"
+          },
+          error:function(){
+            console.log("失敗")
+          },
+          success:function(){
+              console.log("成功")
+          } 
+      });
+    }
     // const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
     // if(!element)return
 

@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 		@post = @item.posts.new(content: params[:postcontent])
 		@post.user_id = current_user.id
 		@post.save
+
+		ActionCable.server.broadcast("post_channel", "123")
 	end
 	
 	def update
