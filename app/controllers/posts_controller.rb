@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 		# Parameters: {"id"=>"18"}
 		count_like = PostLike.count_like(params[:id])
 		puts count_like
-		ActionCable.server.broadcast("post_channel", countlike: count_like)
+		ActionCable.server.broadcast("post_channel", countlike: count_like, postid: params[:id])
 	end
 
 	def replies

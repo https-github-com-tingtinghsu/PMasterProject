@@ -15,9 +15,9 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
     console.log(data)
 
     // post-id-18-be-liked-counts
-    const element = document.querySelector('#post-id-18-be-liked-counts')
+    const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
     console.log(element)
     if(!element)return
-    element.textContent = "100";
+    element.textContent = data.countlike;
   }
 });
