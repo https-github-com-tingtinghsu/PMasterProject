@@ -159,7 +159,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
 
   editBoardItem = $( `
   <a class="panel-icon addition edit-board hidden">
-    <i class="fas fa-edit text-teal-600"></i>
+    <i class="fas fa-edit text-teal-600" style="margin:0;"></i>
   </a>
 `).click(function(){
     $("#modal-add-board").addClass("is-active")
@@ -172,9 +172,9 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
   })
 
   deleteBoardItem = $(`
-    <a class="panel-icon addition delete-board hidden">
-      <i class="far fa-trash-alt text-red-400"></i>
-    </a>
+      <a class="panel-icon addition delete-board hidden">
+        <i class="far fa-trash-alt text-red-400" style="margin:0;"></i>
+      </a>
   `).click(function(){
     $("#modal-delete-sidebar-item").addClass("is-active")
     $("#modal-delete-sidebar-item").data("delete-workspace", false)
@@ -184,10 +184,10 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
   if (isCreated && isWorkspace) {
     // 我創的workspace  
     sidebarItem.append(moreWorkspaceIconElement)    
-    sidebarItem.append(addMemberToWorkspace)    
+    sidebarItem.append("<div class ='workspace-name'>"+model.name+"</div>") 
+    sidebarItem.append(addMemberToWorkspace)  
     sidebarItem.append(editWorkspaceItem)    
     sidebarItem.append(deleteWorkspaceItem)
-    sidebarItem.append("<p>"+model.name+"</p>")  
   } else if(isWorkspace == false) {
     // 我創的board
     // /boards/:board_id/groups(.:format)
@@ -199,7 +199,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
   } else {
     // 我屬於的workspace 
     sidebarItem.append(moreWorkspaceIconElement)
-    sidebarItem.append("<p>"+model.name+"</p>")    
+    sidebarItem.append("<div class ='workspace-name'>"+model.name+"</div>")    
   }
   return sidebarItem;
 }

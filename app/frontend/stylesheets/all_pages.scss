@@ -13,7 +13,9 @@ a{
   margin-right: 20px;
   border: solid 1px rgb(192, 180, 180);
   box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
   margin-bottom: 100px;
+  position: relative;
 }
 .item-wrap{
   display: flex;
@@ -86,6 +88,10 @@ a{
         width: 150px;
         outline: none;
     }
+}
+.assign-person-box{
+  overflow: auto;
+  height: 90px;
 }
 .item-label{
     font-size: 20px;
@@ -277,18 +283,25 @@ body{
   // border: solid red 1px;
   
   .workspace-item{
+    width: 200px;
     margin-bottom: 25px;
     display: flex;
     align-items: center;
     font-weight: 600;
-    p{
+    display: flex;
+    flex-wrap: wrap;
+    .workspace-name{
       margin: 10px;
       color: #ECC94B;
       font-size: 20px;
       font-weight: 500;
+      width: 150px;
     }
   }
   
+}
+.workspace-arrow-down{
+  margin-left: 10px;
 }
 .add-new-board{
   display: flex;
@@ -304,7 +317,9 @@ body{
 .board-link{
   color: white;
 }
-
+.task-first-lattice{
+  overflow: auto;
+}
 .fa-plus-square{
   color: white;
 }
@@ -372,6 +387,7 @@ body{
   .arrow{
     transition: 0.5s;
     transform: rotate(180deg);
+    position: relative;
   }
   .edit-delete-task{
     // border: 1px solid red;
@@ -381,6 +397,7 @@ body{
     // overflow: hidden;
     // transition: 0.5s;
   }
+
   // .edit-delete-task-open{
     // width: 100px;
     // transition: 0.5s;
@@ -401,6 +418,7 @@ body{
     transition: .5s;
   }
 }
+
 
 .items-task tr{
   background-color: #EFF4EF;
@@ -485,8 +503,8 @@ body{
 .footer-edit{
   padding: 0;
   position: absolute;
-  bottom: 120px;
-  left: 300px;
+  bottom: 40px;
+  left: 100px;
 }
 
 
@@ -572,8 +590,8 @@ body{
   .footer-edit{
     padding: 0;
     position: absolute;
-    bottom: -230px;
-    left: 210px;
+    bottom: 40px;
+    left: 40px;
   }
   .footer-dashboard{
     padding: 0;
