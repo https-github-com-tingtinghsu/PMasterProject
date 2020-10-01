@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
 		@item = @group.items.new(item_params)
 		# description
 		# 撈出被選取到的user_id
+		@item.finish_date = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
 		if @item.save
 			if (params[:person])
 				@members_id = params[:person].values
