@@ -49,6 +49,7 @@ class ItemsController < ApplicationController
 	end
 
 	def update
+		puts "=============update============="
 		# 如果狀態被選取為「已完成」,系統就自動更新完成日為Time.now, 否則清空完成日
 		params[:item]["finish_date"] = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
 
@@ -70,7 +71,8 @@ class ItemsController < ApplicationController
 	end
 
 	def update_status
-		
+		puts "=============get it============="
+		render plain: "hi"
 	end
 
 	def posts

@@ -1,6 +1,19 @@
 document.addEventListener('turbolinks:load', () => {
 
-  
+  $('#itemstatus').change(function(){ 
+    $.ajax({ 
+    url: "/item/groupupdate", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "PATCH", 
+    data: {
+      "text": "hi"
+    }, 
+    success: () =>{
+       console.log('完成')
+    }
+    }) 
+  }); 
+
 
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
