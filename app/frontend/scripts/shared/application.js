@@ -2,11 +2,7 @@ document.addEventListener('turbolinks:load', () => {
 
   $('select').change(function(e){ 
     let id = e.target.id
-    var status = ""
-    $(this).children( "select option:selected" ).each(function() {
-      status = $( this ).text();
-    });
-    
+    var status = $(this).find(":selected").text();
     $.ajax({ 
     url: "/item/groupupdate", 
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},

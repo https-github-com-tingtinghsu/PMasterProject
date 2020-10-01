@@ -71,10 +71,14 @@ class ItemsController < ApplicationController
 	def update_status
 		@item = Item.find_by(id: params[:id])
 		@item.status = params[:status]
-
+		if params[:status] == "已完成"
+			@item.finish_date = Time.now.strftime('%F')
+		end
+		
 		if !@item.save
 			render :index
 		end
+		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemstatus: params[:status])
 	end
 
 	def posts
