@@ -1,5 +1,5 @@
 <div class="new-item-page">
-<h1 class="new-item-title">編輯主題 Edit Group</h1>
+<h1 class="new-item-title">編輯主題</h1>
 
 <% if @group.errors.any? %>
   <ul>
@@ -12,13 +12,13 @@
     <div class="item-object-group">
       <div class="group-card">
         <%= form_with(model: @group, local: true) do |f| %>
-           <%= f.label :name, "主題標題",class: "item-label" %>
-           <%= f.text_field :name, class: 'border-2 px-2 py-3 mt-4 group-input', autocomplete:"off"  %>
+          <%= f.label :name, "主題標題",class: "item-label" %>
+          <%= f.text_field :name, class: 'border-2 px-2 py-3 mt-4 group-input', autocomplete:"off"  %>
           <%= f.label :start_date, "開始時間" %>
           <%= f.datetime_field :start_date, class: 'border-2 px-2 py-3' %>    
           <%= f.label :end_date, "結束時間" %>
           <%= f.datetime_field :end_date, class: 'border-2 px-2 py-3' %>          
-           <%= f.submit '編輯完成', class: 'new-item-submit mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>
+          <%= f.submit '編輯完成', class: 'new-item-submit mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %>
         <% end %>
       </div>
     </div>
