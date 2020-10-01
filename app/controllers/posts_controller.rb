@@ -8,8 +8,9 @@ class PostsController < ApplicationController
 		@post = @item.posts.new(content: params[:postcontent])
 		@post.user_id = current_user.id
 		@post.save
-
-		ActionCable.server.broadcast("post_channel", itemid: params[:item_id])
+		
+		@post_count = Post.count_post(@item.id)
+		ActionCable.server.broadcast("post_channel", itemid: params[:item_id],post_count: @post_count, post: @post)
 	end
 	
 	def update
@@ -22,12 +23,10 @@ class PostsController < ApplicationController
 	end
 
 	def likes
-		current_user.toggle_likes_post(@post)
 		# 判斷當前使用者是否按過該篇文章的讚
+		current_user.toggle_likes_post(@post)
 
-		# Parameters: {"id"=>"18"}
 		count_like = PostLike.count_like(params[:id])
-		puts count_like
 		ActionCable.server.broadcast("like_channel", countlike: count_like, postid: params[:id])
 	end
 

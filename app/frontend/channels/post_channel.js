@@ -8,6 +8,8 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
   },
 
   received(data) {
+    $('#item-id-' + data.itemid + '-of-posts-counts').text(data.post_count)
+
     const element = document.querySelector('.added-post')
     if(!element) return
     const item_id = element.getAttribute('data-item-id');
