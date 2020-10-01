@@ -326,9 +326,7 @@ body{
 .board-link{
   color: white;
 }
-.task-first-lattice{
-  overflow: auto;
-}
+
 .fa-plus-square{
   color: white;
 }
@@ -384,8 +382,7 @@ body{
   }
 }
 .item-person-span{
-  overflow: hidden;
-  text-overflow:ellipsis;
+  overflow: auto;
 }
 .item-task{
   position: relative;
@@ -425,11 +422,11 @@ body{
     // position: relative;
     // left: -50px;
     background-color: #EFF4EF;
-    width: 90px;
+    width: 130px;
     transition: .5s;
     white-space: nowrap;
     overflow: auto;
-    text-overflow:ellipsis;
+    // text-overflow:ellipsis;
     box-sizing: border-box;
   }
   // .item-name-right{
@@ -568,7 +565,9 @@ body{
   }
 
 //
-  
+  .item-name{
+    width: 100%;
+  }
   .post-icon-and-counts{
     display: none;
   }
