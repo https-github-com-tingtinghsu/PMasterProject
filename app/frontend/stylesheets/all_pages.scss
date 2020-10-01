@@ -383,6 +383,13 @@ body{
     color: #a6bba6;
   }
 }
+.item-person-span{
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.item-task{
+  position: relative;
+}
 .task-first-lattice{
   display: flex;
   width: 22%;
@@ -396,36 +403,40 @@ body{
   .arrow{
     transition: 0.5s;
     transform: rotate(180deg);
-    position: relative;
+    
   }
   .edit-delete-task{
     // border: 1px solid red;
+    position: absolute;
+    width: 0px;
+    background-color: #D3E3D3;
+    left: 95px;
     display: flex;
-    margin-right: 5px;
-    // width: 0px;
-    // overflow: hidden;
-    // transition: 0.5s;
+    overflow: auto;
+    transition: 0.5s;
   }
 
-  // .edit-delete-task-open{
-    // width: 100px;
-    // transition: 0.5s;
-  // }
+  .edit-delete-task-open{
+    width: 60px;
+    transition: 0.5s;
+  }
+  
   .item-name{
-    position: relative;
-    left: -50px;
+    // position: relative;
+    // left: -50px;
     background-color: #EFF4EF;
-    width: 100%;
+    width: 90px;
     transition: .5s;
     white-space: nowrap;
     overflow: auto;
     text-overflow:ellipsis;
+    box-sizing: border-box;
   }
-  .item-name-right{
-    position: relative;
-    left: 5px;
-    transition: .5s;
-  }
+  // .item-name-right{
+  //   position: relative;
+  //   left: 5px;
+  //   transition: .5s;
+  // }
 }
 
 
@@ -532,10 +543,53 @@ body{
 
 
 @media screen and (max-width: 768px){
+  .main-dashboard-pic{
+    margin-top: 80px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    width: 300px;
+  }
   .main-pic{
     // border: solid 1px red;
     width: 500px;
   }
+  .group-card{
+    width: 170px;
+    margin-top: 70px;
+    margin-left: 0px;
+    .group-input{
+      border-radius: 5px;
+    }
+  }
+
+  //item
+  .task-point, .date-down{
+    display: none;
+  }
+
+//
+  
+  .post-icon-and-counts{
+    display: none;
+  }
+  .item-post-column{
+    display: none;
+  }
+  .item-point{
+    display: none;
+  }
+  // .task-arrow{
+  //   display: none;
+  // }
+  // .items-task{
+  //   position: relative;
+  // }
+  // .edit-delete-task{
+  //   position: absolute;
+  //   left: -60px;
+  // }
+  
+  //
   .new-item-submit{
     width: 80px;
     font-size: 10px;
@@ -590,6 +644,8 @@ body{
     }
     
   }
+
+  //footer
   .footer{
     padding: 0;
     position: absolute;
@@ -606,17 +662,14 @@ body{
     padding: 0;
     position: absolute;
     bottom: 20px;
-    left: 100px;
+    left: 130px;
   }
-  .group-card{
-    // border: solid 1px red;
-    width: 170px;
-    margin-top: 70px;
-    margin-left: 0px;
-    .group-input{
-      border-radius: 5px;
-    }
-  }
+
+
+
+ 
+
+  //navbar
   .sign-out-status{
     display: flex;
     flex-direction: column;
@@ -634,6 +687,8 @@ body{
     // border: solid 1px red;
     margin-left: 30px;
   }
+  
+  
 }
 
 

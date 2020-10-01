@@ -213,7 +213,7 @@
     .who-online{
       position: relative;
       top: 20px;
-      left: 470px;
+      left: 420px;
       z-index: 10000;
       // border: solid 1px red;
       
@@ -230,6 +230,9 @@
         color: honeydew;
         margin: 10px;
       }
+    }
+    .chatroombox{
+      right: 430px;
     }
   }
 }
