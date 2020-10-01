@@ -18,7 +18,5 @@ consumer.subscriptions.create("LikeChannel", {
     else{
       element.textContent = ""
     }
-
-    // <span id="item-id-<%= @item.id %>-of-posts-counts" class="posts-counts"><%= @item.posts.count %></span>
   }
 });
