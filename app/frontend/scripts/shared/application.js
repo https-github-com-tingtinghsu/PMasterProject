@@ -1,12 +1,19 @@
 document.addEventListener('turbolinks:load', () => {
 
-  $('#itemstatus').change(function(){ 
+  $('select').change(function(e){ 
+    let id = e.target.id
+    var status = ""
+    $(this).children( "select option:selected" ).each(function() {
+      status = $( this ).text();
+    });
+    
     $.ajax({ 
     url: "/item/groupupdate", 
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     type: "PATCH", 
     data: {
-      "text": "hi"
+      "id": id,
+      "status": status
     }, 
     success: () =>{
        console.log('完成')

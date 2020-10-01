@@ -45,11 +45,9 @@ class ItemsController < ApplicationController
 		@board = Board.find(@group.board_id)
 		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
 		# p @workspace_users.map{ |u| [u.id, u.email] 
-		puts "=================edit====================="
 	end
 
 	def update
-		puts "=============update============="
 		# 如果狀態被選取為「已完成」,系統就自動更新完成日為Time.now, 否則清空完成日
 		params[:item]["finish_date"] = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
 
@@ -72,7 +70,8 @@ class ItemsController < ApplicationController
 
 	def update_status
 		puts "=============get it============="
-		render plain: "hi"
+		# item = Item.find_by(params[:id])
+		# item.status = ""
 	end
 
 	def posts
