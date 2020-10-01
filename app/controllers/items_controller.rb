@@ -70,8 +70,14 @@ class ItemsController < ApplicationController
 
 	def update_status
 		puts "=============get it============="
-		# item = Item.find_by(params[:id])
-		# item.status = ""
+		@item = Item.find_by(id: params[:id])
+		@item.status = params[:status]
+
+		if @item.save
+			puts "成功寫入"
+		else
+			render :index
+		end
 	end
 
 	def posts
