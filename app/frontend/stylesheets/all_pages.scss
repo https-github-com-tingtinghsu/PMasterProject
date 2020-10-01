@@ -590,12 +590,14 @@ body{
     }
     
   }
-  .footer{
-    padding: 0;
-    position: absolute;
-    bottom: 90px;
-    left: 90px;
+  .main-board{
+    position: relative;
+    .footer{
+      position: absolute;
+      bottom: 20px;
+    }
   }
+  
   .footer-edit{
     padding: 0;
     position: absolute;
