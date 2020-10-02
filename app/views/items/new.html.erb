@@ -8,7 +8,6 @@
   <% end %>
   </ul>
 <% end %>
-<!-- <<<<<<< feat/laout_new_version-cy -->
   <div class="item-wrap">
     <div class="item-object-group">
       <%= form_with(model: @item, url: group_items_path, local: true) do |f| %>
@@ -39,9 +38,7 @@
               </div>
             <% end %>
           </div>
-         
         </div>
-        
         <div class="assign-date assign-label item-body">
             <%= f.label :due_date, "期限" , class: "item-label" %>
             <%= f.date_field :due_date, class: 'border-2 assign-init border-radius' %>
@@ -50,7 +47,6 @@
           <%= f.label :status, "狀態", class: "item-label" %>
           <%= f.select :status, %w(待指派 進行中 卡關中 待修改 已完成), class: "assign-init border-radius" %>
         </div>
-    
         <div class="item-btn">
           <%= f.submit '新增', class: 'new-item-submit mt-4 ml-2 px-3 py-1 bg-green-400 text-white block w-32 rounded text-center' %> 
         </div>   
