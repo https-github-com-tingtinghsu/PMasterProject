@@ -4,7 +4,6 @@
         <div class="logo">
           <%= image_tag("home/logo.png") %>
         </div>
-      <%# <img src="images/shared/P.svg" width="112" height="28"> %>
     </a>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -15,73 +14,37 @@
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
-    <!-- <div class="navbar-start"> -->
-      <!-- <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          產品
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            關於皮老闆
-          </a>
-        </div>
-      </div>
-
-       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          使用案例
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            客戶推薦
-          </a>
-        </div>        
-      </div>
-
-      <a class="navbar-item">
-        遠距工作
-      </a>
-
-     
-    </div> -->
     <div class="navbar-end">
-      
-      <a class="navbar-item hamburger-item">
-        聯絡我們
-      </a>
       <% if(Rails.env.development?) %>
-        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item"%>
+        <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item fab fa-github p-5"%>
       <% else %>
-        <%= link_to 'github_link', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item"%>
-      <% end %>
-
-      
-      <!-- <div class="navbar-item"> -->
-        
-        <div class="buttons">
-          <% if current_user %>
-            <div class="sign-in-name"><p> Hello, <%= current_user.display_name %></p></div>
-            <div class="sign-in-buttons">
-              <strong><%= link_to '我的任務', mytask_path, class: "button is-light" %></strong>
-              <strong><%= link_to '編輯帳戶', edit_user_registration_path %></strong>
-              <strong><%= link_to '登出', destroy_user_session_path, method: 'delete', id: "btn-logout" %></strong>
-            </div>
-            <div class="arrow_icon">
-              <i class="fas fa-angle-down"></i>
-            </div>
-          <% else %>
-              <div class="sign-out-status">
-                <div class="navbar-item">
-                  <strong><%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %></strong>
-                </div>
-                <div class="navbar-item">
-                  <strong><%= link_to '我要登入', new_user_session_path, class: "button is-light sign-out-buttons" %></strong>
-                </div>
+        <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item"%>
+      <% end %>
+  
+      <div class="buttons">
+        <% if current_user %>
+          <div class="sign-in-name"><p> Hello, <%= current_user.display_name %></p></div>
+          <div class="sign-in-buttons">
+            <strong><%= link_to '編輯帳戶', edit_user_registration_path %></strong>
+            <strong><%= link_to '登出', destroy_user_session_path, method: 'delete', id: "btn-logout" %></strong>
+          </div>
+          <div class="arrow_icon">
+            <i class="fas fa-angle-down"></i>
+          </div>
+        <% else %>
+            <div class="sign-out-status">
+              <div class="navbar-item">
+                <%= link_to '聯絡我們', root_path, class: "button is-primary" %>               
+              </div>              
+              <div class="navbar-item">
+                <%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %>
               </div>
-          <% end %>
-        </div>
-        
-      <!-- </div> -->
+              <div class="navbar-item">
+                <%= link_to '我要登入', new_user_session_path, class: "button is-light sign-out-buttons" %>
+              </div>
+            </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </nav>

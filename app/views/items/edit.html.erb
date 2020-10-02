@@ -1,5 +1,5 @@
 <div class="new-item-page">
-  <h1 class="new-item-title">編輯項目 Edit Item</h1>
+  <h1 class="new-item-title">編輯項目</h1>
 
   <% if @item.errors.any? %>
     <ul>
@@ -21,10 +21,10 @@
           <%= f.text_area :description, class: 'border-2 border-radius new-item-input' %>
         </div>
         <div class="item-description item-body">
-          <%= f.label :point, "點數" %>
-          <%= f.select :point, %w(0.5 1.0 3.0 5.0 7.0 13), default: @item.point, class: 'border-2 px-2 py-3' %>     
+          <%= f.label :point, "點數" , class: "item-label"%>
+          <%= f.select :point, %w(0.5 1.0 3.0 5.0 7.0 13), default: @item.point, class: 'border-2' , autocomplete:"off"%>     
         </div>
-        <div class="assign item-body">
+        <div class="assign item-body assign-person-box">
           <%= f.label :person, "專責", class: "item-label" %>
           <div class="tag-meber">
             <%= hidden_field_tag "#{f.object_name}[user_ids][]", '' %>

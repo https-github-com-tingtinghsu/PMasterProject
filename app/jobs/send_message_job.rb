@@ -1,7 +1,7 @@
 class SendMessageJob < ApplicationJob
   queue_as :default
 
-  def perform(message)
+  def perform(message, user_name)
     me = ApplicationController.render(
       partial: 'messages/me',
       locals: {message: message} 
@@ -11,6 +11,6 @@ class SendMessageJob < ApplicationJob
       locals: {message: message} 
     )
     ActionCable.server.broadcast "room_channel_#{message.room_id}",
-    me: me, others: others, message: message
+    me: me, others: others, message: message, username: user_name
   end
 end

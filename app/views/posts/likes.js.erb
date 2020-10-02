@@ -1,5 +1,3 @@
-$("#post-id-<%= @post.id %>-be-liked-counts").val("")
-$("#post-id-<%= @post.id %>-be-liked-counts").html("<%= j render('posts/partials/likePost') %>")
 
 <% if @current_user.post_likes.find_by(post_id: @post.id) %>
   $("#thumbs-id-<%= @post.id %>").addClass("fas")

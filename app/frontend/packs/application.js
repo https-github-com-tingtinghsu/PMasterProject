@@ -11,9 +11,11 @@ require("channels")
 require("scripts")
 require("stylesheets")
 
-// 2020/09/27 Wei
-// Notification
-Notification.requestPermission().then((result) => {})
+// 2020/09/29 Wei
+var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+if (isChrome) {
+  Notification.requestPermission().then((result) => {}) 
+}
 
 import '../scripts/shared/application'
 import '../scripts/shared/sidebar'
