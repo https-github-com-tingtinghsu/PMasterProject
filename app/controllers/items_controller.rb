@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
-		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
+		@workspace_users = @board.workspace.all_members
 		# assignment對象是所有在這個workspace裡面的人，所以要抓 users、creator
 		# 但這樣是重複進資料庫撈資料
 	end
@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
 	def edit
 		@group = Group.find(@item.group_id)
 		@board = Board.find(@group.board_id)
-		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
+		@workspace_users = @board.workspace.all_members
 		# p @workspace_users.map{ |u| [u.id, u.email] 
 	end
 

@@ -47,7 +47,8 @@ class GroupsController < ApplicationController
     gon.date_array = @group.start_end_date_array
 
     # 圓餅圖
-    gon.person_array = @group.board.workspace.users.map{ |user| user.name }.to_a
+    gon.member_array = @group.find_all_members_name
+    gon.member_point_array = @group.find_all_members_point_array
 
   end
 

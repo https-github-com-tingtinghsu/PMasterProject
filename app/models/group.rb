@@ -40,11 +40,19 @@ class Group < ApplicationRecord
   end
 
   def total_point
-    # sum array of numbers, 把分數加總
     items.inject(0){|sum, item| sum + item.point}   
   end
 
-  def group_person
-    @group.board.workspace.users.map{ |user| user.name }.to_a
+  def find_all_members_name
+    board.workspace.all_members.map(&:name)
+  end
+
+
+  def find_all_members_id
+    board.workspace.all_members.map(&:id)
+  end
+
+  def find_all_members_point_array
+    find_all_members_id.map{ |member_id| items.get_point_by_user_id(member_id)}
   end
 end

@@ -3,11 +3,11 @@ var ctx = document.getElementById('pieChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: gon.person_array,
+        labels: gon.member_array,
         datasets: [
             {
-                label: '實際完成進度',
-                data: [10, 12, 13],
+                label: '每人分配點數',
+                data: gon.member_point_array,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
