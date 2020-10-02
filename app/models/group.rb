@@ -43,4 +43,8 @@ class Group < ApplicationRecord
     # sum array of numbers, 把分數加總
     items.inject(0){|sum, item| sum + item.point}   
   end
+
+  def group_person
+    @group.board.workspace.users.map{ |user| user.name }.to_a
+  end
 end
