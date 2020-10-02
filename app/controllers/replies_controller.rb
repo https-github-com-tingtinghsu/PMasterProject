@@ -5,7 +5,9 @@ class RepliesController < ApplicationController
   def create
     @reply = @post.replies.new(content: params[:replycontent])
 		@reply.user_id = current_user.id
-		@reply.save
+    @reply.save
+    
+		ActionCable.server.broadcast("reply_channel",postid: params[:post_id],replycount: @post.replies.count)
   end
   
   def destroy
