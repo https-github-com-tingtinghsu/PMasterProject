@@ -25,5 +25,6 @@ consumer.subscriptions.create({ channel: "ReplyChannel" }, {
     element.append("<div id='reply-id-" + data.postid + "' class='reply-created-block'>" +
     "<div class='reply-user-name'>" + data.username + "：</div>" +
     "<div class='reply-content'>" + data.replycontent + "</div></div>")
+    // $('#replies-show-post-id-<%= @post.id %>').append("<%= j render('replies/partials/create') %>");
   }
 });
