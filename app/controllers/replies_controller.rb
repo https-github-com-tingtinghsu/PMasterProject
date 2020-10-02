@@ -7,7 +7,7 @@ class RepliesController < ApplicationController
 		@reply.user_id = current_user.id
     @reply.save
     
-		ActionCable.server.broadcast("reply_channel",postid: params[:post_id],replycount: @post.replies.count)
+		ActionCable.server.broadcast("reply_channel",postid: params[:post_id],replycount: @post.replies.count,replycontent: params[:replycontent],username: current_user.display_name)
   end
   
   def destroy
@@ -20,7 +20,6 @@ class RepliesController < ApplicationController
   end
 
   def find_reply
-    # @reply = Reply.find_by(params[:id])...
   end
 
 end
