@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+        :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :created_workspaces, class_name: 'Workspace'
   has_many :workspace_users
@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :post_likes
   has_many :likes_posts, through: :post_likes, source: :post
 
+  scope :asc, -> { order('id ASC')}
+  
   def toggle_likes_post(p)
     # 判斷當前使用者是否按過該篇文章的讚
     # 如果按過了，就砍掉，意即取消按讚
