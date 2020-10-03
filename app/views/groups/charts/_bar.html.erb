@@ -3,11 +3,12 @@ var ctx = document.getElementById('barChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: gon.date_array,
+        labels: gon.item_array,
         datasets: [
             {
-                label: '實際完成進度',
-                data: gon.point_array,
+                label: '實際完成天數',
+                data: gon.item_actual_days_array,
+                // data: gon.date_array,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -24,23 +25,15 @@ var myChart = new Chart(ctx, {
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)'
                 ],
-                borderWidth: 2
+                borderWidth: 1
             }, 
 
             {
-                label: '預期進度',
-                data: gon.avg_point_array,
+                label: '預期完成天數',
+                data: gon.item_expected_days_array,
                 backgroundColor: [
-                  "#ffffff",
-                  
                 ],
                 borderColor: [
-                    '#000079'
-                    // 'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    // 'rgba(75, 192, 192, 1)',
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 1
             } 
@@ -56,7 +49,7 @@ var myChart = new Chart(ctx, {
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: '剩餘點數',
+                  labelString: '完成天數',
                   fontSize: 20 
                 }
             }],
@@ -67,7 +60,7 @@ var myChart = new Chart(ctx, {
                 },
                 scaleLabel: {
                   display: true,
-                  labelString: 'Sprint日期',
+                  labelString: '項目名稱',
                   fontSize: 20 
                 }
             }]
