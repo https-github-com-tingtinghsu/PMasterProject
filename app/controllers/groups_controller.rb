@@ -50,6 +50,8 @@ class GroupsController < ApplicationController
     gon.member_array = @group.find_all_members_name
     gon.member_point_array = @group.find_all_members_point_array
 
+    # 長條圖
+    gon.item_array = @group.find_items_array
   end
 
   def destroy

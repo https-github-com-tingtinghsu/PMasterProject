@@ -46,4 +46,10 @@ module Chart
     # 把member_id當參數, 傳進另一個item的class method
     find_all_members_id.map{ |member_id| items.get_point_by_user_id(member_id)}
   end
+
+  # ---------bar chart methods----------
+  def find_items_array
+    items.map(&:name)
+  end
+
 end
