@@ -15,11 +15,15 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-end">
-      <% if(Rails.env.development?) %>
-        <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item fab fa-github p-5"%>
-      <% else %>
-        <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item"%>
-      <% end %>
+      <div class="navbar-item">
+        
+        <% if(Rails.env.development?) %>
+            <i class="fab fa-github"><%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%></i>
+          <% else %>
+            <i class="fab fa-github"><%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%></i>
+          <% end %>
+      </div>
+      
   
       <div class="buttons">
         <% if current_user %>

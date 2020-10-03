@@ -5,6 +5,56 @@ a{
   text-decoration: none !important;
   background-color: unset !important;
 }
+
+//sign-in
+.hero-body{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  font-size: 15px;
+  .subtitle{
+    font-size: 30px;
+    margin-bottom: 10px;
+    .new-item-submit{
+      width: 100px;
+      height: 30px;
+      padding: 20px;
+      font-size: 15px;
+      background-color: rgb(69, 175, 69);
+      color: white;
+      margin: 10px;
+      border-radius: 5px;
+      transition: .3s;
+    }
+    .new-item-submit:hover{
+      background-color: rgb(51, 42, 42);
+      transition: .3s;
+    }
+  }
+  .actions{
+    // border: solid 1px red;
+    display: flex;
+    justify-content: center;
+  }
+}
+.sign-in-checkbox{
+  display: flex;
+  // border: solid 1px red;
+  align-items: center;
+
+}
+.input{
+  width: 100%;
+  margin-top: 10px;
+}
+
+
 //new item
 .new-item-page{
   // display: flex;
@@ -47,6 +97,7 @@ a{
     .img{
       // position: absolute;
       width: 300px;
+
       // right: 0;
       // bottom: 0;
       
@@ -177,9 +228,9 @@ body{
     }
   }
   .navbar-item{
-    height: 60px;
+    // height: 60px;
     color: white;
-    font-size: 16px;
+    font-size: 40px;
     font-weight: 500;
     // border: solid red 1px;
     // padding-left: 50px;
@@ -195,7 +246,15 @@ body{
         height: 100%;
         // border: solid 1px blue;
       }
+     
     }
+    .github-link{
+      position: absolute;
+      bottom: 20px;
+      width: 40px;
+      height: 50%;
+    }
+   
   }
 
   // .navbar-item{
@@ -241,6 +300,7 @@ body{
     
     }
     @media screen and (min-width: 768px){
+      
       .buttons .sign-in-buttons{
         top: 70px;
       }
@@ -488,6 +548,7 @@ body{
 
 .main-dashboard-pic{
   margin-top: 100px;
+  margin-bottom: 50px;
   margin-left: auto;
   width: 300px;
 }
@@ -529,25 +590,44 @@ body{
   .footer-home{
     margin-top: 40px;
   }
-
-
+@media screen and (max-width: 1200px){
+  .item-object-group{
+    width: 100%;
+    margin-left: 0px;
+    padding-right: 0px;
+    border-right: solid #aaa 1px;
+    padding-right: 80px;
+    box-sizing: border-box;
+  }
+  
+}
+  
 @media screen and (max-width: 768px){
+  .github-link{
+    left: 25px;
+  }
+  .fa-github{
+    margin-left: 30px;
+  }
   .main-pic{
     // border: solid 1px red;
     width: 500px;
+  }
+
+  //new && edit 
+  .item-object-group{
+    width: 100%;
+    margin-left: 0px;
+    padding-right: 0px;
+    border-right: solid #aaa 1px;
+    padding-right: 80px;
+    box-sizing: border-box;
   }
   .new-item-submit{
     width: 80px;
     font-size: 10px;
   }
-  .item-object-group{
-    width: 45%;
-    margin-left: 10px;
-    padding-right: 10px;
-    border-right: solid #aaa 1px;
-    // padding-left: 80px;
-    box-sizing: border-box;
-  }
+  
   .item-label{
     font-size: 15px;
     color: rgb(98, 92, 92);
@@ -578,7 +658,7 @@ body{
       }
       .img{
         // position: absolute;
-        width: 300px;
+        width: 270px;
         // right: 0;
         // bottom: 0;
         
@@ -594,7 +674,7 @@ body{
     position: relative;
     .footer{
       position: absolute;
-      bottom: 20px;
+      bottom: 10px;
     }
   }
   
@@ -625,16 +705,25 @@ body{
     // border: red 1px solid;
     justify-content: start;
   }
+  .navbar-brand{
+    display: flex;
+    align-items: center;
+  }
   .navbar-end{
     .hamburger-item{
       margin-left: 17px;
     }
-    
+   
   }
-
+  
   .sign-in-name{
     // border: solid 1px red;
     margin-left: 30px;
+  }
+
+  //sign-in
+  .input{
+    width: 100%;
   }
 }
 
