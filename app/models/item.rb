@@ -5,7 +5,14 @@ class Item < ApplicationRecord
   has_many :assignments, dependent: :destroy
   has_many :users, through: :assignments 
 
+  before_update :update_finish_date
+
   # validates :name, presence: true
+
+  # 更新下拉選單時，也須確認資料庫裡的完成日期是否需要更改
+  def update_finish_date
+    self.finish_date = (status == "已完成") ? Time.now.strftime('%F') :  ""
+  end
 
   # class method: 作用在一群item上
   # 把item裡，同一user的point加總
