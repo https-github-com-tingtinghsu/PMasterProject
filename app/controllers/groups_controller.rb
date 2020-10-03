@@ -52,6 +52,7 @@ class GroupsController < ApplicationController
 
     # 長條圖
     gon.item_array = @group.find_items_array
+    gon.item_expected_days_array = @group.find_items_expected_spend_day_array
   end
 
   def destroy

@@ -52,4 +52,8 @@ module Chart
     items.map(&:name)
   end
 
+  def find_items_expected_spend_day_array
+    items.map(&:expected_spend_day)
+  end
+
 end
