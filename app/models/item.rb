@@ -13,12 +13,20 @@ class Item < ApplicationRecord
     select{|item| item.users.map(&:id).include?(user_id)}.inject(0){|sum, item| sum + item.point}
   end
 
-  # instance method: item的到期日
+  # instance method: item的到期日可能為group預設到期日或手動設置
   def deadline_date
     due_date || group.end_date
   end
 
   def expected_spend_day
     (deadline_date.to_date - group.start_date.to_date).to_i
+  end
+
+  def actual_spend_day
+    if finish_date?
+      (finish_date.to_date - group.start_date.to_date).to_i
+    else
+      0
+    end
   end
 end
