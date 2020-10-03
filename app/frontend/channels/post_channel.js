@@ -8,14 +8,15 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
   },
 
   received(data) {
-    const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
-    if(!element)return
+    $('#item-id-' + data.itemid + '-of-posts-counts').text(data.post_count)
 
-    if(data.countlike > 0){
-      element.textContent = data.countlike + " 人說讚"
-    }
-    else{
-      element.textContent = ""
+    const element = document.querySelector('.added-post')
+    if(!element) return
+    const item_id = element.getAttribute('data-item-id');
+    if(!item_id) return
+
+    if(item_id == data.itemid){
+      $('#post-icon-id-'+ data.itemid)[0].click();
     }
   }
 });

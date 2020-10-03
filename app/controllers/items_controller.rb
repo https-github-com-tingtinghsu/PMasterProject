@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
-		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
+		@workspace_users = @board.workspace.all_members
 		# assignment對象是所有在這個workspace裡面的人，所以要抓 users、creator
 		# 但這樣是重複進資料庫撈資料
 	end
@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
 		@item = @group.items.new(item_params)
 		# description
 		# 撈出被選取到的user_id
+		@item.finish_date = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
 		if @item.save
 			if (params[:person])
 				@members_id = params[:person].values
@@ -43,7 +44,7 @@ class ItemsController < ApplicationController
 	def edit
 		@group = Group.find(@item.group_id)
 		@board = Board.find(@group.board_id)
-		@workspace_users = @board.workspace.users.to_a << @board.workspace.creator
+		@workspace_users = @board.workspace.all_members
 		# p @workspace_users.map{ |u| [u.id, u.email] 
 	end
 
@@ -68,6 +69,19 @@ class ItemsController < ApplicationController
 		# byebug
 	end
 
+	def update_status
+		@item = Item.find_by(id: params[:id])
+		@item.status = params[:status]
+		if params[:status] == "已完成"
+			@item.finish_date = Time.now.strftime('%F')
+		end
+		
+		if !@item.save
+			render :index
+		end
+		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemstatus: params[:status])
+	end
+
 	def posts
 		@posts = @item.posts.order(created_at: :desc).limit(50)
 		@current_user = User.find(current_user.id)
@@ -87,24 +101,23 @@ class ItemsController < ApplicationController
 	end
 
 	private
+	def find_item
+		@item = Item.find(params[:id])
+	end
 
-		def find_item
-			@item = Item.find(params[:id])
-		end
+	def find_item_user_id
+		@item_user_ids = @item.users.map(&:id)			
+	end
 
-		def find_item_user_id
-			@item_user_ids = @item.users.map(&:id)			
-		end
+	def find_board_and_group
+		@group = Group.find(params[:group_id])
+		@board = @group.board
+	end
 
-		def find_board_and_group
-			@group = Group.find(params[:group_id])
-			@board = @group.board
+	def item_params
+		params.require(:item).permit(:name, :description, :point, :status, :person, :finish_date, :due_date, user_ids: []).tap do |whitelist|
+			whitelist[:user_ids] = whitelist[:user_ids].reject(&:blank?)
+			# filter的相反：滿足這個條件的就reject, 不要存空白進去
 		end
-
-		def item_params
-			params.require(:item).permit(:name, :description, :point, :status, :person, :finish_date, :due_date, user_ids: []).tap do |whitelist|
-				whitelist[:user_ids] = whitelist[:user_ids].reject(&:blank?)
-				# filter的相反：滿足這個條件的就reject, 不要存空白進去
-			end
-		end
+	end
 end

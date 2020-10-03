@@ -3,6 +3,4 @@ document.addEventListener('turbolinks:load', () => {
 	if (formSelect){
 		formSelect.setAttribute("class", "border-2 p-2")
 	} 
-	
-  
 });

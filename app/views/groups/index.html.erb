@@ -84,9 +84,10 @@
                         <% end %>
                         
                         <td class="item-point"><%= item.finish_date %></td>                        
-                        
-                        <td><span class="item-status rounded-md"><%= item.status %></span></td>
-                      
+                        <td>
+                          <%= csrf_meta_tag %>
+                          <%= select_tag( item.id , options_for_select([['待指派', '待指派'], ['進行中', '進行中'], ['卡關中', '卡關中'],['待修改', '待修改'],['已完成', '已完成']], item.status)) %>
+                        </td>
                       </tr>
                     <% end %>
                   <% end %>

@@ -12,4 +12,8 @@ class Workspace < ApplicationRecord
 
   has_one :room, dependent: :destroy
   has_many :invitations
+
+  def all_members
+    users.asc.to_a << creator
+  end
 end
