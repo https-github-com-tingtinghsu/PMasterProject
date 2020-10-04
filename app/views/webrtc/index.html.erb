@@ -1,9 +1,10 @@
 <h1>Webrtc#index</h1>
 <p>Find me in app/views/webrtc/index.html.erb</p>
+<div data-controls=webcam>
+    <video id="player" controls autoplay></video>
+    <button id="status">開始</button>
+    <button id="capture">截圖</button>
+    <canvas id="snapshot" width=320 height=240></canvas>
 
-<video id="player" controls autoplay></video>
-<button id="status">開始</button>
-<button id="capture">截圖</button>
-<canvas id="snapshot" width=320 height=240></canvas>
-
-<video id="remotevideo" autoplay muted playsinline controls></video>
+    <video id="remotevideo" autoplay muted playsinline controls></video>
+</div>
