@@ -1,14 +1,18 @@
 import consumer from "../../javascript/channels/consumer"
 
-consumer.subscriptions.create({ channel: "WebcamChannel" }, {
-  connected() {
-    console.log("WebcamChannel connected")
-  },
+// const createChannel = function(name, connection) {
+  const test = consumer.subscriptions.create({ channel: "WebcamChannel" }, {
+    connected() {
+      console.log("WebcamChannel connected")
+      // this.send({ sent_by: "Paul", body: "This is a cool chat app." })
+      this.perform("speak", {message: "hello"})
+    },
 
-  disconnected() {
-  },
+    disconnected() {
+    },
 
-  received(data) {
-    console.log("received : " + data.type)
-  }
-});
+    received(data) {
+      console.log("received : " + data.message)
+    }
+  });
+// }
