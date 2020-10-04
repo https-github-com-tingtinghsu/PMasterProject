@@ -620,8 +620,10 @@ body{
     margin-left: 0px;
     padding-right: 0px;
     border-right: solid #aaa 1px;
-    padding-right: 80px;
     box-sizing: border-box;
+  }
+  .tag-meber{
+    width: 60%;
   }
   .new-item-submit{
     width: 80px;
@@ -682,7 +684,7 @@ body{
     padding: 0;
     position: absolute;
     bottom: 40px;
-    left: 40px;
+    left: 150px;
   }
   .footer-dashboard{
     padding: 0;
