@@ -56,12 +56,11 @@ document.addEventListener('turbolinks:load', () => {
   btnExplore.addEventListener('click',() => {
     githuBoardIntegration.classList.add('outside-link-board-integrations-disappear')
     githuBoardIntegration.classList.remove('outside-link-board-integrations')
-    console.log(githuBoardIntegration)
     githubExplore.classList.add('outside-link-board')
     githubExplore.classList.remove('outside-link-board-disappear')
   })
   gitBackNextpage.addEventListener('click',() => {
-    githubNextpage.classList.add('outside-link-board-nextpage-disdisappear')
+    githubNextpage.classList.add('outside-link-board-nextpage-disappear')
     githubNextpage.classList.remove('outside-link-board-nextpage')
     githubExplore.classList.add('outside-link-board')
     githubExplore.classList.remove('outside-link-board-disappear')
