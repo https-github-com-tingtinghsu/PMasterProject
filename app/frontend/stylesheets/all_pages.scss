@@ -254,8 +254,375 @@ body{
       width: 40px;
       height: 50%;
     }
-   
+    .github-link-img{
+      cursor: pointer;
+    }
+    
   }
+  
+  .outside-link-background-disappear{
+    display: none;
+  }
+  .outside-link-board-integrations-disappear{
+    display: none;
+  }
+  .outside-link-background{
+    position: fixed;
+    width: 86%;
+    height: 100%;
+    background-color: rgba(51, 42, 42, 0.6);
+    // opacity:0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // display: none;
+    
+    .close{
+      font-size: 35px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .outside-link-board-integrations-disappear{
+      display: none;
+    }
+    .outside-link-board-disappear{
+      display: none;
+    }
+    .outside-link-board, .outside-link-board-integrations{
+      width: 70%;
+      height: 70%;
+      background-color: rgb(31, 28, 28);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      position: relative;
+      // display: none;
+      
+      .outside-link-back{
+        cursor: pointer;
+        color: white;
+        // border: white 1px solid;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 30px;
+        h2{
+          margin-left: 15px;
+        }
+
+      }
+      .outside-link-menu{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 50px;
+        .outside-link-menu-title{
+          width: 80%;
+          height: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          border-bottom: gray 3px solid;
+          position: absolute;
+          top: 0;
+          font-size: 30px;
+          font-weight: 600;
+        }
+        .btn-integrations{
+          cursor: pointer;
+          width: 25%;
+          height: 10%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          background-color: #aaa;
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-top: 40px;
+          margin-right: 10px;
+          font-size: 20px;
+          border-radius: 10px;
+          font-weight: 600;
+        }
+        .btn-explore{
+          cursor: pointer;
+          width: 30%;
+          height: 10%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          background-color: #aaa;
+          position: absolute;
+          top: 0;
+          left: 0;
+          margin-top: 40px;
+          margin-right: 10px;
+          font-size: 20px;
+          border-radius: 10px;
+          font-weight: 600;
+        }
+        .outside-link-item{
+          cursor: pointer;
+          width: 30%;
+          height: 15%;
+          background-color: rgb(31, 28, 28);
+          border-radius: 10px;
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          .outside-link-title{
+            margin-left: 10px;
+          }
+        }
+         
+      }
+      .outside-link-item{
+        width: 40%;
+        height: 20%;
+        color: white;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .outside-link-title{
+          margin-left: 10px;
+        }
+        .github-link{
+          width: 100%;
+          height: 100%;
+          position: absolute;
+        }
+      }
+    }
+
+    .outside-link-board-nextpage-disappear{
+      display: none;
+    }
+    .outside-link-board-nextpage{
+      width: 70%;
+      height: 70%;
+      background-color: rgb(31, 28, 28);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      position: relative;
+      // display: none;
+      .outside-link-back-nextpage{
+        cursor: pointer;
+        color: white;
+        // border: white 1px solid;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 30px;
+        h2{
+          margin-left: 15px;
+        }
+
+      }
+      .outside-link-menu{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 50px;
+        .outside-link-menu-title{
+          width: 80%;
+          height: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          border-bottom: gray 3px solid;
+          position: absolute;
+          top: 0;
+          font-size: 30px;
+          font-weight: 600;
+        }
+       
+        
+      }
+      .outside-link-item-nextpage{
+        cursor: pointer;
+        width: 40%;
+        height: 20%;
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        // .outside-link-title{
+        //   margin-left: 10px;
+        // }
+        // .github-link{
+        //   width: 100%;
+        //   height: 100%;
+        //   position: absolute;
+        // }
+      }
+      
+    }
+
+    .outside-link-board-thirdpage-disappear{
+      display: none;
+    }
+    .outside-link-board-thirdpage{
+      width: 70%;
+      height: 70%;
+      background-color: rgb(31, 28, 28);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      position: relative;
+      // display: none;
+      .outside-link-back-thirdpage{
+        cursor: pointer;
+        color: white;
+        // border: white 1px solid;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 30px;
+        h2{
+          margin-left: 15px;
+        }
+
+      }
+      .outside-link-menu{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 50px;
+        .outside-link-menu-title{
+          width: 80%;
+          height: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          border-bottom: gray 3px solid;
+          position: absolute;
+          top: 0;
+          font-size: 30px;
+          font-weight: 600;
+        }
+       
+        
+      }
+      .outside-link-item{
+        cursor: pointer;
+        width: 20%;
+        height: 10%;
+        color: white;
+        background-color:rgb(31, 28, 28);
+        border-radius: 10px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        // .outside-link-title{
+        //   margin-left: 10px;
+        // }
+        // .github-link{
+        //   width: 100%;
+        //   height: 100%;
+        //   position: absolute;
+        // }
+      }
+      .context{
+        display: flex;
+        justify-content: center;
+        .context-item{
+          text-align: center;
+          p{
+            font-size: 20px;
+          }
+          input{
+            width: 150px;
+            outline: none;
+            height: 30px;
+            background-color: rgb(31, 28, 28);
+            color: white;
+          }
+        }
+        
+      }
+      .add-to-board{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #aaa;
+        color: rgb(31, 28, 28);
+        border-radius: 10px;
+        width: 17%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      
+      
+    }
+  }
+ 
+
+
 
   // .navbar-item{
   //   display: flex;

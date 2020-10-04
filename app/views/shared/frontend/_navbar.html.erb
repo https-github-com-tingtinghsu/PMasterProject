@@ -1,5 +1,7 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
+
   <div class="navbar-brand">
+
     <a class="navbar-item" href="/">
         <div class="logo">
           <%= image_tag("home/logo.png") %>
@@ -14,14 +16,125 @@
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
+    <div class="outside-link-background-disappear">
+      <div class="outside-link-board">
+          <div class="outside-link-back">
+            <i class="fas fa-angle-left"></i>
+            <h2>back</h2>
+          </div>
+          <div class="close">
+            <i class="far fa-times-circle"></i>
+          </div>
+          <div class="outside-link-menu">
+            <div class="outside-link-menu-title">
+              <h2>Explore By App</h2>
+            </div>
+            <div class="btn-integrations">
+              <h2>Integrations</h2>
+            </div>
+            <div class="outside-link-item">
+              <i class="fab fa-github"></i>
+              <div class="outside-link-title">
+                <h2>GitHub</h2>
+              </div>
+            </div>
+        </div>
+        
+      </div>
+      
+      
+      <div class="outside-link-board-integrations-disappear">
+        <div class="close">
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="outside-link-menu">
+          <div class="outside-link-menu-title">
+            <h2>Integrations</h2>
+          </div>
+          <div class="btn-explore">
+            <h2>Explore By App</h2>
+          </div>
+          <div class="outside-link-item">
+            <i class="fab fa-github"></i>
+            <div class="outside-link-title">
+              <h2>GitHub</h2>
+            </div>
+          </div>
+       </div>
+     </div>
+
+    
+      <div class="outside-link-board-nextpage-disappear">
+        <div class="outside-link-back-nextpage">
+          <i class="fas fa-angle-left"></i>
+          <h2>back</h2>
+        </div>
+        <div class="close">
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="outside-link-item-nextpage">
+          <i class="fab fa-github"></i>
+          <!-- <% if(Rails.env.development?) %>
+            <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%>
+          <% else %>
+            <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%>
+          <% end %> -->
+          <div class="outside-link-title">
+            <h2>GitHub</h2>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="outside-link-board-thirdpage-disappear">
+        <div class="outside-link-back-thirdpage">
+          <i class="fas fa-angle-left"></i>
+          <h2>back</h2>
+        </div>
+        <div class="close">
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="context">
+          <div class="context-item">
+            <p>When an item is created,create an issue in <input type="text" placeholder="this repository"></input></p>
+          </div>
+        </div>
+        <div class="outside-link-item">
+          <i class="fab fa-github"></i>
+          <div class="outside-link-title">
+            <h2>GitHub</h2>
+          </div>
+        </div>
+        <div class="add-to-board">
+          <span>add to board</span>
+        </div>
+        
+      </div>
+    </div>
+    <!-- <div class="outside-link-background">
+      <div class="outside-link-board">
+        <div class="outside-link-back">
+          <i class="fas fa-angle-left"></i>
+          <h2>back</h2>
+        </div>
+        <div class="outside-link-item">
+          <i class="fab fa-github"></i>
+          <% if(Rails.env.development?) %>
+            <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%>
+          <% else %>
+            <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%>
+          <% end %>
+          <div class="outside-link-title">
+            <h2>GitHub</h2>
+          </div>
+        </div>
+        
+      </div>
+    </div> -->
     <div class="navbar-end">
       <div class="navbar-item">
+        <i class="fab fa-github github-link-img"></i>
         
-        <% if(Rails.env.development?) %>
-            <i class="fab fa-github"><%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%></i>
-          <% else %>
-            <i class="fab fa-github"><%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%></i>
-          <% end %>
       </div>
       
   
