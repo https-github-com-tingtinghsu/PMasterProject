@@ -1,7 +1,7 @@
 <div id="replies-show-post-id-<%= @post.id %>">
   <% @post.replies.each do |reply| %>
     <div id="reply-id-<%= reply.id %>" class="reply-created-block">
-      <div class="reply-user-name"><%= User.find(reply.user_id).email[0..6] %>：</div>
+      <div class="reply-user-name"><%= User.find(reply.user_id).name %>：</div>
       <div class="reply-content"><%= reply.content %></div>
     </div>
   <% end %>

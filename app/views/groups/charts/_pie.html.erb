@@ -3,11 +3,11 @@ var ctx = document.getElementById('pieChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: gon.date_array,
+        labels: gon.member_array,
         datasets: [
             {
-                label: '實際完成進度',
-                data: gon.point_array,
+                label: '每人分配點數',
+                data: gon.member_point_array,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -25,54 +25,8 @@ var myChart = new Chart(ctx, {
                     'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 2
-            }, 
-
-            {
-                label: '預期進度',
-                data: gon.avg_point_array,
-                backgroundColor: [
-                  "#ffffff",
-                  
-                ],
-                borderColor: [
-                    '#000079'
-                    // 'rgba(54, 162, 235, 1)',
-                    // 'rgba(255, 206, 86, 1)',
-                    // 'rgba(75, 192, 192, 1)',
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            } 
-        
+            }
         ]
-    },
-    options: {
-
-        scales: {
-            yAxes: [{             
-                ticks: {
-                    beginAtZero: true
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: '剩餘點數',
-                  fontSize: 20 
-                }
-            }],
-
-            xAxes: [{             
-                ticks: {
-                    beginAtZero: true
-                },
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Sprint日期',
-                  fontSize: 20 
-                }
-            }]
-
-        }
     }
 });
 </script>
