@@ -70,13 +70,6 @@ document.addEventListener('turbolinks:load', () => {
   })
 })
 
-// import { Application } from "stimulus"
-// import { definitionsFromContext } from "stimulus/webpack-helpers"
-
-// const application = Application.start()
-// const context = require.context("./controllers", true, /\.js$/)
-// application.load(definitionsFromContext(context))
-
 // document.addEventListener("turbolinks:load", function(event){
 //   let el = document.querySelector("#workspace-board");
 //   console.log(el);

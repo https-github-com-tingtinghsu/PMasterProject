@@ -5,10 +5,9 @@ class WebcamChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
   end
 
-  def speak data
-    ActionCable.server.broadcast("webcam_channel", message: data["message"])
-  end
+  # def speak data
+  #   ActionCable.server.broadcast("webcam_channel", message: data["message"])
+  # end
 end
