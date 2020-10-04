@@ -28,7 +28,7 @@ const ice = { iceServers: [{ urls: "stun:stun.l.google.com:19302" }] };
 document.addEventListener("DOMContentLoaded", () => {
   const joinButton = document.getElementById("join-button");
   const leaveButton = document.getElementById("leave-button");
-
+  console.log('Onclick')
   joinButton.onclick = handleJoinSession;
   leaveButton.onclick = handleLeaveSession;
 });
@@ -51,27 +51,28 @@ document.onreadystatechange = () => {
 };
 
 const handleJoinSession = async () => {
-  consumer.subscriptions.create("WebcamChannel", {
+  consumer.subscriptions.create({ channel: "WebcamChannel" }, {
     connected: () => {
-      broadcastData({
-        type: JOIN_ROOM,
-        from: currentUser,
-      });
+      broadcastData({ type: "initiateConnection" });
+      // broadcastData({
+      //   type: JOIN_ROOM,
+      //   from: currentUser,
+      // });
     },
     received: (data) => {
       console.log("received", data);
-      if (data.from === currentUser) return;
-      switch (data.type) {
-      case JOIN_ROOM:
-        return joinRoom(data);
-      case EXCHANGE:
-        if (data.to !== currentUser) return;
-        return exchange(data);
-      case REMOVE_USER:
-        return removeUser(data);
-      default:
-        return;
-      }
+      // if (data.from === currentUser) return;
+      // switch (data.type) {
+      // case JOIN_ROOM:
+      //   return joinRoom(data);
+      // case EXCHANGE:
+      //   if (data.to !== currentUser) return;
+      //   return exchange(data);
+      // case REMOVE_USER:
+      //   return removeUser(data);
+      // default:
+      //   return;
+      // }
     },
   });
 };
