@@ -5,7 +5,7 @@ class WebrtcController < ApplicationController
 
   def create
     head :no_content
-    ActionCable.server.broadcast "webrtc_channel", webrtc_params
+    ActionCable.server.broadcast "webcam_channel", webrtc_params
   end
 
   private
