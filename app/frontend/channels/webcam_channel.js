@@ -9,5 +9,6 @@ consumer.subscriptions.create({ channel: "WebcamChannel" }, {
   },
 
   received(data) {
+    console.log("received : " + data.type)
   }
 });
