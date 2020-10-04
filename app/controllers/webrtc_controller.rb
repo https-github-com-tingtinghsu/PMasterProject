@@ -5,11 +5,11 @@ class WebrtcController < ApplicationController
 
   def create
     head :no_content
-    ActionCable.server.broadcast "session_channel", session_params
+    ActionCable.server.broadcast "webrtc_channel", webrtc_params
   end
 
   private
-    def session_params
-      params.require(:session).permit(:type, :from, :to, :sdp, :candidate)
+    def webrtc_params
+      params.require(:webrtc).permit(:type, :from, :to, :sdp, :candidate)
     end
 end
