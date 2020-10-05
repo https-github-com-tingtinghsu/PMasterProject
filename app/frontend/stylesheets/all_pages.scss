@@ -753,9 +753,11 @@ body{
   .item-group-li-p-title{
     font-size: 30px;
     margin-right: 10px;
+    line-height: 30px;
   }
   .item-group-li-p-icon{
-
+    display: flex;
+    align-items: center;
     font-size: 20px;
     color: #a6bba6;
   }
@@ -786,9 +788,11 @@ body{
     // border: 1px solid red;
     position: absolute;
     width: 0px;
+    height: 30px;
     background-color: #D3E3D3;
     left: 95px;
     display: flex;
+    align-items: center;
     overflow: auto;
     transition: 0.5s;
   }
@@ -796,24 +800,20 @@ body{
   .edit-delete-task-open{
     width: 60px;
     transition: 0.5s;
+    height: 30px;
+    display: flex;
+    align-items: center;
   }
   
   .item-name{
-    // position: relative;
-    // left: -50px;
     background-color: #EFF4EF;
     width: 130px;
     transition: .5s;
     white-space: nowrap;
     overflow: auto;
-    // text-overflow:ellipsis;
     box-sizing: border-box;
   }
-  // .item-name-right{
-  //   position: relative;
-  //   left: 5px;
-  //   transition: .5s;
-  // }
+
 }
 
 
@@ -993,6 +993,10 @@ body{
   // }
   
   //
+  .item-group-li-p-icon{
+    display: flex;
+    align-items: center;
+  }
   .new-item-submit{
     width: 80px;
     font-size: 10px;
@@ -1078,7 +1082,7 @@ body{
 
 
 
-
+  }
  
 
   //navbar
@@ -1125,5 +1129,3 @@ body{
   }
 }
 
-
-}
