@@ -93,7 +93,8 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
       <i class="fas fa-user-plus text-teal-600"></i>
     </a>
   `).click(function(){
-    $("#modal-add-workspace-member").addClass("is-active")    
+    $("#modal-add-workspace-member").addClass("is-active")
+    $("#add-workspace-member-email").val('')        
     memberAddWorkspaceId = $(this).parent().data("workspace-id")
     $("#btn-send-member-email").data("workspace-id", memberAddWorkspaceId) 
   })
@@ -272,6 +273,7 @@ function deleteWorkspace(id){
 function sendMemeberEmail(){
   memberEmail = $("#add-workspace-member-email").val()
   workspaceId = $("#btn-send-member-email").data("workspace-id")
+
   if (checkEmailValidate(memberEmail) == true){
     $.ajax({
       type: "GET",
@@ -281,7 +283,7 @@ function sendMemeberEmail(){
       },
       success: function(result){
         if(result.success){
-          alert("邀請成功！")
+          alert("邀請成功！")     
           $("#modal-add-workspace-member").removeClass("is-active")        
         }
         else{
@@ -289,7 +291,6 @@ function sendMemeberEmail(){
         }
       }
     });  
-    $("add-workspace-member-email").val('')
   }
 }
 
