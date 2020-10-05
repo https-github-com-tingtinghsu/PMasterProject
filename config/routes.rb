@@ -47,4 +47,6 @@ Rails.application.routes.draw do
   end
 
   resources :pages, only:[:index]
+
+  patch "/item/groupupdate", to: "items#update_status"
 end
