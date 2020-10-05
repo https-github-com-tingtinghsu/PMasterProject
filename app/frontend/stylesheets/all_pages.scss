@@ -5,7 +5,14 @@ a{
   text-decoration: none !important;
   background-color: unset !important;
 }
-
+.notice{
+  position: absolute;
+  width: 200px;
+  left: 600px;
+  z-index: 1000000;
+  font-weight: 600;
+  color: rgb(107, 161, 107);
+}
 //sign-in
 .hero-body{
   display: flex;
@@ -621,7 +628,11 @@ body{
     }
   
   }
-
+  @media screen and (min-width: 768px){
+    .buttons .sign-in-buttons{
+      top: 70px;
+    }
+  }
   
   .sign-out-status{
     display: flex;
@@ -629,6 +640,7 @@ body{
   }
   .sign-out-buttons{
     color: white;
+    outline: none;
   }
   
   .arrow{
