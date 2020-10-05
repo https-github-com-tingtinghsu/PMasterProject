@@ -5,24 +5,24 @@
       <h2 class="subtitle">登入</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label "信箱" %><br />
+          <%= f.label "信箱" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請填寫您的信箱", class: "input is-success" %>
         </div>
 
         <div class="field">
-          <%= f.label "密碼" %><br />
+          <%= f.label "密碼" %>
           <%= f.password_field :password, autocomplete: "current-password", placeholder: "請輸入您的密碼", class: "input is-success" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
+          <div class="field sign-in-checkbox">
+            <%= f.check_box :remember_me, class: "item-label" %>
             <%= f.label "記住我的信箱" %>
           </div>
         <% end %>
 
         <div class="actions">
-          <%= f.submit "我要登入", class: "button is-primary" %>
+          <%= f.submit "我要登入", class: "new-item-submit" %>
         </div>
       <% end %>
 
