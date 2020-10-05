@@ -359,14 +359,17 @@ body{
   font-size: 18px;
   vertical-align: middle;
 }
+.item-group-li{
+  // outline: red solid 1px;
+  padding-bottom: 50px;
+}
 .item-group-li-box{
   display: flex;
   margin-bottom: 20px;
   .item-group-li-p-title{
     font-size: 20px;
     line-height: 20px;
-    margin-right: 10px;
-    // margin-right: 10px;
+    margin-right: 10px;  
   }
   .item-group-li-p-icon{
     // font-size: 20px;
