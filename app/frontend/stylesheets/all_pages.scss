@@ -38,14 +38,12 @@ a{
     }
   }
   .actions{
-    // border: solid 1px red;
     display: flex;
     justify-content: center;
   }
 }
 .sign-in-checkbox{
   display: flex;
-  // border: solid 1px red;
   align-items: center;
 
 }
@@ -57,7 +55,6 @@ a{
 
 //new item
 .new-item-page{
-  // display: flex;
   background-color: white;
   width: 100%;
   height: 550px;
@@ -75,15 +72,12 @@ a{
   font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
 
   .advertising{
-    // position: relative;
     width: 50%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // border: solid 1px red;
-    
     h2{
       font-size: 25px;
       margin-bottom: 40px;
@@ -91,16 +85,9 @@ a{
     .advertising-article{
       width: 450px;
       display: flex;
-      // border: solid 1px red;
-
     }
     .img{
-      // position: absolute;
       width: 300px;
-
-      // right: 0;
-      // bottom: 0;
-      
       img{
         width: 100%;
         border-radius: 10px;
@@ -112,7 +99,6 @@ a{
 .new-item-title{
     margin-bottom: 30px;
     display: flex;
-    // justify-content: center;
 }
 
 .new-item-title{
@@ -125,9 +111,7 @@ a{
   margin-left: 50px;
   padding-left: 20px;
   border-right: solid #aaa 1px;
-  // padding-left: 80px;
   box-sizing: border-box;
-  // border: solid red 1px;
 }
 .item-body{
     display: flex;
@@ -155,7 +139,6 @@ a{
     font-weight: 500;
 }
 .assign-label{
-    // margin: 100px;
     .assign-init{
         margin: 5px 0px;
         text-align: center;
@@ -194,7 +177,6 @@ a{
 
 // group
 .group-card{
-  // border: solid 1px red;
   width: 170px;
   margin-top: 70px;
   margin-left: 100px;
@@ -228,23 +210,18 @@ body{
     }
   }
   .navbar-item{
-    // height: 60px;
     color: white;
     font-size: 40px;
     font-weight: 500;
-    // border: solid red 1px;
-    // padding-left: 50px;
     .logo{
       width: 180px;
       height: 60px;
-      // border: red solid 1px;
       display: flex;
       align-items: center;
       margin-left: 10px;
       img{
         width: 100%;
         height: 100%;
-        // border: solid 1px blue;
       }
      
     }
@@ -262,20 +239,20 @@ body{
   
   .outside-link-background-disappear{
     display: none;
+    
   }
   .outside-link-board-integrations-disappear{
     display: none;
   }
+  
   .outside-link-background{
     position: fixed;
-    width: 86%;
+    width: 100%;
     height: 100%;
     background-color: rgba(51, 42, 42, 0.6);
-    // opacity:0.6;
     display: flex;
     align-items: center;
     justify-content: center;
-    // display: none;
     
     .close{
       font-size: 35px;
@@ -302,12 +279,10 @@ body{
       justify-content: center;
       border-radius: 10px;
       position: relative;
-      // display: none;
-      
+
       .outside-link-back{
         cursor: pointer;
         color: white;
-        // border: white 1px solid;
         position: absolute;
         top: 0;
         left: 0;
@@ -346,7 +321,6 @@ body{
         }
         .btn-integrations{
           cursor: pointer;
-          width: 25%;
           height: 10%;
           display: flex;
           align-items: center;
@@ -354,17 +328,17 @@ body{
           color: rgb(31, 28, 28);
           background-color: #aaa;
           position: absolute;
-          top: 0;
+          bottom: 0;
           right: 0;
-          margin-top: 40px;
-          margin-right: 10px;
-          font-size: 20px;
           border-radius: 10px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          font-size: 15px;
           font-weight: 600;
+          padding: 10px;
         }
         .btn-explore{
           cursor: pointer;
-          width: 30%;
           height: 10%;
           display: flex;
           align-items: center;
@@ -372,17 +346,18 @@ body{
           color: rgb(31, 28, 28);
           background-color: #aaa;
           position: absolute;
-          top: 0;
+          bottom: 0;
           left: 0;
-          margin-top: 40px;
-          margin-right: 10px;
-          font-size: 20px;
           border-radius: 10px;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          font-size: 15px;
           font-weight: 600;
+          padding: 10px;
         }
         .outside-link-item{
           cursor: pointer;
-          width: 30%;
+          width: 200px;
           height: 15%;
           background-color: rgb(31, 28, 28);
           border-radius: 10px;
@@ -391,9 +366,6 @@ body{
           align-items: center;
           justify-content: center;
           position: relative;
-          .outside-link-title{
-            margin-left: 10px;
-          }
         }
          
       }
@@ -432,11 +404,9 @@ body{
       justify-content: center;
       border-radius: 10px;
       position: relative;
-      // display: none;
       .outside-link-back-nextpage{
         cursor: pointer;
         color: white;
-        // border: white 1px solid;
         position: absolute;
         top: 0;
         left: 0;
@@ -483,19 +453,14 @@ body{
         color: black;
         background-color: white;
         border-radius: 10px;
-        font-size: 60px;
+        font-size: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        // .outside-link-title{
-        //   margin-left: 10px;
-        // }
-        // .github-link{
-        //   width: 100%;
-        //   height: 100%;
-        //   position: absolute;
-        // }
+        .outside-link-title{
+          margin-left: 20px;
+        }
       }
       
     }
@@ -513,11 +478,9 @@ body{
       justify-content: center;
       border-radius: 10px;
       position: relative;
-      // display: none;
       .outside-link-back-thirdpage{
         cursor: pointer;
         color: white;
-        // border: white 1px solid;
         position: absolute;
         top: 0;
         left: 0;
@@ -559,7 +522,6 @@ body{
       }
       .outside-link-item{
         cursor: pointer;
-        width: 20%;
         height: 10%;
         color: white;
         background-color:rgb(31, 28, 28);
@@ -571,14 +533,10 @@ body{
         position: absolute;
         bottom: 0;
         left: 0;
-        // .outside-link-title{
-        //   margin-left: 10px;
-        // }
-        // .github-link{
-        //   width: 100%;
-        //   height: 100%;
-        //   position: absolute;
-        // }
+        margin-left: 10px;
+        .outside-link-title{
+          margin-left: 10px;
+        }
       }
       .context{
         display: flex;
@@ -605,7 +563,6 @@ body{
         background-color: #aaa;
         color: rgb(31, 28, 28);
         border-radius: 10px;
-        width: 17%;
         height: 10%;
         display: flex;
         align-items: center;
@@ -614,6 +571,7 @@ body{
         margin-right: 10px;
         font-size: 16px;
         font-weight: 600;
+        padding: 10px;
         cursor: pointer;
       }
       
@@ -624,56 +582,46 @@ body{
 
 
 
-  // .navbar-item{
-  //   display: flex;
-  //   align-items: center;
-  //   font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+  
 
-    .buttons{
+  .buttons{
+    margin: 0;
+    margin-right: 10px;
+    position: relative;
+    .sign-in-buttons{
+      // border: solid red 1px;
+      background-color: #EFF4EF;
+      height: 0;
+      width: 150px;
+      position: absolute;
+      top: 30px;
+      left: 10px;
+      overflow: hidden;
+      background: rgba(255,255,255,.8);
+      box-shadow: 0 2px 5px rgba(0,0,0,.3);
       margin: 0;
-      margin-right: 10px;
-      position: relative;
-      .sign-in-buttons{
-        // border: solid red 1px;
-        background-color: #EFF4EF;
-        height: 0;
-        width: 150px;
-        position: absolute;
-        top: 30px;
-        left: 10px;
-        overflow: hidden;
-        background: rgba(255,255,255,.8);
-        box-shadow: 0 2px 5px rgba(0,0,0,.3);
-        margin: 0;
-        padding: 0;
-        transition: 0.5s;
-        z-index: 100000;
-        strong{
-          a{
-            display: block;
-            padding: 5px 10px;
-            line-height: 34px;
-            font-size: 14px;
-            text-align: center;
-          }
-          
+      padding: 0;
+      transition: 0.5s;
+      z-index: 100000;
+      strong{
+        a{
+          display: block;
+          padding: 5px 10px;
+          line-height: 34px;
+          font-size: 14px;
+          text-align: center;
         }
-      }
-      .sign-in-buttons-open{
-        height: 88px;
-        transition: 0.5s;
         
       }
-    
     }
-    @media screen and (min-width: 768px){
+    .sign-in-buttons-open{
+      height: 88px;
+      transition: 0.5s;
       
-      .buttons .sign-in-buttons{
-        top: 70px;
-      }
     }
+  
+  }
 
-  // }
   
   .sign-out-status{
     display: flex;
@@ -694,7 +642,6 @@ body{
   }
   .sign-in-name{
     color: white;
-    // border: solid 1px red;
     display: flex;
     align-items: center;
     color: #ECC94B;
@@ -712,12 +659,8 @@ body{
 
 //workspace_list
 .workspace-list{
-  // border: solid 1px blue;
   width: 100%;
   box-shadow:none;
-  // padding-left: 30px;
-  // border: solid red 1px;
-  
   .workspace-item{
     width: 200px;
     margin-bottom: 25px;
@@ -768,7 +711,6 @@ body{
   height: 100%;
   overflow: auto;
   background-color: #5A815A;
-  // border: solid red 1px;
   padding: 0px;
 }
 
@@ -793,7 +735,6 @@ body{
 // groups-task-list
 
 .item-group-li{
-  // border: red solid 1px;
   padding-bottom: 50px;
 }
 .item-group-li-box{
@@ -802,7 +743,6 @@ body{
   .item-group-li-p-title{
     font-size: 30px;
     margin-right: 10px;
-    // margin-right: 10px;
   }
   .item-group-li-p-icon{
 
@@ -826,18 +766,9 @@ body{
     position: relative;
   }
   .edit-delete-task{
-    // border: 1px solid red;
     display: flex;
     margin-right: 5px;
-    // width: 0px;
-    // overflow: hidden;
-    // transition: 0.5s;
   }
-
-  // .edit-delete-task-open{
-    // width: 100px;
-    // transition: 0.5s;
-  // }
   .item-name{
     position: relative;
     left: -50px;
@@ -895,7 +826,6 @@ body{
 .main-dashboard{
   margin-right: 20px;
   margin-bottom: 100px;
-  // border: red 1px solid;
 }
 .home-dashboard{
   border-radius: 10px;
@@ -957,6 +887,8 @@ body{
   .footer-home{
     margin-top: 40px;
   }
+
+
 @media screen and (max-width: 1200px){
   .item-object-group{
     width: 100%;
@@ -970,14 +902,18 @@ body{
 }
   
 @media screen and (max-width: 768px){
+  
+  //outside-link
+  
   .github-link{
     left: 25px;
   }
-  .fa-github{
-    margin-left: 30px;
-  }
+  
+
+
+
+
   .main-pic{
-    // border: solid 1px red;
     width: 500px;
   }
 
@@ -1014,7 +950,6 @@ body{
       align-items: center;
       justify-content: center;
       margin-left: 15px;
-      // border: solid 1px red;
       h2{
         font-size: 20px;
         margin-bottom: 40px;
@@ -1022,15 +957,9 @@ body{
       .advertising-article{
         width: 450px;
         display: flex;
-        // border: solid 1px red;
-  
       }
       .img{
-        // position: absolute;
         width: 270px;
-        // right: 0;
-        // bottom: 0;
-        
         img{
           width: 100%;
           border-radius: 10px;
@@ -1060,7 +989,6 @@ body{
     left: 100px;
   }
   .group-card{
-    // border: solid 1px red;
     width: 170px;
     margin-top: 70px;
     margin-left: 0px;
@@ -1071,7 +999,6 @@ body{
   .sign-out-status{
     display: flex;
     flex-direction: column;
-    // border: red 1px solid;
     justify-content: start;
   }
   .navbar-brand{
@@ -1086,7 +1013,6 @@ body{
   }
   
   .sign-in-name{
-    // border: solid 1px red;
     margin-left: 30px;
   }
 
@@ -1095,7 +1021,21 @@ body{
     width: 100%;
   }
 }
-
-
+@media screen and (min-width: 1200px){
+  .navbar-menu .outside-link-background{
+    width: 86%;
+  }
+ 
+  
+  
+}
+@media screen and (min-width: 768px){
+  .buttons .sign-in-buttons{
+    top: 70px;
+  }
+  .outside-link-item-nextpage .fa-github,.outside-link-item-nextpage .outside-link-title{
+    font-size: 60px;
+  }
+}
 
 
