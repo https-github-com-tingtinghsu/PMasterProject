@@ -1,107 +1,110 @@
 <div class="tile is-parent main-dashboard" data-turbolinks="false" data-workspace-name="<%= @workspace_name %>">
   <article class="tile is-child notification main-board">
-    <!-- <p class="title text-md main-board-title">看板：<%= @board.name %></p> -->
-    <div class="my-3">
-      <span class="subtitle my-2 ">主題列表 </span>
+    <div class="group-list-and-add-icon-for-group my-3">
+      <span class="my-2">主題列表 </span>
       <%= link_to '', new_board_group_path, class:"fas fa-plus-square text-lg rounded text-center" , style:"text-decoration: none; color: #59825A" %>
     </div>
-    <div class="content">
-      <div class="group-item-list" data-board-id="<%= @board.id%>">
-        <ul class="pr-5">
-          <% @groups.each do |group| %>
-            <li class="mx-5 mt-2 mb-4 item-group-li" data-group-id="<%= group.id %>">
-              <div class="item-group-li-box">
-                <div class="item-group-li-p-title">
-                  <%= group.name %>
-                </div>
-                <div class="item-group-li-p-icon">
-                	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
-                	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
-                  <%= link_to '', charts_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-chart-bar", style:"text-decoration: none;" if group.has_chart? %>   
-                </div>
+    <div class="content group-item-list" data-board-id="<%= @board.id%>">
+      <ul class="task-list">
+        <% @groups.each do |group| %>
+          <li class="item-group-li" data-group-id="<%= group.id %>">
+            <div class="item-group-li-box">
+              <div class="item-group-li-p-title">
+                <%= group.name %>
               </div>
-              <table class="table">
-                <% if group.items.present? %>
-                  <thead>
-                    <tr class="item-group-top-title">
-                      <th class="item-board-left">項目名稱</th>
-                      <th class="item-post-column" style="width: 70px;"></th>
-                      <th>負責人</th>
-                      <th>項目敘述</th>
-                      <th>點數</th>                      
-                      <th>到期日</th>
-                      <th>完成日</th>                      
-                      <th class="item-board-right">進度</th>
-                    </tr>
-                  </thead>
-                <% end %>
-                <tbody>
-                  <% @items.each do |item| %> 
-                    <% if group.id == item.group_id %>
-                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>" id="items-task-<%= item.id %>">
-                        
-                        <td class="task-first-lattice">
-                          <div class="task-arrow">
-                            <i class="fas fa-caret-right"></i>
-                          </div>
-                          <div class="edit-delete-task">
-                            <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
-                            <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
-                          </div>
-                          
-                          <div class="item-name" id="item-id-<%= item.id %>"><%= item.name %></div>
-                        </td>
-                        
-                        <td class="post-icon-and-counts" style="width: 50px;">
-                          <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", style:"text-decoration: none;" %>
-                          <% if (item.posts.count > 0) %>
-                            <span id="item-id-<%= item.id %>-of-posts-counts" class="posts-counts"><%= item.posts.count %></span>
-                          <% end %>
-                        </td>
-                        
-                        <td class="item-person">
-                          <% @assignments.each do |assignment| %>
-                            <% if assignment.item_id == item.id %>
-                              <span class= "mr-3"><%= User.find(assignment.user_id).display_name %></span>
-                            <% end %>
-                          <% end %>
-                        </td>
-                        
-                        <td class="item-description"><%= item.description %></td>
-
-                        <td class="item-point"><%= item.point %></td>
-                        
-                        <% if item.due_date != nil && item.status != "已完成" %>
-                          <% if (item.due_date - Date.current).to_i == 0 %>
-                            <td class="item-due-date">今日內完成</td>
-                          <% elsif (item.due_date - Date.current).to_i > 0 %>
-                            <td class="item-due-date" style="color: green">剩餘 <%= (item.due_date - Date.current).to_i%> 天</td>
-                          <% else (item.due_date - Date.current).to_i < 0 %>
-                            <td class="item-due-date" style="color: red">逾時 <%= (item.due_date - Date.current).to_i * -1%> 天</td>
-                          <% end %>
+              <div class="item-group-li-p-icon">
+              	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
+              	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
+                <%= link_to '', charts_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-chart-bar", style:"text-decoration: none;" if group.has_chart? %>   
+              </div>
+            </div>
+            <ul class="group-item-task-list">
+              <% if group.items.present? %>
+                <li class="item-group-top-title rounded-t">
+                  <div class="item-board-left item-name-top">項目名稱</div>
+                  <div class="item-post-column item-post"></div>
+                  <div class="item-person">負責人</div>
+                  <div class="item-description">項目敘述</div>
+                  <div class="item-point">點數</div>                      
+                  <div class="item-due-date">到期日</div>
+                  <div class="item-finish">完成日</div>                      
+                  <div class="item-board-right item-status">進度</div>
+                </li>
+              <% end %>
+              <% @items.each do |item| %>
+                <% if group.id == item.group_id %>
+                  <li class="items-task is-hoverable" data-item-id="<%= item.id %>" id="items-task-<%= item.id %>">
+                    <div class="task-first-lattice">
+                      <div class="task-arrow">
+                        <i class="fas fa-caret-right"></i>
+                      </div>
+                      <div class="edit-delete-task">
+                        <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
+                        <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
+                      </div>
+                      <div class="item-name" data-item-name="<%= item.name %>">
+                        <% if item.name.length>11 %>
+                          <%= item.name[0..10] %>...
                         <% else %>
-                          <td class="item-due-date"></td>
+                          <%= item.name %>
                         <% end %>
-                        
-                        <td class="item-point"><%= item.finish_date %></td>                        
-                        <td>
-                          <%= csrf_meta_tag %>
-                          <%= select_tag( item.id , options_for_select([['待指派', '待指派'], ['進行中', '進行中'], ['卡關中', '卡關中'],['待修改', '待修改'],['已完成', '已完成']], item.status)) %>
-                        </td>
-                      </tr>
+                      </div>
+                      <!-- <div class="item-name" id="item-id-<%= item.id %>"><%= item.name %></div> -->
+                    </div>
+
+                    <div class="post-icon-and-counts item-post">
+                      <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", style:"text-decoration: none;" %>
+                      <% if (item.posts.count > 0) %>
+                        <span id="item-id-<%= item.id %>-of-posts-counts" class="posts-counts"><%= item.posts.count %></span>
+                      <% end %>
+                    </div>
+
+                    <div class="item-person">
+                      <% @assignments.each do |assignment| %>
+                        <% if assignment.item_id == item.id %>
+                          <span class= "mr-3"><%= User.find(assignment.user_id).display_name %></span>
+                        <% end %>
+                      <% end %>
+                    </div>
+
+                    <div class="item-description" data-item-description="<%= item.description %>">
+                      <% if item.name.length>15 %>
+                        <%= item.description[0..14] %>...
+                      <% else %>
+                        <%= item.description %>
+                      <% end %>
+                    </div>
+
+                    <div class="item-point"><%= item.point %></div>
+
+                    <% if item.due_date != nil && item.status != "已完成" %>
+                      <% if (item.due_date - Date.current).to_i == 0 %>
+                        <div class="item-due-date">今日內完成</div>
+                      <% elsif (item.due_date - Date.current).to_i > 0 %>
+                        <div class="item-due-date" style="color: green">剩餘 <%= (item.due_date - Date.current).to_i%> 天</div>
+                      <% else (item.due_date - Date.current).to_i < 0 %>
+                        <div class="item-due-date" style="color: red">逾時 <%= (item.due_date - Date.current).to_i * -1%> 天</div>
+                      <% end %>
+                    <% else %>
+                      <div class="item-due-date"></div>
                     <% end %>
-                  <% end %>
-                  <tr>
-                    <td colspan="6" class="add-item rounded-b">
-                      <%= link_to ' 新增項目', new_group_item_path(group.id), class:"fas fa-plus-square", style:"display:block; height:100%;text-decoration: none;" %>
-                    </td>
-                  </td>
-                </tbody>
-              </table>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+
+                    <div class="item-finish"><%= item.finish_date %></div>                        
+               
+                    <div class="item-status">
+                      <%= csrf_meta_tag %>
+                      <%= select_tag( item.id , options_for_select([['待指派', '待指派'], ['進行中', '進行中'], ['卡關中', '卡關中'],['待修改', '待修改'],['已完成', '已完成']], item.status)) %>
+                    </div>
+                  </li>
+                <% end %>
+              <% end %>
+              <li class="add-item rounded-b">
+                <%= link_to ' 新增項目', new_group_item_path(group.id), class:"fas fa-plus-square add-item-icon", style:"display:block; height:100%;text-decoration: none;" %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
     </div>
     
   </article>
