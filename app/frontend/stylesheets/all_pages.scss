@@ -422,7 +422,7 @@ body{
 .item-name-top{
   padding-left: 5px;
   width: 22%;
-  min-width: 150px;
+  // min-width: 150px;
 }
 .item-name{
   white-space: nowrap;
@@ -662,6 +662,10 @@ body{
   }
   .item-btn{
     margin-left: 150px;
+  }
+  .item-name{
+    width: 100px;
+    overflow: hidden;
   }
   .item-description, .item-due-date, .item-finish{
     display: none;

@@ -1,12 +1,15 @@
-.item-of-task-list{
+.mytask-item-group-top-title{
   display: flex;
-  justify-content: space-evenly;
-  .item-name-abc{
-    flex-grow: 2 ;
-    background-color: aqua;
-    text-overflow: ellipsis;
-    // width: 150px;
-    overflow: auto;
+  justify-content: flex-start;
+}
+.mytask-items-task{
+  display: flex;
+  
+  .mytask-item-name{
+    overflow-x: hidden;
     white-space: nowrap;
   }
+}
+.mytask-group-item-list{
+  padding-bottom: 50px;
 }

@@ -2,125 +2,64 @@
   <article class="tile is-child notification main-board">
     <div class="my-3">
       <span class="subtitle my-2 ">我的任務</span>
-      
-      <div class="column">
-        <div class="button has-tooltip-bottom" data-tooltip="Tooltip Text">bottom tooltip</div>
-      </div>
     </div>
     <div class="content">
       <div class="group-item-list">
-        <% if @items.count < 0 %>
+        <% if @items.count < 1 %>
           <h1>您目前沒有任務要進行</h1>
         <% else %>
-          <ul class="pr-5">
-            <% @items.each do |item| %>
-              <li class="item-of-task-list" >
-                <div class="item-name-abc"><%= item.name %></div>
-
-                <div class="post-icon-and-counts-abc">
-                  <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
-                  <% if (item.posts.count > 0) %>
-                    <div id="item-id-<%= item.id %>-of-posts-counts" class="posts-counts"><%= item.posts.count %></div>
-                  <% end %>
-                </div>
-
-                
-                  <% if item.due_date != nil && item.status != "已完成" %>
-                    <% if (item.due_date - Date.current).to_i == 0 %>
-                      <div class="item-due-date-abc">今日內完成</div>
-                    <% elsif (item.due_date - Date.current).to_i > 0 %>
-                      <div class="item-due-date-abc" style="color: green">剩餘 <%= (item.due_date - Date.current).to_i%> 天</div>
-                    <% else (item.due_date - Date.current).to_i < 0 %>
-                      <div class="item-due-date-abc" style="color: red">逾時 <%= (item.due_date - Date.current).to_i * -1%> 天</div>
-                    <% end %>
-                  <% else %>
-                    <div class="item-due-date-abc"></div>
-                  <% end %>
-                
-                
-                <div class="item-status-abc rounded-md"><%= item.status %></div>
-
+          <!-- <div class="content group-item-list" data-board-id="<%#= @board.id%>"> -->
+              
+            <ul class="mytask-group-item-task-list">
+              <li class="mytask-item-group-top-title rounded-t">
+                <div class="mytask-item-board-left my-taskitem-name-top">項目名稱</div>
+                <div class="mytask-item-description">項目敘述</div>
+                <div class="mytask-item-due-date">到期日</div>
+                <div class="mytask-item-finish">完成日</div>                      
+                <div class="mytask-item-board-right item-status">進度</div>
               </li>
-            <% end %>
-          <!-- <li class="mx-5 mt-2 mb-4 item-group-li">
-              <table class="table">
-                  <thead>
-                    <tr class="item-group-top-title">
-                      <th class="item-board-left">項目名稱</th>
-                      <th class="item-post-column" style="width: 70px;"></th>
-                      <th>負責人</th>
-                      <th>項目敘述</th>
-                      <th>點數</th>                      
-                      <th>到期日</th>
-                      <th>完成日</th>                      
-                      <th class="item-board-right">進度</th>
-                    </tr>
-                  </thead>
-                <tbody>
-                  <% @items.each do |item| %> 
-                      <tr class="items-task is-hoverable" data-item-id="<%= item.id %>" id="items-task-<%= item.id %>">
-                        <td class="task-first-lattice">
-                          <div class="task-arrow">
-                            <i class="fas fa-caret-right"></i>
-                          </div>
-                          <div class="edit-delete-task">
-                            <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
-                            <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
-                          </div>
-                          <div class="column">
-                            <div class="item-name button has-tooltip-bottom" id="item-id-<%= item.id %>" data-tooltip="<%= item.name %> ">
-                              <%= item.name %>
-                            </div>
-                          </div>
-                          <div class="item-name" id="item-id-<%= item.id %>">
-                            <%= item.name %>
-                          </div>
-                        </td>
-                        <td class="post-icon-and-counts" style="width: 50px;">
-                          <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", data:{turbolinks: false}, style:"text-decoration: none;" %>
-                          <% if (item.posts.count > 0) %>
-                            <span id="item-id-<%= item.id %>-of-posts-counts" class="posts-counts"><%= item.posts.count %></span>
-                          <% end %>
-                        </td>
-                        <td class="item-person">
-                          <% @assignments.each do |assignment| %>
-                            <% if assignment.item_id == item.id %>
-                              <span class= "mr-3"><%= User.find(assignment.user_id).display_name %></span>
-                            <% end %>
-                          <% end %>
-                        </td>
-                        <td class="item-description"><%= item.description %></td>
+              <% @items.each do |item| %>
+                <% if item.status != "已完成" %>
+                  <li class="mytask-items-task is-hoverable" data-item-id="<%= item.id %>" id="items-task-<%= item.id %>">
+                    <div class="mytask-task-first-lattice">
+                      <div class="mytask-item-name" data-item-name="<%= item.name %>">
+                        <%= link_to item.name, board_groups_path(Group.find(item.group_id).board_id)%>
+                      </div>
+                    </div>
 
-                        <td class="item-point"><%= item.point %></td>                        
-                        <% if item.due_date != nil && item.status != "已完成" %>
-                          <% if (item.due_date - Date.current).to_i == 0 %>
-                            <td class="item-due-date">今日內完成</td>
-                          <% elsif (item.due_date - Date.current).to_i > 0 %>
-                            <td class="item-due-date" style="color: green">剩餘 <%= (item.due_date - Date.current).to_i%> 天</td>
-                          <% else (item.due_date - Date.current).to_i < 0 %>
-                            <td class="item-due-date" style="color: red">逾時 <%= (item.due_date - Date.current).to_i * -1%> 天</td>
-                          <% end %>
-                        <% else %>
-                          <td class="item-due-date"></td>
-                        <% end %>
-                        <td class="item-point"><%= item.finish_date %></td>                        
-                        <td><span class="item-status rounded-md"><%= item.status %></span></td>
-                      </tr>
-                  <% end %>
-                  <tr>
-                  
-                  </td>
-                </tbody>
-              </table>
-            </li> -->
-          </ul>
+                    <div class="mytask-item-description" data-item-description="<%= item.description %>">
+                      <% if item.name.length>15 %>
+                        <%= item.description[0..14] %>...
+                      <% else %>
+                        <%= item.description %>
+                      <% end %>
+                    </div>
+
+                    <% if item.due_date != nil && item.status != "已完成" %>
+                      <% if (item.due_date - Date.current).to_i == 0 %>
+                        <div class="mytask-item-due-date">今日內完成</div>
+                      <% elsif (item.due_date - Date.current).to_i > 0 %>
+                        <div class="mytask-item-due-date" style="color: green">剩餘 <%= (item.due_date - Date.current).to_i%> 天</div>
+                      <% else (item.due_date - Date.current).to_i < 0 %>
+                        <div class="mytask-item-due-date" style="color: red">逾時 <%= (item.due_date - Date.current).to_i * -1%> 天</div>
+                      <% end %>
+                    <% else %>
+                      <div class="mytask-item-due-date"></div>
+                    <% end %>
+
+                    <div class="mytask-item-finish"><%= item.finish_date %></div>                        
+               
+                    <div class="mytask-item-status">
+                      <%= item.status %>
+                    </div>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
         <% end %>
       </div>
     </div>
-    
   </article>
-
-  <div id="posts-block" class="posts-block rounded"></div>
   <div class="footer">
     <p>
       <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.

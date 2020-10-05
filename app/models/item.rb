@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many :assignments, dependent: :destroy
   has_many :users, through: :assignments 
 
-  # validates :name, presence: true
+  # validates :name, presence: true, length: {maximum:20}
 
 
   # 把item裡，同一user的point加總
