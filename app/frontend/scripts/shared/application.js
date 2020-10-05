@@ -145,7 +145,7 @@ document.addEventListener('turbolinks:load', () => {
       //箭頭動畫
       // e.target.parentNode.parentNode.querySelector(".edit-delete-task").classList.toggle("edit-delete-task-open")
       //編輯icon開盒
-      e.target.parentNode.parentNode.querySelector(".item-name").classList.toggle("item-name-right")
+      e.target.parentNode.parentNode.querySelector(".edit-delete-task").classList.toggle("edit-delete-task-open")
     }
   }
 
