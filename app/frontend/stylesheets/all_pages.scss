@@ -5,9 +5,63 @@ a{
   text-decoration: none !important;
   background-color: unset !important;
 }
+.notice{
+  position: absolute;
+  width: 200px;
+  left: 600px;
+  z-index: 1000000;
+  font-weight: 600;
+  color: rgb(107, 161, 107);
+}
+//sign-in
+.hero-body{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 500;
+  font-size: 15px;
+  .subtitle{
+    font-size: 30px;
+    margin-bottom: 10px;
+    .new-item-submit{
+      width: 100px;
+      height: 30px;
+      padding: 20px;
+      font-size: 15px;
+      background-color: rgb(69, 175, 69);
+      color: white;
+      margin: 10px;
+      border-radius: 5px;
+      transition: .3s;
+    }
+    .new-item-submit:hover{
+      background-color: rgb(51, 42, 42);
+      transition: .3s;
+    }
+  }
+  .actions{
+    display: flex;
+    justify-content: center;
+  }
+}
+.sign-in-checkbox{
+  display: flex;
+  align-items: center;
+
+}
+.input{
+  width: 100%;
+  margin-top: 10px;
+}
+
+
 //new item
 .new-item-page{
-  // display: flex;
   background-color: white;
   width: 100%;
   height: 550px;
@@ -25,15 +79,12 @@ a{
   font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
 
   .advertising{
-    // position: relative;
     width: 50%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // border: solid 1px red;
-    
     h2{
       font-size: 25px;
       margin-bottom: 40px;
@@ -41,15 +92,9 @@ a{
     .advertising-article{
       width: 450px;
       display: flex;
-      // border: solid 1px red;
-
     }
     .img{
-      // position: absolute;
       width: 300px;
-      // right: 0;
-      // bottom: 0;
-      
       img{
         width: 100%;
         border-radius: 10px;
@@ -61,7 +106,6 @@ a{
 .new-item-title{
     margin-bottom: 30px;
     display: flex;
-    // justify-content: center;
 }
 
 .new-item-title{
@@ -74,9 +118,7 @@ a{
   margin-left: 50px;
   padding-left: 20px;
   border-right: solid #aaa 1px;
-  // padding-left: 80px;
   box-sizing: border-box;
-  // border: solid red 1px;
 }
 .item-body{
     display: flex;
@@ -104,7 +146,6 @@ a{
     font-weight: 500;
 }
 .assign-label{
-    // margin: 100px;
     .assign-init{
         margin: 5px 0px;
         text-align: center;
@@ -143,7 +184,6 @@ a{
 
 // group
 .group-card{
-  // border: solid 1px red;
   width: 170px;
   margin-top: 70px;
   margin-left: 100px;
@@ -177,70 +217,422 @@ body{
     }
   }
   .navbar-item{
-    height: 60px;
     color: white;
-    font-size: 16px;
+    font-size: 40px;
     font-weight: 500;
-    // border: solid red 1px;
-    // padding-left: 50px;
     .logo{
       width: 180px;
       height: 60px;
-      // border: red solid 1px;
       display: flex;
       align-items: center;
       margin-left: 10px;
       img{
         width: 100%;
         height: 100%;
-        // border: solid 1px blue;
       }
+     
     }
+    .github-link{
+      position: absolute;
+      bottom: 20px;
+      width: 40px;
+      height: 50%;
+    }
+    .github-link-img{
+      cursor: pointer;
+    }
+    
   }
-
-  // .navbar-item{
-  //   display: flex;
-  //   align-items: center;
-  //   font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
-
-    .buttons{
-      margin: 0;
+  
+  .outside-link-background-disappear{
+    display: none;
+    
+  }
+  .outside-link-board-integrations-disappear{
+    display: none;
+  }
+  
+  .outside-link-background{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 42, 42, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .close{
+      font-size: 35px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 10px;
       margin-right: 10px;
-      .sign-in-buttons{
-        // border: solid red 1px;
-        background-color: #EFF4EF;
-        height: 0;
-        width: 150px;
+      cursor: pointer;
+    }
+    .outside-link-board-integrations-disappear{
+      display: none;
+    }
+    .outside-link-board-disappear{
+      display: none;
+    }
+    .outside-link-board, .outside-link-board-integrations{
+      width: 70%;
+      height: 70%;
+      background-color: rgb(31, 28, 28);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      position: relative;
+
+      .outside-link-back{
+        cursor: pointer;
+        color: white;
         position: absolute;
-        top: 70px;
-        right: 0px;
-        overflow: hidden;
-        background: rgba(255,255,255,.8);
-        box-shadow: 0 2px 5px rgba(0,0,0,.3);
-        margin: 0;
-        padding: 0;
-        transition: 0.5s;
-        z-index: 100000;
-        strong{
-          a{
-            display: block;
-            padding: 5px 10px;
-            line-height: 34px;
-            font-size: 14px;
-            text-align: center;
-          }
-          
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 30px;
+        h2{
+          margin-left: 15px;
+        }
+
+      }
+      .outside-link-menu{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 50px;
+        .outside-link-menu-title{
+          width: 80%;
+          height: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          border-bottom: gray 3px solid;
+          position: absolute;
+          top: 0;
+          font-size: 30px;
+          font-weight: 600;
+        }
+        .btn-integrations{
+          cursor: pointer;
+          height: 10%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          background-color: #aaa;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          border-radius: 10px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          font-size: 15px;
+          font-weight: 600;
+          padding: 10px;
+        }
+        .btn-explore{
+          cursor: pointer;
+          height: 10%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          background-color: #aaa;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          border-radius: 10px;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          font-size: 15px;
+          font-weight: 600;
+          padding: 10px;
+        }
+        .outside-link-item{
+          cursor: pointer;
+          width: 200px;
+          height: 15%;
+          background-color: rgb(31, 28, 28);
+          border-radius: 10px;
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+         
+      }
+      .outside-link-item{
+        width: 40%;
+        height: 20%;
+        color: white;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .outside-link-title{
+          margin-left: 10px;
+        }
+        .github-link{
+          width: 100%;
+          height: 100%;
+          position: absolute;
         }
       }
-      .sign-in-buttons-open{
-        height: 88px;
-        transition: 0.5s;
-        
-      }
-    
     }
 
-  // }
+    .outside-link-board-nextpage-disappear{
+      display: none;
+    }
+    .outside-link-board-nextpage{
+      width: 70%;
+      height: 70%;
+      background-color: rgb(31, 28, 28);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      position: relative;
+      .outside-link-back-nextpage{
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 30px;
+        h2{
+          margin-left: 15px;
+        }
+
+      }
+      .outside-link-menu{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 50px;
+        .outside-link-menu-title{
+          width: 80%;
+          height: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          border-bottom: gray 3px solid;
+          position: absolute;
+          top: 0;
+          font-size: 30px;
+          font-weight: 600;
+        }
+       
+        
+      }
+      .outside-link-item-nextpage{
+        cursor: pointer;
+        width: 40%;
+        height: 20%;
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .outside-link-title{
+          margin-left: 20px;
+        }
+      }
+      
+    }
+
+    .outside-link-board-thirdpage-disappear{
+      display: none;
+    }
+    .outside-link-board-thirdpage{
+      width: 70%;
+      height: 70%;
+      background-color: rgb(31, 28, 28);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      position: relative;
+      .outside-link-back-thirdpage{
+        cursor: pointer;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 30px;
+        h2{
+          margin-left: 15px;
+        }
+
+      }
+      .outside-link-menu{
+        width: 80%;
+        height: 80%;
+        background-color: white;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 50px;
+        .outside-link-menu-title{
+          width: 80%;
+          height: 30%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgb(31, 28, 28);
+          border-bottom: gray 3px solid;
+          position: absolute;
+          top: 0;
+          font-size: 30px;
+          font-weight: 600;
+        }
+       
+        
+      }
+      .outside-link-item{
+        cursor: pointer;
+        height: 10%;
+        color: white;
+        background-color:rgb(31, 28, 28);
+        border-radius: 10px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-left: 10px;
+        .outside-link-title{
+          margin-left: 10px;
+        }
+      }
+      .context{
+        display: flex;
+        justify-content: center;
+        .context-item{
+          text-align: center;
+          p{
+            font-size: 20px;
+          }
+          input{
+            width: 150px;
+            outline: none;
+            height: 30px;
+            background-color: rgb(31, 28, 28);
+            color: white;
+          }
+        }
+        
+      }
+      .add-to-board{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #aaa;
+        color: rgb(31, 28, 28);
+        border-radius: 10px;
+        height: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px;
+        cursor: pointer;
+      }
+      
+      
+    }
+  }
+ 
+
+
+
+  
+
+  .buttons{
+    margin: 0;
+    margin-right: 10px;
+    position: relative;
+    .sign-in-buttons{
+      // border: solid red 1px;
+      background-color: #EFF4EF;
+      height: 0;
+      width: 150px;
+      position: absolute;
+      top: 30px;
+      left: 10px;
+      overflow: hidden;
+      background: rgba(255,255,255,.8);
+      box-shadow: 0 2px 5px rgba(0,0,0,.3);
+      margin: 0;
+      padding: 0;
+      transition: 0.5s;
+      z-index: 100000;
+      strong{
+        a{
+          display: block;
+          padding: 5px 10px;
+          line-height: 34px;
+          font-size: 14px;
+          text-align: center;
+        }
+        
+      }
+    }
+    .sign-in-buttons-open{
+      height: 88px;
+      transition: 0.5s;
+      
+    }
+  
+  }
+  @media screen and (min-width: 768px){
+    .buttons .sign-in-buttons{
+      top: 70px;
+    }
+  }
   
   .sign-out-status{
     display: flex;
@@ -248,20 +640,20 @@ body{
   }
   .sign-out-buttons{
     color: white;
+    outline: none;
   }
   
   .arrow{
     transition: 0.5s;
     transform: rotate(180deg);
-    margin-left: 10px;    
   }
   .arrow_icon{
     font-size: 20px;
     transition: 0.5s;
+    margin-right: 20px;
   }
   .sign-in-name{
     color: white;
-    // border: solid 1px red;
     display: flex;
     align-items: center;
     color: #ECC94B;
@@ -279,12 +671,8 @@ body{
 
 //workspace_list
 .workspace-list{
-  // border: solid 1px blue;
   width: 100%;
   box-shadow:none;
-  // padding-left: 30px;
-  // border: solid red 1px;
-  
   .workspace-item{
     width: 200px;
     margin-bottom: 25px;
@@ -320,9 +708,7 @@ body{
 .board-link{
   color: white;
 }
-.task-first-lattice{
-  overflow: auto;
-}
+
 .fa-plus-square{
   color: white;
 }
@@ -335,7 +721,6 @@ body{
   height: 100%;
   overflow: auto;
   background-color: #5A815A;
-  // border: solid red 1px;
   padding: 0px;
 }
 
@@ -360,7 +745,6 @@ body{
 // groups-task-list
 
 .item-group-li{
-  // border: red solid 1px;
   padding-bottom: 50px;
 }
 .item-group-li-box{
@@ -369,13 +753,20 @@ body{
   .item-group-li-p-title{
     font-size: 30px;
     margin-right: 10px;
-    // margin-right: 10px;
+    line-height: 30px;
   }
   .item-group-li-p-icon{
-
+    display: flex;
+    align-items: center;
     font-size: 20px;
     color: #a6bba6;
   }
+}
+.item-person-span{
+  overflow: auto;
+}
+.item-task{
+  position: relative;
 }
 .task-first-lattice{
   display: flex;
@@ -390,36 +781,39 @@ body{
   .arrow{
     transition: 0.5s;
     transform: rotate(180deg);
-    position: relative;
+    
   }
   .edit-delete-task{
+
     // border: 1px solid red;
+    position: absolute;
+    width: 0px;
+    height: 30px;
+    background-color: #D3E3D3;
+    left: 95px;
     display: flex;
-    margin-right: 5px;
-    // width: 0px;
-    // overflow: hidden;
-    // transition: 0.5s;
+    align-items: center;
+    overflow: auto;
+    transition: 0.5s;
   }
 
-  // .edit-delete-task-open{
-    // width: 100px;
-    // transition: 0.5s;
-  // }
+  .edit-delete-task-open{
+    width: 60px;
+    transition: 0.5s;
+    height: 30px;
+    display: flex;
+    align-items: center;
+  }
+  
   .item-name{
-    position: relative;
-    left: -50px;
     background-color: #EFF4EF;
-    width: 100%;
+    width: 130px;
     transition: .5s;
     white-space: nowrap;
     overflow: auto;
-    text-overflow:ellipsis;
+    box-sizing: border-box;
   }
-  .item-name-right{
-    position: relative;
-    left: 5px;
-    transition: .5s;
-  }
+
 }
 
 
@@ -462,7 +856,6 @@ body{
 .main-dashboard{
   margin-right: 20px;
   margin-bottom: 100px;
-  // border: red 1px solid;
 }
 .home-dashboard{
   border-radius: 10px;
@@ -482,6 +875,7 @@ body{
 
 .main-dashboard-pic{
   margin-top: 100px;
+  margin-bottom: 50px;
   margin-left: auto;
   width: 300px;
 }
@@ -525,23 +919,103 @@ body{
   }
 
 
+@media screen and (max-width: 1200px){
+  .item-object-group{
+    width: 100%;
+    margin-left: 0px;
+    padding-right: 0px;
+    border-right: solid #aaa 1px;
+    padding-right: 80px;
+    box-sizing: border-box;
+  }
+  
+}
+  
 @media screen and (max-width: 768px){
+  
+  //outside-link
+  
+  .github-link{
+    left: 25px;
+  }
+  
+
+
+
+
+  .main-dashboard-pic{
+    margin-top: 80px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    width: 300px;
+  }
   .main-pic{
-    // border: solid 1px red;
     width: 500px;
+  }
+
+  //new && edit 
+  .group-card{
+    width: 170px;
+    margin-top: 70px;
+    margin-left: 0px;
+    .group-input{
+      border-radius: 5px;
+    }
+  }
+
+  //item
+  .task-point, .date-down{
+    display: none;
+  }
+
+//
+  .item-name{
+    width: 100%;
+  }
+  .post-icon-and-counts{
+    display: none;
+  }
+  .item-post-column{
+    display: none;
+  }
+  .item-point{
+    display: none;
+  }
+  // .task-arrow{
+  //   display: none;
+  // }
+  // .items-task{
+  //   position: relative;
+  // }
+  // .edit-delete-task{
+  //   position: absolute;
+  //   left: -60px;
+  // }
+  
+  //
+  .item-group-li-p-icon{
+    display: flex;
+    align-items: center;
   }
   .new-item-submit{
     width: 80px;
     font-size: 10px;
   }
   .item-object-group{
-    width: 45%;
-    margin-left: 10px;
-    padding-right: 10px;
+    width: 100%;
+    margin-left: 0px;
+    padding-right: 0px;
     border-right: solid #aaa 1px;
-    // padding-left: 80px;
     box-sizing: border-box;
   }
+  .tag-meber{
+    width: 60%;
+  }
+  .new-item-submit{
+    width: 80px;
+    font-size: 10px;
+  }
+  
   .item-label{
     font-size: 15px;
     color: rgb(98, 92, 92);
@@ -559,7 +1033,6 @@ body{
       align-items: center;
       justify-content: center;
       margin-left: 15px;
-      // border: solid 1px red;
       h2{
         font-size: 20px;
         margin-bottom: 40px;
@@ -567,15 +1040,9 @@ body{
       .advertising-article{
         width: 450px;
         display: flex;
-        // border: solid 1px red;
-  
       }
       .img{
-        // position: absolute;
-        width: 300px;
-        // right: 0;
-        // bottom: 0;
-        
+        width: 270px;
         img{
           width: 100%;
           border-radius: 10px;
@@ -584,17 +1051,20 @@ body{
     }
     
   }
-  .footer{
-    padding: 0;
-    position: absolute;
-    bottom: 90px;
-    left: 90px;
+  .main-board{
+    position: relative;
+    .footer{
+      position: absolute;
+      bottom: 10px;
+    }
+
   }
+  
   .footer-edit{
     padding: 0;
     position: absolute;
     bottom: 40px;
-    left: 40px;
+    left: 150px;
   }
   .footer-dashboard{
     padding: 0;
@@ -603,58 +1073,59 @@ body{
     left: 100px;
   }
   .group-card{
-    // border: solid 1px red;
     width: 170px;
     margin-top: 70px;
     margin-left: 0px;
     .group-input{
       border-radius: 5px;
     }
+
+
+
   }
+ 
+
+  //navbar
   .sign-out-status{
     display: flex;
     flex-direction: column;
-    // border: red 1px solid;
     justify-content: start;
+  }
+  .navbar-brand{
+    display: flex;
+    align-items: center;
   }
   .navbar-end{
     .hamburger-item{
       margin-left: 17px;
     }
-    
+   
   }
-  .sign-in-buttons{
-    // border: solid red 1px;
-    background-color: #EFF4EF;
-    height: 0;
-    width: 150px;
-    position: absolute;
-    left: 120px;
-    overflow: hidden;
-    background: rgba(255,255,255,.8);
-    box-shadow: 0 2px 5px rgba(0,0,0,.3);
-    margin: 0;
-    padding: 0;
-    transition: 0.5s;
-    z-index: 100000;
-    strong{
-      a{
-        display: block;
-        padding: 5px 10px;
-        line-height: 34px;
-        font-size: 14px;
-        text-align: center;
-      }
-      
-    }
-    
-  }
+  
   .sign-in-name{
-    // border: solid 1px red;
     margin-left: 30px;
   }
+
+
+  //sign-in
+  .input{
+    width: 100%;
+  }
 }
-
-
-
+@media screen and (min-width: 1200px){
+  .navbar-menu .outside-link-background{
+    width: 86%;
+  }
+ 
+  
+  
+}
+@media screen and (min-width: 768px){
+  .buttons .sign-in-buttons{
+    top: 70px;
+  }
+  .outside-link-item-nextpage .fa-github,.outside-link-item-nextpage .outside-link-title{
+    font-size: 60px;
+  }
+}
 

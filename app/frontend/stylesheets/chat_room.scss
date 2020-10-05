@@ -168,7 +168,7 @@
   .chatroombox{
     position: fixed;
     bottom: 0px;
-    right: 530px;
+    right: 570px;
     z-index: 10000;
     font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
 
@@ -213,8 +213,9 @@
     .who-online{
       position: relative;
       top: 20px;
-      left: 470px;
-      z-index: 10000;
+      left: 430px;
+      // z-index: 10000;
+
       // border: solid 1px red;
       
       h2{
@@ -229,7 +230,16 @@
         background-color: rgb(130, 194, 34);
         color: honeydew;
         margin: 10px;
+        padding: 3px;
       }
+    }
+    .chatroombox{
+      position: fixed;
+      bottom: 0px;
+      right: 450px;
+      font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+  
+
     }
   }
 }

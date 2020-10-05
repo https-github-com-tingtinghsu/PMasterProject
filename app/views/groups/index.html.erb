@@ -28,9 +28,9 @@
                       <th class="item-post-column" style="width: 70px;"></th>
                       <th>負責人</th>
                       <th>項目敘述</th>
-                      <th>點數</th>                      
+                      <th class="task-point">點數</th>                      
                       <th>到期日</th>
-                      <th>完成日</th>                      
+                      <th class="date-down">完成日</th>                      
                       <th class="item-board-right">進度</th>
                     </tr>
                   </thead>
@@ -61,7 +61,7 @@
                         <td class="item-person">
                           <% @assignments.each do |assignment| %>
                             <% if assignment.item_id == item.id %>
-                              <span class= "mr-3"><%= User.find(assignment.user_id).display_name %></span>
+                              <div class= "item-person-span"><%= User.find(assignment.user_id).display_name %></div>
                             <% end %>
                           <% end %>
                         </td>
@@ -99,7 +99,11 @@
         </ul>
       </div>
     </div>
-    
+    <div class="footer">
+    <p>
+      <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
+    </p>
+  </div>
   </article>
   
   <div class="chatroombox">
@@ -119,10 +123,6 @@
     <% end %>
   </div>
   <div id="posts-block" class="posts-block rounded"></div>
-  <div class="footer">
-    <p>
-      <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
-    </p>
-  </div>
+  
 </div>
   
