@@ -2,14 +2,14 @@ import consumer from "../../javascript/channels/consumer"
 
 consumer.subscriptions.create({ channel: "ReplyChannel" }, {
   connected() {
-    console.log("reply connect")
+    // console.log("reply connect")
   },
 
   disconnected() {
   },
 
   received(data) {
-    console.log(data)
+    // console.log(data)
 
     const replies = $('#post-id-' + data.postid + '-of-replies-counts')
     if(!replies) return

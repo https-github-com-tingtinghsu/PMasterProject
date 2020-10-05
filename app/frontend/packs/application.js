@@ -46,11 +46,7 @@ import Vue from 'vue/dist/vue.esm'
 import App from '../components/app.vue'
 import Workspace from '../components/workspace.vue'
 
-
-require("../channels/webcam_channel");
-
-console.log("Hello World from Webpacker");
-console.log("Action cable now managed with Webpacker!");
+// require("../channels/webcam_channel");
 
 Vue.use(TurbolinksAdapter)
 

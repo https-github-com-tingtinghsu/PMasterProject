@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Initialize user's own video
 document.onreadystatechange = () => {
+  const element = document.querySelector('.local-video')
+  console.log("find video : " + element)
+  if(!element)return
   if (document.readyState === "interactive") {
     navigator.mediaDevices
       .getUserMedia({
@@ -206,10 +209,6 @@ const exchange = (data) => {
 };
 
 const broadcastData = (data) => {
-  /**
-   * Add CSRF protection: https://stackoverflow.com/questions/8503447/rails-how-to-add-csrf-protection-to-forms-created-in-javascript
-   */
-  console.log("BCD")
   const csrfToken = document.querySelector("[name=csrf-token]").content;
   const headers = new Headers({
     "content-type": "application/json",
