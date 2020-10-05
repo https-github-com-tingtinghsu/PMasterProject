@@ -72,18 +72,14 @@
         <div class="close">
           <i class="far fa-times-circle"></i>
         </div>
+        <%= link_to  "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link" do%>
         <div class="outside-link-item-nextpage">
           <i class="fab fa-github"></i>
-          <!-- <% if(Rails.env.development?) %>
-            <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%>
-          <% else %>
-            <%= link_to ' ', "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo",  class: "navbar-item hamburger-item github-link"%>
-          <% end %> -->
           <div class="outside-link-title">
             <h2>GitHub</h2>
           </div>
         </div>
-        
+        <% end %>
       </div>
 
       <div class="outside-link-board-thirdpage-disappear">
