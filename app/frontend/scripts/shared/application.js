@@ -148,7 +148,7 @@ document.addEventListener('turbolinks:load', () => {
   
 
   //Get edit_task toggle the "is-active"
-  const taskli = document.querySelectorAll('.items-task')
+  const taskTables = document.querySelectorAll('.table')
   //先抓出所有的table
   // const editArrow = document.querySelector('.fa-caret-right')
   
@@ -159,14 +159,14 @@ document.addEventListener('turbolinks:load', () => {
       //如果fa-caret-right是有的，就執行以下程式
       e.target.classList.toggle("arrow")
       //箭頭動畫
-      e.target.parentNode.parentNode.querySelector(".edit-delete-task").classList.toggle("edit-delete-task-open")
+      // e.target.parentNode.parentNode.querySelector(".edit-delete-task").classList.toggle("edit-delete-task-open")
       //編輯icon開盒
       e.target.parentNode.parentNode.querySelector(".edit-delete-task").classList.toggle("edit-delete-task-open")
     }
   }
 
-  taskli.forEach((list)=>{
-    list.addEventListener("click", toggleTaskName)
+  taskTables.forEach((table)=>{
+    table.addEventListener("click", toggleTaskName)
   })
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables) 
