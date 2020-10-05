@@ -27,7 +27,9 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
+			# puts "======================#{params[:person]}========================"
 			if params[:person] != nil
+				# puts "======================#{params[:person].values[0]}========================"
 				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
 			end
 			board =	Board.find(Group.find(@item.group_id).board_id)
