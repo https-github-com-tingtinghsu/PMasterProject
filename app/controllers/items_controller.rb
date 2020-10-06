@@ -78,6 +78,16 @@ class ItemsController < ApplicationController
 		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsname: params[:name])
 	end
 
+	def update_description
+		@item = Item.find_by(id: params[:id])
+		@item.description = params[:description]
+		
+		if !@item.save
+			render :index
+		end
+		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsdescription: params[:description])
+	end
+
 	def update_status
 		@item = Item.find_by(id: params[:id])
 		@item.status = params[:status]

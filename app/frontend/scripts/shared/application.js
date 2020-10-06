@@ -17,6 +17,24 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }); 
 
+  $('.item-description').on("change", function(e){ 
+    let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
+    var description = $(this).val();
+    $.ajax({ 
+    url: "/item/descriptionupdate", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "PATCH", 
+    data: {
+      "id": id,
+      "description": description
+    }, 
+    success: () =>{
+       console.log('完成')
+       location.reload()
+    }
+    }) 
+  }); 
+
   $('select').on("change", function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();

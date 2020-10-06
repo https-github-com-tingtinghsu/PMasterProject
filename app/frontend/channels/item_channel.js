@@ -16,5 +16,9 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
     if(data.itemsname != undefined){
       $('#item-name-' + data.itemid).val(data.itemsname)
     }
+    //
+    if(data.itemsdescription != undefined){
+      $('#item-description-' + data.itemid).val(data.itemsdescription)
+    }
   }
 });
