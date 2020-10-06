@@ -380,7 +380,7 @@ body{
   }
 }
 .item-group-top-title{
-  padding: 3px 0px 3px 3px;
+  padding: 3px 0px;
   background-color: #D3E3D3;
   color: #8CA38C;
   display: flex;
@@ -447,8 +447,14 @@ body{
   min-width: 150px;
   white-space: nowrap;
 }
+.item-description-top{
+  width: 22%;
+  min-width: 150px;
+  white-space: nowrap;
+}
 .item-point{
   width: 50px;
+  padding-left: 5px;
 }
 .item-due-date{
   width: 100px;

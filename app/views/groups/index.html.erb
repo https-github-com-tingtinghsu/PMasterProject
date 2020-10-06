@@ -9,7 +9,7 @@
         <% @groups.each do |group| %>
           <li class="item-group-li" data-group-list-id="<%= group.id %>">
             <div class="item-group-li-box">
-              <div class="item-group-li-p-title" id="<%= group.id %>" ><input value="<%= group.name %>"></div>
+              <div class="item-group-li-p-title" id="<%= group.id %>" ><%= group.name %></div>
               <div class="item-group-li-p-icon">
               	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
               	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
@@ -22,7 +22,7 @@
                   <div class="item-board-left item-name-top">項目名稱</div>
                   <div class="item-post-column item-post"></div>
                   <div class="item-person">負責人</div>
-                  <div class="item-description">項目敘述</div>
+                  <div class="item-description-top">項目敘述</div>
                   <div class="item-point">點數</div>                      
                   <div class="item-due-date">到期日</div>
                   <div class="item-finish">完成日</div>                      
@@ -37,7 +37,7 @@
                         <i class="fas fa-caret-right"></i>
                       </div>
                       <div class="edit-delete-task">
-                        <%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
+                        <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
                         <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                       </div>
                       <Input type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF;">
