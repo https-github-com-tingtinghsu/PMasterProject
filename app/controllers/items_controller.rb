@@ -1,3 +1,4 @@
+require 'securerandom'
 require "github.rb"
 class ItemsController < ApplicationController
 	before_action :find_board_and_group, only: [:index]
@@ -106,7 +107,7 @@ class ItemsController < ApplicationController
 
 	private
 	def find_item
-		@item = Item.find(params[:id])
+		@item = Item.friendly.find(params[:id])
 	end
 
 	def find_item_user_id

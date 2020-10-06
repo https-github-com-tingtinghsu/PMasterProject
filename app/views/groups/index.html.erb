@@ -15,8 +15,8 @@
                   <%= group.name %>
                 </div>
                 <div class="item-group-li-p-icon">
-                	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
-                	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
+                  <%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
+                  <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
                   <%= link_to '', charts_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-chart-bar", style:"text-decoration: none;" if group.has_chart? %>   
                 </div>
               </div>

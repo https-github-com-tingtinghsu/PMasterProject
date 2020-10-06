@@ -1,5 +1,9 @@
 class Item < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug, use: :slugged
+
   belongs_to :group
+  
   has_many :posts, dependent: :destroy
   
   has_many :assignments, dependent: :destroy
@@ -7,6 +11,7 @@ class Item < ApplicationRecord
 
   before_update :update_finish_date
 
+  before_create { self.slug = SecureRandom.uuid }
   # validates :name, presence: true
 
   # 更新下拉選單時，也須確認資料庫裡的完成日期是否需要更改
