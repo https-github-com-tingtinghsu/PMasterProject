@@ -45,6 +45,15 @@ class GroupsController < ApplicationController
     # 每個item會有完成的時間, 算出每一天完成的points
     gon.point_array = @group.point_array
     gon.date_array = @group.start_end_date_array
+
+    # 圓餅圖
+    gon.member_array = @group.find_all_members_name
+    gon.member_point_array = @group.find_all_members_point_array
+
+    # 長條圖
+    gon.item_array = @group.find_items_array
+    gon.item_expected_days_array = @group.find_items_expected_spend_day_array
+    gon.item_actual_days_array = @group.find_items_actual_spend_day_array
   end
 
   def destroy
@@ -53,6 +62,7 @@ class GroupsController < ApplicationController
   end
 
   private
+
   def find_board
     @board = Board.find(params[:board_id])
   end

@@ -46,6 +46,7 @@ import Vue from 'vue/dist/vue.esm'
 import App from '../components/app.vue'
 import Workspace from '../components/workspace.vue'
 
+// require("../channels/webcam_channel");
 
 Vue.use(TurbolinksAdapter)
 
@@ -69,6 +70,7 @@ document.addEventListener('turbolinks:load', () => {
     template:'<App :workspaces="workspaces" />'
   })
 })
+
 // document.addEventListener("turbolinks:load", function(event){
 //   let el = document.querySelector("#workspace-board");
 //   console.log(el);
@@ -115,3 +117,5 @@ document.addEventListener('turbolinks:load', () => {
  
 // })
 
+
+import "controllers"
