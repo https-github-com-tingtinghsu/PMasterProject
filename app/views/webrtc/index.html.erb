@@ -1,4 +1,4 @@
-<%# <h1>Webrtc#index</h1>
+<!-- <%# <h1>Webrtc#index</h1>
 <p>Find me in app/views/webrtc/index.html.erb</p>
 <div data-controls=webcam>
     <video id="player" data-target="main" controls autoplay></video>
@@ -7,10 +7,10 @@
     <canvas id="snapshot" width=320 height=240></canvas>
 
     <video id="remotevideo" data-target="remote" autoplay muted playsinline controls></video>
-</div> %>
+</div> %> -->
 
 
-<div style="display: none">Random User ID:
+<!-- <div style="display: none">Random User ID:
   <span id="current-user"><%= @random_number %></span>
 </div>
 
@@ -25,4 +25,18 @@
 
 <button id="leave-button">
   Leave Room
-</button>
+</button> -->
+<div class="container-all">
+  <div class="webcam-btn">
+    <button>Join</button>
+    <button>Leave</button>
+  </div>
+  <div class="container-for-webcam">
+    <div id="current-user"></div>
+    <div class="attendees is-active-for-attendees">
+      <div class="person 1"></div>
+      <div class="person 2"></div>
+      <div class="person 3"></div>
+    </div>
+  </div>
+</div>
