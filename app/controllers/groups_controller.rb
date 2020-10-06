@@ -1,3 +1,5 @@
+require 'securerandom'
+
 require 'date'
 class GroupsController < ApplicationController
   before_action :find_board, only: [:index, :create]
@@ -64,7 +66,7 @@ class GroupsController < ApplicationController
   private
 
   def find_board
-    @board = Board.find(params[:board_id])
+    @board = Board.friendly.find(params[:board_id])
   end
   def find_group
     @group = Group.find(params[:id])
