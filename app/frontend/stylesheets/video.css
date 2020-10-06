@@ -1,0 +1,8 @@
+#remote-video-container{
+    display: flex;
+}
+
+#remote-video-container > video {
+    margin: 1px;
+    padding: 1px;
+  }
