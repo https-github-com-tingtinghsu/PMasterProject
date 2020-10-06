@@ -146,7 +146,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
 
   moreBoardIconElement = $(`
     <a class="panel-icon" data-toggle="false">
-      <i class="fas fa-arrow-right moreBoardFeature"></i>
+      <i class="fas fa-level-up-alt moreBoardFeature"></i>
     </a>
   `).click(function(){
     // 按一下時，給相反的值 (false -> true; true -> false)
@@ -192,11 +192,11 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
   } else if(isWorkspace == false) {
     // 我創的board
     // /boards/:board_id/groups(.:format)
-    boardUrl = "/boards/" + model.id + "/groups"     
-    sidebarItem.append(moreBoardIconElement)
+    boardUrl = "/boards/" + model.id + "/groups"  
+    sidebarItem.append(moreBoardIconElement)   
+    sidebarItem.append("<span class ='board-name'><a class='board-link' id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a></span><br><br>") 
     sidebarItem.append(editBoardItem)     
-    sidebarItem.append(deleteBoardItem)
-    sidebarItem.append("<a class='board-link' id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a>")             
+    sidebarItem.append(deleteBoardItem)         
   } else {
     // 我屬於的workspace 
     sidebarItem.append(moreWorkspaceIconElement)

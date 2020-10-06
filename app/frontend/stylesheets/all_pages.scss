@@ -13,6 +13,39 @@ a{
   font-weight: 600;
   color: rgb(107, 161, 107);
 }
+.red{
+  background-color: rgb(204, 75, 75);
+}
+.blue{
+  background-color: rgb(145, 147, 218);
+}
+.yellow{
+  background-color: rgb(223, 223, 122);
+}
+.pink{
+  background-color: pink;
+}
+.gray{
+  background-color: rgb(192, 180, 180);
+}
+//item-status 
+
+.item-td{
+  display: flex;
+  align-items: center;
+  .item-status-option{
+    outline: none;
+    width: 70px;
+    height: 30px;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    padding-left: 15px;
+    border-radius: 10px;
+  }
+}
+
+
 //sign-in
 .hero-body{
   display: flex;
@@ -49,6 +82,39 @@ a{
     justify-content: center;
   }
 }
+.home-sign-up{
+  width: 100px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: rgb(69, 175, 69);
+  margin: 10px;
+  color: white;
+  border-radius: 5px;
+  transition: .3s;
+  .sign-up{
+    color: white;
+  }
+}
+.home-sign-up:hover{
+  background-color: rgb(51, 42, 42);
+  color: white;
+  transition: .3s;
+}
+.sign-in-submit{
+  width: 100px;
+  padding: 10px;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 5px;
+  transition: .3s;
+  border: black 1px solid;
+}
+.sign-in-submit:hover{
+  background-color: rgb(51, 42, 42);
+  color: white;
+  transition: .3s;
+}
 .sign-in-checkbox{
   display: flex;
   align-items: center;
@@ -61,6 +127,7 @@ a{
 
 
 //new item
+
 .new-item-page{
   background-color: white;
   width: 100%;
@@ -364,7 +431,7 @@ body{
         }
         .outside-link-item{
           cursor: pointer;
-          width: 200px;
+          width: 50%;
           height: 15%;
           background-color: rgb(31, 28, 28);
           border-radius: 10px;
@@ -628,6 +695,8 @@ body{
     }
   
   }
+
+  
   @media screen and (min-width: 768px){
     .buttons .sign-in-buttons{
       top: 70px;
@@ -688,8 +757,18 @@ body{
       font-weight: 500;
       width: 150px;
     }
+   
   }
   
+}
+
+.board-name{
+  font-weight: 500;
+}
+.fa-level-up-alt{
+  font-size: 20px;
+  font-weight: 700;
+  transform: rotate(90deg);
 }
 .workspace-arrow-down{
   margin-left: 10px;
@@ -711,6 +790,7 @@ body{
 
 .fa-plus-square{
   color: white;
+  font-size: 20px;
 }
 .fa-user-plus, .fa-edit, .fa-trash-alt
 {
@@ -1112,9 +1192,12 @@ body{
     width: 100%;
   }
 }
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1030px){
   .navbar-menu .outside-link-background{
     width: 86%;
+  }
+  #outside-link-item{
+    width: 40%;
   }
  
   

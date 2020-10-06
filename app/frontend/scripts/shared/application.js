@@ -1,5 +1,26 @@
 document.addEventListener('turbolinks:load', () => {
 
+  const statusOptions = document.querySelectorAll('.item-status-option')
+
+  statusOptions.forEach( (option) => {
+    if(option.querySelector('option:checked').value == "卡關中"){
+      option.classList.add('red')
+      // console.log(option.querySelector('option:checked').lastChild)
+    }else if(option.querySelector('option:checked').value == "進行中"){
+      option.classList.add('blue')
+    }else if(option.querySelector('option:checked').value == "待修改"){
+      option.classList.add('pink')
+    }else if(option.querySelector('option:checked').value == "待指派"){
+      option.classList.add('yellow')
+    }else if(option.querySelector('option:checked').value == "已完成"){
+      option.classList.add('gray')
+    }
+
+    // option.querySelectorall('option:checked').textContent
+    console.log(option.querySelector('option:checked').value)
+  })
+  
+
   // github-link
 
   const githubLink = document.querySelector('.github-link-img')
@@ -78,6 +99,8 @@ document.addEventListener('turbolinks:load', () => {
     githubNextpage.classList.add('outside-link-board-nextpage')
     githubNextpage.classList.remove('outside-link-board-nextpage-disappear')
   })
+
+
   $('select').change(function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();
@@ -170,7 +193,28 @@ document.addEventListener('turbolinks:load', () => {
   })
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
+  
+  // function TaskStatusName(e){
+  //   taskArrowClass = Array.from(e.target.classList)
 
+  //   if(e.target.querySelector('option:checked').textContent == "待修改"){
+  //     e.target.classList.remove()
+  //     e.target.classList.add('red')
+  //     console.log(typeof e.target.querySelector('option:checked').textContent)
+  //   } 
+  //   if(e.target.querySelector('option:checked').textContent == "進行中"){
+  //     e.target.classList.remove()
+  //     e.target.classList.add('blue')
+  //     console.log(typeof e.target.querySelector('option:checked').textContent)
+  //   } 
+  // }
+  
+  // taskTables.forEach((table)=>{
+    // console.log(table)
+    // const option = document.querySelectorall('option:checked').textContent
+    // console.log(option)
+  
+  // })
 
   
   
