@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :workspace do
     name { Faker::Name.name }
-    user_id { nil }  
+    association :creator, factory: :user
   end
 end
 # 關聯：建立workspace時才給user_id
