@@ -23,7 +23,8 @@ class BoardsController < ApplicationController
     render json: { 
       success: @board.save,
       id: @board.id,
-      name: @board.name
+      name: @board.name,
+      slug: @board.slug
     }
   end
 
