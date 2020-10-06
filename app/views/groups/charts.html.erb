@@ -23,10 +23,11 @@
     </ul>
   </div>
   <br>
-  <span class="subtitle my-2 block text-center"><%= @group.name %></span>  
+  <span class="subtitle my-2 block text-center"><%= @group.name %></span>
+  <button onclick="window.history.back()">回上一頁</button>       
   <canvas id="burnChart" width="400" height="200"></canvas>
   <canvas id="pieChart" width="400" height="200"></canvas>  
-  <canvas id="barChart" width="400" height="200"></canvas>  
+  <canvas id="barChart" width="400" height="200"></canvas>
   </article> 
 </div>
 <%= render 'groups/charts/burn' %>
