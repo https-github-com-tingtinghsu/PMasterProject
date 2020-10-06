@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :invitaion do
+  factory :invitation do
     token { "MyString" }
     workspace { "" }
     user { "" }
