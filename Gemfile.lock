@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/norman/friendly_id
+  revision: 819c0b111b0f722809c0a13ad025c5191a278f85
+  specs:
+    friendly_id (5.4.0)
+      activerecord (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -361,6 +368,7 @@ DEPENDENCIES
   faker (~> 2.13)
   figaro (~> 1.2)
   foreman (~> 0.87.2)
+  friendly_id!
   gon (~> 6.3, >= 6.3.2)
   hirb-unicode (~> 0.0.5)
   jbuilder (~> 2.7)
