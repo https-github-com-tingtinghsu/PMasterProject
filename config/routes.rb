@@ -48,6 +48,6 @@ Rails.application.routes.draw do
 
   resources :pages, only:[:index]
 
-  patch "/item/groupupdate", to: "items#update_status"
+  patch "/item/statusupdate", to: "items#update_status"
   patch "/item/nameupdate", to: "items#update_name"
 end

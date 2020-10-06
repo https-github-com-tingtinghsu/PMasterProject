@@ -21,7 +21,7 @@ document.addEventListener('turbolinks:load', () => {
     let id = e.target.id
     var status = $(this).find(":selected").text();
     $.ajax({ 
-    url: "/item/groupupdate", 
+    url: "/item/statusupdate", 
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     type: "PATCH", 
     data: {

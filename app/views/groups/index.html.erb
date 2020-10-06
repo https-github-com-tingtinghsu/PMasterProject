@@ -37,6 +37,7 @@
                         <i class="fas fa-caret-right"></i>
                       </div>
                       <div class="edit-delete-task">
+                        <%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
                         <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                       </div>
                       <Input type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF;">
