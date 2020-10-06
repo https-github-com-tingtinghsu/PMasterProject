@@ -1,6 +1,23 @@
 document.addEventListener('turbolinks:load', () => {
+  $('.item-name').on("change", function(e){ 
+    let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
+    var name = $(this).val();
+    $.ajax({ 
+    url: "/item/nameupdate", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "PATCH", 
+    data: {
+      "id": id,
+      "name": name
+    }, 
+    success: () =>{
+       console.log('完成')
+       location.reload()
+    }
+    }) 
+  }); 
 
-  $('select').change(function(e){ 
+  $('select').on("change", function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();
     $.ajax({ 

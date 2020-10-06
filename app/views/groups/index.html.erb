@@ -7,11 +7,9 @@
     <div class="content group-item-list" data-board-id="<%= @board.id%>">
       <ul class="task-list">
         <% @groups.each do |group| %>
-          <li class="item-group-li" data-group-id="<%= group.id %>">
+          <li class="item-group-li" data-group-list-id="<%= group.id %>">
             <div class="item-group-li-box">
-              <div class="item-group-li-p-title">
-                <%= group.name %>
-              </div>
+              <div class="item-group-li-p-title" id="<%= group.id %>" ><input value="<%= group.name %>"></div>
               <div class="item-group-li-p-icon">
               	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
               	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
@@ -39,17 +37,9 @@
                         <i class="fas fa-caret-right"></i>
                       </div>
                       <div class="edit-delete-task">
-                        <%= link_to '', edit_item_path(item), class: "far fa-edit", style:"text-decoration: none;" %>
                         <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                       </div>
-                      <div class="item-name" data-item-name="<%= item.name %>">
-                        <% if item.name.length>11 %>
-                          <%= item.name[0..10] %>...
-                        <% else %>
-                          <%= item.name %>
-                        <% end %>
-                      </div>
-                      <!-- <div class="item-name" id="item-id-<%= item.id %>"><%= item.name %></div> -->
+                      <Input type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF;">
                     </div>
 
                     <div class="post-icon-and-counts item-post">
@@ -67,13 +57,7 @@
                       <% end %>
                     </div>
 
-                    <div class="item-description" data-item-description="<%= item.description %>">
-                      <% if item.name.length>15 %>
-                        <%= item.description[0..14] %>...
-                      <% else %>
-                        <%= item.description %>
-                      <% end %>
-                    </div>
+                    <input type="text" class="item-description" data-item-description="<%= item.description %>" value="<%= item.description %>" style="background-color:#EFF4EF;" >
 
                     <div class="item-point"><%= item.point %></div>
 
