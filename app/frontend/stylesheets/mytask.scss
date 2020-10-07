@@ -10,8 +10,40 @@
     white-space: nowrap;
   }
 }
+
+.mytask-btn-for-status button{
+  padding: 10px 50px;
+  border-radius: 10px 10px 0px 0px;
+  font-size: 16px;
+  outline: none;
+}
+
+.btn-pending , .pending{
+  background-color: #FCD3B3;
+}
+
+.btn-stuck , .stuck{
+  background-color: #EEB5AE;
+}
+
+.btn-working , .working{
+  background-color: #B4DAE9;
+}
+
+.btn-done , .done{
+  background-color: rgb(192, 180, 180);
+}
+
 .mytask-group-item-list{
   padding-bottom: 50px;
+}
+
+.mytask-type{
+  border-radius: 0 10px 10px 10px;
+  width: 100%;
+  height: 300px;
+  // margin-top: -13px;
+  padding-top: 50px;
 }
 
 .is-removed-for-mytask{
