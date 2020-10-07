@@ -17,7 +17,40 @@ document.addEventListener('turbolinks:load', () => {
     }
 
     // option.querySelectorall('option:checked').textContent
-    console.log(option.querySelector('option:checked').value)
+    // console.log(option.querySelector('option:checked').value)
+  })
+
+  function changeBackgroundColorFinish(){
+    statusOptions.forEach( (option) => {
+      if(option.querySelector('option:checked').value == "卡關中"){
+        option.classList.add('red')
+        // console.log(option.querySelector('option:checked').lastChild)
+      }else if(option.querySelector('option:checked').value == "進行中"){
+        option.classList.add('blue')
+      }else if(option.querySelector('option:checked').value == "待修改"){
+        option.classList.add('pink')
+      }else if(option.querySelector('option:checked').value == "待指派"){
+        option.classList.add('yellow')
+      }else if(option.querySelector('option:checked').value == "已完成"){
+        option.classList.add('gray')
+      }
+  
+      // option.querySelectorall('option:checked').textContent
+      // console.log(option.querySelector('option:checked').value)
+    })
+  }
+
+  function changeBackgroundColor(e){
+    let optionClass = Array.from(e.target.classList)
+    if(optionClass.indexOf("item-status-option") !== -1){
+      e.target.classList.remove(e.target.classList[1])
+    }
+    
+    console.log(e.target.querySelector('option:checked'))
+  }
+
+  statusOptions.forEach((option)=>{
+    option.addEventListener('change',changeBackgroundColor)
   })
   
 
@@ -114,6 +147,7 @@ document.addEventListener('turbolinks:load', () => {
     }, 
     success: () =>{
        console.log('完成')
+       changeBackgroundColorFinish()
     }
     }) 
   }); 
