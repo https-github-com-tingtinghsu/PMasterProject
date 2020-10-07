@@ -16,7 +16,10 @@ class HomeController < ApplicationController
 
   def mytask
     @items = current_user.items.order(created_at: :desc)
-    @assignments = Assignment.all
+    @pending = @items.select{ |item| item.status == "待修改"}
+    @working = @items.select{ |item| item.status == "進行中"}
+    @stuck = @items.select{ |item| item.status == "卡關中"}
+    @done = @items.select{ |item| item.status == "已完成"}
   end
 
   private

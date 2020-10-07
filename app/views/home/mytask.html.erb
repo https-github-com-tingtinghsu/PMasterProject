@@ -9,8 +9,61 @@
           <h1>您目前沒有任務要進行</h1>
         <% else %>
           <!-- <div class="content group-item-list" data-board-id="<%#= @board.id%>"> -->
-              
-            <ul class="mytask-group-item-task-list">
+            <div class="mytask-btn-for-status">
+              <button class="mytask-btn" status="pending">pending</button>
+              <button class="mytask-btn" status="working">working</button>
+              <button class="mytask-btn" status="stuck">stuck</button>
+              <button class="mytask-btn" status="finish">finish</button>
+            </div>
+            <div class="mytask-type pending is-removed-for-mytask" status="pending">
+              <ul>
+                <% if @pending != []%>
+                  <% @pending.each do |pending| %>
+                    <li><%= pending.name %></li>
+                  <% end %>
+                <% elsif %>
+                  <li>沒有資料</li>
+                <% end %>
+              </ul>
+            </div>
+
+            <div class="mytask-type working is-removed-for-mytask" status="working">
+              <ul>
+                <% if @working != [] %>
+                  <% @working.each do |working| %>
+                    <li><%= working.name %></li>
+                  <% end %>
+                <% elsif %>
+                  <li>沒有資料</li>
+                <% end %>
+              </ul>
+            </div>
+
+            <div class="mytask-type stuck is-removed-for-mytask" status="stuck">
+              <ul>
+                <% if @stuck != [] %>
+                  <% @stuck.each do |stuck| %>
+                    <li><%= stuck.name %></li>
+                  <% end %>
+                <% elsif %>
+                  <li>沒有資料</li>
+                <% end %>
+              </ul>
+            </div>
+
+            <div class="mytask-type finish is-removed-for-mytask" status="finish">
+              <ul>
+                <% if @done != [] %>
+                  <% @done.each do |done| %>
+                    <li><%= done.name %></li>
+                  <% end %>
+                <% elsif %>
+                  <li>沒有資料</li>
+                <% end %>
+              </ul>
+            </div>
+
+            <!-- <ul class="mytask-group-item-task-list">
               <li class="mytask-item-group-top-title rounded-t">
                 <div class="mytask-item-board-left my-taskitem-name-top">項目名稱</div>
                 <div class="mytask-item-description">項目敘述</div>
@@ -55,7 +108,7 @@
                   </li>
                 <% end %>
               <% end %>
-            </ul>
+            </ul> -->
         <% end %>
       </div>
     </div>

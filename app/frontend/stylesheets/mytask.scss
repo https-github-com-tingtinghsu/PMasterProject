@@ -13,3 +13,10 @@
 .mytask-group-item-list{
   padding-bottom: 50px;
 }
+
+.is-removed-for-mytask{
+  display: none;
+}
+.is-active-for-mytask{
+  display: block;
+}
