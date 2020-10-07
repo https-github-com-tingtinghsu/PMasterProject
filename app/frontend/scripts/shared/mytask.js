@@ -5,7 +5,7 @@ document.addEventListener('turbolinks:load', () => {
     let divOfMytasks = document.querySelectorAll('.mytask-type')
     btns.forEach((btn)=>{
       btn.addEventListener('click',function(){
-        var selectedStatus = btn.getAttribute('status')
+        let selectedStatus = btn.getAttribute('status')
         divOfMytasks.forEach((divOfMytask)=>{
           let divStatus = divOfMytask.getAttribute('status')
           if (divStatus == selectedStatus){

@@ -10,16 +10,16 @@
         <% else %>
           <!-- <div class="content group-item-list" data-board-id="<%#= @board.id%>"> -->
             <div class="mytask-btn-for-status">
-              <button class="mytask-btn" status="pending">pending</button>
-              <button class="mytask-btn" status="working">working</button>
-              <button class="mytask-btn" status="stuck">stuck</button>
-              <button class="mytask-btn" status="finish">finish</button>
+              <button class="mytask-btn" status="pending">待修改</button>
+              <button class="mytask-btn" status="working">進行中</button>
+              <button class="mytask-btn" status="stuck">卡關中</button>
+              <button class="mytask-btn" status="done">已完成</button>
             </div>
             <div class="mytask-type pending is-removed-for-mytask" status="pending">
               <ul>
                 <% if @pending != []%>
                   <% @pending.each do |pending| %>
-                    <li><%= pending.name %></li>
+                    <li><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board_id)%></li>
                   <% end %>
                 <% elsif %>
                   <li>沒有資料</li>
@@ -31,7 +31,7 @@
               <ul>
                 <% if @working != [] %>
                   <% @working.each do |working| %>
-                    <li><%= working.name %></li>
+                    <li><%= link_to working.name, board_groups_path(Group.find(working.group_id).board_id)%></li>
                   <% end %>
                 <% elsif %>
                   <li>沒有資料</li>
@@ -43,7 +43,7 @@
               <ul>
                 <% if @stuck != [] %>
                   <% @stuck.each do |stuck| %>
-                    <li><%= stuck.name %></li>
+                    <li><%= link_to stuck.name, board_groups_path(Group.find(stuck.group_id).board_id)%></li>
                   <% end %>
                 <% elsif %>
                   <li>沒有資料</li>
@@ -51,11 +51,11 @@
               </ul>
             </div>
 
-            <div class="mytask-type finish is-removed-for-mytask" status="finish">
+            <div class="mytask-type done is-removed-for-mytask" status="done">
               <ul>
                 <% if @done != [] %>
                   <% @done.each do |done| %>
-                    <li><%= done.name %></li>
+                    <li><%= link_to done.name, board_groups_path(Group.find(done.group_id).board_id)%></li>
                   <% end %>
                 <% elsif %>
                   <li>沒有資料</li>
