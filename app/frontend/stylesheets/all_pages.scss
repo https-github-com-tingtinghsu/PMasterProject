@@ -1,3 +1,4 @@
+
 html{
   background-color: #5A815A;
 }
@@ -26,7 +27,7 @@ a{
   background-color: #FCD3B3;
 }
 .gray{
-  background-color: rgb(192, 180, 180);
+  background-color: rgb(209, 202, 202);
 }
 //item-status 
 
@@ -35,13 +36,12 @@ a{
   align-items: center;
   .item-status-option{
     outline: none;
-    width: 70px;
     height: 30px;
     appearance:none;
     -moz-appearance:none;
     -webkit-appearance:none;
-    padding-left: 15px;
     border-radius: 10px;
+    padding:0 5px;
   }
 }
 
@@ -299,6 +299,7 @@ body{
       }
      
     }
+    
     .github-link{
       position: absolute;
       bottom: 20px;
@@ -702,7 +703,7 @@ body{
       top: 70px;
     }
   }
-  
+ 
   .sign-out-status{
     display: flex;
     margin-top: 4px;
@@ -782,7 +783,6 @@ body{
 .board-item{
   color: white;
   margin-left: 30px;
-  margin-bottom: 20px;
 }
 .board-link{
   color: white;
@@ -824,6 +824,14 @@ body{
 
 // groups-task-list
 
+.table{
+  font-size: 16px;
+  font-weight: 500;
+  td{
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
 .item-group-li{
   padding-bottom: 50px;
 }
@@ -920,10 +928,12 @@ body{
 .add-item{
   background-color: #D3E3D3;
   width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   a{
-    padding-top: 4px;
+    font-size: 16px;
     color: #8CA38C !important;
-}
+  }
   
 }
 
@@ -990,9 +1000,11 @@ body{
     background-color: white;
   }
   .main-pic{
-    width: 700px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    // border: red 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
   }
   .footer-home{
     margin-top: 40px;
@@ -1000,9 +1012,9 @@ body{
 
 
 @media screen and (max-width: 1200px){
-  .item-object-group{
+  #item-object-group{
     width: 100%;
-    margin-left: 0px;
+    margin-left: -45px;
     padding-right: 0px;
     border-right: solid #aaa 1px;
     padding-right: 80px;
@@ -1010,6 +1022,8 @@ body{
   }
   
 }
+
+
   
 @media screen and (max-width: 768px){
   
@@ -1181,7 +1195,9 @@ body{
     }
    
   }
-  
+  .burger{
+    margin-left: auto;
+  }
   .sign-in-name{
     margin-left: 30px;
   }
