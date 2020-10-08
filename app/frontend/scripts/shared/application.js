@@ -1,4 +1,52 @@
 document.addEventListener('turbolinks:load', () => {
+
+  const statusOptions = document.querySelectorAll('.item-status-option')
+
+  statusOptions.forEach( (option) => {
+    if(option.querySelector('option:checked').value == "卡關中"){
+      option.classList.add('red')
+    }else if(option.querySelector('option:checked').value == "進行中"){
+      option.classList.add('blue')
+    }else if(option.querySelector('option:checked').value == "待修改"){
+      option.classList.add('pink')
+    }else if(option.querySelector('option:checked').value == "待指派"){
+      option.classList.add('yellow')
+    }else if(option.querySelector('option:checked').value == "已完成"){
+      option.classList.add('gray')
+    }
+  })
+
+  function changeBackgroundColorFinish(){
+    statusOptions.forEach( (option) => {
+      if(option.querySelector('option:checked').value == "卡關中"){
+        option.classList.add('red')
+      }else if(option.querySelector('option:checked').value == "進行中"){
+        option.classList.add('blue')
+      }else if(option.querySelector('option:checked').value == "待修改"){
+        option.classList.add('pink')
+      }else if(option.querySelector('option:checked').value == "待指派"){
+        option.classList.add('yellow')
+      }else if(option.querySelector('option:checked').value == "已完成"){
+        option.classList.add('gray')
+      }
+  
+    })
+  }
+
+  function changeBackgroundColor(e){
+    let optionClass = Array.from(e.target.classList)
+    if(optionClass.indexOf("item-status-option") !== -1){
+      e.target.classList.remove(e.target.classList[1])
+    }
+    
+  }
+
+  statusOptions.forEach((option)=>{
+    option.addEventListener('change',changeBackgroundColor)
+  })
+  
+
+
   $('.item-name').on("change", function(e){ 
     let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
     var name = $(this).val();
@@ -126,6 +174,7 @@ document.addEventListener('turbolinks:load', () => {
     }, 
     success: () =>{
        console.log('完成')
+       changeBackgroundColorFinish()
     }
     }) 
   }); 
