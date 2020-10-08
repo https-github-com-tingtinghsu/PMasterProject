@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', () => {
   if(!element)return
 
   const board_id = element.getAttribute('data-board-id')
-  console.log("board_id :" + board_id)
+  // console.log("board_id :" + board_id)
 
   consumer.subscriptions.create({ channel: "BoardChannel", board_id: board_id }, {
     connected() {

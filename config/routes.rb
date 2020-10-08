@@ -51,4 +51,8 @@ Rails.application.routes.draw do
   patch "/item/statusupdate", to: "items#update_status"
   patch "/item/nameupdate", to: "items#update_name"
   patch "/item/descriptionupdate", to: "items#update_description"
+
+  patch "/item/groupupdate", to: "items#update_status"
+  resources :webrtc, only: [:index, :create]
+  mount ActionCable.server, at: "/cable"
 end

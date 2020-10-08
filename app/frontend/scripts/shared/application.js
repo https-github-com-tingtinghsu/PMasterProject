@@ -44,8 +44,6 @@ document.addEventListener('turbolinks:load', () => {
   statusOptions.forEach((option)=>{
     option.addEventListener('change',changeBackgroundColor)
   })
-  
-
 
   $('.item-name').on("change", function(e){ 
     let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
@@ -82,7 +80,6 @@ document.addEventListener('turbolinks:load', () => {
     }
     }) 
   }); 
-
   // github-link
 
   const githubLink = document.querySelector('.github-link-img')
@@ -161,6 +158,8 @@ document.addEventListener('turbolinks:load', () => {
     githubNextpage.classList.add('outside-link-board-nextpage')
     githubNextpage.classList.remove('outside-link-board-nextpage-disappear')
   })
+
+
   $('select').change(function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();
@@ -254,4 +253,5 @@ document.addEventListener('turbolinks:load', () => {
   })
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
+
 });

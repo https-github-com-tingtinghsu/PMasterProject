@@ -8,7 +8,7 @@
         </div>
     </a>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" id="burger" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -32,7 +32,7 @@
             <div class="btn-integrations">
               <h2>Integrations</h2>
             </div>
-            <div class="outside-link-item">
+            <div class="outside-link-item" id="outside-link-item">
               <i class="fab fa-github"></i>
               <div class="outside-link-title">
                 <h2>GitHub</h2>
@@ -140,7 +140,7 @@
   
       <div class="buttons">
         <% if current_user %>
-          <div class="sign-in-name"><p> Hello, <%= current_user.display_name %></p></div>
+          <div class="sign-in-name" data-user-id="<%= current_user.id%>"><p> Hello, <%= current_user.display_name %></p></div>
           <div class="sign-in-buttons">
             <strong><%= link_to '我的任務', mytask_path %></strong>
             <strong><%= link_to '編輯帳戶', edit_user_registration_path %></strong>
