@@ -32,7 +32,9 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
+			# puts "======================#{params[:person]}========================"
 			if params[:person] != nil
+				# puts "======================#{params[:person].values[0]}========================"
 				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
 			end
 			board =	Board.find(Group.find(@item.group_id).board_id)
@@ -72,6 +74,25 @@ class ItemsController < ApplicationController
 			render :edit
 		end
 		# byebug
+	end
+	def update_name
+		@item = Item.find_by(id: params[:id])
+		@item.name = params[:name]
+		
+		if !@item.save
+			render :index
+		end
+		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsname: params[:name])
+	end
+
+	def update_description
+		@item = Item.find_by(id: params[:id])
+		@item.description = params[:description]
+		
+		if !@item.save
+			render :index
+		end
+		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsdescription: params[:description])
 	end
 
 	def update_status

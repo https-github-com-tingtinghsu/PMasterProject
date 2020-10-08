@@ -20,7 +20,8 @@
       <div class="field">
         <%= f.label "密碼" %>
         <% if @minimum_password_length %>
-        <em>(請輸入至少<%= @minimum_password_length %>位數密碼)</em>
+        <br>
+        <em class="em_password">(請輸入至少<%= @minimum_password_length %>位數密碼)</em>
         <% end %><br>
         <%= f.password_field :password, autocomplete: "new-password", placeholder: "請至少輸入#{@minimum_password_length}位數密碼", class: "input is-success" %>
       </div>
@@ -31,7 +32,7 @@
       </div>
       <br>
       <div class="actions">
-        <%= f.submit "立刻註冊", class: "new-item-submit" %>
+        <%= f.submit "立刻註冊", class: "home-sign-up" %>
       </div>
     <% end %>
 

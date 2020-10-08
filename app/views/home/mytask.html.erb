@@ -1,0 +1,87 @@
+<div class="tile is-parent main-dashboard" data-turbolinks="false" data-workspace-name="<%= @workspace_name %>">
+  <article class="tile is-child notification main-board">
+    <div class="my-3">
+      <span class="subtitle my-2 ">我的任務</span>
+    </div>
+    <div class="content">
+      <div class="mytask-group-item-list">
+        <% if @items.count < 1 %>
+          <p>您目前沒有任何項目</p>
+          <button onclick="window.history.back()">回上一頁</button>
+        <% else %>
+            <div class="mytask-btn-for-status">
+              <button class="mytask-btn btn-pending" status="pending">待修改</button>
+              <button class="mytask-btn btn-working" status="working">進行中</button>
+              <button class="mytask-btn btn-stuck" status="stuck">卡關中</button>
+              <button class="mytask-btn btn-done" status="done">已完成</button>
+            </div>
+
+            <div class="mytask-type pending is-active-for-mytas" status="pending">
+              <% if @pending != []%>
+                <% @pending.each do |pending| %>
+                  <ul>
+                    <li><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board_id)%></li>
+                    <li><%= pending.description %></li>
+                    <li><%= pending.due_date %></li>
+                  </ul>
+                <% end %>
+              <% elsif %>
+                <p>您沒有待修改的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
+              <% end %>
+            </div>
+
+            <div class="mytask-type working is-removed-for-mytask" status="working">
+              <% if @working != [] %>
+                <% @working.each do |working| %>
+                  <ul>
+                    <li><%= link_to working.name, board_groups_path(Group.find(working.group_id).board_id)%></li>
+                    <li><%= working.description %></li>
+                    <li><%= working.due_date %></li>
+                  </ul>
+                <% end %>
+              <% elsif %>
+                <p>您沒有進行中的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
+              <% end %>
+            </div>
+
+            <div class="mytask-type stuck is-removed-for-mytask" status="stuck">
+              <% if @stuck != [] %>
+                <% @stuck.each do |stuck| %>
+                  <ul>
+                    <li><%= link_to stuck.name, board_groups_path(Group.find(stuck.group_id).board_id)%></li>
+                    <li><%= stuck.description %></li>
+                    <li><%= stuck.due_date %></li>
+                  </ul>
+                <% end %>
+              <% elsif %>
+                <p>您沒有卡關中的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
+              <% end %>
+            </div>
+
+            <div class="mytask-type done is-removed-for-mytask" status="done">
+              <% if @done != [] %>
+                <% @done.each do |done| %>
+                  <ul>
+                    <li><%= link_to done.name, board_groups_path(Group.find(done.group_id).board_id)%></li>
+                    <li><%= done.description %></li>
+                    <li><%= done.finish_date %></li>
+                  </ul>
+                <% end %>
+              <% elsif %>
+                <p>您沒有已完成的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </article>
+  <div class="footer">
+    <p>
+      <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
+    </p>
+  </div>
+</div>

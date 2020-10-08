@@ -12,7 +12,8 @@ class Item < ApplicationRecord
   before_update :update_finish_date
 
   before_create { self.slug = SecureRandom.uuid }
-  # validates :name, presence: true
+  # validates :name, presence: true, length: {maximum:20}
+
 
   # 更新下拉選單時，也須確認資料庫裡的完成日期是否需要更改
   def update_finish_date

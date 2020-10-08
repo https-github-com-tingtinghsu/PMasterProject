@@ -1,5 +1,85 @@
 document.addEventListener('turbolinks:load', () => {
 
+  const statusOptions = document.querySelectorAll('.item-status-option')
+
+  statusOptions.forEach( (option) => {
+    if(option.querySelector('option:checked').value == "卡關中"){
+      option.classList.add('red')
+    }else if(option.querySelector('option:checked').value == "進行中"){
+      option.classList.add('blue')
+    }else if(option.querySelector('option:checked').value == "待修改"){
+      option.classList.add('pink')
+    }else if(option.querySelector('option:checked').value == "待指派"){
+      option.classList.add('yellow')
+    }else if(option.querySelector('option:checked').value == "已完成"){
+      option.classList.add('gray')
+    }
+  })
+
+  function changeBackgroundColorFinish(){
+    statusOptions.forEach( (option) => {
+      if(option.querySelector('option:checked').value == "卡關中"){
+        option.classList.add('red')
+      }else if(option.querySelector('option:checked').value == "進行中"){
+        option.classList.add('blue')
+      }else if(option.querySelector('option:checked').value == "待修改"){
+        option.classList.add('pink')
+      }else if(option.querySelector('option:checked').value == "待指派"){
+        option.classList.add('yellow')
+      }else if(option.querySelector('option:checked').value == "已完成"){
+        option.classList.add('gray')
+      }
+  
+    })
+  }
+
+  function changeBackgroundColor(e){
+    let optionClass = Array.from(e.target.classList)
+    if(optionClass.indexOf("item-status-option") !== -1){
+      e.target.classList.remove(e.target.classList[1])
+    }
+    
+  }
+
+  statusOptions.forEach((option)=>{
+    option.addEventListener('change',changeBackgroundColor)
+  })
+
+  $('.item-name').on("change", function(e){ 
+    let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
+    var name = $(this).val();
+    $.ajax({ 
+    url: "/item/nameupdate", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "PATCH", 
+    data: {
+      "id": id,
+      "name": name
+    }, 
+    success: () =>{
+       console.log('完成')
+       location.reload()
+    }
+    }) 
+  }); 
+
+  $('.item-description').on("change", function(e){ 
+    let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
+    var description = $(this).val();
+    $.ajax({ 
+    url: "/item/descriptionupdate", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "PATCH", 
+    data: {
+      "id": id,
+      "description": description
+    }, 
+    success: () =>{
+       console.log('完成')
+       location.reload()
+    }
+    }) 
+  }); 
   // github-link
 
   const githubLink = document.querySelector('.github-link-img')
@@ -78,11 +158,13 @@ document.addEventListener('turbolinks:load', () => {
     githubNextpage.classList.add('outside-link-board-nextpage')
     githubNextpage.classList.remove('outside-link-board-nextpage-disappear')
   })
+
+
   $('select').change(function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();
     $.ajax({ 
-    url: "/item/groupupdate", 
+    url: "/item/statusupdate", 
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     type: "PATCH", 
     data: {
@@ -91,6 +173,7 @@ document.addEventListener('turbolinks:load', () => {
     }, 
     success: () =>{
        console.log('完成')
+       changeBackgroundColorFinish()
     }
     }) 
   }); 
@@ -119,7 +202,7 @@ document.addEventListener('turbolinks:load', () => {
   arrow_button.addEventListener('click', function(){
     arrow_button.classList.toggle('arrow')
     buttonDiv.classList.toggle('sign-in-buttons-open')
-    console.log('aaa')
+    // console.log('aaa')
   })
 
 
@@ -148,7 +231,7 @@ document.addEventListener('turbolinks:load', () => {
   
 
   //Get edit_task toggle the "is-active"
-  const taskTables = document.querySelectorAll('.table')
+  const taskli = document.querySelectorAll('.items-task')
   //先抓出所有的table
   // const editArrow = document.querySelector('.fa-caret-right')
   
@@ -159,19 +242,16 @@ document.addEventListener('turbolinks:load', () => {
       //如果fa-caret-right是有的，就執行以下程式
       e.target.classList.toggle("arrow")
       //箭頭動畫
-      // e.target.parentNode.parentNode.querySelector(".edit-delete-task").classList.toggle("edit-delete-task-open")
-      //編輯icon開盒
       e.target.parentNode.parentNode.querySelector(".edit-delete-task").classList.toggle("edit-delete-task-open")
+      //編輯icon開盒
+
     }
   }
 
-  taskTables.forEach((table)=>{
-    table.addEventListener("click", toggleTaskName)
+  taskli.forEach((list)=>{
+    list.addEventListener("click", toggleTaskName)
   })
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
 
-
-  
-  
 });

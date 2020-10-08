@@ -1,3 +1,4 @@
+
 html{
   background-color: #5A815A;
 }
@@ -13,6 +14,38 @@ a{
   font-weight: 600;
   color: rgb(107, 161, 107);
 }
+.red{
+  background-color: #EEB5AE;
+}
+.blue{
+  background-color: #B4DAE9;
+}
+.yellow{
+  background-color: #ECEBAD;
+}
+.pink{
+  background-color: #FCD3B3;
+}
+.gray{
+  background-color: rgb(209, 202, 202);
+}
+//item-status 
+
+.item-td{
+  display: flex;
+  align-items: center;
+  .item-status-option{
+    outline: none;
+    height: 30px;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    border-radius: 10px;
+    padding:0 5px;
+  }
+}
+
+
 //sign-in
 .hero-body{
   display: flex;
@@ -49,6 +82,39 @@ a{
     justify-content: center;
   }
 }
+.home-sign-up{
+  width: 100px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: rgb(69, 175, 69);
+  margin: 10px;
+  color: white;
+  border-radius: 5px;
+  transition: .3s;
+  .sign-up{
+    color: white;
+  }
+}
+.home-sign-up:hover{
+  background-color: rgb(51, 42, 42);
+  color: white;
+  transition: .3s;
+}
+.sign-in-submit{
+  width: 100px;
+  padding: 10px;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 5px;
+  transition: .3s;
+  border: black 1px solid;
+}
+.sign-in-submit:hover{
+  background-color: rgb(51, 42, 42);
+  color: white;
+  transition: .3s;
+}
 .sign-in-checkbox{
   display: flex;
   align-items: center;
@@ -61,6 +127,7 @@ a{
 
 
 //new item
+
 .new-item-page{
   background-color: white;
   width: 100%;
@@ -194,7 +261,7 @@ a{
 
 
 
-//body
+// body
 body{
   background-color: #5A815A;
   margin-bottom: 0;
@@ -232,6 +299,7 @@ body{
       }
      
     }
+    
     .github-link{
       position: absolute;
       bottom: 20px;
@@ -364,7 +432,7 @@ body{
         }
         .outside-link-item{
           cursor: pointer;
-          width: 200px;
+          width: 50%;
           height: 15%;
           background-color: rgb(31, 28, 28);
           border-radius: 10px;
@@ -622,18 +690,20 @@ body{
       }
     }
     .sign-in-buttons-open{
-      height: 88px;
+      height: 132px;
       transition: 0.5s;
       
     }
   
   }
+
+  
   @media screen and (min-width: 768px){
     .buttons .sign-in-buttons{
       top: 70px;
     }
   }
-  
+ 
   .sign-out-status{
     display: flex;
     margin-top: 4px;
@@ -688,8 +758,18 @@ body{
       font-weight: 500;
       width: 150px;
     }
+   
   }
   
+}
+
+.board-name{
+  font-weight: 500;
+}
+.fa-level-up-alt{
+  font-size: 20px;
+  font-weight: 700;
+  transform: rotate(90deg);
 }
 .workspace-arrow-down{
   margin-left: 10px;
@@ -703,7 +783,6 @@ body{
 .board-item{
   color: white;
   margin-left: 30px;
-  margin-bottom: 20px;
 }
 .board-link{
   color: white;
@@ -711,6 +790,7 @@ body{
 
 .fa-plus-square{
   color: white;
+  font-size: 20px;
 }
 .fa-user-plus, .fa-edit, .fa-trash-alt
 {
@@ -744,6 +824,14 @@ body{
 
 // groups-task-list
 
+.table{
+  font-size: 16px;
+  font-weight: 500;
+  td{
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
 .item-group-li{
   padding-bottom: 50px;
 }
@@ -840,10 +928,12 @@ body{
 .add-item{
   background-color: #D3E3D3;
   width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   a{
-    padding-top: 4px;
+    font-size: 16px;
     color: #8CA38C !important;
-}
+  }
   
 }
 
@@ -910,9 +1000,11 @@ body{
     background-color: white;
   }
   .main-pic{
-    width: 700px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    // border: red 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
   }
   .footer-home{
     margin-top: 40px;
@@ -920,9 +1012,9 @@ body{
 
 
 @media screen and (max-width: 1200px){
-  .item-object-group{
+  #item-object-group{
     width: 100%;
-    margin-left: 0px;
+    margin-left: -45px;
     padding-right: 0px;
     border-right: solid #aaa 1px;
     padding-right: 80px;
@@ -930,6 +1022,8 @@ body{
   }
   
 }
+
+
   
 @media screen and (max-width: 768px){
   
@@ -1101,7 +1195,9 @@ body{
     }
    
   }
-  
+  .burger{
+    margin-left: auto;
+  }
   .sign-in-name{
     margin-left: 30px;
   }
@@ -1112,9 +1208,12 @@ body{
     width: 100%;
   }
 }
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1030px){
   .navbar-menu .outside-link-background{
     width: 86%;
+  }
+  #outside-link-item{
+    width: 40%;
   }
  
   
@@ -1128,4 +1227,3 @@ body{
     font-size: 60px;
   }
 }
-
