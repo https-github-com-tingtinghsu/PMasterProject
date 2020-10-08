@@ -142,6 +142,7 @@
         <% if current_user %>
           <div class="sign-in-name" data-user-id="<%= current_user.id%>"><p> Hello, <%= current_user.display_name %></p></div>
           <div class="sign-in-buttons">
+            <strong><%= link_to '我的任務', mytask_path %></strong>
             <strong><%= link_to '編輯帳戶', edit_user_registration_path %></strong>
             <strong><%= link_to '登出', destroy_user_session_path, method: 'delete', id: "btn-logout" %></strong>
           </div>

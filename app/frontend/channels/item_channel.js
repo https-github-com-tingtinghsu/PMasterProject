@@ -9,6 +9,16 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
   },
 
   received(data) {
-    $('#' + data.itemid).val(data.itemstatus)
+    if(data.itemstatus != undefined){
+      $('#' + data.itemid).val(data.itemstatus)
+    }
+    // 
+    if(data.itemsname != undefined){
+      $('#item-name-' + data.itemid).val(data.itemsname)
+    }
+    //
+    if(data.itemsdescription != undefined){
+      $('#item-description-' + data.itemid).val(data.itemsdescription)
+    }
   }
 });

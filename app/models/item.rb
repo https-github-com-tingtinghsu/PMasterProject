@@ -5,9 +5,7 @@ class Item < ApplicationRecord
   has_many :assignments, dependent: :destroy
   has_many :users, through: :assignments 
 
-  before_update :update_finish_date
-
-  # validates :name, presence: true
+  # validates :name, presence: true, length: {maximum:20}
 
   # 更新下拉選單時，也須確認資料庫裡的完成日期是否需要更改
   def update_finish_date

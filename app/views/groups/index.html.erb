@@ -48,7 +48,7 @@
                             <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                           </div>
                           
-                          <div class="item-name" id="item-id-<%= item.id %>"><%= item.name %></div>
+                          <Input type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF; outline:none;">
                         </td>
                         <td class="post-icon-and-counts" style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", style:"text-decoration: none;" %>
@@ -65,8 +65,9 @@
                             <% end %>
                           <% end %>
                         </td>
-                        <td class="item-description"><%= item.description %></td>
-
+                        <td>
+                          <input type="text" class="item-description" data-item-id="<%= item.id %>" id="item-description-<%= item.id %>" data-item-description="<%= item.description %>" value="<%= item.description %>" style="background-color:#EFF4EF; outline:none;" >
+                        </td>
                         <td class="item-point"><%= item.point %></td>                        
                         <% if item.due_date != nil && item.status != "已完成" %>
                           <% if (item.due_date - Date.current).to_i == 0 %>
@@ -125,4 +126,3 @@
   <div id="posts-block" class="posts-block rounded"></div>
   
 </div>
-  

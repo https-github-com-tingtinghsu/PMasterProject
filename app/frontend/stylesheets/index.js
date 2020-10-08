@@ -9,6 +9,7 @@ import "./all_pages.scss";
 import "./phone.scss";
 import "./posts.css"
 import "./replies.css"
+import "./mytask.scss"
+import "bulma-tooltip"
 import "./video.css"
-
 
