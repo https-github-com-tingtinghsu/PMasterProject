@@ -7,7 +7,7 @@
 
         <div class="field">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請填寫您的信箱", class: "input is-success", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請填寫您的信箱", class: "input is-success",  value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
         </div>
 
         <div class="actions">
