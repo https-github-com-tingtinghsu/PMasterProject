@@ -1,6 +1,7 @@
+require 'securerandom'
 require "github.rb"
 class ItemsController < ApplicationController
-	before_action :find_board_and_group, only: [:index, :new, :create]
+	before_action :find_board_and_group, only: [:index]
 	before_action :find_item, only: [:edit, :update, :posts,:destroy, :update_finish_date]
 	before_action :find_item_user_id, only: [:edit, :update, :posts,:destroy]
 
@@ -10,12 +11,16 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
+		@group = Group.friendly.find(params[:group_id])
+		@board = @group.board	
 		@workspace_users = @board.workspace.all_members
 		# assignment對象是所有在這個workspace裡面的人，所以要抓 users、creator
 		# 但這樣是重複進資料庫撈資料
 	end
 
 	def create
+		@group = Group.friendly.find(params[:group_id])
+		@board = @group.board	
 		@item = @group.items.new(item_params)
 		# description
 		# 撈出被選取到的user_id
@@ -37,7 +42,7 @@ class ItemsController < ApplicationController
 			# puts "開始寫入Github Issue:"
 			Github.new.issueCreate(@item.name, session[:user])
 			# puts "成功寫入!"
-			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
+			redirect_to board_groups_path(@group.board.slug), notice: "新增成功"
 		else
 			render :new
 		end
@@ -123,7 +128,7 @@ class ItemsController < ApplicationController
 
 	private
 	def find_item
-		@item = Item.find(params[:id])
+		@item = Item.friendly.find(params[:id])
 	end
 
 	def find_item_user_id

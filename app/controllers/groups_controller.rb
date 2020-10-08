@@ -1,7 +1,10 @@
+require 'securerandom'
+
 require 'date'
 class GroupsController < ApplicationController
   before_action :find_board, only: [:index, :create]
   before_action :find_group, only: [:edit, :update, :destroy, :charts, :chart_date_array]
+
   def index
     @groups = @board.groups.all.order(created_at: :desc)
     @workspace = @board.workspace_id
@@ -64,10 +67,10 @@ class GroupsController < ApplicationController
   private
 
   def find_board
-    @board = Board.find(params[:board_id])
+    @board = Board.friendly.find(params[:board_id])
   end
   def find_group
-    @group = Group.find(params[:id])
+    @group = Group.friendly.find(params[:id])
   end
   def group_params
     params.require(:group).permit(:name, :start_date, :end_date)
