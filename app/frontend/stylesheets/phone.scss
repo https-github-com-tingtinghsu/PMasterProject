@@ -56,16 +56,37 @@
   #hero-home{
     height: 1700px;
     h1{
+      position: absolute;
       font-size: 100px;
+      top: 300px;
+      left: 110px;
+    }
+    .main-pic{
+      position: absolute;
+      top: 400px;
+      left: 180px;
+      // border: solid red 1px;
+      width: 600px;
+      height: 600px;
+      img{
+        width: 100%;
+      }
     }
     h2{
-      font-size: 78px;
-      line-height: 150px;
+      font-size: 55px;
+      position: absolute;
+      top: 1050px;
+      // line-height: 150px;
     }
   }
   .home-sign-up{
     padding: 30px;
     font-size: 50px;
+    position: relative;
+    width: 300px;
+    height: 80px;
+    border-radius: 10px;
+    bottom: 100px;
   }
 
   .footer-home{
