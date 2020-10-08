@@ -70,6 +70,25 @@ class ItemsController < ApplicationController
 		end
 		# byebug
 	end
+	def update_name
+		@item = Item.find_by(id: params[:id])
+		@item.name = params[:name]
+		
+		if !@item.save
+			render :index
+		end
+		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsname: params[:name])
+	end
+
+	def update_description
+		@item = Item.find_by(id: params[:id])
+		@item.description = params[:description]
+		
+		if !@item.save
+			render :index
+		end
+		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsdescription: params[:description])
+	end
 
 	def update_status
 		@item = Item.find_by(id: params[:id])

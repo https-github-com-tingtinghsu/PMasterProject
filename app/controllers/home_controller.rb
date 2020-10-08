@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:dashboard]
+  before_action :authenticate_user!, only: [:dashboard, :mytask]
   
   def index
     if current_user
@@ -12,6 +12,14 @@ class HomeController < ApplicationController
     # 有cookies的人才需要confirmed_invitation
     confirmed_invitation if cookies[:user_token]
 
+  end
+
+  def mytask
+    @items = current_user.items.order(created_at: :desc)
+    @pending = @items.select{ |item| item.status == "待修改"}
+    @working = @items.select{ |item| item.status == "進行中"}
+    @stuck = @items.select{ |item| item.status == "卡關中"}
+    @done = @items.select{ |item| item.status == "已完成"}
   end
 
   private
