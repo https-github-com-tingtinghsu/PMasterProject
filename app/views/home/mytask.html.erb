@@ -4,111 +4,77 @@
       <span class="subtitle my-2 ">我的任務</span>
     </div>
     <div class="content">
-      <div class="group-item-list">
+      <div class="mytask-group-item-list">
         <% if @items.count < 1 %>
-          <h1>您目前沒有任務要進行</h1>
+          <p>您目前沒有任何項目</p>
+          <button onclick="window.history.back()">回上一頁</button>
         <% else %>
-          <!-- <div class="content group-item-list" data-board-id="<%#= @board.id%>"> -->
             <div class="mytask-btn-for-status">
               <button class="mytask-btn btn-pending" status="pending">待修改</button>
               <button class="mytask-btn btn-working" status="working">進行中</button>
               <button class="mytask-btn btn-stuck" status="stuck">卡關中</button>
               <button class="mytask-btn btn-done" status="done">已完成</button>
             </div>
-            <div class="mytask-type pending is-removed-for-mytask" status="pending">
-              <ul>
-                <% if @pending != []%>
-                  <% @pending.each do |pending| %>
+
+            <div class="mytask-type pending is-active-for-mytas" status="pending">
+              <% if @pending != []%>
+                <% @pending.each do |pending| %>
+                  <ul>
                     <li><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board_id)%></li>
-                  <% end %>
-                <% elsif %>
-                  <li>沒有資料</li>
+                    <li><%= pending.description %></li>
+                    <li><%= pending.due_date %></li>
+                  </ul>
                 <% end %>
-              </ul>
+              <% elsif %>
+                <p>您沒有待修改的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
+              <% end %>
             </div>
 
             <div class="mytask-type working is-removed-for-mytask" status="working">
-              <ul>
-                <% if @working != [] %>
-                  <% @working.each do |working| %>
+              <% if @working != [] %>
+                <% @working.each do |working| %>
+                  <ul>
                     <li><%= link_to working.name, board_groups_path(Group.find(working.group_id).board_id)%></li>
-                  <% end %>
-                <% elsif %>
-                  <li>沒有資料</li>
+                    <li><%= working.description %></li>
+                    <li><%= working.due_date %></li>
+                  </ul>
                 <% end %>
-              </ul>
+              <% elsif %>
+                <p>您沒有進行中的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
+              <% end %>
             </div>
 
             <div class="mytask-type stuck is-removed-for-mytask" status="stuck">
-              <ul>
-                <% if @stuck != [] %>
-                  <% @stuck.each do |stuck| %>
+              <% if @stuck != [] %>
+                <% @stuck.each do |stuck| %>
+                  <ul>
                     <li><%= link_to stuck.name, board_groups_path(Group.find(stuck.group_id).board_id)%></li>
-                  <% end %>
-                <% elsif %>
-                  <li>沒有資料</li>
+                    <li><%= stuck.description %></li>
+                    <li><%= stuck.due_date %></li>
+                  </ul>
                 <% end %>
-              </ul>
+              <% elsif %>
+                <p>您沒有卡關中的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
+              <% end %>
             </div>
 
             <div class="mytask-type done is-removed-for-mytask" status="done">
-              <ul>
-                <% if @done != [] %>
-                  <% @done.each do |done| %>
+              <% if @done != [] %>
+                <% @done.each do |done| %>
+                  <ul>
                     <li><%= link_to done.name, board_groups_path(Group.find(done.group_id).board_id)%></li>
-                  <% end %>
-                <% elsif %>
-                  <li>沒有資料</li>
+                    <li><%= done.description %></li>
+                    <li><%= done.finish_date %></li>
+                  </ul>
                 <% end %>
-              </ul>
-            </div>
-
-            <!-- <ul class="mytask-group-item-task-list">
-              <li class="mytask-item-group-top-title rounded-t">
-                <div class="mytask-item-board-left my-taskitem-name-top">項目名稱</div>
-                <div class="mytask-item-description">項目敘述</div>
-                <div class="mytask-item-due-date">到期日</div>
-                <div class="mytask-item-finish">完成日</div>                      
-                <div class="mytask-item-board-right item-status">進度</div>
-              </li>
-              <% @items.each do |item| %>
-                <% if item.status != "已完成" %>
-                  <li class="mytask-items-task is-hoverable" data-item-id="<%= item.id %>" id="items-task-<%= item.id %>">
-                    <div class="mytask-task-first-lattice">
-                      <div class="mytask-item-name" data-item-name="<%= item.name %>">
-                        <%= link_to item.name, board_groups_path(Group.find(item.group_id).board_id)%>
-                      </div>
-                    </div>
-
-                    <div class="mytask-item-description" data-item-description="<%= item.description %>">
-                      <% if item.name.length>15 %>
-                        <%= item.description[0..14] %>...
-                      <% else %>
-                        <%= item.description %>
-                      <% end %>
-                    </div>
-
-                    <% if item.due_date != nil && item.status != "已完成" %>
-                      <% if (item.due_date - Date.current).to_i == 0 %>
-                        <div class="mytask-item-due-date">今日內完成</div>
-                      <% elsif (item.due_date - Date.current).to_i > 0 %>
-                        <div class="mytask-item-due-date" style="color: green">剩餘 <%= (item.due_date - Date.current).to_i%> 天</div>
-                      <% else (item.due_date - Date.current).to_i < 0 %>
-                        <div class="mytask-item-due-date" style="color: red">逾時 <%= (item.due_date - Date.current).to_i * -1%> 天</div>
-                      <% end %>
-                    <% else %>
-                      <div class="mytask-item-due-date"></div>
-                    <% end %>
-
-                    <div class="mytask-item-finish"><%= item.finish_date %></div>                        
-               
-                    <div class="mytask-item-status">
-                      <%= item.status %>
-                    </div>
-                  </li>
-                <% end %>
+              <% elsif %>
+                <p>您沒有已完成的項目</p>
+                <button onclick="window.history.back()">回上一頁</button>
               <% end %>
-            </ul> -->
+            </div>
         <% end %>
       </div>
     </div>
