@@ -1,0 +1,173 @@
+@media screen and (max-device-width: 430px) {
+
+  //home_page_start
+
+  .navbar-brand .navbar-item .logo {
+    width: 400px;
+    height: 150px;
+  }
+  .navbar-brand{
+    display: flex;
+    align-items: center;
+  }
+  .navbar-end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .github-link-img{
+      font-size: 80px;
+    }
+  }
+  .sign-out-status{
+    .button{
+      font-size: 30px;
+    }
+  }
+  #burger{
+    height: 100px;
+    margin-left: 400px;
+    span{
+      width: 60px;
+      height: 4px;
+    }
+    span:nth-child(1) {
+      top: calc(50% - 20px);
+    }
+    
+    span:nth-child(2) {
+      top: calc(50% - 5px);
+    }
+    
+    span:nth-child(3) {
+      top: calc(50% + 10px);
+    }
+  }
+  .navbar-burger.is-active span:nth-child(1) {
+    transform: translateY(15px) rotate(45deg);
+  }
+  
+  .navbar-burger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-burger.is-active span:nth-child(3) {
+    transform: translateY(-15px) rotate(-45deg);
+  }
+  #hero-home{
+    height: 1700px;
+    h1{
+      position: absolute;
+      font-size: 100px;
+      top: 300px;
+      left: 110px;
+    }
+    .main-pic{
+      position: absolute;
+      top: 400px;
+      left: 180px;
+      // border: solid red 1px;
+      width: 600px;
+      height: 600px;
+      img{
+        width: 100%;
+      }
+    }
+    h2{
+      font-size: 55px;
+      position: absolute;
+      top: 1050px;
+      // line-height: 150px;
+    }
+  }
+  .home-sign-up{
+    padding: 30px;
+    font-size: 50px;
+    position: relative;
+    width: 300px;
+    height: 80px;
+    border-radius: 10px;
+    bottom: 100px;
+  }
+
+  .footer-home{
+    p{
+    font-size: 40px;
+    }
+  }
+
+  //home_page_end
+
+  //sing_up_start
+
+  .hero-body{
+    height: 1700px;
+    .subtitle{
+      font-size: 100px;
+    }
+    .new_user{
+      font-size: 50px;
+      line-height: 50px;
+      input{
+        margin-top: 30px;
+        height: 70px;
+      }
+      .home-sign-up{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        width: 250px;
+        height: 100px;
+        font-size: 50px;
+        font-weight: 600;
+        background-color: #45af45;
+        color: white;
+        border-radius: 5px;
+      }
+    }
+    a{
+      margin-top: 50px;
+      font-size: 50px;
+      line-height: 50px;
+    }
+  }
+  //sing_up_end
+
+
+
+  //sign_in_start
+
+  .sign_in_page{
+    .subtitle{
+      margin-bottom: 50px;
+      margin-top: 100px;
+    }
+    .actions{
+      .sign-in-submit{
+        padding: 30px;
+        width: 250px;
+        height: 100px;
+        font-size: 50px;
+        font-weight: 600;
+      }
+    }
+    
+    input{
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .item-label{
+      width: 30px;
+    }
+    
+  }
+  //sign_in_end
+
+  //edit_item_start
+  
+   
+ 
+  
+  //edit_item_end
+
+}
