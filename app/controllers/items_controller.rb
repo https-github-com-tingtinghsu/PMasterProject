@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
 			end
 			puts "======================#{params[:person]}========================"
 			if params[:person] != nil
-				# puts "======================#{params[:person].values[0]}========================"
 				params[:person].each do 
 					|k, v|
 					ActionCable.server.broadcast("user_channel_#{v}","你有新的 Issue 通知 【 #{@item.name} 】")
