@@ -11,6 +11,11 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
   received(data) {
     if(data.itemstatus != undefined){
       $('#' + data.itemid).val(data.itemstatus)
+      if(data.itemstatus == "已完成"){
+        console.log($('.item-point')[0 + 1])
+        console.log($('.item-point').val())
+        $('.item-point').val("ha")
+      }
     }
     // 
     if(data.itemsname != undefined){
