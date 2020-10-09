@@ -1,9 +1,8 @@
 class ChartChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "chart_channel"
+    stream_from "chart_channel_#{params[:member_id]}"
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
   end
 end
