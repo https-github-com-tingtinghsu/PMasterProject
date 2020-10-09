@@ -33,7 +33,7 @@
 	/* flex-grow: 1; */
 	flex-grow: 1;
 	height: 100%;
-	background-color: pink;
+	/* background-color: pink; */
 }
 /* .attendees{
 	width: 20%;
@@ -43,11 +43,11 @@
 .is-active-for-attendees{
 	width: 20%;
 	height: 100%;
-	background-color: azure;
+	/* background-color: azure; */
 }
 .attendees div{
 	width: 100%;
 	height: 150px;
-	background-color: burlywood;
+	/* background-color: burlywood; */
 	outline: 1px solid crimson;
 }
