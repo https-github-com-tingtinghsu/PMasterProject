@@ -96,10 +96,8 @@ class ItemsController < ApplicationController
 	end
 
 	def update_status
-		puts "==================== update_status ====================="
-		@group = Group.find(params[:id])
-		puts @groups.id
-		puts "==================== update_status ====================="
+		@item = Item.find(params[:id])
+		@this_group_id = @item.group_id
 		@item.status = params[:status]
 		if params[:status] == "已完成"
 			@item.finish_date = Time.now.strftime('%F')
@@ -109,6 +107,7 @@ class ItemsController < ApplicationController
 			render :index
 		end
 		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemstatus: params[:status])
+		ActionCable.server.broadcast("chart_channel",groupid: @this_group_id)
 	end
 
 	def posts

@@ -1,12 +1,18 @@
 import consumer from "../../javascript/channels/consumer"
 
-// consumer.subscriptions.create({ channel: "ChartChannel", member_id: member_id  }, {
-//   connected() {
-//   },
+document.addEventListener("turbolinks:load", () => {
+  const element = document.querySelector('.chartjs-size-monitor')
+  if(!element)return
 
-//   disconnected() {
-//   },
+  consumer.subscriptions.create({ channel: "ChartChannel", group_id: group_id  }, {
+    connected() {
+      console.log('ChartChannel')
+    },
 
-//   received(data) {
-//   }
-// });
+    disconnected() {
+    },
+
+    received(data) {
+    }
+  });
+})
