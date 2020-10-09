@@ -1,7 +1,7 @@
 document.addEventListener('turbolinks:load', () => {
-  let mytaskBtn = document.querySelector('.mytask-btn-for-status')
-  if (mytaskBtn){
-    let btns= document.querySelectorAll('button')
+  let mytaskBtnAll = document.querySelector('.mytask-btn-for-status')
+  if (mytaskBtnAll){
+    let btns= document.querySelectorAll('.mytask-btn')
     let divOfMytasks = document.querySelectorAll('.mytask-type')
     btns.forEach((btn)=>{
       btn.addEventListener('click',function(){

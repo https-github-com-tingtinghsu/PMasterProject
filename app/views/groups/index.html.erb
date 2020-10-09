@@ -48,7 +48,7 @@
                             <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                           </div>
                           
-                          <Input type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF; outline:none;">
+                          <Input type="text" data-remote="true" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF; outline:none;">
                         </td>
                         <td class="post-icon-and-counts" style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", style:"text-decoration: none;" %>

@@ -79,7 +79,9 @@ class ItemsController < ApplicationController
 		@item = Item.find_by(id: params[:id])
 		@item.name = params[:name]
 		
-		if !@item.save
+		if @item.save
+			puts "=====saved====="
+		else 
 			render :index
 		end
 		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsname: params[:name])
@@ -89,7 +91,9 @@ class ItemsController < ApplicationController
 		@item = Item.find_by(id: params[:id])
 		@item.description = params[:description]
 		
-		if !@item.save
+		if @item.save
+			puts "=====saved====="
+		else 
 			render :index
 		end
 		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsdescription: params[:description])
