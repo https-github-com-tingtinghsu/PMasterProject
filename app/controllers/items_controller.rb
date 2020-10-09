@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
 	def update
 		# 如果狀態被選取為「已完成」,系統就自動更新完成日為Time.now, 否則清空完成日
 		params[:item]["finish_date"] = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
-
+		puts "==================== item update ====================="
 		if @item.update(item_params)
 			if (params[:person])
 				@members_id = params[:person].values
@@ -96,7 +96,10 @@ class ItemsController < ApplicationController
 	end
 
 	def update_status
-		@item = Item.find_by(id: params[:id])
+		puts "==================== update_status ====================="
+		@group = Group.find(params[:id])
+		puts @groups.id
+		puts "==================== update_status ====================="
 		@item.status = params[:status]
 		if params[:status] == "已完成"
 			@item.finish_date = Time.now.strftime('%F')
