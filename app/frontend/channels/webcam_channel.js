@@ -28,7 +28,6 @@ window.onload = () => {
 // Ice Credentials
 const ice = { iceServers: [{ urls: "stun:stun.l.google.com:19302" }] };
 
-// Add event listener's to buttons
 document.addEventListener("DOMContentLoaded", () => {
   const joinButton = document.getElementById("join-button");
   const leaveButton = document.getElementById("leave-button");
