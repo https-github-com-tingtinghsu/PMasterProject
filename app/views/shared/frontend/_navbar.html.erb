@@ -155,10 +155,10 @@
                 <%= link_to '聯絡我們', root_path, class: "button is-primary" %>               
               </div>              
               <div class="navbar-item">
-                <%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %>
+                <%= link_to '立刻註冊', new_user_registration_path, remote:true, class: "button is-primary navbar-sign-up-in" %>
               </div>
               <div class="navbar-item">
-                <%= link_to '我要登入', new_user_session_path, class: "button is-light sign-out-buttons" %>
+                <%= link_to '我要登入', new_user_session_path, remote:true, class: "button is-light sign-out-buttons navbar-sign-up-in" %>
               </div>
             </div>
         <% end %>

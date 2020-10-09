@@ -10,16 +10,16 @@ document.addEventListener('turbolinks:load', () => {
     $("#btn-save-adding-workspace").data("workspace-id", "")
     $("#modal-add-workspace").addClass("is-active")
   })
-
-  $(".btn-cancel-modal, .btn-save-adding, #btn-confirm-delete-sidebar-item")
+  $(".btn-cancel-modal, .btn-save-adding, #btn-confirm-delete-sidebar-item, .btn-cancel-for-posts")
   .click(
     function(){
+      console.log('bbb')
       $("#modal-add-workspace, #modal-add-board, #modal-delete-sidebar-item, #modal-add-workspace-member")
       .removeClass("is-active")
   })
 
   // create and update workspace
-  $('#btn-save-adding-workspace').click(function(){
+  $('#btn-save-adding-workspace').on("click", function(){
     if($(this).data("workspace-id").length==0){
       createWorkspace()
     } else{
