@@ -12,9 +12,11 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
     if(data.itemstatus != undefined){
       $('#' + data.itemid).val(data.itemstatus)
       if(data.itemstatus == "已完成"){
-        console.log($('.item-point')[0 + 1])
-        console.log($('.item-point').val())
-        $('.item-point').val("ha")
+        const d = new Date(Date.now())
+        $('.item-finsih-date-' + data.itemid).text( d.getFullYear() + "-" + (d.getMonth() +1) + "-" + d.getDate() )
+      }
+      else{
+        $('.item-finsih-date-' + data.itemid).text('')
       }
     }
     // 
