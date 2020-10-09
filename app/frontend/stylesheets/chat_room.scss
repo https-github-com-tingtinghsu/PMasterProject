@@ -109,21 +109,8 @@
     .fa-facebook-messenger{
       font-size: 25px;
       margin-right: 10px;
-      // color: rgb(96, 231, 186);
     }
   }
-  // .rotate{
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   // background-color: rgb(211, 207, 207);
-  //   height: 50px;
-  //   width: 50px;
-  //   border-radius: 10%;
-  //   transition: .5s;
-  //   transform: rotate(45deg);
-  //   margin: 10px;
-  // }
  
 }
 .me{
@@ -168,10 +155,12 @@
   .chatroombox{
     position: fixed;
     bottom: 0px;
-    right: 570px;
+    right: 263px;
     z-index: 10000;
     font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
-
+  }
+  .chatroombox-move{
+    right: 570px;
   }
   // user_online
   .who-online{
@@ -182,7 +171,6 @@
     background-color: #5A815A;
     padding-top: 10px;
 
-    // border: solid 1px red;
     .user_online{
       display: flex;
     }
@@ -216,9 +204,6 @@
       position: relative;
       top: 20px;
       left: 430px;
-      // z-index: 10000;
-
-      // border: solid 1px red;
       
       h2{
         font-size: 20px;

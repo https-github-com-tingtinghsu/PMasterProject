@@ -338,7 +338,7 @@ function addNewBoardRow(workspaceId){
   })
 
   sidebarItem.append(addBoardItem)
-  sidebarItem.append(`<p><i>新增看板...</i></p>`) 
+  sidebarItem.append(`<p class="add-board-p">新增看板</p>`) 
   return sidebarItem;
 }
 

@@ -81,8 +81,7 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }); 
   // github-link
-
-  const githubLink = document.querySelector('.github-link-img')
+  const githubLink = document.querySelector('.github-link-touch')
   const githuBoard = document.querySelector('.outside-link-background-disappear')
   const githuBoardIntegration = document.querySelector('.outside-link-board-integrations-disappear')
   const githubMenuItem = document.querySelector('.outside-link-item')
@@ -104,12 +103,6 @@ document.addEventListener('turbolinks:load', () => {
         githuBoard.classList.add('outside-link-background-disappear')
       })
   })
-  // outsideLinkClose.forEach((e) => {
-  //   e.addEventListener('click', () => {
-  //     githuBoard.classList.remove('outside-link-background')
-  //     githuBoard.classList.add('outside-link-background-disappear')
-  //   })
-  // })
   githubLink.addEventListener('click',() => {
     githuBoard.classList.remove('outside-link-background-disappear')
     githuBoard.classList.add('outside-link-background')
@@ -254,4 +247,10 @@ document.addEventListener('turbolinks:load', () => {
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
 
+  //move_chatroom from post_icon
+  const postIconDiv = document.querySelector('.post-icon-and-counts')
+  postIconDiv.addEventListener('click', () => {
+    console.log('aaa')
+    z
+  })
 });
