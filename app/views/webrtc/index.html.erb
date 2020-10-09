@@ -28,15 +28,20 @@
 </button> -->
 <div class="container-all">
   <div class="webcam-btn">
-    <button>Join</button>
-    <button>Leave</button>
+    <button id="join-button">Join</button>
+    <button id="leave-button">Leave</button>
   </div>
   <div class="container-for-webcam">
-    <div id="current-user"></div>
-    <div class="attendees is-active-for-attendees">
-      <div class="person 1"></div>
+    <%# <div id="current-user"></div> %>
+    <video class="local-video" id="local-video" autoplay></video>
+    <div class="attendees is-active-for-attendees" id="remote-video-container">
+      <%# <div class="person 1"></div>
       <div class="person 2"></div>
-      <div class="person 3"></div>
+      <div class="person 3"></div> %>
     </div>
   </div>
+</div>
+
+<div style="display: none">Random User ID:
+  <span id="current-user"><%= @random_number %></span>
 </div>
