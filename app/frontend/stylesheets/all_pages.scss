@@ -944,7 +944,6 @@ body{
 //main-dashboard
 
 .main-dashboard{
-  margin-right: 20px;
   margin-bottom: 100px;
 }
 .home-dashboard{
@@ -1021,6 +1020,7 @@ body{
     box-sizing: border-box;
   }
   
+  
 }
 
 
@@ -1057,24 +1057,7 @@ body{
     }
   }
 
-  //item
-  .task-point, .date-down{
-    display: none;
-  }
-
-//
-  .item-name{
-    width: 100%;
-  }
-  .post-icon-and-counts{
-    display: none;
-  }
-  .item-post-column{
-    display: none;
-  }
-  .item-point{
-    display: none;
-  }
+ 
   // .task-arrow{
   //   display: none;
   // }
@@ -1146,7 +1129,7 @@ body{
     
   }
   .main-board{
-    position: relative;
+    // position: relative;
     .footer{
       position: absolute;
       bottom: 10px;
@@ -1215,9 +1198,15 @@ body{
   #outside-link-item{
     width: 40%;
   }
+  
  
   
   
+}
+@media screen and (min-width: 768px) and (max-width: 1030px) {
+  #media-display-none{
+    display: none;
+  }
 }
 @media screen and (min-width: 768px){
   .buttons .sign-in-buttons{
