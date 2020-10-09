@@ -35,7 +35,10 @@ class ItemsController < ApplicationController
 			puts "======================#{params[:person]}========================"
 			if params[:person] != nil
 				# puts "======================#{params[:person].values[0]}========================"
-				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
+				params[:person].each do 
+					|k, v|
+					ActionCable.server.broadcast("user_channel_#{v}","你有新的 Issue 通知 【 #{@item.name} 】")
+				end
 			end
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			ActionCable.server.broadcast("board_channel_#{ board.id }", "")
