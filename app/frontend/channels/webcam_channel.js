@@ -19,13 +19,6 @@ let remoteVideoContainer;
 let pcPeers = {};
 let localstream;
 
-let displayMediaOptions = {
-  video: {
-    cursor: "always"
-  },
-  audio: true
-};
-
 window.onload = () => {
   currentUser = document.getElementById("current-user").innerHTML;
   localVideo = document.getElementById("local-video");
@@ -43,15 +36,25 @@ document.addEventListener("DOMContentLoaded", () => {
   leaveButton.onclick = handleLeaveSession;
 
   // ==============================
-  const startElem = document.getElementById("share-button");
-  startElem.addEventListener("click", function(evt) {
-    startCapture();
-  }, false);
+  const startCamElem = document.getElementById("Start-button");
+  startCamElem.addEventListener("click", function(evt) {
+    startCamCapture()
+  }, false)
 
-  const stopElem = document.getElementById("not-share-button");
-  stopElem.addEventListener("click", function(evt) {
-    stopCapture();
-  }, false);
+  const stopCamElem = document.getElementById("Stop-button");
+  stopCamElem.addEventListener("click", function(evt) {
+    stopCamCapture()
+  }, false)
+
+  const startDestopElem = document.getElementById("share-button");
+  startDestopElem.addEventListener("click", function(evt) {
+    startCapture()
+  }, false)
+
+  const stopDestopElem = document.getElementById("not-share-button");
+  stopDestopElem.addEventListener("click", function(evt) {
+    stopCapture()
+  }, false)
   // ==============================
 });
 
@@ -89,9 +92,32 @@ document.addEventListener("DOMContentLoaded", () => {
 // };
 
 // ==============================
+async function startCamCapture() {
+  try {
+    localVideo.srcObject = await navigator.mediaDevices.getUserMedia({
+      audio: true,
+      video: true
+    });
+  } catch(err) {
+    console.error("Error: " + err);
+  }
+}
+
+function stopCamCapture(evt) {
+  let tracks = localVideo.srcObject.getTracks();
+
+  tracks.forEach(track => track.stop());
+  localVideo.srcObject = null;
+}
+
 async function startCapture() {
   try {
-    localVideo.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+    localVideo.srcObject = await navigator.mediaDevices.getDisplayMedia({
+      video: {
+        cursor: "always"
+      },
+      audio: true
+    });
   } catch(err) {
     console.error("Error: " + err);
   }
@@ -103,7 +129,6 @@ function stopCapture(evt) {
   tracks.forEach(track => track.stop());
   localVideo.srcObject = null;
 }
-
 // ==============================
 
 const handleJoinSession = async () => {
@@ -177,6 +202,7 @@ const createPC = (userId, isOffer) => {
   // for (const track of localstream.getTracks()) {
   //   pc.addTrack(track, localstream);
   // }
+
   for (const track of localVideo.srcObject.getTracks()) {
     pc.addTrack(track, localVideo.srcObject);
   }
