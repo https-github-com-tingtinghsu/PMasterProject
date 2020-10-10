@@ -181,11 +181,24 @@ document.addEventListener('turbolinks:load', () => {
   const postIconDiv = document.querySelectorAll('.post-icon-and-counts')
   const chatRoomDiv = document.querySelector('.chatroombox')
   const postsCloseBtn = document.querySelectorAll('.post-close')
-  console.log(postsCloseBtn)
   postIconDiv.forEach((postIcon) => {
     postIcon.addEventListener('click', () => {
       chatRoomDiv.classList.add('chatroombox-move')
     })
   })
   
+  const workspaceToggle = document.querySelector('.workspace-list-colse')
+  const workspaceList = document.querySelector('.media-display-none')
+  workspaceToggle.addEventListener('click', () => {
+    workspaceToggle.classList.toggle('arrow')
+    if (document.querySelector('#media-display-none') == null ){
+      workspaceList.setAttribute('id','media-display-none')
+    }else{
+      workspaceList.removeAttribute('id')
+      console.log('aaa')
+    }
+
+    
+     
+  })
 });
