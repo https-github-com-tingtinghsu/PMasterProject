@@ -1,4 +1,4 @@
-<div style="display: none">
+<div style="display: ">
 aspectRatio: <select id="aspectRatio">
     <option value="default">Default</option>
     <option value="1.77">16:9</option>
@@ -83,7 +83,12 @@ button.onclick = function() {
         });
         
         video.srcObject = screen;
-
+        console.log("screen : ");
+        console.log(screen);
+        
+        console.log("screen.getTracks() : ");        
+        console.log(screen.getTracks());
+        
         var _capabilities = screen.getTracks()[0].getCapabilities();
         capabilities.value = 'capabilities:\n\n' + JSON.stringify(_capabilities, null, '\t');
         capabilities.style.display = '';
