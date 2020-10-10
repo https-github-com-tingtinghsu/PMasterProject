@@ -195,10 +195,6 @@ document.addEventListener('turbolinks:load', () => {
       workspaceList.setAttribute('id','media-display-none')
     }else{
       workspaceList.removeAttribute('id')
-      console.log('aaa')
     }
-
-    
-     
   })
 });
