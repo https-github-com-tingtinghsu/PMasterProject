@@ -59,7 +59,6 @@ document.onreadystatechange = () => {
 const handleJoinSession = async () => {
   consumer.subscriptions.create({ channel: "WebcamChannel" }, {
     connected: () => {
-      // broadcastData({ type: "initiateConnection" });
       broadcastData({
         type: JOIN_ROOM,
         from: currentUser,
@@ -70,11 +69,14 @@ const handleJoinSession = async () => {
       if (data.from === currentUser) return;
       switch (data.type) {
       case JOIN_ROOM:
+        console.log("JOIN_ROOM : " + data)
         return joinRoom(data);
       case EXCHANGE:
+        console.log("EXCHANGE : " + data)
         if (data.to !== currentUser) return;
         return exchange(data);
       case REMOVE_USER:
+        console.log("REMOVE_USER : " + data)
         return removeUser(data);
       default:
         return;

@@ -1,3 +1,4 @@
+<div style="display: none">
 aspectRatio: <select id="aspectRatio">
     <option value="default">Default</option>
     <option value="1.77">16:9</option>
@@ -42,8 +43,7 @@ logicalSurface: <select id="logicalSurface">
     <option value="default">Default</option>
     <option>true</option>
 </select>
-
-<br><br>
+<div>
 
 <button id="btn-test-getDisplayMedia">getDisplayMedia API</button>
 
@@ -62,8 +62,8 @@ logicalSurface: <select id="logicalSurface">
 
 
 <script>
-var video            = document.querySelector('video');
-var button           = document.querySelector('#btn-test-getDisplayMedia');
+var video            = document.querySelector('#local-video');
+var button           = document.querySelector('#share-button');
 var textarea         = document.querySelector('#capabilities');
 var settings         = document.querySelector('#settings');
 var aspectRatio      = document.querySelector('#aspectRatio');
@@ -111,7 +111,8 @@ button.onclick = function() {
         console.error(error.message);
         console.error(error.stack);
 
-        alert('Unable to capture your screen.\n\n' + error.name + '\n\n' + error.message + '\n\n' + error.stack);
+        console.warn('Unable to capture your screen.\n\n' + error.name + '\n\n' + error.message + '\n\n' + error.stack);
+        // alert('Unable to capture your screen.\n\n' + error.name + '\n\n' + error.message + '\n\n' + error.stack);
     });
 };
 
