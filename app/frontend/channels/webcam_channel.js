@@ -136,6 +136,10 @@ function stopCapture(evt) {
 // ==============================
 
 const handleJoinSession = async () => {
+  broadcastData({
+    type: JOIN_ROOM,
+    from: currentUser,
+  });
   consumer.subscriptions.create({ channel: "WebcamChannel" }, {
     connected: () => {
       broadcastData({
