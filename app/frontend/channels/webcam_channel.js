@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   joinButton.onclick = handleJoinSession;
   leaveButton.onclick = handleLeaveSession;
 
+  // button event
   // ==============================
   const startCamElem = document.getElementById("Start-button");
   startCamElem.addEventListener("click", function(evt) {
