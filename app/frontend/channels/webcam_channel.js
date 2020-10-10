@@ -17,7 +17,7 @@ let remoteVideoContainer;
 
 // Objects
 let pcPeers = {};
-let localstream;
+var localstream;
 
 window.onload = () => {
   currentUser = document.getElementById("current-user").innerHTML;
@@ -44,17 +44,29 @@ document.onreadystatechange = () => {
   console.log("find video : " + element)
   if(!element)return
   if (document.readyState === "interactive") {
-    navigator.mediaDevices
-      .getUserMedia({
-        audio: true,
-        video: true,
-      })
-      .then((stream) => {
+    // navigator.mediaDevices
+    //   .getUserMedia({
+    //     audio: true,
+    //     video: true,
+    //   })
+    //   .then((stream) => {
+    //     console.log(stream)
+    //     localstream = stream;
+    //     localVideo.srcObject = stream;
+    //     localVideo.muted = true;
+    //   })
+    //   .catch(logError);
+
+    navigator.mediaDevices.getDisplayMedia({
+            video: {
+              cursor: "always"
+            },
+            audio: true
+    }).then((stream) => {
         localstream = stream;
         localVideo.srcObject = stream;
         localVideo.muted = true;
-      })
-      .catch(logError);
+    }).catch(logError)
   }
 };
 
