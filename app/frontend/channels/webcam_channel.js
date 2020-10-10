@@ -92,8 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
 // };
 
 // ==============================
+// WebCam
 async function startCamCapture() {
   try {
+    console.log(localVideo.srcObject)
     localVideo.srcObject = await navigator.mediaDevices.getUserMedia({
       audio: true,
       video: true
@@ -110,8 +112,10 @@ function stopCamCapture(evt) {
   localVideo.srcObject = null;
 }
 
+// Desktop
 async function startCapture() {
   try {
+    console.log(localVideo.srcObject)
     localVideo.srcObject = await navigator.mediaDevices.getDisplayMedia({
       video: {
         cursor: "always"
