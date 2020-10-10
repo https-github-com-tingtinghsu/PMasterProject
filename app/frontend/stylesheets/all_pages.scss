@@ -1063,9 +1063,14 @@ body{
 
   //workspace-list
   .workspace-list-colse{
-    display: none;
+    transform: rotate(90deg);
+    // display: none;
   }
 
+  .arrow{
+    transition: 0.5s;
+    transform: rotate(270deg);
+  }
 
   //outside-link
   
@@ -1256,9 +1261,7 @@ body{
   
   
 }
-@media screen and (min-width: 768px) and (max-width: 1030px) {
-  
-}
+
 @media screen and (min-width: 768px){
   .buttons .sign-in-buttons{
     top: 70px;
