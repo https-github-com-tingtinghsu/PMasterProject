@@ -211,13 +211,13 @@ const broadcastData = (data) => {
   const csrfToken = document.querySelector("[name=csrf-token]").content;
   const headers = new Headers({
     "content-type": "application/json",
-    "X-CSRF-TOKEN": csrfToken,
+    "X-CSRF-TOKEN": csrfToken
   });
 
   fetch("webrtc", {
     method: "POST",
     body: JSON.stringify(data),
-    headers,
+    headers
   }).catch((err) => {
     console.log('錯誤:', err);
   });
