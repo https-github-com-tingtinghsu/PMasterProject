@@ -17,7 +17,14 @@ let remoteVideoContainer;
 
 // Objects
 let pcPeers = {};
-var localstream;
+let localstream;
+
+let displayMediaOptions = {
+  video: {
+    cursor: "always"
+  },
+  audio: true
+};
 
 window.onload = () => {
   currentUser = document.getElementById("current-user").innerHTML;
@@ -34,41 +41,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
   joinButton.onclick = handleJoinSession;
   leaveButton.onclick = handleLeaveSession;
+
+  // ==============================
+  const startElem = document.getElementById("share-button");
+  startElem.addEventListener("click", function(evt) {
+    startCapture();
+  }, false);
+
+  const stopElem = document.getElementById("not-share-button");
+  stopElem.addEventListener("click", function(evt) {
+    stopCapture();
+  }, false);
+  // ==============================
 });
 
-// Initialize user's own video
-document.onreadystatechange = () => {
-  console.log("ReadyState : " + document.readyState)
+// document.onreadystatechange = () => {
+//   console.log("ReadyState : " + document.readyState)
 
-  const element = document.querySelector('.local-video')
-  console.log("find video : " + element)
-  if(!element)return
-  if (document.readyState === "interactive") {
-    // navigator.mediaDevices
-    //   .getUserMedia({
-    //     audio: true,
-    //     video: true,
-    //   })
-    //   .then((stream) => {
-    //     console.log(stream)
-    //     localstream = stream;
-    //     localVideo.srcObject = stream;
-    //     localVideo.muted = true;
-    //   })
-    //   .catch(logError);
+//   const element = document.querySelector('.local-video')
+//   console.log("find video : " + element)
+//   if(!element)return
+//   if (document.readyState === "interactive") {
+//     navigator.mediaDevices
+//       .getUserMedia({
+//         audio: true,
+//         video: true,
+//       })
+//       .then((stream) => {
+//         console.log(stream)
+//         localstream = stream;
+//         localVideo.srcObject = stream;
+//         localVideo.muted = true;
+//       })
+//       .catch(logError);
 
-    navigator.mediaDevices.getDisplayMedia({
-            video: {
-              cursor: "always"
-            },
-            audio: true
-    }).then((stream) => {
-        localstream = stream;
-        localVideo.srcObject = stream;
-        localVideo.muted = true;
-    }).catch(logError)
+//     navigator.mediaDevices.getDisplayMedia({
+//             video: {
+//               cursor: "always"
+//             },
+//             audio: true
+//     }).then((stream) => {
+//         localstream = stream;
+//         localVideo.srcObject = stream;
+//         localVideo.muted = true;
+//     }).catch(logError)
+//   }
+// };
+
+// ==============================
+async function startCapture() {
+  try {
+    localVideo.srcObject = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+  } catch(err) {
+    console.error("Error: " + err);
   }
-};
+}
+
+function stopCapture(evt) {
+  let tracks = localVideo.srcObject.getTracks();
+
+  tracks.forEach(track => track.stop());
+  localVideo.srcObject = null;
+}
+
+// ==============================
 
 const handleJoinSession = async () => {
   consumer.subscriptions.create({ channel: "WebcamChannel" }, {
@@ -138,8 +174,11 @@ const createPC = (userId, isOffer) => {
   pcPeers[userId] = pc;
   console.log("localstream.getTracks()",localstream)
   console.log("==================")
-  for (const track of localstream.getTracks()) {
-    pc.addTrack(track, localstream);
+  // for (const track of localstream.getTracks()) {
+  //   pc.addTrack(track, localstream);
+  // }
+  for (const track of localVideo.srcObject.getTracks()) {
+    pc.addTrack(track, localVideo.srcObject);
   }
 
   isOffer &&
