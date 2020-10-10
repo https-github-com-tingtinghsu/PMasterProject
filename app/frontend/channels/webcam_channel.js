@@ -160,6 +160,7 @@ const handleJoinSession = async () => {
       case REMOVE_USER:
         console.log("REMOVE_USER : ", data)
         console.log("==================")
+        return removeUser(data);
       default:
         return;
       }
