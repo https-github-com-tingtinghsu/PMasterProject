@@ -112,6 +112,7 @@ const removeUser = (data) => {
 const createPC = (userId, isOffer) => {
   let pc = new RTCPeerConnection(ice);
   const element = document.createElement("video");
+  element.className = `remoteVideo`;
   element.id = `remoteVideoContainer+${userId}`;
   element.autoplay = "autoplay";
   remoteVideoContainer.appendChild(element);

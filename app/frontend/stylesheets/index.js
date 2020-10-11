@@ -11,5 +11,5 @@ import "./posts.css"
 import "./replies.css"
 import "./mytask.scss"
 import "bulma-tooltip"
-import "./video.css"
+import "./video.scss"
 

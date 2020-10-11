@@ -1,0 +1,87 @@
+@media screen and (max-width: 768px) {
+  
+}
+@media screen and (min-width: 768px){
+  .container-all{
+    width: 100%;
+    .webcam-btn{
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      margin-bottom: 10px;
+      button{
+        position: relative;
+        z-index: 99;
+        padding: 1px 2px;
+        border-radius: 5px;
+        margin-right: 10px;
+        width: 50px;
+        background-color: #7EBE25;
+      }
+    }
+    .meeting-room{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      .container-for-webcam{
+        width: 60%;
+        .attendees{
+          width: 20%;
+          padding: 5px;
+        }
+        .local-video{
+          height: 70vh;
+          // width: 100%;
+        }
+      }
+      .text-room{
+        background-color: salmon;
+        width: 30%;
+        height: calc( 100vh - 100px);
+      }
+    }
+  }
+}
+
+
+//   .container-all{
+//     height: 100%;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     .facetime{
+//       position: relative;
+//       width: 80%;
+//       .webcam-btn{
+//         z-index: 99;
+//         padding-bottom: 5px;
+//       }
+//       .webcam-btn button{
+//         width: 100px;
+//         padding: 1px 0px;
+//         background-color: tan;
+//         border-radius: 10px;
+//       }
+//       .container-for-webcam{
+//         width: 100%;
+//         height: 90vh;
+//       }
+//       .local-video{
+//         width: 55%;
+//         height: auto;
+//       }
+//       .attendees{
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: start;
+//         width: 100%;
+//         overflow-x: scroll;
+//         .remoteVideo{
+//           width: 15%;
+//           height: auto;
+//         }
+//       }
+//     }
+//     .textroom{
+//       width: 20%;
+//     }
