@@ -2,6 +2,9 @@ language: ruby
 rvm:
   - 2.6.5
 
+env:
+  secure: "uA6NB5i3TaZNg7GfhwPcgV7d9OfzzgZ3ISCgqIrpR6DPj6UOpC/oV53pic1ngqH6rLud0GLjrQL+1meSRadXcyVE+bYYhkcS0FAYiw2XNW3aW3N2U4o14Adik+i66HrqwBpjoOIGNC3T2Ui3Ceu9QqMshqMwGnxB7nvA8D89HtVqx3cVogeHBf7AHPhO3TqePrHiiOTSENW7KUcPW/JbXa0pmDMVp0BhawXjzrubzHDdWQPcjIk4voHhsAvVZg7hv/2YOuPmGIwk5O6QapAfxYm931oiQdpk3Nwyfig3KD2i4t2GMB43vF3X+BzkFqyE9oaPgPUyE56gC4ML1tMKSvyFePQXnvSKm/pn+/jKRunUTL56ZrD6BAdsduXj0W7715WDnNSY+dMMGfElfmtS2H5gslYlVF+UIF+ZeJgiack1knmBedf1NV+wC1nTrLgBWo+rkTjMVz2ZNv3sHIn2dU1wSNnNihusCfBT4OT2zNeJAkqmRSmFSvC/gxDFDNbCqgYvXhVW2Jlf8Tow4Fs/pzU+up2IzYWd1ondjnPgnKOdwQvopAc5kU3GQSgIVu9e5gEhr9O3kt2ykaO/upkfq30BlnX1J5k+dzwsFxDagkvIkixgmdBsQ0G3e88JRZ17+e5tPZiN7o81rIjVsSGE4IJ+FYYBdOhF8FGl+N6WpdM="
+
 cache:
   # - bundler
   # - /home/travis/.rvm/
