@@ -4,6 +4,9 @@ rvm:
 
 cache:
   - bundler
+  yarn: true
+  directories:
+    - node_modules
   - /home/travis/.rvm/
 
 services:
@@ -11,6 +14,9 @@ services:
 
 before_script: 
   - bundle install
+  - nvm install node
+  - node -v
+  - npm i -g yarn
   - yarn install
   - cp config/database.travis.yml config/database.yml
   - bundle exec rake db:create
