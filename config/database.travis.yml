@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: localhost
+  timeout: 5000
 
 development:
   <<: *default
@@ -16,4 +16,4 @@ production:
   <<: *default
   database: PMasterProject_production
   username: PMasterProject
-  password: <%= ENV['PMASTERPROJECT_DATABASE_PASSWORD'] %>
+  # password: <%= ENV['PMASTERPROJECT_DATABASE_PASSWORD'] %>
