@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 	end
 
   	def find_item
-    	@item = Item.find(params[:item_id])
+    	@item = Item.find_by(slug: params[:item_id])
 	end
 
 end

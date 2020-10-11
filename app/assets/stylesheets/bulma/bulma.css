@@ -2264,7 +2264,7 @@ fieldset[disabled] .button {
 .notification {
   background-color: whitesmoke;
   border-radius: 4px;
-  position: relative;
+  /* position: relative; */
   padding: 1.25rem 1.5rem;
 }
 
