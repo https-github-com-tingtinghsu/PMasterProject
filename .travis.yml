@@ -4,10 +4,10 @@ rvm:
 
 cache:
   - bundler
+  - /home/travis/.rvm/
   yarn: true
   directories:
     - node_modules
-  - /home/travis/.rvm/
 
 services:
   - postgresql
