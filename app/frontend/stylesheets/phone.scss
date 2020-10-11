@@ -23,9 +23,14 @@
       font-size: 30px;
     }
   }
+  .navbar-brand{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+  }
   #burger{
     height: 100px;
-    margin-left: 400px;
+
     span{
       width: 60px;
       height: 4px;
