@@ -32,13 +32,14 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			# puts "======================#{params[:person]}========================"
+			puts "======================#{params[:person]}========================"
 			if params[:person] != nil
 				# puts "======================#{params[:person].values[0]}========================"
 				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
 			end
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			ActionCable.server.broadcast("board_channel_#{ board.id }", "")
+			ActionCable.server.broadcast("chart_channel",groupid: params[:group_id])
 			# puts "開始寫入Github Issue:"
 			Github.new.issueCreate(@item.name, session[:user])
 			# puts "成功寫入!"
@@ -58,7 +59,6 @@ class ItemsController < ApplicationController
 	def update
 		# 如果狀態被選取為「已完成」,系統就自動更新完成日為Time.now, 否則清空完成日
 		params[:item]["finish_date"] = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
-
 		if @item.update(item_params)
 			if (params[:person])
 				@members_id = params[:person].values
@@ -96,10 +96,13 @@ class ItemsController < ApplicationController
 	end
 
 	def update_status
-		@item = Item.find_by(id: params[:id])
+		@item = Item.find(params[:id])
 		@item.status = params[:status]
 		if params[:status] == "已完成"
 			@item.finish_date = Time.now.strftime('%F')
+
+			@this_group_id = @item.group_id
+			ActionCable.server.broadcast("chart_channel",groupid: @this_group_id)
 		end
 		
 		if !@item.save
