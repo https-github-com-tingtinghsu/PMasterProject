@@ -10,8 +10,8 @@ services:
   - postgresql
 
 before_script: 
-  - bundle install
-  - Yarn install - -check-flies
+  - bundle install --jobs=3 --retry=3
+  - Yarn install --check-flies
   - cp config/database.travis.yml config/database.yml
   - bundle exec rake db:create
 
