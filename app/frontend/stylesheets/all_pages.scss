@@ -8,7 +8,6 @@ a{
 }
 .section{
   padding: 1.5rem;
-  
 }
 .notice{
   font-weight: 600;
@@ -694,7 +693,7 @@ body{
       margin: 0;
       padding: 0;
       transition: 0.5s;
-      z-index: 100000;
+      z-index: 100;
       strong{
         a{
           display: block;

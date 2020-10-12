@@ -10,7 +10,7 @@
       transition: 1s;
       position: fixed;
       bottom: 0;
-      z-index: 100;
+      z-index: 101;
 
       .chatroom-group{
         height: 385px;
@@ -156,7 +156,7 @@
     position: fixed;
     bottom: 0px;
     right: 263px;
-    z-index: 10000;
+    z-index: 102;
     font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
   }
   .chatroombox-move{

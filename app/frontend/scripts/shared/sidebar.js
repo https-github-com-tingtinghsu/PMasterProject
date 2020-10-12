@@ -13,7 +13,6 @@ document.addEventListener('turbolinks:load', () => {
   $(".btn-cancel-modal, .btn-save-adding, #btn-confirm-delete-sidebar-item, .btn-cancel-for-posts")
   .click(
     function(){
-      console.log('bbb')
       $("#modal-add-workspace, #modal-add-board, #modal-delete-sidebar-item, #modal-add-workspace-member")
       .removeClass("is-active")
   })

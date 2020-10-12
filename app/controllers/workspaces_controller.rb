@@ -43,7 +43,7 @@ class WorkspacesController < ApplicationController
     @workspaces = current_user.workspaces
     # @workspaces = current_user.created_workspaces
     @workspace = @workspaces.find(params[:id])
-    byebug
+    # byebug
     @room = @workspace.room
   end
 
