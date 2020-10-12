@@ -205,6 +205,7 @@ const createPC = (userId, isOffer) => {
   element.className = `remoteVideo`;
   element.id = `remoteVideoContainer+${userId}`;
   element.autoplay = "autoplay";
+  element.controls = "controls";
   remoteVideoContainer.appendChild(element);
 
   pcPeers[userId] = pc;
