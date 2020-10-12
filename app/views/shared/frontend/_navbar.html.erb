@@ -152,7 +152,8 @@
         <% else %>
             <div class="sign-out-status">
               <div class="navbar-item">
-                <%= link_to '聯絡我們', root_path, class: "button is-primary" %>               
+                                
+                <%= mail_to "pmasterproject@gmail.com", "聯絡我們", target: '_blank', class: "button is-primary" %>               
               </div>              
               <div class="navbar-item">
                 <%= link_to '立刻註冊', new_user_registration_path, class: "button is-primary" %>
