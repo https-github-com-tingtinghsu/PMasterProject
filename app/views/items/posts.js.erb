@@ -2,6 +2,8 @@ $('#posts-block').html("<%= j render('items/partials/posts') %>")
 var PostBtnCancel = document.querySelector('.post-close')
 // var 允許重複宣告。原先用let，第二次觸發時，會發生postBtnCancel has already been declared
 PostBtnCancel.addEventListener('click',function(){
+  const chatRoomDiv = document.querySelector('.chatroombox')
   document.querySelector('#posts-block').classList.remove('is-active-for-posts-block')
+  chatRoomDiv.classList.remove('chatroombox-move')
 })
 $('.is-active-for-posts-block').scrollTop(0)

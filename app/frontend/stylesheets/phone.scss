@@ -23,9 +23,14 @@
       font-size: 30px;
     }
   }
+  .navbar-brand{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+  }
   #burger{
     height: 100px;
-    margin-left: 400px;
+
     span{
       width: 60px;
       height: 4px;
@@ -79,17 +84,38 @@
       // line-height: 150px;
     }
   }
-  .home-sign-up{
-    padding: 30px;
+  .home-sign-up-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1250px;
+    right: 320px;
+    .home-sign-up{
+      padding: 30px;
+      font-size: 50px;
+      width: 300px;
+      height: 80px;
+      border-radius: 10px;
+    }
+  }
+  .home-sign-in{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1400px;
+    right: 425px;
     font-size: 50px;
-    position: relative;
-    width: 300px;
-    height: 80px;
+  }
+  .sign-in-submit{
     border-radius: 10px;
-    bottom: 100px;
   }
 
   .footer-home{
+    position: absolute;
+    bottom: 400px;
+    left: 90px;
     p{
     font-size: 40px;
     }
@@ -123,6 +149,7 @@
         background-color: #45af45;
         color: white;
         border-radius: 5px;
+        top: 20px;
       }
     }
     a{
