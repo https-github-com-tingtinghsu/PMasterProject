@@ -43,3 +43,5 @@ yarn-debug.log*
 /config/application.yml
 
 /coverage/*
+/coverage/.last_run.json
+/coverage/.resultset.json
