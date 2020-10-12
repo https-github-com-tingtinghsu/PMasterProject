@@ -12,7 +12,7 @@ a{
 .notice{
   font-weight: 600;
   color: rgb(107, 161, 107);
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
@@ -37,6 +37,14 @@ a{
   transition: 0.5s;
   transform: rotate(180deg);
 }
+
+//webrtc
+.webcam-btn{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 //item-status 
 
 .item-td{
@@ -340,10 +348,13 @@ body{
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
     background-color: rgba(51, 42, 42, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
+    left: 0;
+    z-index: 110;
     
     .close{
       font-size: 35px;
@@ -407,7 +418,7 @@ body{
           border-bottom: gray 3px solid;
           position: absolute;
           top: 0;
-          font-size: 30px;
+          font-size: 25px;
           font-weight: 600;
         }
         .btn-integrations{
@@ -448,7 +459,6 @@ body{
         }
         .outside-link-item{
           cursor: pointer;
-          width: 50%;
           height: 15%;
           background-color: rgb(31, 28, 28);
           border-radius: 10px;
@@ -457,11 +467,12 @@ body{
           align-items: center;
           justify-content: center;
           position: relative;
+          width: 60%;
         }
          
       }
       .outside-link-item{
-        width: 40%;
+        width: 60%;
         height: 20%;
         color: white;
         background-color: white;
@@ -786,9 +797,9 @@ body{
     font-weight: 600;
   }
 }
-.workspace-list-colse{
+.workspace-list-colse, .workspace-list-colse-rtc{
   position: absolute;
-  top: 100px;
+  top: 60px;
   left: 0;
   font-size: 30px;
   background-color: white;
@@ -1046,16 +1057,20 @@ body{
   }
 
 
-@media screen and (max-width: 1200px){
-  #item-object-group{
+@media screen and (min-width: 768px) and (max-width: 1200px){
+  .item-object-group{
     width: 100%;
-    margin-left: -45px;
+    margin-left: 0px;
     padding-right: 0px;
     border-right: solid #aaa 1px;
     padding-right: 80px;
     box-sizing: border-box;
   }
-  
+  .meeting-room{
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+  }
   
 }
 
@@ -1147,7 +1162,7 @@ body{
   .item-object-group{
     width: 100%;
     margin-left: 0px;
-    padding-right: 0px;
+    padding-right: 90px;
     border-right: solid #aaa 1px;
     box-sizing: border-box;
   }
@@ -1175,7 +1190,7 @@ body{
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-left: 15px;
+      margin-left: 35px;
       h2{
         font-size: 20px;
         margin-bottom: 40px;
@@ -1254,18 +1269,7 @@ body{
     width: 100%;
   }
 }
-@media screen and (min-width: 1030px){
-  .navbar-menu .outside-link-background{
-    width: 86%;
-  }
-  #outside-link-item{
-    width: 40%;
-  }
-  
- 
-  
-  
-}
+
 
 @media screen and (min-width: 768px){
   .buttons .sign-in-buttons{
@@ -1273,5 +1277,10 @@ body{
   }
   .outside-link-item-nextpage .fa-github,.outside-link-item-nextpage .outside-link-title{
     font-size: 60px;
+  }
+  #meeting-room{
+    display: flex;
+    justify-content: center;
+    padding: 35px;
   }
 }

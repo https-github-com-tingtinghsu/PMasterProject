@@ -19,12 +19,18 @@
            <% if @room.present? %>
               
               <div class="chatcontent-box" data-room-id="<%= @room.id %>" data-user="<%= current_user.display_name%>" data-user-id="<%= current_user.id %>">
-                <div class="chatroom-lebal" typ='button'>
-                  <i class="fab fa-facebook-messenger"></i>
-                  <h2 id="room-name">
-                    <%= @room.name %>
-                  </h2>
+                <div class="chatroom-label" typ='button'>
+                  <div>
+                    <i class="fab fa-facebook-messenger"></i>
+                    <h2 id="room-name">
+                      <%= @room.name %>
+                    </h2>
+                  </div>
+                  <div class="video-area">
+                    <a href="/webrtc"><i class="fas fa-video"></i></a>
+                  </div>                                   
                 </div>
+ 
                 <div class="chatroom-group">
                   
                   <div id="messages">
