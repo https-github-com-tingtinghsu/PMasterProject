@@ -31,33 +31,107 @@ const ice = { iceServers: [{ urls: "stun:stun.l.google.com:19302" }] };
 document.addEventListener("DOMContentLoaded", () => {
   const joinButton = document.getElementById("join-button");
   const leaveButton = document.getElementById("leave-button");
+  const startButton = document.getElementById("Start-button");
+  const stopButton = document.getElementById("Stop-button");
+  const shareButton = document.getElementById("share-button");
+  const notshareButton = document.getElementById("not-share-button");
 
   joinButton.onclick = handleJoinSession;
   leaveButton.onclick = handleLeaveSession;
+
+  // button init
+  // ==============================
+  leaveButton.style = "display: none"
+  stopButton.style = "display: none"
+  notshareButton.style = "display: none"
 
   // button event
   // ==============================
   const startCamElem = document.getElementById("Start-button");
   startCamElem.addEventListener("click", function(evt) {
     startCamCapture()
+
+    buttonswitch("camStart")
   }, false)
 
   const stopCamElem = document.getElementById("Stop-button");
   stopCamElem.addEventListener("click", function(evt) {
     stopCamCapture()
+    
+    buttonswitch("camstop")
   }, false)
 
   const startDestopElem = document.getElementById("share-button");
   startDestopElem.addEventListener("click", function(evt) {
     startCapture()
+
+    buttonswitch("startDestop")
   }, false)
 
   const stopDestopElem = document.getElementById("not-share-button");
   stopDestopElem.addEventListener("click", function(evt) {
     stopCapture()
+
+    buttonswitch("stopDestop")
   }, false)
   // ==============================
 });
+
+const buttonswitch = (button_name) => {
+  const joinButton = document.getElementById("join-button");
+  const leaveButton = document.getElementById("leave-button");
+  const startButton = document.getElementById("Start-button");
+  const stopButton = document.getElementById("Stop-button");
+  const shareButton = document.getElementById("share-button");
+  const notshareButton = document.getElementById("not-share-button");
+
+  switch(button_name){
+    case "camStart":
+      shareButton.style = "display: none" 
+      notshareButton.style = "display: none" 
+      startButton.style = "display: none" 
+      stopButton.style = "display: " 
+    break;
+    case "camstop":
+      shareButton.style = "display: " 
+      notshareButton.style = "display: none" 
+      stopButton.style = "display: none" 
+      startButton.style = "display: " 
+    break;
+    case "startDestop":
+      shareButton.style = "display: none" 
+      notshareButton.style = "display: " 
+      stopButton.style = "display: none" 
+      startButton.style = "display: none" 
+    break;
+    case "stopDestop":
+      shareButton.style = "display: " 
+      notshareButton.style = "display: none" 
+      stopButton.style = "display: none" 
+      startButton.style = "display: " 
+    break;
+    case "joinbutton":
+      joinButton.style = "display: none" 
+      leaveButton.style = "display: " 
+      // shareButton.style = "display: none" 
+      // notshareButton.style = "display: none" 
+      // stopButton.style = "display: none" 
+      // startButton.style = "display: none" 
+    break;
+    case "leaveButton":
+      joinButton.style = "display: " 
+      leaveButton.style = "display: none" 
+      // shareButton.style = "display: none" 
+      // notshareButton.style = "display: none" 
+      // stopButton.style = "display: none" 
+      // startButton.style = "display: none" 
+    break;
+    
+    default:
+      console.warn(`${button_name} not found.`);
+  }
+
+}
 
 // document.onreadystatechange = () => {
 //   console.log("ReadyState : " + document.readyState)
@@ -137,6 +211,7 @@ function stopCapture(evt) {
 // ==============================
 
 const handleJoinSession = async () => {
+  buttonswitch("joinbutton")
   broadcastData({
     type: JOIN_ROOM,
     from: currentUser,
