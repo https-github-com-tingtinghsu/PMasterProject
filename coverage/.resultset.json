@@ -38,7 +38,7 @@
         null,
         1,
         null,
-        0,
+        12,
         null,
         null,
         1,
@@ -55,19 +55,439 @@
         null,
         null
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/application_controller.rb": [
+        1,
+        null,
+        1,
+        19,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/application_helper.rb": [
+        1,
+        1,
+        null,
+        0,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/messages_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/rooms_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/webrtc_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        6,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        1,
+        6,
+        6,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/invitation.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/application_cable/connection.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        7,
+        7,
+        null,
+        null,
+        1,
+        1,
+        7,
+        7,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/workspaces_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        6,
+        6,
+        6,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/workspace.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        25,
+        null,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/workspace_user.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/chart_channel.rb": [
+        1,
+        1,
+        7,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/item_channel.rb": [
+        1,
+        1,
+        7,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/like_channel.rb": [
+        1,
+        1,
+        7,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/post_channel.rb": [
+        1,
+        1,
+        7,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/application_cable/channel.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/reply_channel.rb": [
+        1,
+        1,
+        7,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/user_channel.rb": [
+        1,
+        1,
+        null,
+        null,
+        7,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/githubs_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        5,
+        null,
+        null,
+        5,
+        5,
+        5,
+        5,
+        null,
+        5,
+        null,
+        null
+      ],
+      "/Users/wei/Desktop/5xRDemo/PMasterProject/lib/github.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        5,
+        null,
+        5,
+        null,
+        5,
+        5,
+        null,
+        null,
+        5,
+        null,
+        null,
+        5,
+        5,
+        null,
+        5,
+        null,
+        5,
+        5,
+        null,
+        5,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/mailers/user_mailer.rb": [
         0,
         null,
@@ -98,20 +518,12 @@
         0,
         0
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/item.rb": [
         0,
         0,
@@ -159,10 +571,6 @@
         0,
         0
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/room.rb": [
         0,
         0,
@@ -171,46 +579,6 @@
         null,
         0
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/workspace.rb": [
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/invitation.rb": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/reply.rb": [
         0,
         0,
@@ -218,10 +586,6 @@
         0,
         0
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/post_like.rb": [
         0,
         0,
@@ -231,10 +595,6 @@
         0,
         0
       ],
-<<<<<<< HEAD
-=======
-
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/assignment.rb": [
         0,
         0,
@@ -335,52 +695,24 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/message.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/models/message.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/member.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/models/member.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
         0
       ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/workspace_user.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/models/workspace_user.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        null,
-        0,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/gittoke.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/models/gittoke.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/post.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/models/post.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
@@ -397,11 +729,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/models/board.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/models/board.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         null,
         0,
@@ -416,11 +744,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/jobs/send_message_job.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/jobs/send_message_job.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -438,11 +762,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/jobs/invite_member_mail_job.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/jobs/invite_member_mail_job.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -451,11 +771,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/jobs/application_job.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/jobs/application_job.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         null,
         null,
@@ -464,11 +780,7 @@
         null,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/jobs/invite_new_mail_job.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/jobs/invite_new_mail_job.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -477,11 +789,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/messages_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/messages_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -555,11 +863,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/boards_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/boards_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         null,
         0,
@@ -622,66 +926,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/application_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/application_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/githubs_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/githubs_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/rooms_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/rooms_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -774,11 +1019,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/pages_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/pages_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
@@ -795,123 +1036,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/workspaces_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/workspaces_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0
-      ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/groups_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/groups_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         null,
         0,
@@ -991,11 +1116,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/items_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/items_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
@@ -1155,55 +1276,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/home_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/home_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0
-      ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/replies_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/replies_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
@@ -1230,11 +1303,7 @@
         null,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/users/omniauth_callbacks_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/users/omniauth_callbacks_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         null,
         null,
         0,
@@ -1266,11 +1335,7 @@
         null,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/users/passwords_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/users/passwords_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         null,
         null,
         0,
@@ -1306,11 +1371,7 @@
         null,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/users/sessions_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/users/sessions_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         null,
         null,
         0,
@@ -1344,11 +1405,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/users/unlocks_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/users/unlocks_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         null,
         null,
         0,
@@ -1380,11 +1437,7 @@
         null,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/users/confirmations_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/users/confirmations_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         null,
         null,
         0,
@@ -1416,11 +1469,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/users/registrations_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/users/registrations_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         null,
         null,
         0,
@@ -1484,11 +1533,7 @@
         null,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/webrtc_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/webrtc_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
@@ -1505,11 +1550,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/controllers/posts_controller.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/controllers/posts_controller.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
@@ -1561,47 +1602,7 @@
         null,
         0
       ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/messages_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/webrtc_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/rooms_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/helpers/application_helper.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/helpers/messages_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/helpers/webrtc_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/helpers/rooms_helper.rb": [
-        0,
-        0
-      ],
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/helpers/application_helper.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        null,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/online_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/online_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -1614,43 +1615,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/user_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/user_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/like_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/like_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0
-      ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/room_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/room_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -1671,11 +1636,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/board_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/board_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         0,
@@ -1686,105 +1647,7 @@
         0,
         0
       ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/application_cable/connection.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/application_cable/connection.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/application_cable/channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/application_cable/channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/reply_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/reply_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/chart_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/chart_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/item_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/item_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/post_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/post_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0
-      ],
-<<<<<<< HEAD
       "/Users/wei/Desktop/5xRDemo/PMasterProject/app/channels/webcam_channel.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/app/channels/webcam_channel.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
         0,
         0,
         null,
@@ -1798,99 +1661,8 @@
         null,
         null,
         0
-      ],
-<<<<<<< HEAD
-      "/Users/wei/Desktop/5xRDemo/PMasterProject/lib/github.rb": [
-=======
-      "/Users/cy/Desktop/demo_project/DEV/PMasterProject/lib/github.rb": [
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1602493460
-=======
-    "timestamp": 1602493067
->>>>>>> c6eaf6aa773b904002ec85b9cc9414fe78a2c2a0
+    "timestamp": 1602494188
   }
 }
