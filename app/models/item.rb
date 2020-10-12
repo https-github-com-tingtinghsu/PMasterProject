@@ -37,7 +37,7 @@ class Item < ApplicationRecord
 
   def actual_spend_day
     if finish_date?
-      (finish_date.to_date - group.start_date.to_date).to_i
+      (finish_date.to_date - group.start_date.to_date).to_i.abs
     else
       0
     end

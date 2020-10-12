@@ -5,8 +5,7 @@ Rails.application.routes.draw do
       get :messages
     end
   end
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   root to: "home#index" 
   get "dashboard", to: "home#dashboard"
   get "mytask" ,to:"home#mytask"
@@ -34,10 +33,6 @@ Rails.application.routes.draw do
         end
       end
     end
-    # member do
-    #   get :rooms
-    #   post :rooms, to: 'workspaces#room_create'
-    # end
   end
   # Github redirect
   get "/oauth/redirect", to: "githubs#index"
@@ -45,13 +40,10 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-
-  resources :pages, only:[:index]
-
+  
   patch "/item/statusupdate", to: "items#update_status"
   patch "/item/nameupdate", to: "items#update_name"
   patch "/item/descriptionupdate", to: "items#update_description"
-
   patch "/item/groupupdate", to: "items#update_status"
   resources :webrtc, only: [:index, :create]
   mount ActionCable.server, at: "/cable"
