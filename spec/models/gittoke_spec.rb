@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Gittoke, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:gittoke) { create(:gittoke) }
+  let(:gituser) { create(:user_id) }
+
+  it "should contain :gittkon & :user_id" do
+    # expect(:gittoke).to eq(gittoke)
+  end
 end
