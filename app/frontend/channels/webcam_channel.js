@@ -249,6 +249,7 @@ const handleJoinSession = async () => {
 };
 
 const handleLeaveSession = () => {
+  buttonswitch("leaveButton")
   for (let user in pcPeers) {
     pcPeers[user].close();
   }
