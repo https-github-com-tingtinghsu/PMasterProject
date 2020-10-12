@@ -760,7 +760,10 @@ body{
 #media-display-none{
   display: none;
 }
-
+.workspce_list_arrow{
+  transition: 0.5s;
+  transform: rotate(180deg);
+}
 .workspace-list{
   width: 100%;
   box-shadow:none;
@@ -1067,7 +1070,7 @@ body{
     // display: none;
   }
 
-  .arrow{
+  .workspce_list_arrow{
     transition: 0.5s;
     transform: rotate(270deg);
   }
