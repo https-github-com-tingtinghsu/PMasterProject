@@ -190,11 +190,15 @@
   }
   //sign_in_end
 
-  //edit_item_start
-  
-   
- 
-  
-  //edit_item_end
+  .item-object-group{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    .group-card{
+      margin-left: 0;
+      
+    }
+  }
 
 }
