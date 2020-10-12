@@ -35,7 +35,7 @@ module Chart
   # ---------pie chart methods----------
 
   def find_all_members_name
-    board.workspace.all_members.map(&:name)
+    board.workspace.all_members.map(&:display_name)
   end
 
   def find_all_members_id

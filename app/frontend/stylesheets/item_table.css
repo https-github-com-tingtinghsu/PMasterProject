@@ -22,7 +22,7 @@ td{
   -webkit-box-orient: vertical;
 }
 .post-icon-and-counts{
-  position: static;
+  position: relative;
 }
 .posts-counts{
   font-size: 10px;
@@ -35,5 +35,7 @@ td{
   position: absolute;
   background-color: #C6F7D5;
   border-radius: 100%;
+  top: 0;
+  right: 0;
 }
 

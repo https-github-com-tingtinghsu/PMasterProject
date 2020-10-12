@@ -1,4 +1,6 @@
 <section id="hero-home" class="section hero  text-center">
+  <p class="notice"><%= notice %></p>
+
   <h1 class="title">P Master!皮老闆</h1>
   <br>
   <h2 class="subtitle">
@@ -9,9 +11,13 @@
     <%= image_tag 'home/main-pic.png' %>
   </div>
   <br>
-  <div>
+  <div class="home-sign-up-box">
     <strong class="home-sign-up"><%= link_to '立刻註冊', new_user_registration_path, class: "sign-up" unless current_user %></strong>
   </div>
+  <div class="home-sign-in">
+    <%= link_to "登入", new_user_session_path %>
+  </div>
+
   
   <div class="footer-home">
     <p>

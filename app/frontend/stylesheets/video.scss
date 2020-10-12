@@ -1,0 +1,94 @@
+@media screen and (max-width: 768px) {
+  .container-all{
+    background-color: blue;
+    .webcam-btn{
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      button{
+        position: relative;
+        // z-index: 30;
+        font-size: 16px;
+        padding: 1px 2px;
+        border-radius: 5px;
+        margin-right: 10px;
+        width: 50px;
+        background-color: #7EBE25;
+      }
+    }
+    .meeting-room{
+      // display: flex;
+      // flex-direction: row;
+      // justify-content: space-between;
+      width: 100%;
+      .container-for-webcam{
+        width: 100%;
+        .attendees{
+          display: flex;
+          width: 100%;
+          box-sizing: border-box;
+          .remoteVideo{
+            padding-right: 10px;;
+            width: 33.3333333%;
+            min-width: 164px;
+            overflow-x: scroll;
+          }
+        }
+        .local-video{
+          height: 98%;
+          width: auto;
+        }
+      }
+      .text-room{
+        background-color: #7EBE25;
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (min-width: 769px){
+  .container-all{
+    width: 100%;
+    // background-color: black;
+    .webcam-btn{
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      button{
+        position: relative;
+        z-index: 30;
+        padding: 1px 2px;
+        border-radius: 5px;
+        margin-right: 10px;
+        width: 50px;
+        background-color: #7EBE25;
+      }
+    }
+    .meeting-room{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      .container-for-webcam{
+        width: 60%;
+        .attendees{
+          display: flex;
+          width: 20%;
+          padding-bottom: 10px;
+          box-sizing: border-box;
+          .remoteVideo{
+            padding-right: 10px;;
+          }
+        }
+        .local-video{
+          width: 100%;
+        }
+      }
+      .text-room{
+        background-color: #7EBE25;
+        width: 30%;
+        height: calc( 100vh - 90px);
+      }
+    }
+  }
+}

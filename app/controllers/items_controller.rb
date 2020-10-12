@@ -1,6 +1,7 @@
+require 'securerandom'
 require "github.rb"
 class ItemsController < ApplicationController
-	before_action :find_board_and_group, only: [:index, :new, :create]
+	before_action :find_board_and_group, only: [:index]
 	before_action :find_item, only: [:edit, :update, :posts,:destroy, :update_finish_date]
 	before_action :find_item_user_id, only: [:edit, :update, :posts,:destroy]
 
@@ -10,12 +11,16 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
+		@group = Group.friendly.find(params[:group_id])
+		@board = @group.board	
 		@workspace_users = @board.workspace.all_members
 		# assignment對象是所有在這個workspace裡面的人，所以要抓 users、creator
 		# 但這樣是重複進資料庫撈資料
 	end
 
 	def create
+		@group = Group.friendly.find(params[:group_id])
+		@board = @group.board	
 		@item = @group.items.new(item_params)
 		# description
 		# 撈出被選取到的user_id
@@ -27,17 +32,20 @@ class ItemsController < ApplicationController
 					@item.users << User.find(m.to_i)
 				end
 			end
-			# puts "======================#{params[:person]}========================"
+			puts "======================#{params[:person]}========================"
 			if params[:person] != nil
-				# puts "======================#{params[:person].values[0]}========================"
-				ActionCable.server.broadcast("user_channel_#{params[:person].values[0]}","你有新的 Issue 通知 【 #{@item.name} 】")
+				params[:person].each do 
+					|k, v|
+					ActionCable.server.broadcast("user_channel_#{v}","你有新的 Issue 通知 【 #{@item.name} 】")
+				end
 			end
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			ActionCable.server.broadcast("board_channel_#{ board.id }", "")
+			ActionCable.server.broadcast("chart_channel",groupid: params[:group_id])
 			# puts "開始寫入Github Issue:"
 			Github.new.issueCreate(@item.name, session[:user])
 			# puts "成功寫入!"
-			redirect_to board_groups_path(@group.board_id), notice: "新增成功"
+			redirect_to board_groups_path(@group.board.slug), notice: "新增成功"
 		else
 			render :new
 		end
@@ -53,7 +61,6 @@ class ItemsController < ApplicationController
 	def update
 		# 如果狀態被選取為「已完成」,系統就自動更新完成日為Time.now, 否則清空完成日
 		params[:item]["finish_date"] = (item_params[:status] == "已完成") ? Time.now.strftime('%F') :  ""
-
 		if @item.update(item_params)
 			if (params[:person])
 				@members_id = params[:person].values
@@ -74,7 +81,9 @@ class ItemsController < ApplicationController
 		@item = Item.find_by(id: params[:id])
 		@item.name = params[:name]
 		
-		if !@item.save
+		if @item.save
+			puts "=====saved====="
+		else 
 			render :index
 		end
 		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsname: params[:name])
@@ -84,17 +93,22 @@ class ItemsController < ApplicationController
 		@item = Item.find_by(id: params[:id])
 		@item.description = params[:description]
 		
-		if !@item.save
+		if @item.save
+			puts "=====saved====="
+		else 
 			render :index
 		end
 		ActionCable.server.broadcast("item_channel",itemid: params[:id],itemsdescription: params[:description])
 	end
 
 	def update_status
-		@item = Item.find_by(id: params[:id])
+		@item = Item.find(params[:id])
 		@item.status = params[:status]
 		if params[:status] == "已完成"
 			@item.finish_date = Time.now.strftime('%F')
+
+			@this_group_id = @item.group_id
+			ActionCable.server.broadcast("chart_channel",groupid: @this_group_id)
 		end
 		
 		if !@item.save
@@ -123,7 +137,7 @@ class ItemsController < ApplicationController
 
 	private
 	def find_item
-		@item = Item.find(params[:id])
+		@item = Item.friendly.find(params[:id])
 	end
 
 	def find_item_user_id

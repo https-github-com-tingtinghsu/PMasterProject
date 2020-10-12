@@ -10,8 +10,7 @@ document.addEventListener('turbolinks:load', () => {
     $("#btn-save-adding-workspace").data("workspace-id", "")
     $("#modal-add-workspace").addClass("is-active")
   })
-
-  $(".btn-cancel-modal, .btn-save-adding, #btn-confirm-delete-sidebar-item")
+  $(".btn-cancel-modal, .btn-save-adding, #btn-confirm-delete-sidebar-item, .btn-cancel-for-posts")
   .click(
     function(){
       $("#modal-add-workspace, #modal-add-board, #modal-delete-sidebar-item, #modal-add-workspace-member")
@@ -19,7 +18,7 @@ document.addEventListener('turbolinks:load', () => {
   })
 
   // create and update workspace
-  $('#btn-save-adding-workspace').click(function(){
+  $('#btn-save-adding-workspace').on("click", function(){
     if($(this).data("workspace-id").length==0){
       createWorkspace()
     } else{
@@ -192,7 +191,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
   } else if(isWorkspace == false) {
     // 我創的board
     // /boards/:board_id/groups(.:format)
-    boardUrl = "/boards/" + model.id + "/groups"  
+    boardUrl = "/boards/" + model.slug + "/groups"
     sidebarItem.append(moreBoardIconElement)   
     sidebarItem.append("<span class ='board-name'><a class='board-link' id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a></span><br><br>") 
     sidebarItem.append(editBoardItem)     
@@ -338,7 +337,7 @@ function addNewBoardRow(workspaceId){
   })
 
   sidebarItem.append(addBoardItem)
-  sidebarItem.append(`<p><i>新增看板...</i></p>`) 
+  sidebarItem.append(`<p class="add-board-p">新增看板</p>`) 
   return sidebarItem;
 }
 

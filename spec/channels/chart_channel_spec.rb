@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe LikeChannel, type: :channel do
+RSpec.describe ChartChannel, type: :channel do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -9,7 +9,8 @@ RSpec.describe Workspace, type: :model do
   it "user create workspace" do
     # 如果先呼叫user1, 因為還沒產生workspace1, created_workspaces會是nil，造成測試報錯
     expect(workspace1.creator).to eq(user1)    
-    expect(user1.created_workspaces.first).to eq(workspace1)
+    # 因為每個user的seed file預設為create user時立刻有一筆workspace(onboard data)，測試修改為抓第二筆workspace
+    expect(user1.created_workspaces.second).to eq(workspace1)
   end
 
   it "add user into workspace" do

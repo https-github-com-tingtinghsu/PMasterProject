@@ -1,4 +1,5 @@
 <div class="tile is-parent main-dashboard" data-turbolinks="false" data-workspace-name="<%= @workspace_name %>">
+  <i class="fas fa-chevron-circle-left workspace-list-colse"></i>
   <article class="tile is-child notification main-board">
     <!-- <p class="title text-md main-board-title">看板：<%= @board.name %></p> -->
     <div class="my-3">
@@ -7,7 +8,7 @@
     </div>
     <div class="content">
       <div class="group-item-list" data-board-id="<%= @board.id%>">
-        <ul class="pr-5">
+        <div>
           <% @groups.each do |group| %>
             <li class="mx-5 mt-2 mb-4 item-group-li" data-group-id="<%= group.id %>">
               <div class="item-group-li-box">
@@ -15,8 +16,8 @@
                   <%= group.name %>
                 </div>
                 <div class="item-group-li-p-icon">
-                	<%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
-                	<%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
+                  <%= link_to '', edit_group_path(group), class: "far fa-edit" , style:"text-decoration: none;"%>
+                  <%= link_to '', group_path(group), method: 'delete', data: {confirm: '您確定要刪除這個主題嗎?'}, class: "rounded text-center far fa-trash-alt" %>
                   <%= link_to '', charts_group_path(group), class: "px-3 py-1 bg-orange-300 text-white rounded text-center far fa-chart-bar", style:"text-decoration: none;" if group.has_chart? %>   
                 </div>
               </div>
@@ -48,7 +49,7 @@
                             <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                           </div>
                           
-                          <Input type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF; outline:none;">
+                          <Input type="text" data-remote="true" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>" style="background-color:#EFF4EF; outline:none;">
                         </td>
                         <td class="post-icon-and-counts" style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", style:"text-decoration: none;" %>
@@ -80,7 +81,7 @@
                         <% else %>
                           <td class="item-due-date"></td>
                         <% end %>
-                        <td class="item-point"><%= item.finish_date %></td>                        
+                        <td class="item-finsih-date-<%= item.id %>"><%= item.finish_date %></td>                        
                         <td class="item-td">
                           <%= csrf_meta_tag %>
                           <%= select_tag( item.id, options_for_select([['待指派', '待指派'], ['進行中', '進行中'], ['卡關中', '卡關中'],['待修改', '待修改'],['已完成', '已完成']], item.status),class:"item-status-option") %>
@@ -90,7 +91,7 @@
                   <% end %>
                   <tr>
                     <td colspan="6" class="add-item rounded-b">
-                      <%= link_to ' 新增項目', new_group_item_path(group.id), class:"fas fa-plus-square", style:"display:block; height:100%;text-decoration: none;" %>
+                      <%= link_to ' 新增項目', new_group_item_path(group.slug), class:"fas fa-plus-square", style:"display:block; height:100%;text-decoration: none;" %>
                     </td>
                   </td>
                 </tbody>

@@ -28,6 +28,7 @@ gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'redis', '~> 4.0'
 gem 'mailgun-ruby', '~> 1.2'
 gem 'gon', '~> 6.3', '>= 6.3.2'
+gem 'friendly_id', git: 'https://github.com/norman/friendly_id'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -65,6 +66,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
