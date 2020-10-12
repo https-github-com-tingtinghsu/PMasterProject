@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', () => {	  //Get chatroom toggle the "is-active"
-  const clickDiv = document.querySelector('.chatroom-lebal')
+  const clickDiv = document.querySelector('.chatroom-label')
   const chatroomContent = document.querySelector('.chatcontent-box')
   const chatroomInput = document.querySelector('.chatroom-input')
   if(!clickDiv)return
