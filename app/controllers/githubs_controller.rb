@@ -6,6 +6,23 @@ class GithubsController < ApplicationController
 
         access_token = Github.new.gettoken(params["code"])
 
+        # DB
+        puts "這是寫入 User:"
+        puts current_user.id
+
+        begin
+            @user = Gittoke.find( current_user.id )
+            puts "find"
+        rescue
+            @user = Gittoke.new
+            @user.token = access_token
+            @user.user_id = current_user.id
+
+            @user.saver
+            puts "not find"
+        end
+      
+
         # for test
 		puts "這是寫入 Session:"
         session[:user] = access_token
