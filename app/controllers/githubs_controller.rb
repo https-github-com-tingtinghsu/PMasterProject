@@ -12,13 +12,19 @@ class GithubsController < ApplicationController
 
         begin
             @user = Gittoke.find( current_user.id )
-            puts "find"
+
+            if @user.token != access_token
+                @user.token = access_token
+
+                @user.save
+            end
+            puts "find user"
         rescue
             @user = Gittoke.new
             @user.token = access_token
             @user.user_id = current_user.id
 
-            @user.saver
+            @user.save
             puts "not find"
         end
       
