@@ -80,84 +80,7 @@ document.addEventListener('turbolinks:load', () => {
     }
     }) 
   }); 
-  // github-link
-
-  const githubLink = document.querySelector('.github-link-img')
-  const githuBoard = document.querySelector('.outside-link-background-disappear')
-  const githuBoardIntegration = document.querySelector('.outside-link-board-integrations-disappear')
-  const githubMenuItem = document.querySelector('.outside-link-item')
-  const gitBack = document.querySelector('.outside-link-back')
-  const githubExplore = document.querySelector('.outside-link-board')
-  const githubNextpage = document.querySelector('.outside-link-board-nextpage-disappear')
-  const gitBackNextpage = document.querySelector('.outside-link-back-nextpage')
-  const gitBackNextpageApear = document.querySelector('.outside-link-board-nextpage')
-  const githubThirdpage = document.querySelector('.outside-link-board-thirdpage-disappear')
-  const thirdpageClick = document.querySelector('.outside-link-item-nextpage')
-  const gitBackThirdpage = document.querySelector('.outside-link-back-thirdpage')
-  const btnIntegrations = document.querySelector('.btn-integrations')
-  const btnExplore = document.querySelector('.btn-explore')
-  // const outsideLinkClose = document.querySelector('.close')
-
-  $('.close').each(()=>{
-      $('.close').on("click",() =>{
-        githuBoard.classList.remove('outside-link-background')
-        githuBoard.classList.add('outside-link-background-disappear')
-      })
-  })
-  // outsideLinkClose.forEach((e) => {
-  //   e.addEventListener('click', () => {
-  //     githuBoard.classList.remove('outside-link-background')
-  //     githuBoard.classList.add('outside-link-background-disappear')
-  //   })
-  // })
-  githubLink.addEventListener('click',() => {
-    githuBoard.classList.remove('outside-link-background-disappear')
-    githuBoard.classList.add('outside-link-background')
-
-  })
-  gitBack.addEventListener('click',() => {
-    githuBoard.classList.remove('outside-link-background')
-    githuBoard.classList.add('outside-link-background-disappear')
-  })
-  githubMenuItem.addEventListener('click',() => {
-    githubExplore.classList.remove('outside-link-board')
-    githubExplore.classList.add('outside-link-board-disappear')
-    githubNextpage.classList.remove('outside-link-board-nextpage-disappear')
-    githubNextpage.classList.add('outside-link-board-nextpage')
-
-  })
-  btnIntegrations.addEventListener('click',() => {
-    githubExplore.classList.remove('outside-link-board')
-    githubExplore.classList.add('outside-link-board-disappear')
-    githuBoardIntegration.classList.remove('outside-link-board-integrations-disappear')
-    githuBoardIntegration.classList.add('outside-link-board-integrations')
-
-  })
-  btnExplore.addEventListener('click',() => {
-    githuBoardIntegration.classList.add('outside-link-board-integrations-disappear')
-    githuBoardIntegration.classList.remove('outside-link-board-integrations')
-    githubExplore.classList.add('outside-link-board')
-    githubExplore.classList.remove('outside-link-board-disappear')
-  })
-  gitBackNextpage.addEventListener('click',() => {
-    githubNextpage.classList.add('outside-link-board-nextpage-disappear')
-    githubNextpage.classList.remove('outside-link-board-nextpage')
-    githubExplore.classList.add('outside-link-board')
-    githubExplore.classList.remove('outside-link-board-disappear')
-  })
-  thirdpageClick.addEventListener('click', () =>{
-    githubNextpage.classList.add('outside-link-board-nextpage-disappear')
-    githubNextpage.classList.remove('outside-link-board-nextpage')
-    githubThirdpage.classList.add('outside-link-board-thirdpage')
-    githubThirdpage.classList.remove('outside-link-board-thirdpage-disappear')
-
-  })
-  gitBackThirdpage.addEventListener('click',() => {
-    githubThirdpage.classList.add('outside-link-board-thirdpage-disappear')
-    githubThirdpage.classList.remove('outside-link-board-thirdpage')
-    githubNextpage.classList.add('outside-link-board-nextpage')
-    githubNextpage.classList.remove('outside-link-board-nextpage-disappear')
-  })
+  
 
 
   $('select').change(function(e){ 
@@ -254,4 +177,24 @@ document.addEventListener('turbolinks:load', () => {
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
 
+  //move_chatroom from post_icon
+  const postIconDiv = document.querySelectorAll('.post-icon-and-counts')
+  const chatRoomDiv = document.querySelector('.chatroombox')
+  const postsCloseBtn = document.querySelectorAll('.post-close')
+  postIconDiv.forEach((postIcon) => {
+    postIcon.addEventListener('click', () => {
+      chatRoomDiv.classList.add('chatroombox-move')
+    })
+  })
+  
+  const workspaceToggle = document.querySelector('.workspace-list-colse')
+  const workspaceList = document.querySelector('.media-display-none')
+  workspaceToggle.addEventListener('click', () => {
+    workspaceToggle.classList.toggle('workspce_list_arrow')
+    if (document.querySelector('#media-display-none') == null ){
+      workspaceList.setAttribute('id','media-display-none')
+    }else{
+      workspaceList.removeAttribute('id')
+    }
+  })
 });

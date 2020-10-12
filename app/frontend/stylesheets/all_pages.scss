@@ -6,14 +6,18 @@ a{
   text-decoration: none !important;
   background-color: unset !important;
 }
+.section{
+  padding: 1.5rem;
+}
 .notice{
-  position: absolute;
-  width: 200px;
-  left: 600px;
-  z-index: 1000000;
   font-weight: 600;
   color: rgb(107, 161, 107);
+  font-size: 25px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
+
 .red{
   background-color: #EEB5AE;
 }
@@ -28,6 +32,10 @@ a{
 }
 .gray{
   background-color: rgb(209, 202, 202);
+}
+.arrow{
+  transition: 0.5s;
+  transform: rotate(180deg);
 }
 //item-status 
 
@@ -81,6 +89,11 @@ a{
     display: flex;
     justify-content: center;
   }
+}
+.home-sign-in{
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 20px;
 }
 .home-sign-up{
   width: 100px;
@@ -270,7 +283,10 @@ body{
 
 
 // navbar 
-
+.navbar-brand{
+  display: flex;
+  align-items: center;
+}
 .navbar-brand, .navbar-menu
 {
   background-color: #5A815A;
@@ -677,7 +693,7 @@ body{
       margin: 0;
       padding: 0;
       transition: 0.5s;
-      z-index: 100000;
+      z-index: 100;
       strong{
         a{
           display: block;
@@ -740,6 +756,13 @@ body{
 
 
 //workspace_list
+#media-display-none{
+  display: none;
+}
+.workspce_list_arrow{
+  transition: 0.5s;
+  transform: rotate(180deg);
+}
 .workspace-list{
   width: 100%;
   box-shadow:none;
@@ -758,11 +781,30 @@ body{
       font-weight: 500;
       width: 150px;
     }
-   
   }
-  
+  .add-board-p{
+    font-weight: 600;
+  }
 }
-
+.workspace-list-colse{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  font-size: 30px;
+  background-color: white;
+  z-index: 1;
+  border-radius: 100%;
+  transition: .3s;
+}
+.add-workspace{
+  display: flex;
+  align-items: center;
+  span{
+    margin-left: 10px;
+    color: white;
+    font-weight: 600;
+  }
+}
 .board-name{
   font-weight: 500;
 }
@@ -860,35 +902,29 @@ body{
   display: flex;
   width: 22%;
   align-items: center;
-  position: static;
+  position: relative;
   .fa-caret-right{
     font-size: 15px;
     margin-right: 5px;
     transition: 0.5s;
   }
-  .arrow{
-    transition: 0.5s;
-    transform: rotate(180deg);
-    
-  }
+  
   .edit-delete-task{
-
     // border: 1px solid red;
     position: absolute;
     width: 0px;
     height: 30px;
     background-color: #D3E3D3;
-    left: 95px;
+    left: 22px;
     display: flex;
     align-items: center;
-    overflow: auto;
+    overflow: hidden;
     transition: 0.5s;
   }
 
   .edit-delete-task-open{
     width: 60px;
     transition: 0.5s;
-    height: 30px;
     display: flex;
     align-items: center;
   }
@@ -944,7 +980,6 @@ body{
 //main-dashboard
 
 .main-dashboard{
-  margin-right: 20px;
   margin-bottom: 100px;
 }
 .home-dashboard{
@@ -1021,12 +1056,24 @@ body{
     box-sizing: border-box;
   }
   
+  
 }
 
 
   
 @media screen and (max-width: 768px){
-  
+
+  //workspace-list
+  .workspace-list-colse{
+    transform: rotate(90deg);
+    // display: none;
+  }
+
+  .workspce_list_arrow{
+    transition: 0.5s;
+    transform: rotate(270deg);
+  }
+
   //outside-link
   
   .github-link{
@@ -1044,7 +1091,7 @@ body{
     width: 300px;
   }
   .main-pic{
-    width: 500px;
+    width: 100%;
   }
 
   //new && edit 
@@ -1057,12 +1104,11 @@ body{
     }
   }
 
-  //item
-  .task-point, .date-down{
+   //item
+   .task-point, .date-down{
     display: none;
   }
 
-//
   .item-name{
     width: 100%;
   }
@@ -1074,6 +1120,9 @@ body{
   }
   .item-point{
     display: none;
+  }
+  .add-item{
+  min-width: 617px;
   }
   // .task-arrow{
   //   display: none;
@@ -1146,7 +1195,7 @@ body{
     
   }
   .main-board{
-    position: relative;
+    // position: relative;
     .footer{
       position: absolute;
       bottom: 10px;
@@ -1185,10 +1234,7 @@ body{
     flex-direction: column;
     justify-content: start;
   }
-  .navbar-brand{
-    display: flex;
-    align-items: center;
-  }
+  
   .navbar-end{
     .hamburger-item{
       margin-left: 17px;
@@ -1215,10 +1261,12 @@ body{
   #outside-link-item{
     width: 40%;
   }
+  
  
   
   
 }
+
 @media screen and (min-width: 768px){
   .buttons .sign-in-buttons{
     top: 70px;

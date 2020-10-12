@@ -1,4 +1,5 @@
 <div class="tile is-parent main-dashboard" data-turbolinks="false" data-workspace-name="<%= @workspace_name %>">
+  <i class="fas fa-chevron-circle-left workspace-list-colse"></i>
   <article class="tile is-child notification main-board">
     <!-- <p class="title text-md main-board-title">看板：<%= @board.name %></p> -->
     <div class="my-3">
@@ -7,7 +8,7 @@
     </div>
     <div class="content">
       <div class="group-item-list" data-board-id="<%= @board.id%>">
-        <ul class="pr-5">
+        <div>
           <% @groups.each do |group| %>
             <li class="mx-5 mt-2 mb-4 item-group-li" data-group-id="<%= group.id %>">
               <div class="item-group-li-box">
