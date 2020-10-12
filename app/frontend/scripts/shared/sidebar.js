@@ -192,7 +192,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
   } else if(isWorkspace == false) {
     // 我創的board
     // /boards/:board_id/groups(.:format)
-    boardUrl = "/boards/" + model.id + "/groups"  
+    boardUrl = "/boards/" + model.slug + "/groups"
     sidebarItem.append(moreBoardIconElement)   
     sidebarItem.append("<span class ='board-name'><a class='board-link' id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a></span><br><br>") 
     sidebarItem.append(editBoardItem)     
