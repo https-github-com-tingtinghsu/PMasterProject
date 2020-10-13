@@ -210,7 +210,7 @@ function stopCapture(evt) {
 }
 // ==============================
 var mychannel
-const handleJoinSession = async () => {
+const handleJoinSession = () => {
   buttonswitch("joinbutton")
   if( mychannel != undefined){
     broadcastData({
@@ -337,10 +337,10 @@ const createPC = (userId, isOffer) => {
     if (pc.iceConnectionState == "disconnected") {
       console.log("Disconnected:", userId);
       console.log("==================")
-      broadcastData({
-        type: REMOVE_USER,
-        from: userId,
-      });
+      // broadcastData({
+      //   type: REMOVE_USER,
+      //   from: userId,
+      // });
     }
   };
 
