@@ -167,7 +167,11 @@
     <div class="navbar-end">
         <div class="navbar-item github-link-touch">
           <% if current_user %>
-            <i class="fab fa-github github-link-img"></i>
+            <% if session[:user].blank? %>
+              <i class="fab fa-github github-link-img"></i> 
+            <% else %>
+              
+            <% end %>
           <% end %>
         </div>
       

@@ -35,6 +35,7 @@ class GithubsController < ApplicationController
         puts "這是session[:user] 當前的值："
         puts session[:user]
 
+        @checkOA = true
         redirect_to "/dashboard"
     end
 end
