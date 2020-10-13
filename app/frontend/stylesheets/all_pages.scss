@@ -939,6 +939,9 @@ body{
     overflow: auto;
     box-sizing: border-box; 
     outline:none;
+    // 為解決輸入游標可以消失，所以全部隱藏，再顯示文字
+    color: transparent;
+    text-shadow: 0 0 0 #000;
   }
   .item-name-clickevent{
     color: #888888;
