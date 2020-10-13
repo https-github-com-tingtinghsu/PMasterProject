@@ -55,9 +55,10 @@ document.addEventListener('turbolinks:load', () => {
   
 
   $('.repository').on("change", function(e){ 
-    let id = $(this).find("option:selected").data("user")
-    let repository = $(this).find("option:selected").text()
-    let org = $(this).val()
+    var id = $(this).find("option:selected").data("user")
+    var repository = $(this).find("option:selected").text()
+    var org = $(this).val()
+    $('.repository-showname').text(repository)
     $.ajax({ 
     url: "/repositories", 
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},

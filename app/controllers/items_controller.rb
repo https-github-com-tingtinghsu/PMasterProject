@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
 				@user = GitUser.find(user_id: current_user.id )
 				@token = Gittoke.find(user_id: current_user.id )
 				# puts "開始寫入Github Issue:"
-				Github.new.issueCreate(@item.name, @token, @user.repository)
+				Github.new.issueCreate(@item.name, @token, @user.org)
 			rescue
 				# redirect_to board_groups_path(@group.board.slug), notice: "新增成功"
 			end

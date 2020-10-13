@@ -11,6 +11,12 @@ class RepositoriesController < ApplicationController
         end
         
         @repository = Github.new.getuserrepository(@user.token)
+
+        begin
+            @nowrepository = GitUser.find( current_user.id )
+        rescue
+            @nowrepository = "無設定"
+        end
     end
 
     def create
@@ -20,6 +26,8 @@ class RepositoriesController < ApplicationController
 
             @user.repository = params[:repository]
             @user.org = params[:org]
+
+            @user.save
         rescue
             @createuser = GitUser.new
 
