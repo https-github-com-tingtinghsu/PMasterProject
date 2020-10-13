@@ -807,7 +807,7 @@ body{
     font-weight: 600;
   }
 }
-.workspace-list-colse, .workspace-list-colse-rtc{
+.workspace-list-colse{
   position: absolute;
   top: 60px;
   left: 0;
@@ -1076,11 +1076,7 @@ body{
     padding-right: 80px;
     box-sizing: border-box;
   }
-  .meeting-room{
-    display: flex;
-    justify-content: center;
-    padding: 35px;
-  }
+
   
 }
 
