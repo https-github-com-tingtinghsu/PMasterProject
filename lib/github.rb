@@ -3,6 +3,28 @@ require 'uri'
 require 'json'
 
 class Github
+  # 用來取 User 擁有的 Repository
+  # ================================
+  # user_token => 使用者 access_token
+  # ================================ 
+  def getuserrepository(user_token)
+    uri = URI.parse("https://api.github.com/user/repos?access_token=#{user_token}")
+    request = Net::HTTP::Get.new(uri)
+    request.body = JSON.dump({
+      "visibility" => "all"
+    })
+
+    req_options = {
+        use_ssl: uri.scheme == "https",
+      }
+      
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+    end
+
+    return JSON.parse(response.body)
+  end
+
   # 用來發布issue
   # ================================
   # title      => issue 名稱
