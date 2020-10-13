@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_082418) do
+ActiveRecord::Schema.define(version: 2020_10_13_171255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2020_10_12_082418) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "git_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "repository"
+    t.text "org"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_git_users_on_user_id"
   end
 
   create_table "gittokes", force: :cascade do |t|
@@ -197,6 +206,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_082418) do
   add_foreign_key "assignments", "items"
   add_foreign_key "assignments", "users"
   add_foreign_key "boards", "workspaces"
+  add_foreign_key "git_users", "users"
   add_foreign_key "gittokes", "users"
   add_foreign_key "groups", "boards"
   add_foreign_key "invitations", "users"

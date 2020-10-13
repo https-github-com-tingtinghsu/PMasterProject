@@ -5,7 +5,7 @@
       <span class="subtitle my-2 "> <%= current_user.display_name%> 倉儲表 </span>
     </div>
     <div>
-        請選擇 ISSUE 要發布的 Repository : <%= select_tag( "repository", options_for_select(@repository.map{ |c| [c["name"], c["full_name"], {'data-repository-name'=>c["name"]}] }, "repository"),class:"item-status-option") %>
+        請選擇 ISSUE 要發布的 Repository : <%= select_tag( "repository", options_for_select(@repository.map{ |c| [c["name"], c["full_name"], {'data-repository-name'=>c["name"]}] }, "repository"),class:"repository") %>
     </div>
     <div class="footer">
     <p>

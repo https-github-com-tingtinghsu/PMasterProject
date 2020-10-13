@@ -11,8 +11,6 @@ class RepositoriesController < ApplicationController
         end
 
         @repository = Github.new.getuserrepository(@user.token)
-        # puts @repository
-        # render json: @repository
     end
 
     def create
