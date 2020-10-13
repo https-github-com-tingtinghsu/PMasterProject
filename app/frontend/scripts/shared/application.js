@@ -58,7 +58,7 @@ document.addEventListener('turbolinks:load', () => {
     }, 
     success: () =>{
        console.log('完成')
-       location.reload()
+      //  location.reload()
     }
     }) 
   }); 
@@ -76,14 +76,14 @@ document.addEventListener('turbolinks:load', () => {
     }, 
     success: () =>{
        console.log('完成')
-       location.reload()
+      //  location.reload()
     }
     }) 
   }); 
   
 
 
-  $('select').change(function(e){ 
+  $('select').on("change",function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();
     $.ajax({ 
