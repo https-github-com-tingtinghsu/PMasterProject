@@ -216,37 +216,38 @@ const handleJoinSession = async () => {
     type: JOIN_ROOM,
     from: currentUser,
   });
-  consumer.subscriptions.create({ channel: "WebcamChannel" }, {
-    connected: () => {
-      broadcastData({
-        type: JOIN_ROOM,
-        from: currentUser,
-      });
-    },
-    received: (data) => {
-      console.log("received", data);
-      console.log("==================")
-      if (data.from === currentUser) return;
-      switch (data.type) {
-      case JOIN_ROOM:
-        console.log("JOIN_ROOM : ", data)
-        console.log("==================")
-        return joinRoom(data);
-      case EXCHANGE:
-        console.log("EXCHANGE : ", data)
-        console.log("==================")
-        if (data.to !== currentUser) return;
-        return exchange(data);
-      case REMOVE_USER:
-        console.log("REMOVE_USER : ", data)
-        console.log("==================")
-        return removeUser(data);
-      default:
-        return;
-      }
-    },
-  });
 };
+
+consumer.subscriptions.create({ channel: "WebcamChannel" }, {
+  connected: () => {
+    // broadcastData({
+    //   type: JOIN_ROOM,
+    //   from: currentUser,
+    // });
+  },
+  received: (data) => {
+    console.log("received", data);
+    console.log("==================")
+    if (data.from === currentUser) return;
+    switch (data.type) {
+    case JOIN_ROOM:
+      console.log("JOIN_ROOM : ", data)
+      console.log("==================")
+      return joinRoom(data);
+    case EXCHANGE:
+      console.log("EXCHANGE : ", data)
+      console.log("==================")
+      if (data.to !== currentUser) return;
+      return exchange(data);
+    case REMOVE_USER:
+      console.log("REMOVE_USER : ", data)
+      console.log("==================")
+      return removeUser(data);
+    default:
+      return;
+    }
+  },
+});
 
 const handleLeaveSession = () => {
   buttonswitch("leaveButton")
