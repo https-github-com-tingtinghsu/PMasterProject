@@ -42,9 +42,15 @@ class ItemsController < ApplicationController
 			board =	Board.find(Group.find(@item.group_id).board_id)
 			ActionCable.server.broadcast("board_channel_#{ board.id }", "")
 			ActionCable.server.broadcast("chart_channel",groupid: params[:group_id])
-			# puts "開始寫入Github Issue:"
-			Github.new.issueCreate(@item.name, session[:user])
-			# puts "成功寫入!"
+			# get repository
+			begin
+				@user = GitUser.find(user_id: current_user.id )
+				@token = Gittoke.find(user_id: current_user.id )
+				# puts "開始寫入Github Issue:"
+				Github.new.issueCreate(@item.name, @token, @user.repository)
+			rescue
+				# redirect_to board_groups_path(@group.board.slug), notice: "新增成功"
+			end
 			redirect_to board_groups_path(@group.board.slug), notice: "新增成功"
 		else
 			render :new

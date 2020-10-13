@@ -55,19 +55,20 @@ document.addEventListener('turbolinks:load', () => {
   
 
   $('.repository').on("change", function(e){ 
-    // let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
-    var description = $(this).val();
+    let id = $(this).find("option:selected").data("user")
+    let repository = $(this).find("option:selected").text()
+    let org = $(this).val()
     $.ajax({ 
     url: "/repositories", 
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-    type: "PATCH", 
+    type: "POST", 
     data: {
       "id": id,
-      "description": description
+      "repository": repository,
+      "org": org
     }, 
     success: () =>{
        console.log('完成')
-       location.reload()
     }
     }) 
   }); 
