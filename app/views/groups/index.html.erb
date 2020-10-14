@@ -49,7 +49,7 @@
                             <%= link_to '', item_path(item), method: "DELETE", data: { confirm: '您確定要刪除這個項目嗎?' }, class: "far fa-trash-alt", style:"text-decoration: none;" %>
                           </div>
                           
-                          <Input type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>">
+                          <Input spellcheck="false" type="text" class="item-name" data-item-id="<%= item.id %>" id="item-name-<%= item.id %>" data-item-name="<%= item.name %>" value="<%= item.name %>">
                         </td>
                         <td class="post-icon-and-counts" style="width: 50px;">
                           <%= link_to "", posts_item_path(item), remote: true, id:"post-icon-id-#{ item.id }" ,class:"postIcon far fa-comment-dots", style:"text-decoration: none;" %>
@@ -67,7 +67,7 @@
                           <% end %>
                         </td>
                         <td>
-                          <input type="text" class="item-description" data-item-id="<%= item.id %>" id="item-description-<%= item.id %>" data-item-description="<%= item.description %>" value="<%= item.description %>">
+                          <input spellcheck="false" type="text" class="item-description" data-item-id="<%= item.id %>" id="item-description-<%= item.id %>" data-item-description="<%= item.description %>" value="<%= item.description %>">
                         </td>
                         <td class="item-point"><%= item.point %></td>                        
                         <% if item.due_date != nil && item.status != "已完成" %>
