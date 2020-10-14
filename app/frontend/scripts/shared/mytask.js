@@ -11,9 +11,11 @@ document.addEventListener('turbolinks:load', () => {
           if (divStatus == selectedStatus){
             document.querySelector('.' + divStatus).classList.remove('is-removed-for-mytask')
             document.querySelector('.' + divStatus).classList.add('is-active-for-mytask')
+            document.querySelector('.btn-' + divStatus).classList.add('btn-' + divStatus + '-bg')
           }else{
             document.querySelector('.' + divStatus).classList.add('is-removed-for-mytask')
             document.querySelector('.' + divStatus).classList.remove('is-active-for-mytask')
+            document.querySelector('.btn-' + divStatus).classList.remove('btn-' + divStatus + '-bg')
           }
         })
       })
