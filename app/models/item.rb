@@ -1,5 +1,9 @@
 class Item < ApplicationRecord
+  extend FriendlyId
+  friendly_id :slug, use: :slugged
+
   belongs_to :group
+  
   has_many :posts, dependent: :destroy
   
   has_many :assignments, dependent: :destroy
@@ -7,7 +11,9 @@ class Item < ApplicationRecord
 
   before_update :update_finish_date
 
-  # validates :name, presence: true
+  before_create { self.slug = SecureRandom.uuid }
+  # validates :name, presence: true, length: {maximum:20}
+
 
   # 更新下拉選單時，也須確認資料庫裡的完成日期是否需要更改
   def update_finish_date
@@ -31,7 +37,7 @@ class Item < ApplicationRecord
 
   def actual_spend_day
     if finish_date?
-      (finish_date.to_date - group.start_date.to_date).to_i
+      (finish_date.to_date - group.start_date.to_date).to_i.abs
     else
       0
     end

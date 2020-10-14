@@ -41,3 +41,7 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
+
+/coverage/*
+/coverage/.last_run.json
+/coverage/.resultset.json

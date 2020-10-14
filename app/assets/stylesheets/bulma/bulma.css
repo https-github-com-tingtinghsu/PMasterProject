@@ -289,7 +289,7 @@ html {
 img,
 video {
   height: auto;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 iframe {
@@ -2264,8 +2264,8 @@ fieldset[disabled] .button {
 .notification {
   background-color: whitesmoke;
   border-radius: 4px;
-  position: relative;
-  padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+  /* position: relative; */
+  padding: 1.25rem 1.5rem;
 }
 
 .notification a:not(.button):not(.dropdown-item) {

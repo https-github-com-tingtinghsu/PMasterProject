@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: PMasterProject_development
+
+test:
+  <<: *default
+  database: PMasterProject_test
+
+production:
+  <<: *default
+  database: PMasterProject_production
+  username: PMasterProject
+  # password: <%= ENV['PMASTERPROJECT_DATABASE_PASSWORD'] %>

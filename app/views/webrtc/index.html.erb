@@ -1,28 +1,24 @@
-<%# <h1>Webrtc#index</h1>
-<p>Find me in app/views/webrtc/index.html.erb</p>
-<div data-controls=webcam>
-    <video id="player" data-target="main" controls autoplay></video>
-    <button id="status" data-action="demo#getUserMedia">開始</button>
-    <button id="capture">截圖</button>
-    <canvas id="snapshot" width=320 height=240></canvas>
-
-    <video id="remotevideo" data-target="remote" autoplay muted playsinline controls></video>
-</div> %>
-
-
-<div>Random User ID:
-  <span id="current-user"><%= @random_number %></span>
+<div class="container-all">
+  <div class="webcam-btn">
+    <i class="fas fa-chevron-circle-left workspace-list-colse"></i>
+    <button id="join-button">Join</button>
+    <button id="leave-button">Leave</button>
+    <button id="Start-button">Start Cam</button>
+    <button id="Stop-button">Stop Cam</button>
+    <button id="share-button">Start Desktop</button>
+    <button id="not-share-button">Stop Desktop</button>
+    <%# <button id="full-button">full screen</button> %>
+  </div>
+  <div class="meeting-room" id="meeting-room">
+    <div class="container-for-webcam">
+      <div class="attendees" id="remote-video-container">
+      </div>
+      <video class="local-video" id="local-video" autoplay controls></video>
+    </div>
+    <%# <div class="text-room">123</div> %>
+  </div>
 </div>
 
-<div id="remote-video-container"></div>
-<video class="local-video" id="local-video" autoplay></video>
-
-<hr />
-
-<button id="join-button">
-  Join Room
-</button>
-
-<button id="leave-button">
-  Leave Room
-</button>
+<div style="display: none">Random User ID:
+  <span id="current-user"><%= @random_number %></span>
+</div>

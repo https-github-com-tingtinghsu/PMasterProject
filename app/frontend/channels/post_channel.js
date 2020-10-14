@@ -13,19 +13,19 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
     }
     $('#item-id-' + data.itemid + '-of-posts-counts').text(data.post_count)
     
-    $('#post-icon-id-'+ data.itemid)[0].click();
+    // $('#post-icon-id-'+ data.itemid)[0].click();
 
-    // const element = document.querySelector('.added-post')
-    // console.log("element : "+ element)
-    // if(!element) return
+    const element = document.querySelector('.posts-header')
+    console.log("element : "+ element)
+    if(!element) return
     
-    // const item_id = element.getAttribute('data-item-id')
-    // console.log("item_id : " + item_id )
-    // if(!item_id) return
+    const item_id = element.getAttribute('data-item-id')
+    console.log("item_id : " + item_id )
+    if(!item_id) return
 
-    // console.log("item_id == data.itemid : " + item_id + data.itemid)
-    // if(item_id == data.itemid){
-    //   $('#post-icon-id-'+ data.itemid)[0].click();
-    // }
+    console.log("item_id == data.itemid : " + item_id + data.itemid)
+    if(item_id == data.itemid){
+      $('#post-icon-id-'+ data.itemid)[0].click();
+    }
   }
 });
