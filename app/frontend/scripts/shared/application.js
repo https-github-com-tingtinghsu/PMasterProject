@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
     }, 
     success: () =>{
        console.log('完成')
-       location.reload()
+      //  location.reload()
     }
     }) 
   }); 
@@ -48,14 +48,28 @@ document.addEventListener('turbolinks:load', () => {
     }, 
     success: () =>{
        console.log('完成')
-       location.reload()
+      //  location.reload()
     }
     }) 
   }); 
   
-
-
-
+  $('select').on("change",function(e){ 
+    let id = e.target.id
+    var status = $(this).find(":selected").text();
+    $.ajax({ 
+    url: "/item/statusupdate", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "PATCH", 
+    data: {
+      "id": id,
+      "status": status
+    }, 
+    success: () =>{
+       console.log('完成')
+       changeBackgroundColorFinish()
+    }
+    }) 
+  }); 
 
 
   // Get all "navbar-burger" elements
