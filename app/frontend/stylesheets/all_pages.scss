@@ -12,7 +12,7 @@ a{
 .notice{
   font-weight: 600;
   color: rgb(107, 161, 107);
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
@@ -37,6 +37,14 @@ a{
   transition: 0.5s;
   transform: rotate(180deg);
 }
+
+//webrtc
+.webcam-btn{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
 //item-status 
 
 .item-td{
@@ -289,7 +297,7 @@ body{
 .navbar-brand, .navbar-menu
 {
   background-color: #5A815A;
-
+  font-size: 20px;
   .navbar-link{
     color: white;
   }
@@ -339,10 +347,13 @@ body{
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
     background-color: rgba(51, 42, 42, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
+    left: 0;
+    z-index: 110;
     
     .close{
       font-size: 35px;
@@ -406,7 +417,7 @@ body{
           border-bottom: gray 3px solid;
           position: absolute;
           top: 0;
-          font-size: 30px;
+          font-size: 25px;
           font-weight: 600;
         }
         .btn-integrations{
@@ -447,7 +458,6 @@ body{
         }
         .outside-link-item{
           cursor: pointer;
-          width: 50%;
           height: 15%;
           background-color: rgb(31, 28, 28);
           border-radius: 10px;
@@ -456,11 +466,12 @@ body{
           align-items: center;
           justify-content: center;
           position: relative;
+          width: 60%;
         }
-         
+      
       }
       .outside-link-item{
-        width: 40%;
+        width: 60%;
         height: 20%;
         color: white;
         background-color: white;
@@ -533,7 +544,7 @@ body{
           font-size: 30px;
           font-weight: 600;
         }
-       
+      
         
       }
       .outside-link-item-nextpage{
@@ -685,9 +696,12 @@ body{
       width: 150px;
       position: absolute;
       top: 30px;
-      left: 10px;
+      left: unset;
+      right: 17px;
+      border-radius: 4px;
       overflow: hidden;
-      background: rgba(255,255,255,.8);
+      // background: rgba(255,255,255,.8);
+      background: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,.3);
       margin: 0;
       padding: 0;
@@ -711,7 +725,13 @@ body{
     }
   
   }
-
+  //dashboard
+  .footer-dashboard{
+    padding: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+  }
   
   @media screen and (min-width: 768px){
     .buttons .sign-in-buttons{
@@ -772,16 +792,20 @@ body{
     width: 200px;
     margin-bottom: 25px;
     display: flex;
-    align-items: center;
     font-weight: 600;
     display: flex;
     flex-wrap: wrap;
     .workspace-name{
-      margin: 10px;
+      margin-left: 10px;
+      margin-bottom: 10px;
       color: #ECC94B;
       font-size: 20px;
       font-weight: 500;
       width: 150px;
+      line-height: 25px;
+    }
+    .fa-folder{
+      margin-top: 5px;
     }
   }
   .add-board-p{
@@ -790,7 +814,7 @@ body{
 }
 .workspace-list-colse{
   position: absolute;
-  top: 100px;
+  top: 60px;
   left: 0;
   font-size: 30px;
   background-color: white;
@@ -826,7 +850,7 @@ body{
 }
 .board-item{
   color: white;
-  margin-left: 30px;
+  margin-left: 7px;
 }
 .board-link{
   color: white;
@@ -1024,7 +1048,8 @@ body{
   margin-top: 100px;
   margin-bottom: 50px;
   margin-left: auto;
-  width: 300px;
+  margin-right: 50px;
+  width: 500px;
 }
 
 .main-board{
@@ -1068,16 +1093,16 @@ body{
   }
 
 
-@media screen and (max-width: 1200px){
-  #item-object-group{
+@media screen and (min-width: 768px) and (max-width: 1200px){
+  .item-object-group{
     width: 100%;
-    margin-left: -45px;
+    margin-left: 0px;
     padding-right: 0px;
     border-right: solid #aaa 1px;
     padding-right: 80px;
     box-sizing: border-box;
   }
-  
+
   
 }
 
@@ -1166,7 +1191,7 @@ body{
   .item-object-group{
     width: 100%;
     margin-left: 0px;
-    padding-right: 0px;
+    padding-right: 90px;
     border-right: solid #aaa 1px;
     box-sizing: border-box;
   }
@@ -1194,7 +1219,7 @@ body{
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-left: 15px;
+      margin-left: 35px;
       h2{
         font-size: 20px;
         margin-bottom: 40px;
@@ -1228,12 +1253,7 @@ body{
     bottom: 40px;
     left: 150px;
   }
-  .footer-dashboard{
-    padding: 0;
-    position: absolute;
-    bottom: 20px;
-    left: 100px;
-  }
+ 
   .group-card{
     width: 170px;
     margin-top: 70px;
@@ -1258,14 +1278,15 @@ body{
     .hamburger-item{
       margin-left: 17px;
     }
-   
+    .sign-in-name{
+      margin-left: 30px;
+      font-size: 20px;    
+    }
   }
   .burger{
     margin-left: auto;
   }
-  .sign-in-name{
-    margin-left: 30px;
-  }
+
 
 
   //sign-in
@@ -1273,18 +1294,7 @@ body{
     width: 100%;
   }
 }
-@media screen and (min-width: 1030px){
-  .navbar-menu .outside-link-background{
-    width: 86%;
-  }
-  #outside-link-item{
-    width: 40%;
-  }
-  
- 
-  
-  
-}
+
 
 @media screen and (min-width: 768px){
   .buttons .sign-in-buttons{
@@ -1292,5 +1302,10 @@ body{
   }
   .outside-link-item-nextpage .fa-github,.outside-link-item-nextpage .outside-link-title{
     font-size: 60px;
+  }
+  #meeting-room{
+    display: flex;
+    justify-content: center;
+    padding: 35px;
   }
 }

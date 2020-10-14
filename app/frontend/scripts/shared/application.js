@@ -15,35 +15,7 @@ document.addEventListener('turbolinks:load', () => {
       option.classList.add('gray')
     }
   })
-
-  function changeBackgroundColorFinish(){
-    statusOptions.forEach( (option) => {
-      if(option.querySelector('option:checked').value == "卡關中"){
-        option.classList.add('red')
-      }else if(option.querySelector('option:checked').value == "進行中"){
-        option.classList.add('blue')
-      }else if(option.querySelector('option:checked').value == "待修改"){
-        option.classList.add('pink')
-      }else if(option.querySelector('option:checked').value == "待指派"){
-        option.classList.add('yellow')
-      }else if(option.querySelector('option:checked').value == "已完成"){
-        option.classList.add('gray')
-      }
-  
-    })
-  }
-
-  function changeBackgroundColor(e){
-    let optionClass = Array.from(e.target.classList)
-    if(optionClass.indexOf("item-status-option") !== -1){
-      e.target.classList.remove(e.target.classList[1])
-    }
-    
-  }
-
-  statusOptions.forEach((option)=>{
-    option.addEventListener('change',changeBackgroundColor)
-  })
+ 
 
   $('.item-name').on("change", function(e){ 
     let id = document.querySelector('#' + e.target.id).getAttribute("data-item-id")
@@ -81,8 +53,6 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }); 
   
-
-
   $('select').on("change",function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();
@@ -129,28 +99,6 @@ document.addEventListener('turbolinks:load', () => {
   })
 
 
-  //Get chatroom toggle the "is-active"
-  const clickDiv = document.querySelector('.chatroom-label')
-  const chatroomContent = document.querySelector('.chatcontent-box')
-  const chatroomInput = document.querySelector('.chatroom-input')
-  if(!clickDiv)return
-  clickDiv.addEventListener('click',function(){
-    chatroomContent.classList.toggle('open')
-    chatroomContent.classList.toggle('chatroom-group')
-    clickDiv.classList.toggle('rotate')
-    chatroomInput.classList.toggle('appear')
-    const $messages = document.querySelector('#messages');
-    $messages.scrollTo(0, $messages.scrollHeight);
-  })
-
-  const messages_scroll = document.querySelector('#messages');
-  messages_scroll.addEventListener('scroll', function(){
-    if(messages_scroll.scrollTop == 0){
-      document.querySelector('#prev-messages a').click();
-      //不能使用變數替代
-    }
-  })
-
   
 
   //Get edit_task toggle the "is-active"
@@ -176,25 +124,5 @@ document.addEventListener('turbolinks:load', () => {
   })
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
-
-  //move_chatroom from post_icon
-  const postIconDiv = document.querySelectorAll('.post-icon-and-counts')
-  const chatRoomDiv = document.querySelector('.chatroombox')
-  const postsCloseBtn = document.querySelectorAll('.post-close')
-  postIconDiv.forEach((postIcon) => {
-    postIcon.addEventListener('click', () => {
-      chatRoomDiv.classList.add('chatroombox-move')
-    })
-  })
   
-  const workspaceToggle = document.querySelector('.workspace-list-colse')
-  const workspaceList = document.querySelector('.media-display-none')
-  workspaceToggle.addEventListener('click', () => {
-    workspaceToggle.classList.toggle('workspce_list_arrow')
-    if (document.querySelector('#media-display-none') == null ){
-      workspaceList.setAttribute('id','media-display-none')
-    }else{
-      workspaceList.removeAttribute('id')
-    }
-  })
 });

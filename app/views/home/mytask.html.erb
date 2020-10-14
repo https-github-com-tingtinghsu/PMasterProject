@@ -28,7 +28,7 @@
                   </li>
                   <% @pending.each do |pending| %>
                     <li class="have-item" id="pending-item-id-<%= pending.id %>" data-pending-item="<%= pending.id%>">              
-                      <div class="mytask-tab-item-name"><i class="fas fa-dot-circle"></i><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board_id)%></div>
+                      <div class="mytask-tab-item-name"><i class="fas fa-dot-circle"></i><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= pending.description %></div>
                       <div class="mytask-tab-item-date"><%= pending.due_date %></div>
                       <div class="item-td">
@@ -59,7 +59,7 @@
                     <li class="have-item" id="working-item-id-<%= working.id %>" data-working-item="<%= working.id%>">
                       <div class="mytask-tab-item-name">
                         <div class="mytask-icon-flex"><i class="fas fa-dot-circle"></i></div>
-                        <div class="mytask-name-flex"><%= link_to working.name, board_groups_path(Group.friendly.find(working.group_id).board_id)%></div>
+                        <div class="mytask-name-flex"><%= link_to working.name, board_groups_path(Group.find(working.group_id).board.friendly_id)%></div>
                       </div>
                       <div class="mytask-tab-item-description"><%= working.description %></div>
                       <div class="mytask-tab-item-date"><%= working.due_date %></div>
@@ -89,7 +89,7 @@
                   </li>
                   <% @stuck.each do |stuck| %>
                     <li class="have-item">
-                      <div class="mytask-tab-item-name"><i class="fas fa-dot-circle"></i><%= link_to stuck.name, board_groups_path(Group.find(stuck.group_id).board_id)%></div>
+                      <div class="mytask-tab-item-name"><i class="fas fa-dot-circle"></i><%= link_to stuck.name, board_groups_path(Group.find(stuck.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= stuck.description %></div>
                       <div class="mytask-tab-item-date"><%= stuck.due_date %></div>
                       <div class="item-td">
@@ -118,7 +118,7 @@
                   </li>
                   <% @done.each do |done| %>
                     <li class="have-item">
-                      <div class="mytask-tab-item-name"><i class="fas fa-dot-circle"></i><%= link_to done.name, board_groups_path(Group.find(done.group_id).board_id)%></div>
+                      <div class="mytask-tab-item-name"><i class="fas fa-dot-circle"></i><%= link_to done.name, board_groups_path(Group.find(done.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= done.description %></div>
                       <div class="mytask-tab-item-date"><%= done.finish_date %></div>
                       <div class="item-td">
