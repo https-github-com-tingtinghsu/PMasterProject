@@ -4591,7 +4591,7 @@ fieldset[disabled] .select select:hover {
 
 .card {
   background-color: white;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  box-shadow: 0 2px 1em -0.125em rgba(10, 10, 10, 0.3), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #4a4a4a;
   max-width: 100%;
   position: relative;
@@ -5210,6 +5210,7 @@ button.dropdown-item.is-active {
 
 .modal-post-block.is-active{
   display: flex;
+
 }
 
 .modal-background {
@@ -5295,8 +5296,10 @@ button.dropdown-item.is-active {
 .modal-card-body {
   -webkit-overflow-scrolling: touch;
   background-color: white;
-  flex-grow: 1;
-  flex-shrink: 1;
+  display: flex;
+  justify-content: start;
+  /* flex-grow: 1;
+  flex-shrink: 1; */
   overflow: auto;
   padding: 20px;
 }

@@ -1,22 +1,24 @@
 <div class="container-all">
-  <div class="webcam-btn">
-    <i class="fas fa-chevron-circle-left workspace-list-colse"></i>
-    <button id="join-button">Join</button>
-    <button id="leave-button">Leave</button>
-    <button id="Start-button">Start Cam</button>
-    <button id="Stop-button">Stop Cam</button>
-    <button id="share-button">Start Desktop</button>
-    <button id="not-share-button">Stop Desktop</button>
-    <button id="audio-button">audio</button>
-  </div>
+  <i class="fas fa-chevron-circle-left workspace-list-colse" id="workspace-list-colse-rtc"></i>
   <div class="meeting-room" id="meeting-room">
     <div class="container-for-webcam">
       <div class="attendees" id="remote-video-container">
       </div>
-      <video class="local-video" id="local-video" autoplay></video>
+      <video class="local-video" id="local-video" autoplay controls></video>
     </div>
     <%# <div class="text-room">123</div> %>
+    <div class="webcam-btn">
+      <button onclick="window.history.back()">回上一頁</button>
+      <button id="join-button">參加</button>
+      <button id="leave-button">離開</button>
+      <button id="Start-button">打開相機</button>
+      <button id="Stop-button">停止相機</button>
+      <button id="share-button">分享畫面</button>
+      <button id="not-share-button">Stop Desktop</button>
+      <%# <button id="full-button">full screen</button> %>
+    </div>
   </div>
+  
 </div>
 
 <div style="display: none">Random User ID:

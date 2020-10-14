@@ -44,4 +44,4 @@ yarn-debug.log*
 
 /coverage/*
 /coverage/.last_run.json
-/coverage/.resultest.json
+/coverage/.resultset.json
