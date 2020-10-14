@@ -5,6 +5,7 @@
   width: 0;
   height: 0;
   overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 .is-active-for-posts-block{
   height: 100vh;
