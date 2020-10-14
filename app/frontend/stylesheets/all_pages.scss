@@ -549,7 +549,8 @@ body{
       }
       .outside-link-item-nextpage{
         cursor: pointer;
-        width: 40%;
+        padding: 10px;
+        width: 100%;
         height: 20%;
         color: black;
         background-color: white;
@@ -958,11 +959,12 @@ body{
   .item-name{
     background-color: #EFF4EF;
     width: 130px;
-    // transition: .5s;
-    white-space: nowrap;
-    overflow: auto;
     box-sizing: border-box; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     outline:none;
+    // transition: .5s;
     // 為解決輸入游標可以消失，所以全部隱藏，再顯示文字
     color: transparent;
     text-shadow: 0 0 0 #000;
@@ -975,11 +977,16 @@ body{
 .item-description{
   background-color: #EFF4EF;
   width: 130px;
-  // transition: .5s;
-  white-space: nowrap;
-  overflow: auto;
   box-sizing: border-box; 
   outline:none;
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  outline:none;
+  // transition: .5s;
+  // overflow: auto;
 }
 .item-description-clickevent{
   color: #888888;

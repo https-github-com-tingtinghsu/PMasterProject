@@ -53,6 +53,26 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }); 
   
+  $('.repository').on("change", function(e){ 
+    var id = $(this).find("option:selected").data("user")
+    var repository = $(this).find("option:selected").text()
+    var org = $(this).val()
+    $('.repository-showname').text(repository)
+    $.ajax({ 
+    url: "/repositories", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "POST", 
+    data: {
+      "id": id,
+      "repository": repository,
+      "org": org
+    }, 
+    success: () =>{
+       console.log('完成')
+    }
+    }) 
+  }); 
+  
   $('select').on("change",function(e){ 
     let id = e.target.id
     var status = $(this).find(":selected").text();
