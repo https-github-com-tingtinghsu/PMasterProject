@@ -27,7 +27,7 @@
                     </div>
                   </li>
                   <% @pending.each do |pending| %>
-                    <li class="have-item" id="pending-item-id-<%= pending.id %>" data-pending-item="<%= pending.id%>">              
+                    <li class="have-item" id="pending-item-id-<%= pending.id %>" data-pending-item="<%= pending.id%>">
                       <div class="mytask-tab-item-name"><i class="fas fa-dot-circle"></i><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= pending.description %></div>
                       <div class="mytask-tab-item-date"><%= pending.due_date %></div>
@@ -112,9 +112,8 @@
                   <li class="mytask-item-title">
                     <div class="mytask-tab-item-name">任務名稱</div>
                     <div class="mytask-tab-item-description">任務敘述</div>
-                    <div class="mytask-tab-item-date">到期日</div>
-                    <div class="item-td">狀態
-                    </div>
+                    <div class="mytask-tab-item-date">完成日</div>
+                    <div class="item-td">狀態</div>
                   </li>
                   <% @done.each do |done| %>
                     <li class="have-item">
