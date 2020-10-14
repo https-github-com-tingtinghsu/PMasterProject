@@ -34,7 +34,7 @@ document.addEventListener("turbolinks:load", () => {
 
           onlineElement.setAttribute("class", "online-user")
           liElement.setAttribute("user-id", data.user_id)
-          liElement.innerHTML = `${data.user}<span>Online</span>`
+          liElement.innerHTML = `${data.user}<div class="online-point"></div>`
           onlineElement.appendChild(liElement)
           
           whoOnline.insertAdjacentElement('beforeend', onlineElement)

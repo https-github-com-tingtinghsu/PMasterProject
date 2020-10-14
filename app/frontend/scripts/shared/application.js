@@ -110,4 +110,5 @@ document.addEventListener('turbolinks:load', () => {
   })
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
+  
 });
