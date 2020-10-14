@@ -30,53 +30,97 @@
   }
 }
 
+//pending
 .btn-pending{
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-pending:hover{
+  background-color: #eee;
+}
+.btn-pending-bg:hover{
+  background-color: #FCD3B3;
+}
+.btn-pending-bg{
+  background-color: #FCD3B3;
   border-top: 2px solid #FCD3B3;
   border-left: 2px solid #FCD3B3;
   border-right: 2px solid #FCD3B3;
 }
-.btn-pending-bg{
-  background-color: #FCD3B3;
-}
 .pending{
   border: 10px solid #FCD3B3;
-  background-color: rgba(252,211,179, .2);
+  background-color: #FCD3B3;
 }
+
+
+// stuck
 .btn-stuck{
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-stuck:hover{
+  background-color: #eee;
+}
+.btn-stuck-bg:hover{
+  background-color: #EEB5AE;
+}
+.btn-stuck-bg{
+  background-color: #EEB5AE;
   border-top: 2px solid #EEB5AE;
   border-left: 2px solid #EEB5AE;
   border-right: 2px solid #EEB5AE;
 }
-.btn-stuck-bg{
-  background-color: #EEB5AE;
-}
 .stuck{
   border: 10px solid #EEB5AE;
-  background-color: rgba(238,181,174, .2);
+  background-color: rgb(238,181,174);
 }
+
+// working
 .btn-working{
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-working:hover{
+  background-color: #eee;
+}
+.btn-working-bg:hover{
+  background-color: #B4DAE9;
+}
+.btn-working-bg{
+  background-color: #B4DAE9;
   border-top: 2px solid #B4DAE9;
   border-left: 2px solid #B4DAE9;
   border-right: 2px solid #B4DAE9;
 }
-.btn-working-bg{
-  background-color: #B4DAE9;
-}
 .working{
   border: 10px solid #B4DAE9;
-  background-color: rgba(180,218,233, .1);
+  background-color: rgb(180,218,233);
 }
+
+// done
 .btn-done{
-  border-top: 2px solid rgb(192, 180, 180);
-  border-left: 2px solid rgb(192, 180, 180);
-  border-right: 2px solid rgb(192, 180, 180);
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-done:hover{
+  background-color: #eee;
+}
+.btn-done-bg:hover{
+  background-color: rgb(209,202,202);
 }
 .btn-done-bg{
-  background-color: rgb(192, 180, 180);
+  background-color: rgb(209,202,202);
+  border-top: 2px solid rgb(209,202,202);
+  border-left: 2px solid rgb(209,202,202);
+  border-right: 2px solid rgb(209,202,202);
 }
 .done{
-  border: 10px solid rgb(192, 180, 180);
-  background-color: rgba(192, 180, 180, .2);
+  border: 10px solid rgb(209,202,202);
+  background-color: rgb(209,202,202);
 }
 .mytask-group-item-list{
   padding-bottom: 50px;
