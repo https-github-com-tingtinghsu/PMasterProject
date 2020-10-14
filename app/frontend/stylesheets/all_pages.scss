@@ -723,7 +723,13 @@ body{
     }
   
   }
-
+  //dashboard
+  .footer-dashboard{
+    padding: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+  }
   
   @media screen and (min-width: 768px){
     .buttons .sign-in-buttons{
@@ -781,23 +787,27 @@ body{
     width: 200px;
     margin-bottom: 25px;
     display: flex;
-    align-items: center;
     font-weight: 600;
     display: flex;
     flex-wrap: wrap;
     .workspace-name{
-      margin: 10px;
+      margin-left: 10px;
+      margin-bottom: 10px;
       color: #ECC94B;
       font-size: 20px;
       font-weight: 500;
       width: 150px;
+      line-height: 25px;
+    }
+    .fa-folder{
+      margin-top: 5px;
     }
   }
   .add-board-p{
     font-weight: 600;
   }
 }
-.workspace-list-colse, .workspace-list-colse-rtc{
+.workspace-list-colse{
   position: absolute;
   top: 60px;
   left: 0;
@@ -1066,11 +1076,7 @@ body{
     padding-right: 80px;
     box-sizing: border-box;
   }
-  .meeting-room{
-    display: flex;
-    justify-content: center;
-    padding: 35px;
-  }
+
   
 }
 
@@ -1224,12 +1230,7 @@ body{
     bottom: 40px;
     left: 150px;
   }
-  .footer-dashboard{
-    padding: 0;
-    position: absolute;
-    bottom: 20px;
-    left: 100px;
-  }
+ 
   .group-card{
     width: 170px;
     margin-top: 70px;

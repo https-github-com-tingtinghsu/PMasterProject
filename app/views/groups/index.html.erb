@@ -120,7 +120,9 @@
     </div>
     <%  @online_users.each do |user| %>
     <ul class="online-user">
-      <li user-id="<%= user.id %>"><%= user.display_name %><span>Online</span></li>
+      <li user-id="<%= user.id %>"><div>
+        <%= user.display_name %>
+      </div><div class="online-point"></div></li>
     </ul>
     <% end %>
   </div>
