@@ -15,7 +15,8 @@ class RepositoriesController < ApplicationController
         begin
             @nowrepository = GitUser.find( current_user.id )
         rescue
-            @nowrepository = "無設定"
+            @nowrepository = GitUser.new
+            @nowrepository.repository = "無設定"
         end
     end
 
