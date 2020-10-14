@@ -2,6 +2,7 @@
 .reply-created-block{
   width: 100%;
   display: flex;
+  margin-top: 10px;
 }
 .reply-content{
   background-color: #48C774;

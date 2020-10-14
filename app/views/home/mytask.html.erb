@@ -22,7 +22,7 @@
                   <% @pending.each do |pending| %>
                     <li class="have-item" id="pending-item-id-<%= pending.id %>" data-pending-item="<%= pending.id%>">
                       <i class="fas fa-dot-circle"></i>
-                      <div class="mytask-tab-item-name"><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board_id)%></div>
+                      <div class="mytask-tab-item-name"><%= link_to pending.name, board_groups_path(Group.find(pending.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= pending.description %></div>
                       <div class=" mytask-tab-item-date"><%= pending.due_date %></div>
                       <div class="item-td">
@@ -45,7 +45,7 @@
                   <% @working.each do |working| %>
                     <li class="have-item">
                       <i class="fas fa-dot-circle"></i>
-                      <div class="mytask-tab-item-name"><%= link_to working.name, board_groups_path(Group.find(working.group_id).board_id)%></div>
+                      <div class="mytask-tab-item-name"><%= link_to working.name, board_groups_path(Group.find(working.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= working.description %></div>
                       <div class="mytask-tab-item-date"><%= working.due_date %></div>
                       <div class="item-td">
@@ -68,7 +68,7 @@
                   <% @stuck.each do |stuck| %>
                     <li class="have-item">
                       <i class="fas fa-dot-circle"></i>
-                      <div class="mytask-tab-item-name"><%= link_to stuck.name, board_groups_path(Group.find(stuck.group_id).board_id)%></div>
+                      <div class="mytask-tab-item-name"><%= link_to stuck.name, board_groups_path(Group.find(stuck.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= stuck.description %></div>
                       <div class="mytask-tab-item-date"><%= stuck.due_date %></div>
                       <div class="item-td">
@@ -91,7 +91,7 @@
                   <% @done.each do |done| %>
                     <li class="have-item">
                       <i class="fas fa-dot-circle"></i>
-                      <div class="mytask-tab-item-name"><%= link_to done.name, board_groups_path(Group.find(done.group_id).board_id)%></div>
+                      <div class="mytask-tab-item-name"><%= link_to done.name, board_groups_path(Group.find(done.group_id).board.friendly_id)%></div>
                       <div class="mytask-tab-item-description"><%= done.description %></div>
                       <div class="mytask-tab-item-date"><%= done.finish_date %></div>
                       <div class="item-td">
