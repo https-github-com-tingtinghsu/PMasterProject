@@ -29,9 +29,6 @@
             <div class="outside-link-menu-title">
               <h2>Explore By App</h2>
             </div>
-            <div class="btn-integrations">
-              <h2>Integrations</h2>
-            </div>
             <% if session[:user].blank? %>
             <div class="outside-link-item" id="outside-link-item">
               <i class="fab fa-github"></i>
@@ -67,7 +64,6 @@
 
     <div class="outside-link-board-nextpage-disappear">
       <% if(Rails.env.development?) %>
-        <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo" do %>
         <div class="outside-link-back-nextpage">
           <i class="fas fa-angle-left"></i>
           <h2>back</h2>
@@ -78,13 +74,13 @@
         <div class="outside-link-item-nextpage">
           <i class="fab fa-github"></i>
           <div class="outside-link-title">
-            <h2>GitHub</h2>
+            <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo" do %>
+              <h2>GitHub</h2>
+            <% end %>
           </div>
         </div>
-        <% end %>
       <% else %>
-        <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
-                <div class="outside-link-back-nextpage">
+        <div class="outside-link-back-nextpage">
           <i class="fas fa-angle-left"></i>
           <h2>back</h2>
         </div>
@@ -94,10 +90,11 @@
         <div class="outside-link-item-nextpage">
           <i class="fab fa-github"></i>
           <div class="outside-link-title">
-            <h2>GitHub</h2>
+            <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
+              <h2>GitHub</h2>
+            <% end %>
           </div>
         </div>
-        <% end %>
       <% end %>
     </div>    
       

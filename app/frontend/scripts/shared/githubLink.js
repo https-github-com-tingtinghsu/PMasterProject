@@ -51,12 +51,12 @@ document.addEventListener('turbolinks:load', () => {
     //   githubExplore.classList.add('outside-link-board')
     //   githubExplore.classList.remove('outside-link-board-disappear')
     // })
-    // gitBackNextpage.addEventListener('click',() => {
-    //   githubNextpage.classList.add('outside-link-board-nextpage-disappear')
-    //   githubNextpage.classList.remove('outside-link-board-nextpage')
-    //   githubExplore.classList.add('outside-link-board')
-    //   githubExplore.classList.remove('outside-link-board-disappear')
-    // })
+    gitBackNextpage.addEventListener('click',() => {
+      githubNextpage.classList.add('outside-link-board-nextpage-disappear')
+      githubNextpage.classList.remove('outside-link-board-nextpage')
+      githubExplore.classList.add('outside-link-board')
+      githubExplore.classList.remove('outside-link-board-disappear')
+    })
     // thirdpageClick.addEventListener('click', () =>{
     //   githubNextpage.classList.add('outside-link-board-nextpage-disappear')
     //   githubNextpage.classList.remove('outside-link-board-nextpage')
