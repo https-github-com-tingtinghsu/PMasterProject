@@ -13,6 +13,8 @@
     padding-top: 20px;
     // background-color: blue;
     height: 600px;
+    background-color: #ddd;
+    border-radius: 10px;
     .webcam-btn{
       display: flex;
       justify-content: center;
@@ -20,18 +22,13 @@
       height: 50px;
       // flex-direction: row;
       button{
-        background-color: #7EBE25;
         margin: 10px;
         border-radius: 5px;
         width: 100px;
+        height: 30px;
         font-weight: 600;
-
-        // position: relative;
-        // // z-index: 30;
-        // font-size: 16px;
-        // padding: 1px 2px;
-        // margin-right: 10px;
-        // width: 50px;
+        border: solid 1px #aaa;
+        background-color: #D3E3D3;
 
       }
     }
@@ -94,17 +91,20 @@
     padding: 10px;
     // border: solid 1px red;
     margin-top: 15px;
+    background-color: #ddd;
+    border-radius: 10px;
     .webcam-btn{
       display: flex;
       flex-direction: row;
       position: relative;
       button{
-        background-color: #7EBE25;
         margin: 10px;
         border-radius: 5px;
         width: 100px;
         height: 30px;
         font-weight: 600;
+        border: solid 1px #aaa;
+        background-color: #D3E3D3;
       }
     }
     .meeting-room{
@@ -141,8 +141,9 @@
     }
   }
 }
-@media screen and (min-width: 1050px){
+@media screen and (min-width: 769px){
   .container-for-webcam{
+    min-width: 700px;
     width: 70%;
     .attendees{
       display: flex;
