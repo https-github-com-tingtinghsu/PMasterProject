@@ -94,6 +94,7 @@ document.addEventListener('turbolinks:load', () => {
   // Get edit_count && sing_out_button toggle the "is-active"
   const buttonDiv = document.querySelector('.sign-in-buttons')
   const arrow_button = document.querySelector('.arrow_icon')
+  if(!arrow_button)return
   arrow_button.addEventListener('click', function(){
     arrow_button.classList.toggle('arrow')
     buttonDiv.classList.toggle('sign-in-buttons-open')
