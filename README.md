@@ -53,8 +53,9 @@ PMaster可以讓您線上與團隊做事項提醒發佈、即時討論更動的�
 
 ## 05. 線上會議
 
-Work From Home已成為2020年的重要趨勢，PMaster開發視訊會議功能，再搭配PMaster專案管理系統內從特色1至特色4點功能，讓您的團隊溝通效率ｘ開發速率加倍，在家工作也OK！
+Work From Home已成為2020年的重要趨勢，PMaster開發視訊會議功能，再搭配PMaster專案管理系統內從特色1至特色4點功能，讓您的團隊溝通效率ｘ開發速率加倍，在家工作也OK！  
 
+![](https://i.imgur.com/mRNuIev.jpg)
 
 # PMaster開發技術  
 
