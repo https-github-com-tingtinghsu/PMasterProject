@@ -175,7 +175,7 @@
             <% if session[:user].blank? %>
               <i class="fab fa-github github-link-img"></i> 
             <% else %>
-              <%= link_to '', repositories_path, class: "fab fa-github github-link-img" %>
+              <%= link_to '', repositories_path, class: "fab fa-github github-link-img github-login" %>
             <% end %>
           <% end %>
         </div>

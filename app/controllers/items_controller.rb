@@ -43,19 +43,15 @@ class ItemsController < ApplicationController
 			ActionCable.server.broadcast("board_channel_#{ board.id }", "")
 			ActionCable.server.broadcast("chart_channel",groupid: params[:group_id])
 			# get repository
-			begin
-				@user = GitUser.find(current_user.id )
-				@token = Gittoke.find(current_user.id )
-				puts "============================================================"
-				puts @user.org
-				puts @token
-				puts "============================================================"
-				# puts "開始寫入Github Issue:"
+			
+			@user = GitUser.find_by("user_id = ?", current_user.id)
+			@token = Gittoke.find_by("user_id = ?", current_user.id)
+			
+			# puts "開始寫入Github Issue:"
+			if @user != nil && @token != nil
 				Github.new.issueCreate(@item.name, @token.token, @user.org)
-			rescue
-				
-				# redirect_to board_groups_path(@group.board.slug), notice: "新增成功"
 			end
+			
 			redirect_to board_groups_path(@group.board.slug), notice: "新增成功"
 		else
 			render :new

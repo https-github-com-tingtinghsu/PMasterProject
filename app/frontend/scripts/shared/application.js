@@ -29,7 +29,7 @@ document.addEventListener('turbolinks:load', () => {
       "name": name
     }, 
     success: () =>{
-       console.log('完成')
+      //  console.log('完成')
       //  location.reload()
     }
     }) 
@@ -47,13 +47,13 @@ document.addEventListener('turbolinks:load', () => {
       "description": description
     }, 
     success: () =>{
-       console.log('完成')
+      //  console.log('完成')
       //  location.reload()
     }
     }) 
   }); 
   
-  $('.repository').on("change", function(e){ 
+  $('.repository-option').on("change", function(e){ 
     var id = $(this).find("option:selected").data("user")
     var repository = $(this).find("option:selected").text()
     var org = $(this).val()
@@ -68,29 +68,10 @@ document.addEventListener('turbolinks:load', () => {
       "org": org
     }, 
     success: () =>{
-       console.log('完成')
+      //  console.log('完成')
     }
     }) 
   }); 
-  
-  // $('select').on("change",function(e){ 
-  //   let id = e.target.id
-  //   var status = $(this).find(":selected").text();
-  //   $.ajax({ 
-  //   url: "/item/statusupdate", 
-  //   beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-  //   type: "PATCH", 
-  //   data: {
-  //     "id": id,
-  //     "status": status
-  //   }, 
-  //   success: () =>{
-  //      console.log('完成')
-  //      changeBackgroundColorFinish()
-  //   }
-  //   }) 
-  // }); 
-
 
   // Get all "navbar-burger" elements
   const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);

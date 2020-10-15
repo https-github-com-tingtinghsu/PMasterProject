@@ -44,6 +44,8 @@ document.addEventListener('turbolinks:load', () => {
       }, 
       success: () =>{
         location.reload()
+        changeBackgroundColorFinish()
+
       }
       }) 
     }); 
