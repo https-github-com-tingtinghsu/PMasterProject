@@ -29,8 +29,8 @@ document.addEventListener('turbolinks:load', () => {
       "name": name
     }, 
     success: () =>{
-       console.log('完成')
-       location.reload()
+      //  console.log('完成')
+      //  location.reload()
     }
     }) 
   }); 
@@ -47,15 +47,31 @@ document.addEventListener('turbolinks:load', () => {
       "description": description
     }, 
     success: () =>{
-       console.log('完成')
-       location.reload()
+      //  console.log('完成')
+      //  location.reload()
     }
     }) 
   }); 
   
-
-
-
+  $('.repository-option').on("change", function(e){ 
+    var id = $(this).find("option:selected").data("user")
+    var repository = $(this).find("option:selected").text()
+    var org = $(this).val()
+    $('.repository-showname').text(repository)
+    $.ajax({ 
+    url: "/repositories", 
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    type: "POST", 
+    data: {
+      "id": id,
+      "repository": repository,
+      "org": org
+    }, 
+    success: () =>{
+      //  console.log('完成')
+    }
+    }) 
+  }); 
 
 
   // Get all "navbar-burger" elements
@@ -78,6 +94,7 @@ document.addEventListener('turbolinks:load', () => {
   // Get edit_count && sing_out_button toggle the "is-active"
   const buttonDiv = document.querySelector('.sign-in-buttons')
   const arrow_button = document.querySelector('.arrow_icon')
+  if(!arrow_button)return
   arrow_button.addEventListener('click', function(){
     arrow_button.classList.toggle('arrow')
     buttonDiv.classList.toggle('sign-in-buttons-open')
@@ -110,4 +127,5 @@ document.addEventListener('turbolinks:load', () => {
   })
   //使用forEach將全部的table進行監聽（點擊事件）
   // console.log(taskTables)
+  
 });

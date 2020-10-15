@@ -113,12 +113,7 @@
   }
 
   .footer-home{
-    position: absolute;
-    bottom: 400px;
-    left: 90px;
-    p{
-    font-size: 40px;
-    }
+    display: none;
   }
 
   //home_page_end
@@ -148,7 +143,7 @@
         font-weight: 600;
         background-color: #45af45;
         color: white;
-        border-radius: 5px;
+        border-radius: 10px;
         top: 20px;
       }
     }

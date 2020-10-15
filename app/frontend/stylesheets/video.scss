@@ -1,42 +1,76 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){  
+  #workspace-list-colse-rtc{
+    position: absolute;
+    top: 7px;
+    left: 0;
+    font-size: 30px;
+    background-color: white;
+    z-index: 1;
+    border-radius: 100%;
+    transition: .3s;
+    
+  }
   .container-all{
-    background-color: blue;
+    padding-top: 40px;
+    // background-color: blue;
+    height: 635px;
+    background-color: #eee;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 20px;
     .webcam-btn{
       display: flex;
-      flex-direction: row;
-      position: relative;
+      justify-content: center;
+      width: 100%;
+      height: 55px;
+      // flex-direction: row;
+      position: absolute;
+      bottom: 0;
       button{
-        position: relative;
-        // z-index: 30;
-        font-size: 16px;
-        padding: 1px 2px;
+        margin: 10px;
         border-radius: 5px;
-        margin-right: 10px;
-        width: 50px;
-        background-color: #7EBE25;
+        width: 100px;
+        height: 30px;
+        font-weight: 600;
+        border: solid 1px #aaa;
+        background-color: #D3E3D3;
+
       }
     }
     .meeting-room{
-      // display: flex;
+      height: 100%;
       // flex-direction: row;
       // justify-content: space-between;
       width: 100%;
       .container-for-webcam{
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        // border: solid red 1px;
+        position: relative;
         .attendees{
           display: flex;
           width: 100%;
           box-sizing: border-box;
+          margin-bottom: 15px;
+          border-radius: 5px;
+          overflow: auto;
           .remoteVideo{
-            padding-right: 10px;;
             width: 33.3333333%;
             min-width: 164px;
+            margin-left: 10px;
             overflow-x: scroll;
+            border-radius: 10px;
           }
         }
         .local-video{
-          height: 98%;
-          width: auto;
+          width: 100%;
+          // height: 60%;
+          // margin: auto;
+          border-radius: 5px;
+          // height: 98%;
+          // width: auto;
+          // display: flex;
         }
       }
       .text-room{
@@ -45,23 +79,39 @@
       }
     }
   }
-}
+}  
 @media screen and (min-width: 769px){
+  #workspace-list-colse-rtc{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 30px;
+    background-color: white;
+    z-index: 1;
+    border-radius: 100%;
+    transition: .3s;
+  }
   .container-all{
     width: 100%;
-    // background-color: black;
+    padding: 10px;
+    // border: solid 1px red;
+    margin-top: 15px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
     .webcam-btn{
       display: flex;
       flex-direction: row;
-      position: relative;
+      position: absolute;
+      bottom: 0;
       button{
-        position: relative;
-        z-index: 30;
-        padding: 1px 2px;
+        margin: 10px;
         border-radius: 5px;
-        margin-right: 10px;
-        width: 50px;
-        background-color: #7EBE25;
+        width: 100px;
+        height: 30px;
+        font-weight: 600;
+        border: solid 1px #aaa;
+        background-color: #D3E3D3;
       }
     }
     .meeting-room{
@@ -70,18 +120,24 @@
       justify-content: space-between;
       width: 100%;
       .container-for-webcam{
-        width: 60%;
         .attendees{
           display: flex;
-          width: 20%;
+          width: 100%;
           padding-bottom: 10px;
           box-sizing: border-box;
+          margin-bottom: 15px;
+          border-radius: 10px;
+          overflow: auto;
           .remoteVideo{
-            padding-right: 10px;;
+            border-radius: 10px;
+            margin-left: 10px;
+            width: 30%;
           }
         }
         .local-video{
+          display: flex;
           width: 100%;
+          border-radius: 10px;
         }
       }
       .text-room{
@@ -89,6 +145,31 @@
         width: 30%;
         height: calc( 100vh - 90px);
       }
+    }
+  }
+}
+@media screen and (min-width: 769px){
+  .container-for-webcam{
+    min-width: 700px;
+    width: 70%;
+    .attendees{
+      display: flex;
+      width: 20%;
+      padding-bottom: 10px;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: auto;
+      .remoteVideo{
+        border-radius: 5px;
+        margin-left: 10px;
+        width: 92%;
+      }
+    }
+    .local-video{
+      display: flex;
+      width: 100%;
+      border-radius: 5px;
     }
   }
 }

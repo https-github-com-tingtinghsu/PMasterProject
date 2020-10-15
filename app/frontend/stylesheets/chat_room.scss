@@ -107,12 +107,15 @@
     font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
     
     .fa-facebook-messenger{
-      font-size: 22px;
-      margin-left: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      margin-left: 20px;
+      margin-right: 2px;
     }
     #room-name{
       display: inline;
       line-height: 25px;
+      font-size: 16px;
     }
     .video-area{   
       .fa-video{
@@ -200,15 +203,21 @@
       font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
 
     }
+    ul{
+      margin-left: 20px;
+    }
     li{
       margin-bottom: 10px;
       font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
-
+      display: flex;
+      align-items: center;
     }
-    span{
+    .online-point{
+      margin-left: 10px;
+      width: 10px;
+      height: 10px;
       background-color: rgb(130, 194, 34);
-      color: honeydew;
-      margin: 10px;
+      border-radius: 10px;
     }
   }
 

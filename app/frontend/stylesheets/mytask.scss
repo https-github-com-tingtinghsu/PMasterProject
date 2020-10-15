@@ -18,7 +18,7 @@
   margin: 0 auto;
   .mytask-btn{
     width: 24%;
-    padding: 20px 0px;
+    padding: 10px 0px;
     border-radius: 10px 10px 0px 0px;
     font-size: 18px;
     outline: none;
@@ -29,26 +29,101 @@
     cursor: pointer;
   }
 }
-
-.mytask-status-select{
-  border: 1px solid black;
+.have-item:hover{
+  box-shadow: 0px 3px 1px -1px rgba(0,0,0, .3);
 }
-.btn-pending , .pending{
+//pending
+.btn-pending{
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-pending:hover{
+  background-color: #eee;
+}
+.btn-pending-bg:hover{
+  background-color: #FCD3B3;
+}
+.btn-pending-bg{
+  background-color: #FCD3B3;
+  border-top: 2px solid #FCD3B3;
+  border-left: 2px solid #FCD3B3;
+  border-right: 2px solid #FCD3B3;
+}
+.pending{
+  border: 10px solid #FCD3B3;
   background-color: #FCD3B3;
 }
 
-.btn-stuck , .stuck{
+
+// stuck
+.btn-stuck{
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-stuck:hover{
+  background-color: #eee;
+}
+.btn-stuck-bg:hover{
   background-color: #EEB5AE;
 }
+.btn-stuck-bg{
+  background-color: #EEB5AE;
+  border-top: 2px solid #EEB5AE;
+  border-left: 2px solid #EEB5AE;
+  border-right: 2px solid #EEB5AE;
+}
+.stuck{
+  border: 10px solid #EEB5AE;
+  background-color: rgb(238,181,174);
+}
 
-.btn-working , .working{
+// working
+.btn-working{
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-working:hover{
+  background-color: #eee;
+}
+.btn-working-bg:hover{
   background-color: #B4DAE9;
 }
-
-.btn-done , .done{
-  background-color: rgb(192, 180, 180);
+.btn-working-bg{
+  background-color: #B4DAE9;
+  border-top: 2px solid #B4DAE9;
+  border-left: 2px solid #B4DAE9;
+  border-right: 2px solid #B4DAE9;
+}
+.working{
+  border: 10px solid #B4DAE9;
+  background-color: rgb(180,218,233);
 }
 
+// done
+.btn-done{
+  border-top: 2px solid #eee;
+  border-left: 2px solid #eee;
+  border-right: 2px solid #eee;
+}
+.btn-done:hover{
+  background-color: #eee;
+}
+.btn-done-bg:hover{
+  background-color: rgb(209,202,202);
+}
+.btn-done-bg{
+  background-color: rgb(209,202,202);
+  border-top: 2px solid rgb(209,202,202);
+  border-left: 2px solid rgb(209,202,202);
+  border-right: 2px solid rgb(209,202,202);
+}
+.done{
+  border: 10px solid rgb(209,202,202);
+  background-color: rgb(209,202,202);
+}
 .mytask-group-item-list{
   padding-bottom: 50px;
   width: 100%;
@@ -62,24 +137,31 @@
   width: 100%;
   height: 100%;
   padding-top: 10px;
-  padding-right: 20px;
-
+  padding: 20px;
+  ul{
+    margin-left: 0;
+  }
   .no-item{
     border-bottom: none;
     font-size: 20px;
   }
 
-  .have-item{
+  .mytask-item-title, .have-item{
+    display: flex;
+    // border-bottom: 1px dotted gray; 
+    align-items:center;
     i, div{
       vertical-align: middle;
       font-size: 16px;
       line-height: 20px;
     }
-    border-bottom: 1px dotted gray; 
-    display: flex;
+    .mytask-tab-item-name{
+      display: flex;
+    }
     .fa-dot-circle{
       width: 3%;
       max-width:20px;
+      margin-right: 15px;
     }
     .mytask-tab-item-name{
       box-sizing: border-box;
@@ -90,17 +172,18 @@
     .mytask-tab-item-description{
       box-sizing: border-box;
       width: 35%;
+      padding-right: 20px;
       margin: 5px 0px;
     }
     .mytask-tab-item-date{
       margin: 5px 0px;
       width: 14%;
-      text-align: center;
+      // text-align: center;
       min-width: 100px;
     }
     .mytask-status-select{
-      margin: 5px 0px;
-      width: 13%;
+      // margin: 5px 0px;
+      // width: 13%;
       min-width: 60px;
       font-size: 16px;
     }

@@ -16,11 +16,11 @@
           <%= f.label :name, "名稱", class: "item-label" %>
           <%= f.text_field :name, class: 'border-2  new-item-input border-radius', autocomplete:"off" %>
         </div>
-        <div class="item-description item-body">
+        <div class="item-description-form item-body">
           <%= f.label :description, "敘述", class: "item-label" %>
           <%= f.text_area :description, class: 'border-2 border-radius new-item-input' %>
         </div>
-        <div class="item-description item-body">
+        <div class="item-point-form item-body">
           <%= f.label :point, "點數" , class: "item-label"%>
           <%= f.select :point, %w(0.5 1.0 3.0 5.0 7.0 13.0), default: @item.point, class: 'border-2' , autocomplete:"off"%>     
         </div>

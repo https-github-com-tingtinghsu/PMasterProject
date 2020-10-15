@@ -1,8 +1,7 @@
 document.addEventListener('turbolinks:load', () => {
-  // if($("#btn-logout").length >= 0) {
-
-  // }
-  initWorkspaceList();
+  if($("#btn-logout").length > 0) {
+    initWorkspaceList();
+  }
 
   $("#link-add-workspace").click(function(){
     // 因為與編輯共用modal, 需要先把name與id清空
@@ -235,7 +234,7 @@ function updateWorkspace(){
     },
     success: function(result){
       if(result.success){
-        $("#workspace-" + upadteWorkspaceId + " p").text($("#add-workspace-name").val())
+        $("#workspace-" + upadteWorkspaceId + " div").text($("#add-workspace-name").val())
         $("#add-workspace-name").val('')
 
         // js換掉工作聯絡室的名稱

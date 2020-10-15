@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', () => {
-	// github-link
+  // github-link
     const githubLink = document.querySelector('.github-link-touch')
     const githuBoard = document.querySelector('.outside-link-background-disappear')
     const githuBoardIntegration = document.querySelector('.outside-link-board-integrations-disappear')
@@ -22,6 +22,7 @@ document.addEventListener('turbolinks:load', () => {
           githuBoard.classList.add('outside-link-background-disappear')
         })
     })
+    if(!githubLink)return
     githubLink.addEventListener('click',() => {
       githuBoard.classList.remove('outside-link-background-disappear')
       githuBoard.classList.add('outside-link-background')
@@ -38,36 +39,36 @@ document.addEventListener('turbolinks:load', () => {
       githubNextpage.classList.add('outside-link-board-nextpage')
   
     })
-    btnIntegrations.addEventListener('click',() => {
-      githubExplore.classList.remove('outside-link-board')
-      githubExplore.classList.add('outside-link-board-disappear')
-      githuBoardIntegration.classList.remove('outside-link-board-integrations-disappear')
-      githuBoardIntegration.classList.add('outside-link-board-integrations')
+    // btnIntegrations.addEventListener('click',() => {
+    //   githubExplore.classList.remove('outside-link-board')
+    //   githubExplore.classList.add('outside-link-board-disappear')
+    //   githuBoardIntegration.classList.remove('outside-link-board-integrations-disappear')
+    //   githuBoardIntegration.classList.add('outside-link-board-integrations')
   
-    })
-    btnExplore.addEventListener('click',() => {
-      githuBoardIntegration.classList.add('outside-link-board-integrations-disappear')
-      githuBoardIntegration.classList.remove('outside-link-board-integrations')
-      githubExplore.classList.add('outside-link-board')
-      githubExplore.classList.remove('outside-link-board-disappear')
-    })
+    // })
+    // btnExplore.addEventListener('click',() => {
+    //   githuBoardIntegration.classList.add('outside-link-board-integrations-disappear')
+    //   githuBoardIntegration.classList.remove('outside-link-board-integrations')
+    //   githubExplore.classList.add('outside-link-board')
+    //   githubExplore.classList.remove('outside-link-board-disappear')
+    // })
     gitBackNextpage.addEventListener('click',() => {
       githubNextpage.classList.add('outside-link-board-nextpage-disappear')
       githubNextpage.classList.remove('outside-link-board-nextpage')
       githubExplore.classList.add('outside-link-board')
       githubExplore.classList.remove('outside-link-board-disappear')
     })
-    thirdpageClick.addEventListener('click', () =>{
-      githubNextpage.classList.add('outside-link-board-nextpage-disappear')
-      githubNextpage.classList.remove('outside-link-board-nextpage')
-      githubThirdpage.classList.add('outside-link-board-thirdpage')
-      githubThirdpage.classList.remove('outside-link-board-thirdpage-disappear')
+    // thirdpageClick.addEventListener('click', () =>{
+    //   githubNextpage.classList.add('outside-link-board-nextpage-disappear')
+    //   githubNextpage.classList.remove('outside-link-board-nextpage')
+    //   githubThirdpage.classList.add('outside-link-board-thirdpage')
+    //   githubThirdpage.classList.remove('outside-link-board-thirdpage-disappear')
   
-    })
-    gitBackThirdpage.addEventListener('click',() => {
-      githubThirdpage.classList.add('outside-link-board-thirdpage-disappear')
-      githubThirdpage.classList.remove('outside-link-board-thirdpage')
-      githubNextpage.classList.add('outside-link-board-nextpage')
-      githubNextpage.classList.remove('outside-link-board-nextpage-disappear')
-    })
+    // })
+    // gitBackThirdpage.addEventListener('click',() => {
+    //   githubThirdpage.classList.add('outside-link-board-thirdpage-disappear')
+    //   githubThirdpage.classList.remove('outside-link-board-thirdpage')
+    //   githubNextpage.classList.add('outside-link-board-nextpage')
+    //   githubNextpage.classList.remove('outside-link-board-nextpage-disappear')
+    // })
 });

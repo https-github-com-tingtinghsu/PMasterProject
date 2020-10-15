@@ -1,0 +1,32 @@
+<div class="new-item-page" data-turbolinks="false" data-workspace-name="<%= @workspace_name %>">
+  <i class="fas fa-chevron-circle-left workspace-list-colse"></i>
+  <div class="item-wrap repositories-wrap">
+    <div class="item-object-group repositories-group">
+      <div class="repository-title">
+        <span class="new-item-title"> <%= current_user.display_name%> 倉儲表 </span>
+      </div>
+      <div>
+          <h2>
+            請選擇 Repository :
+          </h2> 
+          <%= select_tag( "repository", options_for_select(@repository.map{ |c| [c["name"], c["full_name"], {'data-user'=>current_user.id}] }, "repository"),class:"repository-option") %>
+      </div>
+      <div>
+          當前設定的 Repository : <div class="repository-showname"> <%= @nowrepository.repository %> </div>
+      </div>
+      <button onclick="window.history.back()" class="repository-btn">確認</button>
+    </div>  
+    <div class="advertising">
+      <h2>GitHub Integration</h2>
+      <div class="img">
+        <%= image_tag 'home/github.png' %>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        <strong>PMaster</strong> by <a href="https://github.com/https-github-com-tingtinghsu">Ace Team</a>. All rights reserved.
+      </p>
+      </div>
+    </div>
+  </div>
+</div>

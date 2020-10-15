@@ -3,12 +3,35 @@ require 'uri'
 require 'json'
 
 class Github
+  # 用來取 User 擁有的 Repository
+  # ================================
+  # user_token => 使用者 access_token
+  # ================================ 
+  def getuserrepository(user_token)
+    uri = URI.parse("https://api.github.com/user/repos?access_token=#{user_token}")
+    request = Net::HTTP::Get.new(uri)
+    request.body = JSON.dump({
+      "visibility" => "all"
+    })
+
+    req_options = {
+        use_ssl: uri.scheme == "https",
+      }
+      
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+        http.request(request)
+    end
+
+    return JSON.parse(response.body)
+  end
+
   # 用來發布issue
   # ================================
   # title      => issue 名稱
   # user_token => 使用者 access_token
+  # repository => 要寫入 Issue 的倉庫
   # ================================  
-  def issueCreate(title,user_token)
+  def issueCreate(title, user_token, repository)
 
     #   取得 access_token 向後請求使用者資訊
     uri = URI.parse("https://api.github.com/user")
@@ -27,8 +50,10 @@ class Github
     user_response = JSON.parse(response.body)
     puts user_response
 
+    puts "https://api.github.com/repos/#{repository}/issues?access_token=#{user_token}"
 
-    uri = URI.parse("https://api.github.com/repos/https-github-com-tingtinghsu/practice_demo/issues?access_token=#{user_token}")
+    # uri = URI.parse("https://api.github.com/repos/https-github-com-tingtinghsu/practice_demo/issues?access_token=#{user_token}")
+    uri = URI.parse("https://api.github.com/repos/#{repository}/issues?access_token=#{user_token}")
     request = Net::HTTP::Post.new(uri)
     request["Accept"] = "application/vnd.github.v3+json"
     request.body = JSON.dump({

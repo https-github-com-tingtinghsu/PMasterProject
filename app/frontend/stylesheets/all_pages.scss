@@ -20,18 +20,23 @@ a{
 
 .red{
   background-color: #EEB5AE;
+  padding:0 5px;
 }
 .blue{
   background-color: #B4DAE9;
+  padding:0 5px;
 }
 .yellow{
   background-color: #ECEBAD;
+  padding:0 5px;
 }
 .pink{
   background-color: #FCD3B3;
+  padding:0 5px;
 }
 .gray{
   background-color: rgb(209, 202, 202);
+  padding:0 5px;
 }
 .arrow{
   transition: 0.5s;
@@ -57,10 +62,11 @@ a{
     -moz-appearance:none;
     -webkit-appearance:none;
     border-radius: 10px;
+  }
+  .item-status-select{
     padding:0 5px;
   }
 }
-
 
 //sign-in
 .hero-body{
@@ -298,7 +304,7 @@ body{
 .navbar-brand, .navbar-menu
 {
   background-color: #5A815A;
-
+  font-size: 20px;
   .navbar-link{
     color: white;
   }
@@ -332,6 +338,10 @@ body{
     }
     .github-link-img{
       cursor: pointer;
+    }
+
+    .github-login{
+      color: #f5e642;
     }
     
   }
@@ -467,9 +477,32 @@ body{
           align-items: center;
           justify-content: center;
           position: relative;
-          width: 60%;
+          width: 30%;
         }
-         
+        .outside-link-item-fb{
+          cursor: pointer;
+          height: 15%;
+          background-color: rgb(20,155,246);
+          border-radius: 10px;
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 30%;
+        }
+        .outside-link-item-sladock{
+          cursor: pointer;
+          height: 15%;
+          // background-color: rgb(255,250,240);
+          border-radius: 10px;
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 30%;
+        }        
       }
       .outside-link-item{
         width: 60%;
@@ -545,12 +578,13 @@ body{
           font-size: 30px;
           font-weight: 600;
         }
-       
+      
         
       }
       .outside-link-item-nextpage{
         cursor: pointer;
-        width: 40%;
+        min-width: 300px;
+        padding: 10px;
         height: 20%;
         color: black;
         background-color: white;
@@ -560,8 +594,33 @@ body{
         align-items: center;
         justify-content: center;
         position: relative;
+        .fa-github{
+          position: absolute;
+          left: 10px;
+        }
         .outside-link-title{
-          margin-left: 20px;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding-right: 20px;
+          .github-title-h2{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+          }
+          a{
+
+          }
+          
         }
       }
       
@@ -697,9 +756,12 @@ body{
       width: 150px;
       position: absolute;
       top: 30px;
-      left: 10px;
+      left: unset;
+      right: 17px;
+      border-radius: 4px;
       overflow: hidden;
-      background: rgba(255,255,255,.8);
+      // background: rgba(255,255,255,.8);
+      background: #fff;
       box-shadow: 0 2px 5px rgba(0,0,0,.3);
       margin: 0;
       padding: 0;
@@ -723,7 +785,13 @@ body{
     }
   
   }
-
+  //dashboard
+  .footer-dashboard{
+    padding: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+  }
   
   @media screen and (min-width: 768px){
     .buttons .sign-in-buttons{
@@ -756,6 +824,9 @@ body{
     color: #ECC94B;
     margin-left: 10px;    
     margin-right: 20px;
+    p{
+      font-size: 16px;
+    }
   }
   
 }
@@ -781,23 +852,27 @@ body{
     width: 200px;
     margin-bottom: 25px;
     display: flex;
-    align-items: center;
     font-weight: 600;
     display: flex;
     flex-wrap: wrap;
     .workspace-name{
-      margin: 10px;
+      margin-left: 10px;
+      margin-bottom: 10px;
       color: #ECC94B;
       font-size: 20px;
       font-weight: 500;
       width: 150px;
+      line-height: 25px;
+    }
+    .fa-folder{
+      margin-top: 5px;
     }
   }
   .add-board-p{
     font-weight: 600;
   }
 }
-.workspace-list-colse, .workspace-list-colse-rtc{
+.workspace-list-colse{
   position: absolute;
   top: 60px;
   left: 0;
@@ -835,7 +910,7 @@ body{
 }
 .board-item{
   color: white;
-  margin-left: 30px;
+  margin-left: 7px;
 }
 .board-link{
   color: white;
@@ -943,12 +1018,38 @@ body{
   .item-name{
     background-color: #EFF4EF;
     width: 130px;
-    transition: .5s;
+    box-sizing: border-box; 
+    text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
-    overflow: auto;
-    box-sizing: border-box;
+    outline:none;
+    // transition: .5s;
+    // 為解決輸入游標可以消失，所以全部隱藏，再顯示文字
+    color: transparent;
+    text-shadow: 0 0 0 #000;
   }
-
+  .item-name-clickevent{
+    color: #888888;
+    font-size: 14px;
+  }
+}
+.item-description{
+  background-color: #EFF4EF;
+  width: 130px;
+  box-sizing: border-box; 
+  outline:none;
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  outline:none;
+  // transition: .5s;
+  // overflow: auto;
+}
+.item-description-clickevent{
+  color: #888888;
+  font-size: 14px;
 }
 
 
@@ -1013,7 +1114,8 @@ body{
   margin-top: 100px;
   margin-bottom: 50px;
   margin-left: auto;
-  width: 300px;
+  margin-right: 50px;
+  width: 500px;
 }
 
 .main-board{
@@ -1066,17 +1168,22 @@ body{
     padding-right: 80px;
     box-sizing: border-box;
   }
-  .meeting-room{
-    display: flex;
-    justify-content: center;
-    padding: 35px;
-  }
+
   
 }
 
 
   
 @media screen and (max-width: 768px){
+  #outside-link-item-fb{
+    display: none;
+  }
+  #outside-link-item-sladock{
+    display: none;
+  }
+  #outside-link-item{
+    width: 50%;
+  }
 
   //workspace-list
   .workspace-list-colse{
@@ -1091,14 +1198,16 @@ body{
 
   //outside-link
   
+  .fa-github-link{
+    font-size: 60px;
+  }
+  .github-title-h2{
+    font-size: 60px;
+  }
   .github-link{
     left: 25px;
   }
   
-
-
-
-
   .main-dashboard-pic{
     margin-top: 80px;
     margin-bottom: 50px;
@@ -1124,9 +1233,6 @@ body{
     display: none;
   }
 
-  .item-name{
-    width: 100%;
-  }
   .post-icon-and-counts{
     display: none;
   }
@@ -1224,12 +1330,7 @@ body{
     bottom: 40px;
     left: 150px;
   }
-  .footer-dashboard{
-    padding: 0;
-    position: absolute;
-    bottom: 20px;
-    left: 100px;
-  }
+ 
   .group-card{
     width: 170px;
     margin-top: 70px;
@@ -1254,14 +1355,15 @@ body{
     .hamburger-item{
       margin-left: 17px;
     }
-   
+    .sign-in-name{
+      margin-left: 30px;
+      font-size: 20px;    
+    }
   }
   .burger{
     margin-left: auto;
   }
-  .sign-in-name{
-    margin-left: 30px;
-  }
+
 
 
   //sign-in
@@ -1283,4 +1385,5 @@ body{
     justify-content: center;
     padding: 35px;
   }
+  
 }
