@@ -9,7 +9,7 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
   },
 
   received(data) {
-    console.log(data)
+    // console.log(data)
     if(data.itemstatus != undefined){
       $('#' + data.itemid).val(data.itemstatus)
       if(data.itemstatus == "已完成"){
@@ -20,11 +20,11 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
         $('.item-finsih-date-' + data.itemid).text('')
       }
     }
-    // 
+    
     if(data.itemsname != undefined){
       $('#item-name-' + data.itemid).val(data.itemsname)
     }
-    //
+    
     if(data.itemsdescription != undefined){
       $('#item-description-' + data.itemid).val(data.itemsdescription)
     }
