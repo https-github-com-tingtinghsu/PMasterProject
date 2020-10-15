@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', () => {
-	// github-link
+  // github-link
     const githubLink = document.querySelector('.github-link-touch')
     const githuBoard = document.querySelector('.outside-link-background-disappear')
     const githuBoardIntegration = document.querySelector('.outside-link-board-integrations-disappear')
@@ -22,6 +22,7 @@ document.addEventListener('turbolinks:load', () => {
           githuBoard.classList.add('outside-link-background-disappear')
         })
     })
+    if(!githubLink)return
     githubLink.addEventListener('click',() => {
       githuBoard.classList.remove('outside-link-background-disappear')
       githuBoard.classList.add('outside-link-background')
