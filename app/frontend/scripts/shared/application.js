@@ -29,7 +29,7 @@ document.addEventListener('turbolinks:load', () => {
       "name": name
     }, 
     success: () =>{
-       console.log('完成')
+      //  console.log('完成')
       //  location.reload()
     }
     }) 
@@ -47,7 +47,7 @@ document.addEventListener('turbolinks:load', () => {
       "description": description
     }, 
     success: () =>{
-       console.log('完成')
+      //  console.log('完成')
       //  location.reload()
     }
     }) 
