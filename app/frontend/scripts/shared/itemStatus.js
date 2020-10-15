@@ -4,7 +4,8 @@ document.addEventListener('turbolinks:load', () => {
     
   
     function changeBackgroundColorFinish(){
-      statusOptions.forEach( (option) => {
+        
+      statusOptions.forEach( (option) => {        
         if(option.querySelector('option:checked').value == "卡關中"){
           option.classList.add('red')
         }else if(option.querySelector('option:checked').value == "進行中"){
@@ -16,7 +17,6 @@ document.addEventListener('turbolinks:load', () => {
         }else if(option.querySelector('option:checked').value == "已完成"){
           option.classList.add('gray')
         }
-      
       })
     }
   
@@ -27,12 +27,13 @@ document.addEventListener('turbolinks:load', () => {
     //   }
       
     // }
+
   
     statusOptions.forEach((option)=>{
       option.addEventListener('change',changeBackgroundColorFinish)
     })
 
-    $('select').change(function(e){ 
+    $('select').on("change", function(e){ 
       let id = e.target.id
       var status = $(this).find(":selected").text();
       $.ajax({ 
@@ -44,11 +45,11 @@ document.addEventListener('turbolinks:load', () => {
         "status": status
       }, 
       success: () =>{
-         console.log('完成')
          let optionClass = Array.from(e.target.classList)
          if(optionClass.indexOf("item-status-option") !== -1){
            e.target.classList.remove(e.target.classList[1])
          }
+        location.reload()
       }
       }) 
     }); 

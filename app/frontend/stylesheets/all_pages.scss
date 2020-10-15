@@ -57,7 +57,7 @@ a{
     -moz-appearance:none;
     -webkit-appearance:none;
     border-radius: 10px;
-    padding:0 5px;
+    // padding:0 5px;
   }
 }
 
@@ -331,6 +331,10 @@ body{
     }
     .github-link-img{
       cursor: pointer;
+    }
+
+    .github-login{
+      color: #f5e642;
     }
     
   }

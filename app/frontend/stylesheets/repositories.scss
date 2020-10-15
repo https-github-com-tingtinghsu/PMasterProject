@@ -1,0 +1,108 @@
+@media screen and (max-width: 768px){
+  .repositories-wrap{
+    height: 85%;
+  }
+  .repositories-group{
+    line-height: 65px;
+    font-size: 20px;
+    position: relative;
+  }
+  .repository-title{
+    min-width: 265px;
+  }
+  .repository-option{
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    outline-style: none;
+    padding: 0;
+    background-color:#F6F7F7;
+    color:gray;
+    border-radius: 10px;
+    padding-left: 15px;
+  }
+  .repository-showname{
+    color: gray;
+    border-radius: 10px;
+    background-color: #F6F7F7;
+    padding-left: 15px;
+  }
+  .repository-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    padding: 3px;
+    font-size: 18px;
+    background-color: rgb(69, 175, 69);
+    color: white;
+    border-radius: 5px;
+    transition: .3s;
+    position: absolute;
+    bottom: 50px;
+  }
+  .repository-btn:hover{
+    background-color: rgb(51, 42, 42);
+    transition: .3s;
+  }
+  
+}
+@media screen and (min-width: 769px){
+  .repositories-wrap{
+    height: 85%;
+  }
+  .repositories-group{
+    line-height: 65px;
+    font-size: 20px;
+    position: relative;
+  }
+  .repository-title{
+    min-width: 265px;
+  }
+  .repository-option{
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    outline-style: none;
+    padding: 0;
+    background-color:#F6F7F7;
+    color:gray;
+    border-radius: 10px;
+    padding-left: 15px;
+  }
+  .repository-showname{
+    color: gray;
+    border-radius: 10px;
+    background-color: #F6F7F7;
+    padding-left: 15px;
+    width: 265px;
+  }
+  .repository-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    padding: 3px;
+    font-size: 18px;
+    background-color: rgb(69, 175, 69);
+    color: white;
+    border-radius: 5px;
+    transition: .3s;
+    position: absolute;
+    bottom: 50px;
+  }
+  .repository-btn:hover{
+    background-color: rgb(51, 42, 42);
+    transition: .3s;
+  }
+  .advertising{
+    h2{
+      color: #817e7e;
+      font-size: 40px;
+      font-weight: 600;
+    }
+  }
+  
+}

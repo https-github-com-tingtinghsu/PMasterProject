@@ -53,7 +53,7 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }); 
   
-  $('.repository').on("change", function(e){ 
+  $('.repository-option').on("change", function(e){ 
     var id = $(this).find("option:selected").data("user")
     var repository = $(this).find("option:selected").text()
     var org = $(this).val()
@@ -68,11 +68,10 @@ document.addEventListener('turbolinks:load', () => {
       "org": org
     }, 
     success: () =>{
-       console.log('完成')
+      //  console.log('完成')
     }
     }) 
   }); 
-  
 
 
   // Get all "navbar-burger" elements

@@ -148,7 +148,7 @@
 
   .mytask-item-title, .have-item{
     display: flex;
-    border-bottom: 1px dotted gray; 
+    // border-bottom: 1px dotted gray; 
     align-items:center;
     i, div{
       vertical-align: middle;
@@ -172,17 +172,18 @@
     .mytask-tab-item-description{
       box-sizing: border-box;
       width: 35%;
+      padding-right: 20px;
       margin: 5px 0px;
     }
     .mytask-tab-item-date{
       margin: 5px 0px;
       width: 14%;
-      text-align: center;
+      // text-align: center;
       min-width: 100px;
     }
     .mytask-status-select{
-      margin: 5px 0px;
-      width: 13%;
+      // margin: 5px 0px;
+      // width: 13%;
       min-width: 60px;
       font-size: 16px;
     }
