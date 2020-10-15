@@ -53,9 +53,10 @@ document.addEventListener('turbolinks:load', () => {
     }) 
   }); 
   
-  $('.repository').on("change", function(e){ 
+  $('.repository-option').on("change", function(e){ 
     var id = $(this).find("option:selected").data("user")
     var repository = $(this).find("option:selected").text()
+    console.log(repository)
     var org = $(this).val()
     $('.repository-showname').text(repository)
     $.ajax({ 

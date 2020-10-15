@@ -2,8 +2,6 @@ require "github.rb"
 
 class GithubsController < ApplicationController
     def index
-        # redirect_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3000/oauth/redirect&scope=repo"
-
         access_token = Github.new.gettoken(params["code"])
 
         # DB
