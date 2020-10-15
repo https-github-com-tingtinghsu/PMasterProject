@@ -36,13 +36,13 @@
                 <h2>GitHub</h2>
               </div>              
             </div>
-            <div class="outside-link-item-fb ml-2" id="outside-link-item">
+            <div class="outside-link-item-fb ml-2" id="outside-link-item-fb">
               <i class="fab fa-facebook"></i>
               <div class="outside-link-title ml-2">
                 <h2>Facebook</h2>
               </div>              
             </div>            
-            <div class="outside-link-item-sladock ml-2" id="outside-link-item">
+            <div class="outside-link-item-sladock ml-2" id="outside-link-item-sladock">
               <%# <i class="fab fa-facebook"></i> %>
               <img src="https://staging.sladock.tw/packs/media/images/Sladock_logo-4b8cc659b00eb732368742c1cb24572d.png" alt="">
               <div class="outside-link-title ml-2">
@@ -87,13 +87,13 @@
           <i class="fab fa-github fa-github-link"></i>
           <div class="outside-link-title">
             <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo" do %>
-              <div class="github-title-h2">
-                GitHub
-              </div>
+            <div class="github-title-h2">
+              GitHub
+            </div>
             <% end %>
           </div>
         </div>
-      <% else %>
+      <% elsif(Rails.env.production) %>
         <div class="outside-link-back-nextpage">
           <i class="fas fa-angle-left"></i>
           <h2>back</h2>
@@ -103,11 +103,25 @@
         </div>
         <div class="outside-link-item-nextpage">
           <i class="fab fa-github"></i>
+            <h2>GitHub</h2>
             <div class="outside-link-title">
               <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
-                <div class="github-title-h2">
-                  GitHub
-                </div>
+              <% end %>
+            </div>
+        </div>
+        <% else %>
+        <div class="outside-link-back-nextpage">
+          <i class="fas fa-angle-left"></i>
+          <h2>back</h2>
+        </div>
+        <div class="close">
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="outside-link-item-nextpage">
+          <i class="fab fa-github"></i>
+            <h2>GitHub</h2>
+            <div class="outside-link-title">
+              <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster-staging.herokuapp.com.tw/oauth/redirect&scope=repo" do%>
               <% end %>
             </div>
         </div>
