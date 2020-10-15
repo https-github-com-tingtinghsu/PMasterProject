@@ -470,9 +470,32 @@ body{
           align-items: center;
           justify-content: center;
           position: relative;
-          width: 60%;
+          width: 30%;
         }
-      
+        .outside-link-item-fb{
+          cursor: pointer;
+          height: 15%;
+          background-color: rgb(20,155,246);
+          border-radius: 10px;
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 30%;
+        }
+        .outside-link-item-sladock{
+          cursor: pointer;
+          height: 15%;
+          // background-color: rgb(255,250,240);
+          border-radius: 10px;
+          font-size: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 30%;
+        }        
       }
       .outside-link-item{
         width: 60%;
