@@ -93,7 +93,7 @@
             <% end %>
           </div>
         </div>
-      <% elsif(Rails.env.production) %>
+      <% else %>
         <div class="outside-link-back-nextpage">
           <i class="fas fa-angle-left"></i>
           <h2>back</h2>
@@ -105,24 +105,6 @@
           <i class="fab fa-github fa-github-link"></i>
             <div class="outside-link-title">
               <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
-              <div class="github-title-h2">
-              GitHub
-              </div>
-              <% end %>
-            </div>
-        </div>
-        <% else %>
-        <div class="outside-link-back-nextpage">
-          <i class="fas fa-angle-left"></i>
-          <h2>back</h2>
-        </div>
-        <div class="close">
-          <i class="far fa-times-circle"></i>
-        </div>
-        <div class="outside-link-item-nextpage">
-          <i class="fab fa-github fa-github-link"></i>
-            <div class="outside-link-title">
-              <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster-staging.herokuapp.com.tw/oauth/redirect&scope=repo" do%>
               <div class="github-title-h2">
               GitHub
               </div>
