@@ -235,7 +235,9 @@ function updateWorkspace(){
     },
     success: function(result){
       if(result.success){
-        $("#workspace-" + upadteWorkspaceId + " p").text($("#add-workspace-name").val())
+        $("#workspace-" + upadteWorkspaceId + " div").text($("#add-workspace-name").val())
+        console.log("rename")
+        console.log($("#add-workspace-name").val())
         $("#add-workspace-name").val('')
 
         // js換掉工作聯絡室的名稱
