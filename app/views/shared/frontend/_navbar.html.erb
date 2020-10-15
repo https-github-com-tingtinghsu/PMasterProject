@@ -29,16 +29,25 @@
             <div class="outside-link-menu-title">
               <h2>Explore By App</h2>
             </div>
-            <div class="btn-integrations">
-              <h2>Integrations</h2>
-            </div>
             <% if session[:user].blank? %>
             <div class="outside-link-item" id="outside-link-item">
               <i class="fab fa-github"></i>
               <div class="outside-link-title">
                 <h2>GitHub</h2>
-              </div>
+              </div>              
             </div>
+            <div class="outside-link-item-fb ml-2" id="outside-link-item">
+              <i class="fab fa-facebook"></i>
+              <div class="outside-link-title ml-2">
+                <h2>Facebook</h2>
+              </div>              
+            </div>            
+            <div class="outside-link-item-sladock ml-2" id="outside-link-item">
+              <%# <i class="fab fa-facebook"></i> %>
+              <img src="https://staging.sladock.tw/packs/media/images/Sladock_logo-4b8cc659b00eb732368742c1cb24572d.png" alt="">
+              <div class="outside-link-title ml-2">
+              </div>              
+            </div>            
           <% end %>
         </div>
         
@@ -67,7 +76,24 @@
 
     <div class="outside-link-board-nextpage-disappear">
       <% if(Rails.env.development?) %>
-        <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo" do %>
+        <div class="outside-link-back-nextpage">
+          <i class="fas fa-angle-left"></i>
+          <h2>back</h2>
+        </div>
+        <div class="close">
+          <i class="far fa-times-circle"></i>
+        </div>
+        <div class="outside-link-item-nextpage">
+          <i class="fab fa-github fa-github-link"></i>
+          <div class="outside-link-title">
+            <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo" do %>
+            <div class="github-title-h2">
+              GitHub
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
         <div class="outside-link-back-nextpage">
           <i class="fas fa-angle-left"></i>
           <h2>back</h2>
@@ -77,27 +103,12 @@
         </div>
         <div class="outside-link-item-nextpage">
           <i class="fab fa-github"></i>
-          <div class="outside-link-title">
             <h2>GitHub</h2>
-          </div>
+            <div class="outside-link-title">
+              <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
+              <% end %>
+            </div>
         </div>
-        <% end %>
-      <% else %>
-        <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
-                <div class="outside-link-back-nextpage">
-          <i class="fas fa-angle-left"></i>
-          <h2>back</h2>
-        </div>
-        <div class="close">
-          <i class="far fa-times-circle"></i>
-        </div>
-        <div class="outside-link-item-nextpage">
-          <i class="fab fa-github"></i>
-          <div class="outside-link-title">
-            <h2>GitHub</h2>
-          </div>
-        </div>
-        <% end %>
       <% end %>
     </div>    
       
@@ -175,7 +186,7 @@
             <% if session[:user].blank? %>
               <i class="fab fa-github github-link-img"></i> 
             <% else %>
-              <%= link_to '', repositories_path, class: "fab fa-github github-link-img" %>
+              <%= link_to '', repositories_path, class: "fab fa-github github-link-img github-login" %>
             <% end %>
           <% end %>
         </div>

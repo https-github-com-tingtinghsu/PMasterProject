@@ -13,6 +13,7 @@ document.addEventListener('turbolinks:load', () => {
     })
     mainDashboard = document.querySelector('[class="tile is-parent main-dashboard"]')
     // console.log(mainDashboard)
+    if(!mainDashboard)return
     mainDashboard.addEventListener('click', (e)=>{
       if (e.target.className.match('item-name-clickevent')== null){
         document.querySelectorAll('.item-name-clickevent').forEach(el=>{
