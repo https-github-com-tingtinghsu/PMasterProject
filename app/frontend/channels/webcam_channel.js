@@ -170,13 +170,13 @@ const buttonswitch = (button_name) => {
 // WebCam
 async function startCamCapture() {
   try {
-    console.log(localVideo.srcObject)
+    // console.log(localVideo.srcObject)
     localVideo.srcObject = await navigator.mediaDevices.getUserMedia({
       audio: true,
       video: true
     });
   } catch(err) {
-    console.error("Error: " + err);
+    // console.error("Error: " + err);
   }
 }
 
@@ -190,7 +190,7 @@ function stopCamCapture(evt) {
 // Desktop
 async function startCapture() {
   try {
-    console.log(localVideo.srcObject)
+    // console.log(localVideo.srcObject)
     localVideo.srcObject = await navigator.mediaDevices.getDisplayMedia({
       video: {
         cursor: "always"
@@ -198,7 +198,7 @@ async function startCapture() {
       audio: true
     });
   } catch(err) {
-    console.error("Error: " + err);
+    // console.error("Error: " + err);
   }
 }
 
@@ -227,22 +227,22 @@ const handleJoinSession = () => {
       });
     },
     received: (data) => {
-      console.log("received", data);
-      console.log("==================")
+      // console.log("received", data);
+      // console.log("==================")
       if (data.from === currentUser) return;
       switch (data.type) {
       case JOIN_ROOM:
-        console.log("JOIN_ROOM : ", data)
-        console.log("==================")
+        // console.log("JOIN_ROOM : ", data)
+        // console.log("==================")
         return joinRoom(data);
       case EXCHANGE:
-        console.log("EXCHANGE : ", data)
-        console.log("==================")
+        // console.log("EXCHANGE : ", data)
+        // console.log("==================")
         if (data.to !== currentUser) return;
         return exchange(data);
       case REMOVE_USER:
-        console.log("REMOVE_USER : ", data)
-        console.log("==================")
+        // console.log("REMOVE_USER : ", data)
+        // console.log("==================")
         return removeUser(data);
       default:
         return;
@@ -271,8 +271,8 @@ const joinRoom = (data) => {
 };
 
 const removeUser = (data) => {
-  console.log("removing user", data.from)
-  console.log("==================")
+  // console.log("removing user", data.from)
+  // console.log("==================")
   let video = document.getElementById(`remoteVideoContainer+${data.from}`);
   video && video.remove();
   delete pcPeers[data.from];
@@ -288,8 +288,8 @@ const createPC = (userId, isOffer) => {
   remoteVideoContainer.appendChild(element);
 
   pcPeers[userId] = pc;
-  console.log("localstream.getTracks()",localstream)
-  console.log("==================")
+  // console.log("localstream.getTracks()",localstream)
+  // console.log("==================")
   // for (const track of localstream.getTracks()) {
   //   pc.addTrack(track, localstream);
   // }
@@ -335,8 +335,8 @@ const createPC = (userId, isOffer) => {
 
   pc.oniceconnectionstatechange = () => {
     if (pc.iceConnectionState == "disconnected") {
-      console.log("Disconnected:", userId);
-      console.log("==================")
+      // console.log("Disconnected:", userId);
+      // console.log("==================")
       // broadcastData({
       //   type: REMOVE_USER,
       //   from: userId,
@@ -397,7 +397,7 @@ const broadcastData = (data) => {
     body: JSON.stringify(data),
     headers
   }).catch((err) => {
-    console.log('錯誤:', err);
+    // console.log('錯誤:', err);
   });
 };
 

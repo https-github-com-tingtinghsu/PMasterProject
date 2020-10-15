@@ -3,7 +3,7 @@ import consumer from "../../javascript/channels/consumer"
 
 consumer.subscriptions.create({ channel: "ChartChannel"}, {
   connected() {
-    console.log('ChartChannel')
+    // console.log('ChartChannel')
   },
 
   disconnected() {

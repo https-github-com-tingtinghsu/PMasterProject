@@ -8,7 +8,7 @@ consumer.subscriptions.create("LikeChannel", {
   },
 
   received(data) {
-    console.log(data)
+    // console.log(data)
     const element = document.querySelector('#post-id-' + data.postid + '-be-liked-counts')
     if(!element)return
 
