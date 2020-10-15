@@ -8,7 +8,6 @@ document.addEventListener('turbolinks:load', () => {
       statusOptions.forEach( (option) => {        
         if(option.querySelector('option:checked').value == "卡關中"){
           option.classList.add('red')
-          // console.log(option.parentNode.parentNode)
         }else if(option.querySelector('option:checked').value == "進行中"){
           option.classList.add('blue')
         }else if(option.querySelector('option:checked').value == "待修改"){
@@ -22,7 +21,6 @@ document.addEventListener('turbolinks:load', () => {
     }
   
     function changeBackgroundColor(e){
-      console.log(e.target)
       let optionClass = Array.from(e.target.classList)
       if(optionClass.indexOf("item-status-option") !== -1){
         e.target.classList.remove(e.target.classList[1])
@@ -45,7 +43,6 @@ document.addEventListener('turbolinks:load', () => {
         "status": status
       }, 
       success: () =>{
-        console.log('完成')
         location.reload()
       }
       }) 
