@@ -30,11 +30,12 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
     }
    
     const itemelement = $('#have-item-' + data.itemid)
-    const itemClone = $('#have-item-' + data.itemid).clone()
+    let itemClone = $('#have-item-' + data.itemid).clone()
     if(!itemelement) return
     // my task add item
     switch(data.itemstatus){
       case "待修改":
+        
         $('.ul-status-pending').append(itemClone)
         break;
       case "進行中":

@@ -172,12 +172,13 @@
     .mytask-tab-item-description{
       box-sizing: border-box;
       width: 35%;
+      padding-right: 20px;
       margin: 5px 0px;
     }
     .mytask-tab-item-date{
       margin: 5px 0px;
       width: 14%;
-      text-align: center;
+      // text-align: center;
       min-width: 100px;
     }
     .mytask-status-select{

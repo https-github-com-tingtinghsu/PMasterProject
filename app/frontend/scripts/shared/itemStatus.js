@@ -46,6 +46,7 @@ document.addEventListener('turbolinks:load', () => {
       }, 
       success: () =>{
         console.log('完成')
+        location.reload()
       }
       }) 
     }); 
