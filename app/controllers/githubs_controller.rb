@@ -32,6 +32,6 @@ class GithubsController < ApplicationController
         puts session[:user]
 
         @checkOA = true
-        redirect_to "/dashboard"
+        redirect_to "/repositories"
     end
 end
