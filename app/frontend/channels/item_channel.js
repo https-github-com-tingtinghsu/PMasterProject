@@ -2,16 +2,32 @@ import consumer from "../../javascript/channels/consumer"
 
 consumer.subscriptions.create({ channel: "ItemChannel" }, {
   connected() {
-    // Called when the subscription is ready for use on the server
   },
 
   disconnected() {
   },
 
   received(data) {
-    // console.log(data)
     if(data.itemstatus != undefined){
       $('#' + data.itemid).val(data.itemstatus)
+      $('#' + data.itemid).removeClass()
+      switch(data.itemstatus){
+        case "已完成":
+          $('#' + data.itemid).addClass('item-status-option gray')
+        break;
+          case "卡關中":
+            $('#' + data.itemid).addClass('item-status-option red')
+            break;
+          case "進行中":
+            $('#' + data.itemid).addClass('item-status-option blue')
+        break;
+          case "待修改":
+            $('#' + data.itemid).addClass('item-status-option pink')
+        break;
+          case "待指派":
+            $('#' + data.itemid).addClass('item-status-option yellow')
+        break;
+      }
       if(data.itemstatus == "已完成"){
         const d = new Date(Date.now())
         $('.item-finsih-date-' + data.itemid).text( d.getFullYear() + "-" + (d.getMonth() +1) + "-" + d.getDate() )
@@ -35,7 +51,6 @@ consumer.subscriptions.create({ channel: "ItemChannel" }, {
     // my task add item
     switch(data.itemstatus){
       case "待修改":
-        
         $('.ul-status-pending').append(itemClone)
         break;
       case "進行中":

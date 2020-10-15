@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 		@post.save
 		
 		@post_count = Post.count_post(@item.id)
-		ActionCable.server.broadcast("post_channel", itemid: params[:item_id],post_count: @post_count, post: @post)
+		ActionCable.server.broadcast("post_channel", itemid: @item.id ,post_count: @post_count, post: @post)
 	end
 	
 	def update
