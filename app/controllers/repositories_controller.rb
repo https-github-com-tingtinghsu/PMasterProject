@@ -5,7 +5,8 @@ class RepositoriesController < ApplicationController
     def index
         # 判斷是否越獄 是的話導走
         begin
-            @user = Gittoke.where("user_id = #{current_user.id}")
+            # @user = Gittoke.where("user_id = ?", current_user.id).pluck(:user_id, :token)
+            @user = Gittoke.find_by("user_id = ?", current_user.id)
         rescue
             redirect_to "/dashboard"
         end
@@ -13,7 +14,7 @@ class RepositoriesController < ApplicationController
         @repository = Github.new.getuserrepository(@user.token)
 
         begin
-            @nowrepository = GitUser.where("user_id = #{current_user.id}")
+            @nowrepository = GitUser.where("user_id = ?", current_user.id)
         rescue
             @nowrepository = GitUser.new
             @nowrepository.repository = "無設定"
@@ -23,7 +24,7 @@ class RepositoriesController < ApplicationController
     def create
 
         begin
-            @user = GitUser.where("user_id = #{params[:id]}")
+            @user = GitUser.find_by("user_id = ?", params[:id])
 
             @user.repository = params[:repository]
             @user.org = params[:org]

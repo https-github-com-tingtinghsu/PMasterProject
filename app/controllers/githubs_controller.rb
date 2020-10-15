@@ -11,7 +11,7 @@ class GithubsController < ApplicationController
         puts current_user.id
 
         begin
-            @user = Gittoke.where("user_id = #{current_user.id}")
+            @user = Gittoke.where("user_id = ?", current_user.id)
 
             if @user.token != access_token
                 @user.token = access_token
