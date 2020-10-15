@@ -44,8 +44,8 @@ document.addEventListener('turbolinks:load', () => {
         "status": status
       }, 
       success: () =>{
-         console.log('完成')
-         changeBackgroundColorFinish()
+        //  console.log('完成')
+        changeBackgroundColorFinish()
       }
       }) 
     }); 
