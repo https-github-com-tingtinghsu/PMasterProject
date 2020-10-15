@@ -20,15 +20,17 @@ document.addEventListener('turbolinks:load', () => {
       })
     }
   
-    function changeBackgroundColor(e){
-      let optionClass = Array.from(e.target.classList)
-      if(optionClass.indexOf("item-status-option") !== -1){
-        e.target.classList.remove(e.target.classList[1])
-      }      
-    }
+    // function changeBackgroundColor(e){
+    //   let optionClass = Array.from(e.target.classList)
+    //   if(optionClass.indexOf("item-status-option") !== -1){
+    //     e.target.classList.remove(e.target.classList[1])
+    //   }
+      
+    // }
+
   
     statusOptions.forEach((option)=>{
-      option.addEventListener('change',changeBackgroundColor)
+      option.addEventListener('change',changeBackgroundColorFinish)
     })
 
     $('select').on("change", function(e){ 
@@ -43,9 +45,11 @@ document.addEventListener('turbolinks:load', () => {
         "status": status
       }, 
       success: () =>{
+         let optionClass = Array.from(e.target.classList)
+         if(optionClass.indexOf("item-status-option") !== -1){
+           e.target.classList.remove(e.target.classList[1])
+         }
         location.reload()
-        changeBackgroundColorFinish()
-
       }
       }) 
     }); 
