@@ -72,10 +72,12 @@
           <i class="far fa-times-circle"></i>
         </div>
         <div class="outside-link-item-nextpage">
-          <i class="fab fa-github"></i>
+          <i class="fab fa-github fa-github-link"></i>
           <div class="outside-link-title">
             <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=http://localhost:3333/oauth/redirect&scope=repo" do %>
-              <h2>GitHub</h2>
+            <div class="github-title-h2">
+              GitHub
+            </div>
             <% end %>
           </div>
         </div>
@@ -89,11 +91,11 @@
         </div>
         <div class="outside-link-item-nextpage">
           <i class="fab fa-github"></i>
-          <div class="outside-link-title">
-            <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
-              <h2>GitHub</h2>
-            <% end %>
-          </div>
+            <h2>GitHub</h2>
+            <div class="outside-link-title">
+              <%= link_to "https://github.com/login/oauth/authorize?client_id=#{ENV["gitclientid"]}&=https://www.pmaster.tw/oauth/redirect&scope=repo" do%>
+              <% end %>
+            </div>
         </div>
       <% end %>
     </div>    

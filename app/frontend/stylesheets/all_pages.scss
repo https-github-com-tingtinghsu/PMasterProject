@@ -20,18 +20,23 @@ a{
 
 .red{
   background-color: #EEB5AE;
+  padding:0 5px;
 }
 .blue{
   background-color: #B4DAE9;
+  padding:0 5px;
 }
 .yellow{
   background-color: #ECEBAD;
+  padding:0 5px;
 }
 .pink{
   background-color: #FCD3B3;
+  padding:0 5px;
 }
 .gray{
   background-color: rgb(209, 202, 202);
+  padding:0 5px;
 }
 .arrow{
   transition: 0.5s;
@@ -57,7 +62,9 @@ a{
     -moz-appearance:none;
     -webkit-appearance:none;
     border-radius: 10px;
-    // padding:0 5px;
+  }
+  .item-status-select{
+    padding:0 5px;
   }
 }
 
@@ -553,8 +560,8 @@ body{
       }
       .outside-link-item-nextpage{
         cursor: pointer;
+        min-width: 300px;
         padding: 10px;
-        width: 100%;
         height: 20%;
         color: black;
         background-color: white;
@@ -564,8 +571,33 @@ body{
         align-items: center;
         justify-content: center;
         position: relative;
+        .fa-github{
+          position: absolute;
+          left: 10px;
+        }
         .outside-link-title{
-          margin-left: 20px;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          padding-right: 20px;
+          .github-title-h2{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+          }
+          a{
+
+          }
+          
         }
       }
       
@@ -1133,15 +1165,15 @@ body{
   }
 
   //outside-link
-  
+  .fa-github-link{
+    font-size: 60px;
+  }
+  .github-title-h2{
+    font-size: 60px;
+  }
   .github-link{
     left: 25px;
   }
-  
-
-
-
-
   .main-dashboard-pic{
     margin-top: 80px;
     margin-bottom: 50px;
