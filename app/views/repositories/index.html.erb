@@ -8,7 +8,7 @@
         請選擇 ISSUE 要發布的 Repository : <%= select_tag( "repository", options_for_select(@repository.map{ |c| [c["name"], c["full_name"], {'data-user'=>current_user.id}] }, "repository"),class:"repository") %>
     </div>
     <div>
-        當前設定的 Repository : <div class="repository-showname"> <%= @nowrepository[0].repository %> </div>
+        當前設定的 Repository : <div class="repository-showname"> <%= @nowrepository.repository %> </div>
     </div>
     <div class="footer">
     <p>

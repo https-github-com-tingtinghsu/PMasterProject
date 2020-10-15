@@ -10,16 +10,15 @@ class GithubsController < ApplicationController
         puts "這是寫入 User:"
         puts current_user.id
 
-        begin
-            @user = Gittoke.find_by("user_id = ?", current_user.id)
-
+        @user = Gittoke.find_by("user_id = ?", current_user.id)
+        if @user != nil
             if @user.token != access_token
                 @user.token = access_token
 
                 @user.save
             end
             puts "find user"
-        rescue
+        else
             @user = Gittoke.new
             @user.token = access_token
             @user.user_id = current_user.id
@@ -28,7 +27,6 @@ class GithubsController < ApplicationController
             puts "not find"
         end
       
-
         # for test
 		puts "這是寫入 Session:"
         session[:user] = access_token

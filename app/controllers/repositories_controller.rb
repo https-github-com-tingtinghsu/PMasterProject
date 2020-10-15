@@ -4,33 +4,35 @@ class RepositoriesController < ApplicationController
 
     def index
         # 判斷是否越獄 是的話導走
-        begin
-            # @user = Gittoke.where("user_id = ?", current_user.id).pluck(:user_id, :token)
-            @user = Gittoke.find_by("user_id = ?", current_user.id)
-        rescue
-            redirect_to "/dashboard"
+
+        # @user = Gittoke.where("user_id = ?", current_user.id).pluck(:user_id, :token)
+        @user = Gittoke.find_by("user_id = ?", current_user.id)
+
+        if @user == nil
+            redirect_to "/dashboard"    
         end
         
         @repository = Github.new.getuserrepository(@user.token)
 
-        begin
-            @nowrepository = GitUser.where("user_id = ?", current_user.id)
-        rescue
+
+        @nowrepository = GitUser.find_by("user_id = ?", current_user.id)
+
+        if @nowrepository == nil
             @nowrepository = GitUser.new
             @nowrepository.repository = "無設定"
         end
+
     end
 
     def create
 
-        begin
-            @user = GitUser.find_by("user_id = ?", params[:id])
-
+        @user = GitUser.find_by("user_id = ?", params[:id])
+        if @user != nil
             @user.repository = params[:repository]
             @user.org = params[:org]
 
             @user.save
-        rescue
+        else
             @createuser = GitUser.new
 
             @createuser.user_id = params[:id]
@@ -38,7 +40,7 @@ class RepositoriesController < ApplicationController
             @createuser.org = params[:org]
 
             @createuser.save
-        end 
+        end
     end
     
 end
