@@ -1,8 +1,7 @@
 document.addEventListener('turbolinks:load', () => {
-  // if($("#btn-logout").length >= 0) {
-
-  // }
-  initWorkspaceList();
+  if($("#btn-logout").length > 0) {
+    initWorkspaceList();
+  }
 
   $("#link-add-workspace").click(function(){
     // 因為與編輯共用modal, 需要先把name與id清空
