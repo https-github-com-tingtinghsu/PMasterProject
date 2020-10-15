@@ -15,7 +15,7 @@ document.addEventListener('turbolinks:load', () => {
       success: () =>{
         let id = e.target.id
         var status = $(this).find(":selected").text();
-        console.log(status)
+        
         $(e.target).removeClass()
         switch(status){
           case "已完成":
