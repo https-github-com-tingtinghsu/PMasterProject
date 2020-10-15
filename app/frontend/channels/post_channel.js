@@ -20,10 +20,10 @@ consumer.subscriptions.create( { channel: "PostChannel" }, {
     if(!element) return
     
     const item_id = element.getAttribute('data-item-id')
-    // console.log("item_id : " + item_id )
+    console.log("item_id : " + item_id )
     if(!item_id) return
 
-    // console.log("item_id == data.itemid : " + item_id + data.itemid)
+    console.log("item_id == data.itemid : " + item_id + " , " + data.itemid)
     if(item_id == data.itemid){
       $('#post-icon-id-'+ data.itemid)[0].click();
     }
