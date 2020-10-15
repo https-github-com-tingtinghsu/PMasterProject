@@ -5,7 +5,7 @@ document.addEventListener('turbolinks:load', () => {
   const element = document.querySelector('.sign-in-name')
   if(!element)return
   const userId = element.getAttribute('data-user-id')
-  console.log(userId)
+  // console.log(userId)
   
   consumer.subscriptions.create( {channel: "UserChannel", user_id: userId}, {
       connected() {

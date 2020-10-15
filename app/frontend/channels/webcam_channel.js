@@ -20,6 +20,8 @@ let pcPeers = {};
 let localstream;
 
 window.onload = () => {
+  if(!document.getElementById("current-user")) return
+  
   currentUser = document.getElementById("current-user").innerHTML;
   localVideo = document.getElementById("local-video");
   remoteVideoContainer = document.getElementById("remote-video-container");
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopButton = document.getElementById("Stop-button");
   const shareButton = document.getElementById("share-button");
   const notshareButton = document.getElementById("not-share-button");
-
+  if(!joinButton) return
   joinButton.onclick = handleJoinSession;
   leaveButton.onclick = handleLeaveSession;
 
