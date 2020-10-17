@@ -1,6 +1,7 @@
 # [PMaster - Improve the Way We Work!](https://www.pmaster.tw/)
 TravisCI ： [![Build Status](https://travis-ci.org/https-github-com-tingtinghsu/PMasterProject.svg?branch=DEV)](https://travis-ci.org/https-github-com-tingtinghsu/PMasterProject)
 
+網站效能評分: ![](https://fd-files-production.s3.amazonaws.com/309967/BGiA_q_reNDME3VJcAA5Bw?X-Amz-Expires=300&X-Amz-Date=20201017T101206Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIA2QBI5WP5HA3ZEA/20201017/us-east-1/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=053d5611944fc13a2e0a74d29f0fb937a2d70cebd5b65af9e75d5674f4e435dd)
 
 PMaster是一套有趣活潑、專業的專案管理系統。無論大小型專案部署、自我工作安排、公司派對規劃...等活動，Pmaster都能幫助你井然有序地安排所有相關事務。
 
