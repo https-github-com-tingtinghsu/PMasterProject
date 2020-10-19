@@ -183,7 +183,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
   if (isCreated && isWorkspace) {
     // 我創的workspace  
     sidebarItem.append(moreWorkspaceIconElement)    
-    sidebarItem.append("<div class ='workspace-name'>"+model.name+"</div>") 
+    sidebarItem.append("<div class ='workspace-name'>" + escapeHTML(model.name) +"</div>") 
     sidebarItem.append(addMemberToWorkspace)  
     sidebarItem.append(editWorkspaceItem)    
     sidebarItem.append(deleteWorkspaceItem)
@@ -192,7 +192,7 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     // /boards/:board_id/groups(.:format)
     boardUrl = "/boards/" + model.slug + "/groups"
     sidebarItem.append(moreBoardIconElement)   
-    sidebarItem.append("<span class ='board-name'><a class='board-link' id='board-link-" + model.id  + "' href=" + boardUrl + ">" + model.name + "</a></span><br><br>") 
+    sidebarItem.append("<span class ='board-name'><a class='board-link' id='board-link-" + model.id  + "' href=" + boardUrl + ">" + escapeHTML(model.name) + "</a></span><br><br>") 
     sidebarItem.append(editBoardItem)     
     sidebarItem.append(deleteBoardItem)         
   } else {
@@ -201,6 +201,13 @@ function createSidebarRow(model, isCreated = true, isWorkspace = true){
     sidebarItem.append("<div class ='workspace-name'>"+model.name+"</div>")    
   }
   return sidebarItem;
+}
+
+function escapeHTML (unsafe_str) {
+  return unsafe_str
+      .replace('<', '')
+      .replace('>', '')
+      .replace(';', '')
 }
 
 function createWorkspace(){
